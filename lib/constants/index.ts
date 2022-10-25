@@ -258,3 +258,9 @@ export const verra = {
   projectSearch: `${VERRA_REGISTRY_API}/resource/resource/search?maxResults=2000&$count=true&$skip=0&$top=50`,
   projectDetailPage: `${VERRA_REGISTRY}/app/projectDetail/VCS`, // add ID after VCS like /191
 };
+
+const MARKETPLACE = "https://marketplace-r13akvg3k-najada.vercel.app";
+const MARKETPLACE_API = `${MARKETPLACE}/api`;
+export const marketplace = {
+  projects: `${MARKETPLACE_API}/projects`,
+};
