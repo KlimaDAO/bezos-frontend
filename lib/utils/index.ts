@@ -42,7 +42,11 @@ export {
   isKNSDomain,
   KNSContract,
 } from "./kns";
-export { getMarketplaceProject, getMarketplaceProjects } from "./marketplace";
+export {
+  getMarketplaceProject,
+  getMarketplaceProjects,
+  getMarketplaceUser,
+} from "./marketplace";
 export { prettifySeconds } from "./prettifySeconds";
 export { prettifyUrl } from "./prettifyUrl";
 export { safeAdd } from "./safeAdd";
