@@ -35,9 +35,13 @@ export {
   KNSContract,
 } from "./kns";
 export {
+  createMarketplaceUser,
   getMarketplaceProject,
   getMarketplaceProjects,
   getMarketplaceUser,
+  loginMarketplaceUser,
+  updateMarketplaceUser,
+  verifyMarketplaceUser,
 } from "./marketplace";
 export { prettifySeconds } from "./prettifySeconds";
 export { prettifyUrl } from "./prettifyUrl";
