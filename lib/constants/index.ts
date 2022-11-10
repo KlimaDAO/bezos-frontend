@@ -35,6 +35,7 @@ const mainnet = {
   retirementAggregator: "0xEde3bd57a04960E6469B70B4863cE1c9d9363Cb8",
   liveOffsetWallet: "0xa17b52d5e17254b03dfdf7b4dff2fc0c6108faac",
   liveOffsetContract: "0xB99fAbB350bbb48b8d586835d001085c8F188BA0",
+  marketplace: "0xa29bcC5434d21b44b00a6Df9Eda6F16436295B80", // This is testnet ?
 };
 
 const testnet: typeof mainnet = {
@@ -74,6 +75,7 @@ const testnet: typeof mainnet = {
   retirementAggregator: "",
   liveOffsetWallet: "",
   liveOffsetContract: "",
+  marketplace: "0xa29bcC5434d21b44b00a6Df9Eda6F16436295B80", // Diamond ?
 };
 
 export const addresses = {
