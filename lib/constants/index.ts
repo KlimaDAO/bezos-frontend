@@ -248,6 +248,7 @@ const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
 export const subgraphs = {
   polygonBridgedCarbon: `${SUBGRAPH_URL}/polygon-bridged-carbon`,
   userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
+  marketplace: "https://api.thegraph.com/subgraphs/name/najada/marketplace-new", // TODO: ensure when switching drom testnet to mainnet that this is still correct!
 };
 
 const VERRA_REGISTRY = "https://registry.verra.org";

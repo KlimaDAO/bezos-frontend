@@ -51,6 +51,7 @@ export { prettifyUrl } from "./prettifyUrl";
 export { safeAdd } from "./safeAdd";
 export { safeSub } from "./safeSub";
 export { secondsUntilBlock } from "./secondsUntilBlock";
+export { queryMarketplaceByPurchase } from "./subgraph/queryMarketplace";
 export {
   queryKlimaRetireByIndex,
   queryKlimaRetiresByAddress,
