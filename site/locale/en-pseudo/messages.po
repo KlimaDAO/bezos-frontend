@@ -10,6 +10,10 @@ msgstr ""
 msgid "Active listings:"
 msgstr ""
 
+#: components/pages/Marketplace/Users/Stats/index.tsx:57
+msgid "Active listings:"
+msgstr ""
+
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr ""
