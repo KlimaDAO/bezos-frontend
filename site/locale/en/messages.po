@@ -1211,8 +1211,9 @@ msgstr "Back to Project Details"
 msgid "marketplace.project.single.button.back_to_projects"
 msgstr "Back to Projects"
 
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:108
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:109
 #: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:164
+#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:111
 msgid "marketplace.project.single.connect_to_buy"
 msgstr "Sign In / Connect To Buy"
 
