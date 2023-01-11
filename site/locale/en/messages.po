@@ -1211,6 +1211,11 @@ msgstr "Back to Project Details"
 msgid "marketplace.project.single.button.back_to_projects"
 msgstr "Back to Projects"
 
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:164
+#: components/pages/Marketplace/Project/index.tsx:200
+msgid "marketplace.project.single.connect_to_buy"
+msgstr "Sign In / Connect To Buy"
+
 #: components/pages/Marketplace/Project/Purchase/index.tsx:186
 msgid "marketplace.project.single.header.seller"
 msgstr "Seller:"
@@ -1231,27 +1236,27 @@ msgstr "Use Klima Infinity to retire & offset"
 msgid "marketplace.purchase.button.view_assets"
 msgstr "View Assets"
 
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:95
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:100
 msgid "marketplace.purchase.input.amount.label"
 msgstr "How many tonnes of carbon do you want to buy?"
 
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:88
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:93
 msgid "marketplace.purchase.input.amount.maxAmount"
 msgstr "You exceeded the available amount of tonnes"
 
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:81
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:86
 msgid "marketplace.purchase.input.amount.minimum"
 msgstr "The minimum amount to buy is 1 Tonne"
 
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:66
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:71
 msgid "marketplace.purchase.input.amount.placeholder"
 msgstr "Tonnes"
 
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:74
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:79
 msgid "marketplace.purchase.input.amount.required"
 msgstr "Amount is required"
 
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:114
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:119
 msgid "marketplace.purchase.input.cost.label"
 msgstr "Cost incl. 3% fee"
 

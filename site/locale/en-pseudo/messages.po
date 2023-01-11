@@ -55,7 +55,7 @@ msgstr ""
 msgid "Quantity purchased:"
 msgstr ""
 
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:49
+#: components/pages/Marketplace/Project/index.tsx:140
 msgid "Seller Listing"
 msgstr ""
 
@@ -471,56 +471,63 @@ msgstr ""
 msgid "concat.careers"
 msgstr ""
 
-#: components/pages/Marketplace/Layout/index.tsx:116
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:107
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:153
-#: components/pages/Marketplace/Users/Login/index.tsx:84
-#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:106
-#: components/pages/Pledge/PledgeDashboard/index.tsx:164
-#: components/pages/Pledge/index.tsx:77
+#: components/pages/Marketplace/Layout/index.tsx:96
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:146
+#: components/pages/Marketplace/Project/index.tsx:182
+#: components/pages/Marketplace/Users/Login/index.tsx:75
+#: components/pages/Pledge/HeaderDesktop/index.tsx:49
+#: components/pages/Pledge/HeaderMobile/index.tsx:47
+#: components/pages/Pledge/index.tsx:117
+#: components/pages/Pledge/index.tsx:334
+#: components/pages/Pledge/index.tsx:389
 msgid "connectModal.continue"
 msgstr ""
 
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:112
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:158
-#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:111
-msgid "connect_modal.connect_to_buy"
-msgstr ""
-
-#: components/pages/Marketplace/Layout/index.tsx:125
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:116
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:162
-#: components/pages/Marketplace/Users/Login/index.tsx:93
-#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:115
-#: components/pages/Pledge/PledgeDashboard/index.tsx:173
-#: components/pages/Pledge/index.tsx:86
+#: components/pages/Marketplace/Layout/index.tsx:105
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:155
+#: components/pages/Marketplace/Project/index.tsx:191
+#: components/pages/Marketplace/Users/Login/index.tsx:84
+#: components/pages/Pledge/HeaderDesktop/index.tsx:58
+#: components/pages/Pledge/HeaderMobile/index.tsx:56
+#: components/pages/Pledge/index.tsx:126
+#: components/pages/Pledge/index.tsx:343
+#: components/pages/Pledge/index.tsx:398
 msgid "connect_modal.connecting"
 msgstr ""
 
-#: components/pages/Marketplace/Layout/index.tsx:112
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:103
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:149
-#: components/pages/Marketplace/Users/Login/index.tsx:79
-#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:101
-#: components/pages/Pledge/PledgeDashboard/index.tsx:160
-#: components/pages/Pledge/index.tsx:73
+#: components/pages/Marketplace/Layout/index.tsx:92
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:142
+#: components/pages/Marketplace/Project/index.tsx:177
+#: components/pages/Marketplace/Users/Login/index.tsx:70
+#: components/pages/Pledge/HeaderDesktop/index.tsx:45
+#: components/pages/Pledge/HeaderMobile/index.tsx:43
+#: components/pages/Pledge/index.tsx:112
+#: components/pages/Pledge/index.tsx:330
+#: components/pages/Pledge/index.tsx:384
 msgid "connect_modal.error_message"
 msgstr ""
 
-#: components/pages/Marketplace/Layout/index.tsx:129
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:120
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:166
-#: components/pages/Marketplace/Users/Login/index.tsx:97
-#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:119
-#: components/pages/Pledge/PledgeDashboard/index.tsx:177
-#: components/pages/Pledge/index.tsx:90
+#: components/pages/Marketplace/Layout/index.tsx:109
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:159
+#: components/pages/Marketplace/Project/index.tsx:195
+#: components/pages/Marketplace/Users/Login/index.tsx:88
+#: components/pages/Pledge/HeaderDesktop/index.tsx:62
+#: components/pages/Pledge/HeaderMobile/index.tsx:60
+#: components/pages/Pledge/index.tsx:130
+#: components/pages/Pledge/index.tsx:347
+#: components/pages/Pledge/index.tsx:402
 msgid "connect_modal.error_title"
 msgstr ""
 
-#: components/pages/Marketplace/Layout/index.tsx:121
-#: components/pages/Marketplace/Users/Login/index.tsx:89
-#: components/pages/Pledge/PledgeDashboard/index.tsx:169
-#: components/pages/Pledge/index.tsx:82
+#: components/pages/Marketplace/Layout/index.tsx:101
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:151
+#: components/pages/Marketplace/Project/index.tsx:187
+#: components/pages/Marketplace/Users/Login/index.tsx:80
+#: components/pages/Pledge/HeaderDesktop/index.tsx:54
+#: components/pages/Pledge/HeaderMobile/index.tsx:52
+#: components/pages/Pledge/index.tsx:122
+#: components/pages/Pledge/index.tsx:339
+#: components/pages/Pledge/index.tsx:394
 msgid "connect_modal.sign_in"
 msgstr ""
 
@@ -1192,7 +1199,7 @@ msgstr ""
 msgid "marketplace.project.category.renewable_energy"
 msgstr ""
 
-#: components/pages/Marketplace/Project/index.tsx:93
+#: components/pages/Marketplace/Project/index.tsx:100
 msgid "marketplace.project.single.best_price"
 msgstr ""
 
@@ -1204,19 +1211,25 @@ msgstr ""
 msgid "marketplace.project.single.button.back_to_project_details"
 msgstr ""
 
-#: components/pages/Marketplace/Project/index.tsx:58
-msgid "marketplace.project.single.button.back_to_projects"
+#: components/pages/Marketplace/Project/Purchase/index.tsx:160
+#: components/pages/Marketplace/Project/index.tsx:65
+msgid "marketplace.project.single.button.back_to_results"
+msgstr ""
+
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:164
+#: components/pages/Marketplace/Project/index.tsx:200
+msgid "marketplace.project.single.connect_to_buy"
 msgstr ""
 
 #: components/pages/Marketplace/Project/Purchase/index.tsx:186
 msgid "marketplace.project.single.header.seller"
 msgstr ""
 
-#: components/pages/Marketplace/Project/index.tsx:102
+#: components/pages/Marketplace/Project/index.tsx:109
 msgid "marketplace.project.single.methodology"
 msgstr ""
 
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:138
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:133
 msgid "marketplace.purchase.button.continue"
 msgstr ""
 
@@ -1228,27 +1241,27 @@ msgstr ""
 msgid "marketplace.purchase.button.view_assets"
 msgstr ""
 
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:95
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:100
 msgid "marketplace.purchase.input.amount.label"
 msgstr ""
 
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:88
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:93
 msgid "marketplace.purchase.input.amount.maxAmount"
 msgstr ""
 
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:81
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:86
 msgid "marketplace.purchase.input.amount.minimum"
 msgstr ""
 
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:66
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:71
 msgid "marketplace.purchase.input.amount.placeholder"
 msgstr ""
 
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:74
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:79
 msgid "marketplace.purchase.input.amount.required"
 msgstr ""
 
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:114
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:119
 msgid "marketplace.purchase.input.cost.label"
 msgstr ""
 
