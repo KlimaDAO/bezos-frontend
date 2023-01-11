@@ -21,6 +21,10 @@ msgstr "Active listings:"
 msgid "Change language"
 msgstr "Change language"
 
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:65
+msgid "Created:"
+msgstr "Created:"
+
 #: components/pages/Marketplace/Users/SellerConnected/index.tsx:189
 msgid "Error:"
 msgstr "Error:"
@@ -46,11 +50,15 @@ msgstr "Payment Successful"
 msgid "Project"
 msgstr "Project"
 
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:60
+msgid "Quantity Available:"
+msgstr "Quantity Available:"
+
 #: components/pages/Marketplace/Purchases/index.tsx:97
 msgid "Quantity purchased:"
 msgstr "Quantity purchased:"
 
-#: components/pages/Marketplace/Project/index.tsx:140
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:49
 msgid "Seller Listing"
 msgstr "Seller Listing"
 
@@ -73,6 +81,10 @@ msgstr "Tonnes owned:"
 #: components/pages/Marketplace/shared/Stats/index.tsx:38
 msgid "Tonnes sold:"
 msgstr "Tonnes sold:"
+
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:69
+msgid "Updated:"
+msgstr "Updated:"
 
 #: components/pages/Marketplace/Users/SellerConnected/index.tsx:233
 msgid "Updating your data..."
@@ -463,8 +475,8 @@ msgid "concat.careers"
 msgstr "Careers"
 
 #: components/pages/Marketplace/Layout/index.tsx:96
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:90
 #: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:146
-#: components/pages/Marketplace/Project/index.tsx:182
 #: components/pages/Marketplace/Users/Login/index.tsx:75
 #: components/pages/Pledge/HeaderDesktop/index.tsx:49
 #: components/pages/Pledge/HeaderMobile/index.tsx:47
@@ -475,8 +487,8 @@ msgid "connectModal.continue"
 msgstr "or continue with"
 
 #: components/pages/Marketplace/Layout/index.tsx:105
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:99
 #: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:155
-#: components/pages/Marketplace/Project/index.tsx:191
 #: components/pages/Marketplace/Users/Login/index.tsx:84
 #: components/pages/Pledge/HeaderDesktop/index.tsx:58
 #: components/pages/Pledge/HeaderMobile/index.tsx:56
@@ -487,8 +499,8 @@ msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
 #: components/pages/Marketplace/Layout/index.tsx:92
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:86
 #: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:142
-#: components/pages/Marketplace/Project/index.tsx:177
 #: components/pages/Marketplace/Users/Login/index.tsx:70
 #: components/pages/Pledge/HeaderDesktop/index.tsx:45
 #: components/pages/Pledge/HeaderMobile/index.tsx:43
@@ -499,8 +511,8 @@ msgid "connect_modal.error_message"
 msgstr "We had some trouble connecting. Please try again."
 
 #: components/pages/Marketplace/Layout/index.tsx:109
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:103
 #: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:159
-#: components/pages/Marketplace/Project/index.tsx:195
 #: components/pages/Marketplace/Users/Login/index.tsx:88
 #: components/pages/Pledge/HeaderDesktop/index.tsx:62
 #: components/pages/Pledge/HeaderMobile/index.tsx:60
@@ -511,8 +523,8 @@ msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
 #: components/pages/Marketplace/Layout/index.tsx:101
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:95
 #: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:151
-#: components/pages/Marketplace/Project/index.tsx:187
 #: components/pages/Marketplace/Users/Login/index.tsx:80
 #: components/pages/Pledge/HeaderDesktop/index.tsx:54
 #: components/pages/Pledge/HeaderMobile/index.tsx:52
@@ -1186,7 +1198,7 @@ msgstr "Other Nature-Based"
 msgid "marketplace.project.category.renewable_energy"
 msgstr "Renewable Energy"
 
-#: components/pages/Marketplace/Project/index.tsx:100
+#: components/pages/Marketplace/Project/index.tsx:87
 msgid "marketplace.project.single.best_price"
 msgstr "Best Price"
 
@@ -1195,12 +1207,12 @@ msgid "marketplace.project.single.button.back_to_project_details"
 msgstr "Back to Project Details"
 
 #: components/pages/Marketplace/Project/Purchase/index.tsx:160
-#: components/pages/Marketplace/Project/index.tsx:65
+#: components/pages/Marketplace/Project/index.tsx:52
 msgid "marketplace.project.single.button.back_to_results"
 msgstr "Back to Results"
 
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:108
 #: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:164
-#: components/pages/Marketplace/Project/index.tsx:200
 msgid "marketplace.project.single.connect_to_buy"
 msgstr "Sign In / Connect To Buy"
 
@@ -1208,7 +1220,7 @@ msgstr "Sign In / Connect To Buy"
 msgid "marketplace.project.single.header.seller"
 msgstr "Seller:"
 
-#: components/pages/Marketplace/Project/index.tsx:109
+#: components/pages/Marketplace/Project/index.tsx:96
 msgid "marketplace.project.single.methodology"
 msgstr "Methodology:"
 
