@@ -64,11 +64,7 @@ export const MarketplaceLayout: FC<Props> = (props: Props) => {
       data-scroll-lock={showMobileMenu}
     >
       <div className={styles.desktopNavMenu}>
-        <NavDrawer
-          userAddress={props.userAddress}
-          connectedDomain={profileData}
-          onToggleModal={toggleModal}
-        />
+        <NavDrawer userAddress={props.userAddress} />
       </div>
       <div className={styles.cardGrid}>
         <div className={styles.controls}>
@@ -90,8 +86,6 @@ export const MarketplaceLayout: FC<Props> = (props: Props) => {
             <NavDrawer
               userAddress={props.userAddress}
               onHide={() => setShowMobileMenu(false)}
-              connectedDomain={profileData}
-              onToggleModal={toggleModal}
             />
           </div>
 
