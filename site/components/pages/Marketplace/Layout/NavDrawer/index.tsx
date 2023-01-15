@@ -1,5 +1,4 @@
 import { ButtonPrimary, MarketplaceLogo } from "@klimadao/lib/components";
-import { Domain } from "@klimadao/lib/types/domains";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Close from "@mui/icons-material/Close";
@@ -19,15 +18,12 @@ const DynamicThemeToggle = dynamic(
 );
 
 interface NavDrawerProps {
-  userAddress?: string;
-  connectedAddress?: string;
-  connectedDomain?: Domain;
   onHide?: () => void;
-  onToggleModal: () => void;
+  userAddress: string | undefined;
 }
 
 export const NavDrawer: FC<NavDrawerProps> = (props) => {
-  const { address, isConnected, disconnect } = useWeb3();
+  const { address, isConnected, disconnect, toggleModal } = useWeb3();
 
   return (
     <nav className={styles.container}>
@@ -51,7 +47,7 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
               id: "shared.login_connect",
               message: "Login / Connect",
             })}
-            onClick={props.onToggleModal}
+            onClick={toggleModal}
             className="connectButton"
           />
         )}
@@ -64,14 +60,10 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
         )}
       </div>
       <div className={styles.addressContainer} data-desktop-only>
-        <AddressSection domain={props.connectedDomain} address={address} />
+        <AddressSection />
       </div>
       <div className="hr" />
-      <NavMenu
-        userAddress={props.userAddress}
-        connectedAddress={address}
-        connectedDomain={props.connectedDomain}
-      />
+      <NavMenu userAddress={props.userAddress} />
 
       <div className="navFooter">
         <div className="hr" />
