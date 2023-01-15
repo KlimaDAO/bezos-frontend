@@ -1,16 +1,19 @@
 import { useState } from "react";
 
 import { Domain } from "@klimadao/lib/types/domains";
-import { getENSProfile, getKNSProfile, useWeb3 } from "@klimadao/lib/utils";
+import { getENSProfile, getKNSProfile } from "@klimadao/lib/utils";
 import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 import { useEffect } from "react";
-export const useProfileData = () => {
-  const { address } = useWeb3();
+
+/**
+ * Given an account hash return the first matching Name Service
+ * Currently supports KNS & ENS
+ */
+export const useGetDomainFromAddress = (address: string | undefined) => {
   const [profileData, setProfileData] = useState<Domain>();
 
-  // collect nameserviceDomain Data if connected and domain is in URL
   useEffect(() => {
-    if (!props.userDomain || !address) return;
+    if (!address) return;
 
     const setProfile = async () => {
       const kns = await getKNSProfile({
@@ -25,7 +28,7 @@ export const useProfileData = () => {
     };
 
     setProfile();
-  }, [props.userDomain, address]);
+  }, [address]);
 
   return profileData;
 };

@@ -1,30 +1,29 @@
 import { Text } from "@klimadao/lib/components";
-import { Domain } from "@klimadao/lib/types/domains";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
-import { FC } from "react";
+import { useGetDomainFromAddress } from "../../hooks/useGetDomainFromAddress";
 import * as styles from "./styles";
 
-interface AddressSectionProps {
-  domain?: Domain;
-}
-export const AddressSection: FC<AddressSectionProps> = (props) => {
+export const AddressSection = () => {
   const { address } = useWeb3();
+
+  // collect nameserviceDomain Data if connected and domain is in URL
+  const userAddressDomain = useGetDomainFromAddress(address);
   return (
     <div className={styles.address}>
       <Text t="caption">
         <Trans id="marketplace.menu.wallet_address">Your Wallet Address</Trans>:
       </Text>
 
-      {props.domain ? (
+      {userAddressDomain ? (
         <div className="domain-wrapper">
           <img
-            src={props.domain.imageUrl}
+            src={userAddressDomain.imageUrl}
             alt="profile avatar"
             className="avatar"
           />
           <Text t="caption" color="lightest" className={"domain-name"}>
-            {props.domain.name}
+            {userAddressDomain.name}
           </Text>
         </div>
       ) : (
