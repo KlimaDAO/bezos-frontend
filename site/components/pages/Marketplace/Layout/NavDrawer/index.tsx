@@ -68,7 +68,11 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
         <AddressSection domain={props.connectedDomain} address={address} />
       </div>
       <div className="hr" />
-      <NavMenu />
+      <NavMenu
+        userAddress={props.userAddress}
+        connectedAddress={address}
+        connectedDomain={props.connectedDomain}
+      />
 
       <div className="navFooter">
         <div className="hr" />

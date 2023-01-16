@@ -10,7 +10,6 @@ interface Props {
   userAddress?: string;
   connectedAddress?: string;
   connectedDomain?: Domain;
-  onHide?: () => void;
 }
 export const NavMenu: React.FC<Props> = (props) => {
   const { pathname } = useRouter();
