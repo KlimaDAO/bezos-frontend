@@ -74,10 +74,7 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
         />
       </div>
       <div className={styles.addressContainer} data-desktop-only>
-        <AddressSection
-          domain={props.connectedDomain}
-          address={props.connectedAddress}
-        />
+        <AddressSection domain={props.connectedDomain} address={address} />
       </div>
       <div className="hr" />
       <NavMenu />

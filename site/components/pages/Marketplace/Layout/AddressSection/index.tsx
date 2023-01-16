@@ -1,15 +1,15 @@
 import { Text } from "@klimadao/lib/components";
 import { Domain } from "@klimadao/lib/types/domains";
-import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+import { concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import { FC } from "react";
 import * as styles from "./styles";
 
 interface AddressSectionProps {
   domain?: Domain;
+  address?: string;
 }
 export const AddressSection: FC<AddressSectionProps> = (props) => {
-  const { address } = useWeb3();
   return (
     <div className={styles.address}>
       <Text t="caption">
@@ -29,8 +29,8 @@ export const AddressSection: FC<AddressSectionProps> = (props) => {
         </div>
       ) : (
         <Text t="caption" color="lightest">
-          {address ? (
-            concatAddress(address)
+          {props.address ? (
+            concatAddress(props.address)
           ) : (
             <Trans id="marketplace.menu.not_connected">NOT CONNECTED</Trans>
           )}
