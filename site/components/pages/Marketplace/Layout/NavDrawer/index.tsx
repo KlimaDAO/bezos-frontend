@@ -1,9 +1,6 @@
-import {
-  ButtonPrimary,
-  ConnectModal,
-  MarketplaceLogo,
-} from "@klimadao/lib/components";
+import { ButtonPrimary, MarketplaceLogo } from "@klimadao/lib/components";
 import { Domain } from "@klimadao/lib/types/domains";
+import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Close from "@mui/icons-material/Close";
 import dynamic from "next/dynamic";
@@ -27,9 +24,12 @@ interface NavDrawerProps {
   connectedDomain?: Domain;
   isMobile?: boolean;
   onHide?: () => void;
+  onToggleModal: () => void;
 }
 
 export const NavDrawer: FC<NavDrawerProps> = (props) => {
+  const { address, isConnected, disconnect } = useWeb3();
+
   return (
     <nav className={styles.container}>
       <Link href="/marketplace" data-desktop-only>
@@ -46,32 +46,23 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
       </div>
       <div className="hr" />
       <div data-mobile-only>
-        <ConnectModal
-          buttonClassName="connectButton"
-          errorMessage={t({
-            message: "We had some trouble connecting. Please try again.",
-            id: "connect_modal.error_message",
-          })}
-          torusText={t({
-            message: "or continue with",
-            id: "connectModal.continue",
-          })}
-          titles={{
-            connect: t({
-              id: "connect_modal.sign_in",
-              message: "Sign In / Connect",
-            }),
-            loading: t({
-              id: "connect_modal.connecting",
-              message: "Connecting...",
-            }),
-            error: t({
-              id: "connect_modal.error_title",
-              message: "Connection Error",
-            }),
-          }}
-          buttonText={t({ id: "shared.connect", message: "Connect" })}
-        />
+        {!address && !isConnected && (
+          <ButtonPrimary
+            label={t({
+              id: "shared.login_connect",
+              message: "Login / Connect",
+            })}
+            onClick={props.onToggleModal}
+            className="connectButton"
+          />
+        )}
+        {address && isConnected && (
+          <ButtonPrimary
+            label={concatAddress(address)}
+            onClick={disconnect}
+            className="connectButton"
+          />
+        )}
       </div>
       <div className={styles.addressContainer} data-desktop-only>
         <AddressSection domain={props.connectedDomain} address={address} />
