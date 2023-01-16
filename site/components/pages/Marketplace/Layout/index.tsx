@@ -107,6 +107,7 @@ export const MarketplaceLayout: FC<Props> = (props: Props) => {
             onClick={() => setShowMobileMenu((s) => !s)}
             className={styles.menuButton}
           />
+
           <div data-desktop-only>
             {!address && !isConnected && (
               <ButtonPrimary
@@ -151,11 +152,11 @@ export const MarketplaceLayout: FC<Props> = (props: Props) => {
               },
             })}
         </div>
+
+        {props.children}
+
+        <Footer className={styles.fullWidthFooter} />
       </div>
-
-      {props.children}
-
-      <Footer className={styles.fullWidthFooter} />
     </div>
   );
 };
