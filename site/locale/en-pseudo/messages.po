@@ -6,21 +6,85 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+#: components/pages/Marketplace/shared/Stats/index.tsx:57
+msgid "Active listings:"
+msgstr ""
 
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
+msgstr ""
+
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:65
+msgid "Created:"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/index.tsx:189
+msgid "Error:"
+msgstr ""
+
+#: components/pages/Marketplace/Purchases/index.tsx:106
+msgid "Final price"
 msgstr ""
 
 #: components/pages/Infinity/index.tsx:530
 msgid "Frequently Asked Questions"
 msgstr ""
 
+#: components/pages/Marketplace/Users/SellerConnected/index.tsx:184
+#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:55
+msgid "Listings"
+msgstr ""
+
+#: components/pages/Marketplace/Purchases/index.tsx:62
+msgid "Payment Successful"
+msgstr ""
+
+#: components/pages/Marketplace/Purchases/index.tsx:115
+msgid "Project"
+msgstr ""
+
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:60
+msgid "Quantity Available:"
+msgstr ""
+
+#: components/pages/Marketplace/Purchases/index.tsx:97
+msgid "Quantity purchased:"
+msgstr ""
+
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:49
+msgid "Seller Listing"
+msgstr ""
+
 #: components/InvalidNetworkModal/index.tsx:80
 msgid "Switch to Polygon"
 msgstr ""
 
+#: components/pages/Marketplace/Purchases/index.tsx:73
+msgid "Thank you for supporting the planet! See purchase details below."
+msgstr ""
+
 #: components/InvalidNetworkModal/index.tsx:75
 msgid "This app only works on Polygon Mainnet."
+msgstr ""
+
+#: components/pages/Marketplace/shared/Stats/index.tsx:47
+msgid "Tonnes owned:"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Stats/index.tsx:38
+msgid "Tonnes sold:"
+msgstr ""
+
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:69
+msgid "Updated:"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/index.tsx:233
+msgid "Updating your data..."
+msgstr ""
+
+#: components/pages/Marketplace/Purchases/index.tsx:66
+msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr ""
 
 #: components/InvalidNetworkModal/index.tsx:65
@@ -403,26 +467,54 @@ msgstr ""
 msgid "concat.careers"
 msgstr ""
 
+#: components/pages/Marketplace/Layout/index.tsx:93
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:90
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:141
+#: components/pages/Marketplace/Users/Login/index.tsx:75
+#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:93
 #: components/pages/Pledge/PledgeDashboard/index.tsx:164
 #: components/pages/Pledge/index.tsx:106
 msgid "connectModal.continue"
 msgstr ""
 
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:95
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:146
+#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:98
+msgid "connect_modal.connect_to_buy"
+msgstr ""
+
+#: components/pages/Marketplace/Layout/index.tsx:102
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:99
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:150
+#: components/pages/Marketplace/Users/Login/index.tsx:84
+#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:102
 #: components/pages/Pledge/PledgeDashboard/index.tsx:173
 #: components/pages/Pledge/index.tsx:115
 msgid "connect_modal.connecting"
 msgstr ""
 
+#: components/pages/Marketplace/Layout/index.tsx:89
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:86
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:137
+#: components/pages/Marketplace/Users/Login/index.tsx:70
+#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:88
 #: components/pages/Pledge/PledgeDashboard/index.tsx:160
 #: components/pages/Pledge/index.tsx:102
 msgid "connect_modal.error_message"
 msgstr ""
 
+#: components/pages/Marketplace/Layout/index.tsx:106
+#: components/pages/Marketplace/Project/ProjectListing/index.tsx:103
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:154
+#: components/pages/Marketplace/Users/Login/index.tsx:88
+#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:106
 #: components/pages/Pledge/PledgeDashboard/index.tsx:177
 #: components/pages/Pledge/index.tsx:119
 msgid "connect_modal.error_title"
 msgstr ""
 
+#: components/pages/Marketplace/Layout/index.tsx:98
+#: components/pages/Marketplace/Users/Login/index.tsx:80
 #: components/pages/Pledge/PledgeDashboard/index.tsx:169
 #: components/pages/Pledge/index.tsx:111
 msgid "connect_modal.sign_in"
@@ -979,6 +1071,428 @@ msgstr ""
 msgid "invest_in_the_future"
 msgstr ""
 
+#: components/pages/Marketplace/lib/sellerGetter.ts:9
+msgid "marketplace.activity.you"
+msgstr ""
+
+#: components/pages/Marketplace/Users/index.tsx:51
+msgid "marketplace.button.edit_profile"
+msgstr ""
+
+#: components/pages/Marketplace/Layout/NavMenu/index.tsx:128
+msgid "marketplace.menu.marketplace"
+msgstr ""
+
+#: components/pages/Marketplace/Layout/NavMenu/index.tsx:45
+msgid "marketplace.menu.not_connected"
+msgstr ""
+
+#: components/pages/Marketplace/Layout/NavMenu/index.tsx:145
+msgid "marketplace.menu.portfolio"
+msgstr ""
+
+#: components/pages/Marketplace/Layout/NavMenu/index.tsx:137
+msgid "marketplace.menu.profile"
+msgstr ""
+
+#: components/pages/Marketplace/Layout/NavMenu/index.tsx:26
+msgid "marketplace.menu.wallet_address"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:142
+msgid "marketplace.profile.addListing_modal.submit"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/index.tsx:211
+msgid "marketplace.profile.create_new_listing"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:127
+msgid "marketplace.profile.editListing_modal.submit"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:188
+msgid "marketplace.profile.edit_modal.submit"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/index.tsx:270
+msgid "marketplace.profile.edit_profile.title"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/index.tsx:173
+msgid "marketplace.profile.edit_your_profile"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/ListingEditable.tsx:150
+msgid "marketplace.profile.listing.delete.error"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/ListingEditable.tsx:165
+msgid "marketplace.profile.listing.edit"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/ListingEditable.tsx:193
+msgid "marketplace.profile.listing.edit.delete_listing"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/index.tsx:196
+#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:61
+msgid "marketplace.profile.listings.empty_state"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/CreateAListingModal.tsx:117
+msgid "marketplace.profile.listings_modal.title"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/index.tsx:94
+msgid "marketplace.profile.load_assets.error"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/index.tsx:65
+msgid "marketplace.profile.missing_assets"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/index.tsx:155
+msgid "marketplace.profile.update_activity.error"
+msgstr ""
+
+#: components/pages/Marketplace/lib/getCategoryInfo.ts:87
+msgid "marketplace.project.category.agriculture"
+msgstr ""
+
+#: components/pages/Marketplace/lib/getCategoryInfo.ts:77
+msgid "marketplace.project.category.energy_efficiency"
+msgstr ""
+
+#: components/pages/Marketplace/lib/getCategoryInfo.ts:47
+msgid "marketplace.project.category.forestry"
+msgstr ""
+
+#: components/pages/Marketplace/lib/getCategoryInfo.ts:97
+msgid "marketplace.project.category.industria_processing"
+msgstr ""
+
+#: components/pages/Marketplace/lib/getCategoryInfo.ts:67
+msgid "marketplace.project.category.other"
+msgstr ""
+
+#: components/pages/Marketplace/lib/getCategoryInfo.ts:57
+msgid "marketplace.project.category.other_nature_based"
+msgstr ""
+
+#: components/pages/Marketplace/lib/getCategoryInfo.ts:37
+msgid "marketplace.project.category.renewable_energy"
+msgstr ""
+
+#: components/pages/Marketplace/Project/index.tsx:93
+msgid "marketplace.project.single.best_price"
+msgstr ""
+
+#: components/pages/Marketplace/Project/Purchase/index.tsx:160
+msgid "marketplace.project.single.button.back_to_project"
+msgstr ""
+
+#: components/pages/Marketplace/Purchases/index.tsx:49
+msgid "marketplace.project.single.button.back_to_project_details"
+msgstr ""
+
+#: components/pages/Marketplace/Project/index.tsx:58
+msgid "marketplace.project.single.button.back_to_projects"
+msgstr ""
+
+#: components/pages/Marketplace/Project/Purchase/index.tsx:186
+msgid "marketplace.project.single.header.seller"
+msgstr ""
+
+#: components/pages/Marketplace/Project/index.tsx:102
+msgid "marketplace.project.single.methodology"
+msgstr ""
+
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:128
+msgid "marketplace.purchase.button.continue"
+msgstr ""
+
+#: components/pages/Marketplace/Purchases/index.tsx:130
+msgid "marketplace.purchase.button.go_to_infinity"
+msgstr ""
+
+#: components/pages/Marketplace/Purchases/index.tsx:137
+msgid "marketplace.purchase.button.view_assets"
+msgstr ""
+
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:95
+msgid "marketplace.purchase.input.amount.label"
+msgstr ""
+
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:88
+msgid "marketplace.purchase.input.amount.maxAmount"
+msgstr ""
+
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:81
+msgid "marketplace.purchase.input.amount.minimum"
+msgstr ""
+
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:66
+msgid "marketplace.purchase.input.amount.placeholder"
+msgstr ""
+
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:74
+msgid "marketplace.purchase.input.amount.required"
+msgstr ""
+
+#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:114
+msgid "marketplace.purchase.input.cost.label"
+msgstr ""
+
+#: components/pages/Marketplace/Project/Purchase/index.tsx:90
+msgid "marketplace.purchase.loading.allowance.error"
+msgstr ""
+
+#: components/pages/Marketplace/Project/Purchase/index.tsx:198
+msgid "marketplace.purchase.price_each"
+msgstr ""
+
+#: components/pages/Marketplace/Project/Purchase/index.tsx:217
+msgid "marketplace.purchase.transaction.modal.title.confirm"
+msgstr ""
+
+#: components/pages/Marketplace/Project/Purchase/index.tsx:221
+msgid "marketplace.purchase.transaction.modal.title.processing"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/ListingEditable.tsx:173
+msgid "marketplace.seller.edit_listing.title"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:78
+msgid "marketplace.seller.listing.buy"
+msgstr ""
+
+#: components/pages/Marketplace/Users/Listing/index.tsx:42
+msgid "marketplace.seller.listing.quantity_available"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/CreateAListingModal.tsx:142
+#: components/pages/Marketplace/Users/SellerConnected/ListingEditable.tsx:220
+msgid "marketplace.tonnes.long"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Activities/index.tsx:96
+msgid "marketplace.tonnes.short"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/CreateAListingModal.tsx:151
+msgid "marketplace.transaction.create_listing.approval_description"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/ListingEditable.tsx:229
+msgid "marketplace.transaction.edit_listing.approval_description"
+msgstr ""
+
+#: components/pages/Marketplace/lib/statusMessage.ts:31
+msgid "marketplace.transaction.status.done"
+msgstr ""
+
+#: components/pages/Marketplace/lib/statusMessage.ts:26
+msgid "marketplace.transaction.status.error"
+msgstr ""
+
+#: components/pages/Marketplace/lib/statusMessage.ts:41
+msgid "marketplace.transaction.status.network_confirmation"
+msgstr ""
+
+#: components/pages/Marketplace/lib/statusMessage.ts:36
+msgid "marketplace.transaction.status.user_confirmation"
+msgstr ""
+
+#: components/pages/Marketplace/lib/statusMessage.ts:20
+msgid "marketplace.transaction.status.user_rejected"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Transaction/Approve.tsx:68
+msgid "marketplace.transaction_modal.approve.amount"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Transaction/Approve.tsx:58
+msgid "marketplace.transaction_modal.approve.contract_address"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Transaction/Approve.tsx:84
+msgid "marketplace.transaction_modal.approve.price"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Transaction/Approve.tsx:50
+msgid "marketplace.transaction_modal.approve.title"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Transaction/index.tsx:93
+msgid "marketplace.transaction_modal.button.go_back"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Transaction/Submit.tsx:127
+msgid "marketplace.transaction_modal.close"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Transaction/Approve.tsx:123
+msgid "marketplace.transaction_modal.next"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Transaction/Submit.tsx:67
+msgid "marketplace.transaction_modal.submit.amount"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Transaction/Submit.tsx:115
+msgid "marketplace.transaction_modal.submit.button"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Transaction/Submit.tsx:57
+msgid "marketplace.transaction_modal.submit.contract_address"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Transaction/Submit.tsx:83
+msgid "marketplace.transaction_modal.submit.price"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Transaction/Submit.tsx:49
+msgid "marketplace.transaction_modal.submit.title"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Transaction/index.tsx:48
+msgid "marketplace.transaction_modal.view.approve.title"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Transaction/index.tsx:60
+msgid "marketplace.transaction_modal.view.submit.title"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Activities/index.tsx:63
+msgid "marketplace.user.activities.empty_state"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Activities/index.tsx:58
+msgid "marketplace.user.activities.title"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:116
+msgid "marketplace.user.edit.edit.input.price.label"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:107
+msgid "marketplace.user.edit.form.edit.price.placeholder"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:95
+msgid "marketplace.user.edit.form.edit.quantity.label"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:86
+msgid "marketplace.user.edit.form.error.api_error"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:105
+msgid "marketplace.user.edit.form.error.general_error"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:98
+msgid "marketplace.user.edit.form.error.user_rejected"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:170
+msgid "marketplace.user.edit.form.input.description.label"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:164
+msgid "marketplace.user.edit.form.input.description.placeholder"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:137
+msgid "marketplace.user.edit.form.input.handle.label"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:130
+msgid "marketplace.user.edit.form.input.handle.placeholder"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:131
+msgid "marketplace.user.edit.form.input.singleUnitPrice.label"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:122
+msgid "marketplace.user.edit.form.input.singleUnitPrice.placeholder"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:110
+msgid "marketplace.user.edit.form.input.totalAmountToSell.label"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:154
+msgid "marketplace.user.edit.form.input.username.label"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:147
+msgid "marketplace.user.edit.form.input.username.placeholder"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:88
+msgid "marketplace.user.listing.edit.input.quantity.maxAmount"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:81
+msgid "marketplace.user.listing.edit.input.quantity.minimum"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:66
+msgid "marketplace.user.listing.edit.input.quantity.placeholder"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:74
+msgid "marketplace.user.listing.edit.input.quantity.required"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:44
+msgid "marketplace.user.listing.edit.project.label"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:57
+msgid "marketplace.user.listing.form.input.select_project.label"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:103
+msgid "marketplace.user.listing.form.input.totalAmountToSell.maxAmount"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:96
+msgid "marketplace.user.listing.form.input.totalAmountToSell.minimum"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:81
+msgid "marketplace.user.listing.form.input.totalAmountToSell.placeholder"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:89
+msgid "marketplace.user.listing.form.input.totalAmountToSell.required"
+msgstr ""
+
+#: components/pages/Marketplace/Users/Login/index.tsx:55
+msgid "marketplace.user.login.description"
+msgstr ""
+
+#: components/pages/Marketplace/Users/Login/index.tsx:50
+msgid "marketplace.user.login.title"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Stats/index.tsx:29
+msgid "marketplace.user.stats.seller.description"
+msgstr ""
+
+#: components/pages/Marketplace/shared/Stats/index.tsx:25
+msgid "marketplace.user.stats.title"
+msgstr ""
+
+#: components/pages/Marketplace/Users/SellerConnected/index.tsx:256
+msgid "marketplace.user.stats.your_seller_data.description"
+msgstr ""
+
 #: components/pages/Infinity/index.tsx:439
 msgid "mission.header"
 msgstr ""
@@ -1482,6 +1996,7 @@ msgstr ""
 msgid "resources.list.filter.type.podcast"
 msgstr ""
 
+#: components/pages/Marketplace/Users/SellerConnected/ProjectTokenDropDown/index.tsx:59
 #: components/pages/Resources/SortyByDropDown/index.tsx:62
 msgid "resources.list.select.sort_by.toggle"
 msgstr ""
@@ -1747,6 +2262,10 @@ msgstr ""
 msgid "shared.app"
 msgstr ""
 
+#: components/pages/Marketplace/shared/Transaction/Approve.tsx:115
+msgid "shared.approve"
+msgstr ""
+
 #: components/Footer/index.tsx:49
 msgid "shared.blog"
 msgstr ""
@@ -1875,6 +2394,7 @@ msgstr ""
 msgid "shared.info"
 msgstr ""
 
+#: components/pages/Marketplace/Users/Login/index.tsx:64
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:53
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:48
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
