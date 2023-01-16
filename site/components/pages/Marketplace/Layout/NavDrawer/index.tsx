@@ -22,7 +22,6 @@ interface NavDrawerProps {
   userAddress?: string;
   connectedAddress?: string;
   connectedDomain?: Domain;
-  isMobile?: boolean;
   onHide?: () => void;
   onToggleModal: () => void;
 }
