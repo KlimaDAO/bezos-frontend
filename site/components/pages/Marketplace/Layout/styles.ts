@@ -98,8 +98,11 @@ export const controls = css`
 
 export const menuButton = css`
   background-color: var(--surface-02);
-  min-height: 4.8rem;
-  min-width: 4.8rem;
+  height: 4.8rem;
+  width: 4.8rem;
+  font-size: 2.4rem !important;
+  //unfortunately we need to override the gray variant font color
+  color: var(--font-01) !important;
   display: flex;
   justify-content: center;
   align-items: center;
