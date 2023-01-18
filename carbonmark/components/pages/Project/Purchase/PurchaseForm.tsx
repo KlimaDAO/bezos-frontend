@@ -30,19 +30,17 @@ export const PurchaseForm: FC<Props> = (props) => {
   const { address, renderModal, isConnected, toggleModal } = useWeb3();
   const singleUnitPrice = formatUnits(props.listing.singleUnitPrice);
 
-  const { register, handleSubmit, formState, control, setValue } =
-    useForm<FormValues>({
-      defaultValues: {
-        listingId: props.listing.id,
-        ...props.values,
-      },
-    });
+  const { register, handleSubmit, formState, control } = useForm<FormValues>({
+    defaultValues: {
+      listingId: props.listing.id,
+      ...props.values,
+    },
+  });
 
   const amount = useWatch({ name: "amount", control });
-
   const price = Number(singleUnitPrice) * Number(amount);
   const totalPrice = price + price * MARKETPLACE_FEE || 0;
-  setValue("price", totalPrice.toString());
+  // setValue("price", totalPrice.toString());
 
   const onSubmit: SubmitHandler<FormValues> = (values: FormValues) => {
     props.onSubmit(values);
