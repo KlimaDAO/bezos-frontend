@@ -21,11 +21,10 @@ interface NavDrawerProps {
   userAddress?: string;
   connectedAddress?: string;
   onHide?: () => void;
-  onToggleModal: () => void;
 }
 
 export const NavDrawer: FC<NavDrawerProps> = (props) => {
-  const { address, isConnected, disconnect } = useWeb3();
+  const { address, isConnected, disconnect, toggleModal } = useWeb3();
   // collect nameserviceDomain Data if connected and domain is in URL
   const connectedDomain = useGetDomainFromAddress(address);
 
@@ -51,7 +50,7 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
               id: "shared.login_connect",
               message: "Login / Connect",
             })}
-            onClick={props.onToggleModal}
+            onClick={toggleModal}
             className="connectButton"
           />
         )}
