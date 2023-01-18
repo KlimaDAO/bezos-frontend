@@ -19,7 +19,6 @@ const DynamicThemeToggle = dynamic(
 
 interface NavDrawerProps {
   userAddress?: string;
-  connectedAddress?: string;
   onHide?: () => void;
 }
 
