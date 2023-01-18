@@ -13,86 +13,21 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Marketplace/shared/Stats/index.tsx:57
-msgid "Active listings:"
-msgstr "Active listings:"
-
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr "Change language"
-
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:65
-msgid "Created:"
-msgstr "Created:"
-
-#: components/pages/Marketplace/Users/SellerConnected/index.tsx:189
-msgid "Error:"
-msgstr "Error:"
-
-#: components/pages/Marketplace/Purchases/index.tsx:106
-msgid "Final price"
-msgstr "Final price"
 
 #: components/pages/Infinity/index.tsx:530
 msgid "Frequently Asked Questions"
 msgstr "Frequently Asked Questions"
 
-#: components/pages/Marketplace/Users/SellerConnected/index.tsx:184
-#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:55
-msgid "Listings"
-msgstr "Listings"
-
-#: components/pages/Marketplace/Purchases/index.tsx:62
-msgid "Payment Successful"
-msgstr "Payment Successful"
-
-#: components/pages/Marketplace/Purchases/index.tsx:115
-msgid "Project"
-msgstr "Project"
-
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:60
-msgid "Quantity Available:"
-msgstr "Quantity Available:"
-
-#: components/pages/Marketplace/Purchases/index.tsx:97
-msgid "Quantity purchased:"
-msgstr "Quantity purchased:"
-
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:49
-msgid "Seller Listing"
-msgstr "Seller Listing"
-
 #: components/InvalidNetworkModal/index.tsx:80
 msgid "Switch to Polygon"
 msgstr "Switch to Polygon"
 
-#: components/pages/Marketplace/Purchases/index.tsx:73
-msgid "Thank you for supporting the planet! See purchase details below."
-msgstr "Thank you for supporting the planet! See purchase details below."
-
 #: components/InvalidNetworkModal/index.tsx:75
 msgid "This app only works on Polygon Mainnet."
 msgstr "This app only works on Polygon Mainnet."
-
-#: components/pages/Marketplace/shared/Stats/index.tsx:47
-msgid "Tonnes owned:"
-msgstr "Tonnes owned:"
-
-#: components/pages/Marketplace/shared/Stats/index.tsx:38
-msgid "Tonnes sold:"
-msgstr "Tonnes sold:"
-
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:69
-msgid "Updated:"
-msgstr "Updated:"
-
-#: components/pages/Marketplace/Users/SellerConnected/index.tsx:233
-msgid "Updating your data..."
-msgstr "Updating your data..."
-
-#: components/pages/Marketplace/Purchases/index.tsx:66
-msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
-msgstr "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 
 #: components/InvalidNetworkModal/index.tsx:65
 msgid "Wrong Network"
@@ -474,54 +409,26 @@ msgstr "We work with traditional carbon market players, crypto platforms, corpor
 msgid "concat.careers"
 msgstr "Careers"
 
-#: components/pages/Marketplace/Layout/index.tsx:103
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:107
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:153
-#: components/pages/Marketplace/Users/Login/index.tsx:84
-#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:106
 #: components/pages/Pledge/PledgeDashboard/index.tsx:164
 #: components/pages/Pledge/index.tsx:77
 msgid "connectModal.continue"
 msgstr "or continue with"
 
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:112
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:158
-#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:111
-msgid "connect_modal.connect_to_buy"
-msgstr "Sign In / Connect To Buy"
-
-#: components/pages/Marketplace/Layout/index.tsx:112
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:116
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:162
-#: components/pages/Marketplace/Users/Login/index.tsx:93
-#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:115
 #: components/pages/Pledge/PledgeDashboard/index.tsx:173
 #: components/pages/Pledge/index.tsx:86
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
-#: components/pages/Marketplace/Layout/index.tsx:99
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:103
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:149
-#: components/pages/Marketplace/Users/Login/index.tsx:79
-#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:101
 #: components/pages/Pledge/PledgeDashboard/index.tsx:160
 #: components/pages/Pledge/index.tsx:73
 msgid "connect_modal.error_message"
 msgstr "We had some trouble connecting. Please try again."
 
-#: components/pages/Marketplace/Layout/index.tsx:116
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:120
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:166
-#: components/pages/Marketplace/Users/Login/index.tsx:97
-#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:119
 #: components/pages/Pledge/PledgeDashboard/index.tsx:177
 #: components/pages/Pledge/index.tsx:90
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
-#: components/pages/Marketplace/Layout/index.tsx:108
-#: components/pages/Marketplace/Users/Login/index.tsx:89
 #: components/pages/Pledge/PledgeDashboard/index.tsx:169
 #: components/pages/Pledge/index.tsx:82
 msgid "connect_modal.sign_in"
@@ -1078,432 +985,6 @@ msgstr "Why KlimaDAO?"
 msgid "invest_in_the_future"
 msgstr "Invest in the future."
 
-#: components/pages/Marketplace/lib/sellerGetter.ts:9
-msgid "marketplace.activity.you"
-msgstr "You"
-
-#: components/pages/Marketplace/Users/ProfileButton/index.tsx:13
-msgid "marketplace.button.edit_profile"
-msgstr "Edit Profile"
-
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:87
-msgid "marketplace.buy"
-msgstr "Buy"
-
-#: components/pages/Marketplace/Layout/NavMenu/index.tsx:36
-msgid "marketplace.menu.marketplace"
-msgstr "Marketplace"
-
-#: components/pages/Marketplace/Layout/AddressSection/index.tsx:35
-msgid "marketplace.menu.not_connected"
-msgstr "NOT CONNECTED"
-
-#: components/pages/Marketplace/Layout/NavMenu/index.tsx:53
-msgid "marketplace.menu.portfolio"
-msgstr "Portfolio"
-
-#: components/pages/Marketplace/Layout/NavMenu/index.tsx:45
-msgid "marketplace.menu.profile"
-msgstr "Profile"
-
-#: components/pages/Marketplace/Layout/AddressSection/index.tsx:16
-msgid "marketplace.menu.wallet_address"
-msgstr "Your Wallet Address"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:142
-msgid "marketplace.profile.addListing_modal.submit"
-msgstr "Create Listing"
-
-#: components/pages/Marketplace/Users/SellerConnected/index.tsx:211
-msgid "marketplace.profile.create_new_listing"
-msgstr "Create New Listing"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:127
-msgid "marketplace.profile.editListing_modal.submit"
-msgstr "Update Listing"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:188
-msgid "marketplace.profile.edit_modal.submit"
-msgstr "Save Changes"
-
-#: components/pages/Marketplace/Users/SellerConnected/index.tsx:270
-msgid "marketplace.profile.edit_profile.title"
-msgstr "Your Profile"
-
-#: components/pages/Marketplace/Users/SellerConnected/index.tsx:173
-msgid "marketplace.profile.edit_your_profile"
-msgstr "Edit your profile to add a description"
-
-#: components/pages/Marketplace/Users/SellerConnected/ListingEditable.tsx:150
-msgid "marketplace.profile.listing.delete.error"
-msgstr "Could not delete listing. Please try again."
-
-#: components/pages/Marketplace/Users/SellerConnected/ListingEditable.tsx:165
-msgid "marketplace.profile.listing.edit"
-msgstr "Edit"
-
-#: components/pages/Marketplace/Users/SellerConnected/ListingEditable.tsx:193
-msgid "marketplace.profile.listing.edit.delete_listing"
-msgstr "Delete Listing"
-
-#: components/pages/Marketplace/Users/SellerConnected/index.tsx:196
-#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:61
-msgid "marketplace.profile.listings.empty_state"
-msgstr "No active listings to show."
-
-#: components/pages/Marketplace/Users/SellerConnected/CreateAListingModal.tsx:117
-msgid "marketplace.profile.listings_modal.title"
-msgstr "Create a Listing"
-
-#: components/pages/Marketplace/Users/SellerConnected/index.tsx:94
-msgid "marketplace.profile.load_assets.error"
-msgstr "There was an error loading your assets"
-
-#: components/pages/Marketplace/Users/SellerConnected/index.tsx:65
-msgid "marketplace.profile.missing_assets"
-msgstr "You do not have any c3 tokens to create a listing :("
-
-#: components/pages/Marketplace/Users/SellerConnected/index.tsx:155
-msgid "marketplace.profile.update_activity.error"
-msgstr "There was an error updating your data: {e}"
-
-#: components/pages/Marketplace/lib/getCategoryInfo.ts:87
-msgid "marketplace.project.category.agriculture"
-msgstr "Agriculture"
-
-#: components/pages/Marketplace/lib/getCategoryInfo.ts:77
-msgid "marketplace.project.category.energy_efficiency"
-msgstr "Energy Efficiency"
-
-#: components/pages/Marketplace/lib/getCategoryInfo.ts:47
-msgid "marketplace.project.category.forestry"
-msgstr "Forestry"
-
-#: components/pages/Marketplace/lib/getCategoryInfo.ts:97
-msgid "marketplace.project.category.industria_processing"
-msgstr "Industrial Processing"
-
-#: components/pages/Marketplace/lib/getCategoryInfo.ts:67
-msgid "marketplace.project.category.other"
-msgstr "Other"
-
-#: components/pages/Marketplace/lib/getCategoryInfo.ts:57
-msgid "marketplace.project.category.other_nature_based"
-msgstr "Other Nature-Based"
-
-#: components/pages/Marketplace/lib/getCategoryInfo.ts:37
-msgid "marketplace.project.category.renewable_energy"
-msgstr "Renewable Energy"
-
-#: components/pages/Marketplace/Project/index.tsx:93
-msgid "marketplace.project.single.best_price"
-msgstr "Best Price"
-
-#: components/pages/Marketplace/Project/Purchase/index.tsx:160
-msgid "marketplace.project.single.button.back_to_project"
-msgstr "Back to Project"
-
-#: components/pages/Marketplace/Purchases/index.tsx:49
-msgid "marketplace.project.single.button.back_to_project_details"
-msgstr "Back to Project Details"
-
-#: components/pages/Marketplace/Project/index.tsx:58
-msgid "marketplace.project.single.button.back_to_projects"
-msgstr "Back to Projects"
-
-#: components/pages/Marketplace/Project/Purchase/index.tsx:186
-msgid "marketplace.project.single.header.seller"
-msgstr "Seller:"
-
-#: components/pages/Marketplace/Project/index.tsx:102
-msgid "marketplace.project.single.methodology"
-msgstr "Methodology:"
-
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:138
-msgid "marketplace.purchase.button.continue"
-msgstr "Continue"
-
-#: components/pages/Marketplace/Purchases/index.tsx:130
-msgid "marketplace.purchase.button.go_to_infinity"
-msgstr "Use Klima Infinity to retire & offset"
-
-#: components/pages/Marketplace/Purchases/index.tsx:137
-msgid "marketplace.purchase.button.view_assets"
-msgstr "View Assets"
-
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:95
-msgid "marketplace.purchase.input.amount.label"
-msgstr "How many tonnes of carbon do you want to buy?"
-
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:88
-msgid "marketplace.purchase.input.amount.maxAmount"
-msgstr "You exceeded the available amount of tonnes"
-
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:81
-msgid "marketplace.purchase.input.amount.minimum"
-msgstr "The minimum amount to buy is 1 Tonne"
-
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:66
-msgid "marketplace.purchase.input.amount.placeholder"
-msgstr "Tonnes"
-
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:74
-msgid "marketplace.purchase.input.amount.required"
-msgstr "Amount is required"
-
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:114
-msgid "marketplace.purchase.input.cost.label"
-msgstr "Cost incl. 3% fee"
-
-#: components/pages/Marketplace/Project/Purchase/index.tsx:90
-msgid "marketplace.purchase.loading.allowance.error"
-msgstr "something went wrong loading the allowance"
-
-#: components/pages/Marketplace/Project/Purchase/index.tsx:198
-msgid "marketplace.purchase.price_each"
-msgstr "each"
-
-#: components/pages/Marketplace/Project/Purchase/index.tsx:217
-msgid "marketplace.purchase.transaction.modal.title.confirm"
-msgstr "Confirm Purchase"
-
-#: components/pages/Marketplace/Project/Purchase/index.tsx:221
-msgid "marketplace.purchase.transaction.modal.title.processing"
-msgstr "Processing Purchase"
-
-#: components/pages/Marketplace/Users/SellerConnected/ListingEditable.tsx:173
-msgid "marketplace.seller.edit_listing.title"
-msgstr "Edit Listing"
-
-#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:89
-msgid "marketplace.seller.listing.buy"
-msgstr "Buy"
-
-#: components/pages/Marketplace/Users/Listing/index.tsx:42
-msgid "marketplace.seller.listing.quantity_available"
-msgstr "Quantity Available:"
-
-#: components/pages/Marketplace/Users/SellerConnected/CreateAListingModal.tsx:142
-#: components/pages/Marketplace/Users/SellerConnected/ListingEditable.tsx:220
-msgid "marketplace.tonnes.long"
-msgstr "tonnes"
-
-#: components/pages/Marketplace/shared/Activities/index.tsx:96
-msgid "marketplace.tonnes.short"
-msgstr "t"
-
-#: components/pages/Marketplace/Users/SellerConnected/CreateAListingModal.tsx:151
-msgid "marketplace.transaction.create_listing.approval_description"
-msgstr "You are about to transfer ownership of this asset from your wallet to the KlimaDAO marketplace. You can remove your listing at any time until it has been sold."
-
-#: components/pages/Marketplace/Users/SellerConnected/ListingEditable.tsx:229
-msgid "marketplace.transaction.edit_listing.approval_description"
-msgstr "You are about to transfer ownership of this asset from your wallet to the KlimaDAO marketplace. You can remove your listing at any time until it has been sold."
-
-#: components/pages/Marketplace/lib/statusMessage.ts:31
-msgid "marketplace.transaction.status.done"
-msgstr "Transaction complete."
-
-#: components/pages/Marketplace/lib/statusMessage.ts:26
-msgid "marketplace.transaction.status.error"
-msgstr "❌ Error: something went wrong..."
-
-#: components/pages/Marketplace/lib/statusMessage.ts:41
-msgid "marketplace.transaction.status.network_confirmation"
-msgstr "Transaction initiated. Waiting for network confirmation."
-
-#: components/pages/Marketplace/lib/statusMessage.ts:36
-msgid "marketplace.transaction.status.user_confirmation"
-msgstr "Please click 'confirm' in your wallet to continue."
-
-#: components/pages/Marketplace/lib/statusMessage.ts:20
-msgid "marketplace.transaction.status.user_rejected"
-msgstr "You chose to reject the transaction"
-
-#: components/pages/Marketplace/shared/Transaction/Approve.tsx:68
-msgid "marketplace.transaction_modal.approve.amount"
-msgstr "Confirm amount"
-
-#: components/pages/Marketplace/shared/Transaction/Approve.tsx:58
-msgid "marketplace.transaction_modal.approve.contract_address"
-msgstr "Contract address"
-
-#: components/pages/Marketplace/shared/Transaction/Approve.tsx:84
-msgid "marketplace.transaction_modal.approve.price"
-msgstr "Confirm price per tonne"
-
-#: components/pages/Marketplace/shared/Transaction/Approve.tsx:50
-msgid "marketplace.transaction_modal.approve.title"
-msgstr "Please confirm the transaction"
-
-#: components/pages/Marketplace/shared/Transaction/index.tsx:93
-msgid "marketplace.transaction_modal.button.go_back"
-msgstr "Go back"
-
-#: components/pages/Marketplace/shared/Transaction/Submit.tsx:127
-msgid "marketplace.transaction_modal.close"
-msgstr "Close"
-
-#: components/pages/Marketplace/shared/Transaction/Approve.tsx:123
-msgid "marketplace.transaction_modal.next"
-msgstr "Next"
-
-#: components/pages/Marketplace/shared/Transaction/Submit.tsx:67
-msgid "marketplace.transaction_modal.submit.amount"
-msgstr "Submit amount"
-
-#: components/pages/Marketplace/shared/Transaction/Submit.tsx:115
-msgid "marketplace.transaction_modal.submit.button"
-msgstr "Submit"
-
-#: components/pages/Marketplace/shared/Transaction/Submit.tsx:57
-msgid "marketplace.transaction_modal.submit.contract_address"
-msgstr "Contract address"
-
-#: components/pages/Marketplace/shared/Transaction/Submit.tsx:83
-msgid "marketplace.transaction_modal.submit.price"
-msgstr "Submit price per tonne"
-
-#: components/pages/Marketplace/shared/Transaction/Submit.tsx:49
-msgid "marketplace.transaction_modal.submit.title"
-msgstr "Please submit the transaction"
-
-#: components/pages/Marketplace/shared/Transaction/index.tsx:48
-msgid "marketplace.transaction_modal.view.approve.title"
-msgstr "1. Approve"
-
-#: components/pages/Marketplace/shared/Transaction/index.tsx:60
-msgid "marketplace.transaction_modal.view.submit.title"
-msgstr "2. Submit"
-
-#: components/pages/Marketplace/shared/Activities/index.tsx:63
-msgid "marketplace.user.activities.empty_state"
-msgstr "No activity to show"
-
-#: components/pages/Marketplace/shared/Activities/index.tsx:58
-msgid "marketplace.user.activities.title"
-msgstr "Activities"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:116
-msgid "marketplace.user.edit.edit.input.price.label"
-msgstr "Price"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:107
-msgid "marketplace.user.edit.form.edit.price.placeholder"
-msgstr "USDC per ton"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:95
-msgid "marketplace.user.edit.form.edit.quantity.label"
-msgstr "Quantity"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:86
-msgid "marketplace.user.edit.form.error.api_error"
-msgstr "There was an error with the Request API. Please try again"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:105
-msgid "marketplace.user.edit.form.error.general_error"
-msgstr "Something went wrong. Please try again"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:98
-msgid "marketplace.user.edit.form.error.user_rejected"
-msgstr "You chose to reject the transaction."
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:170
-msgid "marketplace.user.edit.form.input.description.label"
-msgstr "About"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:164
-msgid "marketplace.user.edit.form.input.description.placeholder"
-msgstr "Description"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:137
-msgid "marketplace.user.edit.form.input.handle.label"
-msgstr "Handle (not changeable later! Choose wisely)"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:130
-msgid "marketplace.user.edit.form.input.handle.placeholder"
-msgstr "Your unique handle"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:131
-msgid "marketplace.user.edit.form.input.singleUnitPrice.label"
-msgstr "Single Unit Price"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:122
-msgid "marketplace.user.edit.form.input.singleUnitPrice.placeholder"
-msgstr "USDC per ton"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:110
-msgid "marketplace.user.edit.form.input.totalAmountToSell.label"
-msgstr "Total Amount"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:154
-msgid "marketplace.user.edit.form.input.username.label"
-msgstr "Display Name"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditProfile.tsx:147
-msgid "marketplace.user.edit.form.input.username.placeholder"
-msgstr "Your display name"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:88
-msgid "marketplace.user.listing.edit.input.quantity.maxAmount"
-msgstr "You exceeded your available quantity"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:81
-msgid "marketplace.user.listing.edit.input.quantity.minimum"
-msgstr "The minimum quantity to sell is 1 Tonne"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:66
-msgid "marketplace.user.listing.edit.input.quantity.placeholder"
-msgstr "How many do you want to sell"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:74
-msgid "marketplace.user.listing.edit.input.quantity.required"
-msgstr "Quantity is required"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/EditListing.tsx:44
-msgid "marketplace.user.listing.edit.project.label"
-msgstr "Project"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:57
-msgid "marketplace.user.listing.form.input.select_project.label"
-msgstr "Select Project:"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:103
-msgid "marketplace.user.listing.form.input.totalAmountToSell.maxAmount"
-msgstr "You exceeded your available amount"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:96
-msgid "marketplace.user.listing.form.input.totalAmountToSell.minimum"
-msgstr "The minimum amount to sell is 1 Tonne"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:81
-msgid "marketplace.user.listing.form.input.totalAmountToSell.placeholder"
-msgstr "How many do you want to sell"
-
-#: components/pages/Marketplace/Users/SellerConnected/Forms/AddListing.tsx:89
-msgid "marketplace.user.listing.form.input.totalAmountToSell.required"
-msgstr "Total Amount to Sell is required"
-
-#: components/pages/Marketplace/Users/Login/index.tsx:55
-msgid "marketplace.user.login.description"
-msgstr "This feature is available only to users who are logged in. You can log in or create an account via the button below."
-
-#: components/pages/Marketplace/Users/Login/index.tsx:50
-msgid "marketplace.user.login.title"
-msgstr "Please login or connect your wallet"
-
-#: components/pages/Marketplace/shared/Stats/index.tsx:29
-msgid "marketplace.user.stats.seller.description"
-msgstr "Data for this seller"
-
-#: components/pages/Marketplace/shared/Stats/index.tsx:25
-msgid "marketplace.user.stats.title"
-msgstr "Stats"
-
-#: components/pages/Marketplace/Users/SellerConnected/index.tsx:256
-msgid "marketplace.user.stats.your_seller_data.description"
-msgstr "Your seller data"
-
 #: components/pages/Infinity/index.tsx:439
 msgid "mission.header"
 msgstr "KlimaDAO's mission is to democratize climate action"
@@ -2004,7 +1485,6 @@ msgstr "Blog"
 msgid "resources.list.filter.type.podcast"
 msgstr "Podcast"
 
-#: components/pages/Marketplace/Users/SellerConnected/ProjectTokenDropDown/index.tsx:59
 #: components/pages/Resources/SortyByDropDown/index.tsx:62
 msgid "resources.list.select.sort_by.toggle"
 msgstr "Toggle Sorted by menu"
@@ -2270,10 +1750,6 @@ msgstr "About"
 msgid "shared.app"
 msgstr "App"
 
-#: components/pages/Marketplace/shared/Transaction/Approve.tsx:115
-msgid "shared.approve"
-msgstr "Approve"
-
 #: components/Footer/index.tsx:49
 msgid "shared.blog"
 msgstr "Blog"
@@ -2314,12 +1790,6 @@ msgstr "Community"
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:45
 msgid "shared.confirm"
 msgstr "Confirm"
-
-#: components/pages/Marketplace/Project/ProjectListing/index.tsx:77
-#: components/pages/Marketplace/Project/Purchase/PurchaseForm.tsx:124
-#: components/pages/Marketplace/Users/SellerUnconnected/index.tsx:78
-msgid "shared.connect_to_buy"
-msgstr "Sign In / Connect To Buy"
 
 #: components/Footer/index.tsx:52
 #: components/Navigation/index.tsx:243
@@ -2408,7 +1878,6 @@ msgstr "Introduction"
 msgid "shared.info"
 msgstr "Info"
 
-#: components/pages/Marketplace/Users/Login/index.tsx:64
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:53
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:48
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
@@ -2417,9 +1886,6 @@ msgstr "Info"
 msgid "shared.loading"
 msgstr "Loading..."
 
-#: components/pages/Marketplace/Layout/NavDrawer/index.tsx:48
-#: components/pages/Marketplace/Layout/index.tsx:82
-#: components/pages/Marketplace/Users/Login/index.tsx:70
 #: components/pages/Pledge/HeaderDesktop/index.tsx:43
 #: components/pages/Pledge/HeaderMobile/index.tsx:46
 msgid "shared.login_connect"
