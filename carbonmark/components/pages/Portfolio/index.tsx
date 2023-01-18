@@ -19,7 +19,7 @@ export const Portfolio: NextPage = () => {
   }, []);
 
   useEffect(() => {
-    !isLoading && !isConnected && router.push(`/marketplace/users/login`);
+    !isLoading && !isConnected && router.push(`/users/login`);
   }, [isLoading, isConnected]);
 
   return (

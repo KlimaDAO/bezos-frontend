@@ -23,7 +23,7 @@ export const Login: NextPage = () => {
   useEffect(() => {
     if (isConnected) {
       setIsRedirecting(true);
-      router.push(`/marketplace/users/${address}`);
+      router.push(`/users/${address}`);
     } else {
       setIsRedirecting(false);
     }

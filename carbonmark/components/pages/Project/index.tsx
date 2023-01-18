@@ -50,7 +50,7 @@ export const MarketPlaceProject: NextPage<Props> = (props) => {
 
       <MarketplaceLayout>
         <div className={styles.fullWidth}>
-          <Link href={"/marketplace/projects"} className={styles.backToResults}>
+          <Link href={"/projects"} className={styles.backToResults}>
             <ArrowBack className="arrow" />
             <Trans id="project.single.button.back_to_projects">
               Back to Projects

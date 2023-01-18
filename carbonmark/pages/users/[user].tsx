@@ -63,7 +63,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     if (nameserviceDomain) {
       return {
         redirect: {
-          destination: `/marketplace/users/${nameserviceDomain}`,
+          destination: `/users/${nameserviceDomain}`,
           statusCode: 301,
         },
       };
