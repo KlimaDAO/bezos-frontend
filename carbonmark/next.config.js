@@ -79,7 +79,7 @@ module.exports = async (phase, { defaultConfig }) => {
       deviceSizes,
     },
     experimental: {
-      appDir: true,
+      appDir: false,
     },
   };
   return withBundleAnalyzer({
