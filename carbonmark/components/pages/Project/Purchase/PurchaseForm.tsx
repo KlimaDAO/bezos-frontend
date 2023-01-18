@@ -5,7 +5,7 @@ import { SubmitHandler, useForm, useWatch } from "react-hook-form";
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 import { Listing } from "@klimadao/lib/types/marketplace";
 import { formatUnits, useWeb3 } from "@klimadao/lib/utils";
-import { InputField } from "components/Form";
+import { InputField } from "components/shared/Form/InputField";
 import { HighlightValue } from "components/Transaction/HighlightValue";
 import { formatToPrice } from "lib/formatNumbers";
 import { marketplaceTokenInfoMap } from "lib/getTokenInfo";

@@ -3,12 +3,12 @@ import { ButtonPrimary, MarketplaceLogo } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
-import { ChangeLanguageButton } from "components/Layout/ChangeLanguageButton";
+import { ChangeLanguageButton } from "components/shared/ChangeLanguageButton";
 import { useResponsive } from "hooks/useResponsive";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { FC, ReactNode, useState } from "react";
-import { Footer } from "./Footer";
+import { Footer } from "../shared/Footer";
 import { NavDrawer } from "./NavDrawer";
 
 import * as styles from "./styles";
@@ -16,7 +16,7 @@ import * as styles from "./styles";
 // dynamic import for ThemeToggle as its reads the document and localStorage of Browser
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
 
-const ThemeToggle = dynamic(() => import("./ThemeToggle"), {
+const ThemeToggle = dynamic(() => import("../shared/ThemeToggle"), {
   ssr: false,
 });
 

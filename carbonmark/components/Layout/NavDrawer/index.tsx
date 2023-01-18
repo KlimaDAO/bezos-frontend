@@ -13,7 +13,7 @@ import * as styles from "./styles";
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
 
 const DynamicThemeToggle = dynamic(
-  () => import("components/Layout/ThemeToggle"),
+  () => import("components/shared/ThemeToggle"),
   { ssr: false }
 );
 

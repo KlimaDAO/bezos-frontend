@@ -1,7 +1,7 @@
 import { Spinner, Text } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
-import { Modal } from "components/Modal";
+import { Modal } from "components/shared/Modal";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -11,8 +11,8 @@ import { Listing, Project } from "@klimadao/lib/types/marketplace";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Card } from "components/Card";
 import { MarketplaceLayout } from "components/Layout";
-import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
+import { PageHead } from "components/shared/PageHead";
 import { createProjectLink, createSellerLink } from "lib/createUrls";
 import { FormValues, PurchaseForm } from "./PurchaseForm";
 
@@ -135,6 +135,8 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
       setIsProcessing(false);
     }
   };
+
+  console.log("listing", props.listing);
 
   return (
     <>
