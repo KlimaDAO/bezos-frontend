@@ -129,6 +129,7 @@ export const buttonSecondary = css`
 
   &.lightGray {
     background-color: var(--surface-01);
+    box-shadow: var(--shadow-07);
     &,
     &:hover,
     &:hover:not(:disabled),
