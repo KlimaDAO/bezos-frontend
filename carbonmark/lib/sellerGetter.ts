@@ -6,7 +6,7 @@ export const getSellerAddress = (
   connectedAddress?: string
 ) => {
   if (getIsConnectedSeller(sellerID, connectedAddress)) {
-    return t({ id: "marketplace.activity.you", message: "You" });
+    return t({ id: "activity.you", message: "You" });
   }
 
   return concatAddress(sellerID);

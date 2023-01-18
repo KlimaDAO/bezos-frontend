@@ -43,7 +43,7 @@ export const MarketPlacePurchaseReceipt: NextPage<Props> = (props) => {
               className={styles.backToResults}
             >
               <ArrowBack className="arrow" />
-              <Trans id="marketplace.project.single.button.back_to_project_details">
+              <Trans id="project.single.button.back_to_project_details">
                 Back to Project Details
               </Trans>
             </Link>
@@ -124,14 +124,14 @@ export const MarketPlacePurchaseReceipt: NextPage<Props> = (props) => {
 
                     <ButtonPrimary
                       label={
-                        <Trans id="marketplace.purchase.button.go_to_infinity">
+                        <Trans id="purchase.button.go_to_infinity">
                           Use Klima Infinity to retire & offset
                         </Trans>
                       }
                     />
                     <MarketplaceButton
                       label={
-                        <Trans id="marketplace.purchase.button.view_assets">
+                        <Trans id="purchase.button.view_assets">
                           View Assets
                         </Trans>
                       }
