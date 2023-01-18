@@ -1,19 +1,13 @@
 import { cx } from "@emotion/css";
 import { ButtonPrimary, MarketplaceLogo } from "@klimadao/lib/components";
-import { Domain } from "@klimadao/lib/types/domains";
-import {
-  concatAddress,
-  getENSProfile,
-  getKNSProfile,
-  useWeb3,
-} from "@klimadao/lib/utils";
+import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { Footer } from "components/Footer";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { FC, ReactNode, useEffect, useState } from "react";
+import { FC, ReactNode, useState } from "react";
 import { useResponsive } from "../hooks/useResponsive";
 import { NavDrawer } from "./NavDrawer";
 
@@ -28,7 +22,6 @@ const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
 
 type Props = {
   userAddress?: string;
-  userDomain?: string | null;
   profileButton?: JSX.Element;
   children: ReactNode;
 };
@@ -37,26 +30,7 @@ export const MarketplaceLayout: FC<Props> = (props: Props) => {
   const { address, renderModal, isConnected, toggleModal, disconnect } =
     useWeb3();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [profileData, setProfileData] = useState<Domain>();
   const { isDesktop } = useResponsive();
-
-  // collect nameserviceDomain Data if connected and domain is in URL
-  useEffect(() => {
-    if (!props.userDomain || !address) return;
-
-    const setProfile = async () => {
-      const kns = await getKNSProfile({
-        address: address,
-      });
-
-      if (kns) return setProfileData(kns);
-
-      const ens = await getENSProfile({ address: address });
-      if (ens) return setProfileData(ens);
-    };
-
-    setProfile();
-  }, [props.userDomain, address]);
 
   return (
     <div
@@ -66,7 +40,6 @@ export const MarketplaceLayout: FC<Props> = (props: Props) => {
       <div className={styles.desktopNavMenu}>
         <NavDrawer
           userAddress={props.userAddress}
-          connectedDomain={profileData}
           onToggleModal={toggleModal}
         />
       </div>
@@ -90,7 +63,6 @@ export const MarketplaceLayout: FC<Props> = (props: Props) => {
             <NavDrawer
               userAddress={props.userAddress}
               onHide={() => setShowMobileMenu(false)}
-              connectedDomain={profileData}
               onToggleModal={toggleModal}
             />
           </div>

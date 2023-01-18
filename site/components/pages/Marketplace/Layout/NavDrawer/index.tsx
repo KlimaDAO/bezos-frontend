@@ -1,15 +1,14 @@
 import { ButtonPrimary, MarketplaceLogo } from "@klimadao/lib/components";
-import { Domain } from "@klimadao/lib/types/domains";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Close from "@mui/icons-material/Close";
+import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { FC } from "react";
 import { AddressSection } from "../AddressSection";
 import { NavMenu } from "../NavMenu";
 import * as styles from "./styles";
-
 // dynamic import for ThemeToggle as its reads the document and localStorage of Browser
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
 
@@ -21,13 +20,14 @@ const DynamicThemeToggle = dynamic(
 interface NavDrawerProps {
   userAddress?: string;
   connectedAddress?: string;
-  connectedDomain?: Domain;
   onHide?: () => void;
   onToggleModal: () => void;
 }
 
 export const NavDrawer: FC<NavDrawerProps> = (props) => {
   const { address, isConnected, disconnect } = useWeb3();
+  // collect nameserviceDomain Data if connected and domain is in URL
+  const connectedDomain = useGetDomainFromAddress(address);
 
   return (
     <nav className={styles.container}>
@@ -64,13 +64,13 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
         )}
       </div>
       <div className={styles.addressContainer} data-desktop-only>
-        <AddressSection domain={props.connectedDomain} address={address} />
+        <AddressSection domain={connectedDomain} address={address} />
       </div>
       <div className="hr" />
       <NavMenu
         userAddress={props.userAddress}
         connectedAddress={address}
-        connectedDomain={props.connectedDomain}
+        connectedDomain={connectedDomain}
       />
 
       <div className="navFooter">

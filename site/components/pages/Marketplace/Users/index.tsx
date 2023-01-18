@@ -43,7 +43,6 @@ export const Users: NextPage<Props> = (props) => {
 
       <MarketplaceLayout
         userAddress={props.userAddress}
-        userDomain={props.userDomain}
         profileButton={
           isConnectedUser ? (
             <ProfileButton onClick={() => setShowEditModal(true)} />
