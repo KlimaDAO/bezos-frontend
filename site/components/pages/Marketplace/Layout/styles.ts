@@ -57,6 +57,9 @@ export const container = css`
 
 export const mobileLogo = css`
   margin-right: auto;
+  svg {
+    width: 100%; // make logo auto increase
+  }
 `;
 
 export const desktopNavMenu = css`
