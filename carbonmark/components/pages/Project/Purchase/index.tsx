@@ -136,8 +136,6 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
     }
   };
 
-  console.log("listing", props.listing);
-
   return (
     <>
       <PageHead
