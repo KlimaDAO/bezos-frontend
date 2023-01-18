@@ -32,7 +32,7 @@ const TotalValue = ({ control, setValue, singlePrice }: TotalValueProps) => {
   return (
     <HighlightValue
       label={t({
-        id: "marketplace.purchase.input.cost.label",
+        id: "purchase.input.cost.label",
         message: "Cost incl. 3% fee",
       })}
       value={formatToPrice(totalPrice)}
