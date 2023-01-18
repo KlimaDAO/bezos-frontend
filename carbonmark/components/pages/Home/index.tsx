@@ -1,4 +1,5 @@
 import { Section, Text } from "@klimadao/lib/components";
+import { Trans } from "@lingui/macro";
 import { NextPage } from "next";
 
 export interface Props {
@@ -9,7 +10,9 @@ export const Home: NextPage<Props> = () => {
   return (
     <>
       <Section variant="gray">
-        <Text>A new era for kleema dow</Text>
+        <Text>
+          <Trans>A new era for kleema dow</Trans>
+        </Text>
       </Section>
     </>
   );

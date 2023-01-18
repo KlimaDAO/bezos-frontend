@@ -1,9 +1,15 @@
 import { Home, Props } from "components/pages/Home";
+import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+interface HomeProps extends Props {
+  translation: string;
+}
+
+export const getStaticProps: GetStaticProps<HomeProps> = async (ctx) => {
+  const translation = await loadTranslation(ctx.locale);
   return {
-    props: {},
+    props: { translation },
     revalidate: 600,
   };
 };
