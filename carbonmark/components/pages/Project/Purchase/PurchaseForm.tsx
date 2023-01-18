@@ -3,7 +3,7 @@ import { FC, useEffect } from "react";
 import { Control, SubmitHandler, useForm, useWatch } from "react-hook-form";
 
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
-import { Listing } from "@klimadao/lib/types/marketplace";
+import { Listing } from "@klimadao/lib/types/carbonmark";
 import { formatUnits, useWeb3 } from "@klimadao/lib/utils";
 import { InputField } from "components/shared/Form/InputField";
 import { HighlightValue } from "components/Transaction/HighlightValue";
