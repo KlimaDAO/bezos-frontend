@@ -5,10 +5,10 @@ import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { Footer } from "components/Footer";
+import { useResponsive } from "hooks/useResponsive";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { FC, ReactNode, useState } from "react";
-import { useResponsive } from "../hooks/useResponsive";
 import { NavDrawer } from "./NavDrawer";
 
 import * as styles from "./styles";
