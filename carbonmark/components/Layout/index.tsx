@@ -1,5 +1,5 @@
 import { cx } from "@emotion/css";
-import { ButtonPrimary, MarketplaceLogo } from "@klimadao/lib/components";
+import { ButtonPrimary, CarbonmarkLogo } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
@@ -43,7 +43,7 @@ export const Layout: FC<Props> = (props: Props) => {
       <div className={styles.cardGrid}>
         <div className={styles.controls}>
           <Link href="/" className={styles.mobileLogo} data-mobile-only>
-            <MarketplaceLogo />
+            <CarbonmarkLogo />
           </Link>
 
           {/* keep mobile nav menu here in markup hierarchy for tab nav */}
