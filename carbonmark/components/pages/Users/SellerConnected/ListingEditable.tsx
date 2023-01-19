@@ -12,7 +12,7 @@ import { Transaction } from "components/Transaction";
 import {
   deleteListingTransaction,
   getC3tokenToMarketplaceAllowance,
-  onApproveMarketplaceTransaction,
+  onApproveCarbonmarkTransaction,
   updateListingTransaction,
 } from "lib/actions";
 import { formatToTonnes } from "lib/formatNumbers";
@@ -96,7 +96,7 @@ export const ListingEditable: FC<Props> = (props) => {
     if (!provider || !inputValues) return;
 
     try {
-      await onApproveMarketplaceTransaction({
+      await onApproveCarbonmarkTransaction({
         tokenAddress: inputValues.tokenAddress,
         provider,
         value: inputValues.totalAmountToSell,

@@ -47,7 +47,7 @@ export const getUSDCtokenToCarbonmarkAllowance = async (params: {
   return ethers.utils.formatUnits(allowance); // TODO: ensure to pass 6 later for USDC
 };
 
-export const onApproveMarketplaceTransaction = async (params: {
+export const onApproveCarbonmarkTransaction = async (params: {
   value: string;
   provider: providers.JsonRpcProvider;
   tokenAddress: string;

@@ -22,7 +22,7 @@ import { Transaction } from "components/Transaction";
 import {
   getUSDCtokenToCarbonmarkAllowance,
   makePurchase,
-  onApproveMarketplaceTransaction,
+  onApproveCarbonmarkTransaction,
 } from "lib/actions";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 
@@ -103,7 +103,7 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
     if (!provider || !inputValues) return;
 
     try {
-      await onApproveMarketplaceTransaction({
+      await onApproveCarbonmarkTransaction({
         tokenAddress: FAKE_USDC,
         provider,
         value: inputValues.price,

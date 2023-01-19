@@ -10,7 +10,7 @@ import { Transaction } from "components/Transaction";
 import {
   createListingTransaction,
   getC3tokenToMarketplaceAllowance,
-  onApproveMarketplaceTransaction,
+  onApproveCarbonmarkTransaction,
 } from "lib/actions";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { AddListing, FormValues } from "./Forms/AddListing";
@@ -79,7 +79,7 @@ export const CreateAListingModal: FC<Props> = (props) => {
     if (!provider || !inputValues) return;
 
     try {
-      await onApproveMarketplaceTransaction({
+      await onApproveCarbonmarkTransaction({
         tokenAddress: inputValues.tokenAddress,
         provider,
         value: inputValues.totalAmountToSell,
