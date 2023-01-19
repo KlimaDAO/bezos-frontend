@@ -8,7 +8,7 @@ import { formatUnits, useWeb3 } from "@klimadao/lib/utils";
 import { InputField } from "components/shared/Form/InputField";
 import { HighlightValue } from "components/Transaction/HighlightValue";
 import { formatToPrice } from "lib/formatNumbers";
-import { marketplaceTokenInfoMap } from "lib/getTokenInfo";
+import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import * as styles from "./styles";
 
 const MARKETPLACE_FEE = 0.03; // 3%
@@ -36,7 +36,7 @@ const TotalValue = ({ control, setValue, singlePrice }: TotalValueProps) => {
         message: "Cost incl. 3% fee",
       })}
       value={formatToPrice(totalPrice)}
-      icon={marketplaceTokenInfoMap["usdc"].icon}
+      icon={carbonmarkTokenInfoMap["usdc"].icon}
     />
   );
 };

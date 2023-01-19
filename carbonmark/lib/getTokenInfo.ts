@@ -11,6 +11,6 @@ type MarketplaceTokenMap = {
   };
 };
 
-export const marketplaceTokenInfoMap: MarketplaceTokenMap = {
+export const carbonmarkTokenInfoMap: MarketplaceTokenMap = {
   usdc: { key: "usdc", icon: USDC, label: "USDC" },
 };
