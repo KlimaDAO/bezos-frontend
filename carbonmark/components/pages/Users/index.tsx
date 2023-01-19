@@ -4,7 +4,7 @@ import { NextPage } from "next";
 import { useEffect, useState } from "react";
 
 import { User } from "@klimadao/lib/types/carbonmark";
-import { MarketplaceLayout } from "components/Layout";
+import { Layout } from "components/Layout";
 import { PageHead } from "components/shared/PageHead";
 import { ProfileButton } from "./ProfileButton";
 import { SellerConnected } from "./SellerConnected";
@@ -41,7 +41,7 @@ export const Users: NextPage<Props> = (props) => {
         metaDescription={`KlimaDao - Marketplace Profile for ${userName}`}
       />
 
-      <MarketplaceLayout
+      <Layout
         userAddress={props.userAddress}
         profileButton={
           isConnectedUser ? (
@@ -67,7 +67,7 @@ export const Users: NextPage<Props> = (props) => {
             userName={userName}
           />
         )}
-      </MarketplaceLayout>
+      </Layout>
     </>
   );
 };

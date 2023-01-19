@@ -3,7 +3,7 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 
-import { MarketplaceLayout } from "components/Layout";
+import { Layout } from "components/Layout";
 import { PageHead } from "components/shared/PageHead";
 
 import { useEffect, useState } from "react";
@@ -30,7 +30,7 @@ export const Portfolio: NextPage = () => {
         metaDescription="KlimaDao - Marketplace Portfolio"
       />
 
-      <MarketplaceLayout>
+      <Layout>
         {!isLoading && isConnected && (
           <div className={styles.fullWidth}>
             <Text t="h3">Portfolio</Text>
@@ -45,7 +45,7 @@ export const Portfolio: NextPage = () => {
               <Spinner />
             </div>
           ))}
-      </MarketplaceLayout>
+      </Layout>
     </>
   );
 };

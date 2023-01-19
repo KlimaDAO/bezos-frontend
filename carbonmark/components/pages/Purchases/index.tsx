@@ -2,7 +2,7 @@ import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Card } from "components/Card";
-import { MarketplaceLayout } from "components/Layout";
+import { Layout } from "components/Layout";
 import { MarketplaceButton } from "components/MarketplaceButton";
 import { NextPage } from "next";
 import Link from "next/link";
@@ -35,7 +35,7 @@ export const MarketPlacePurchaseReceipt: NextPage<Props> = (props) => {
         metaDescription={`KlimaDao - Successfully Purchased Marketplace Project: ${projectName}`}
       />
 
-      <MarketplaceLayout>
+      <Layout>
         {!!props.purchase && (
           <div className={styles.fullWidth}>
             <Link
@@ -142,7 +142,7 @@ export const MarketPlacePurchaseReceipt: NextPage<Props> = (props) => {
             </Card>
           </div>
         </div>
-      </MarketplaceLayout>
+      </Layout>
     </>
   );
 };

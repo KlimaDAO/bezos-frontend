@@ -26,7 +26,7 @@ type Props = {
   children: ReactNode;
 };
 
-export const MarketplaceLayout: FC<Props> = (props: Props) => {
+export const Layout: FC<Props> = (props: Props) => {
   const { address, renderModal, isConnected, toggleModal, disconnect } =
     useWeb3();
   const [showMobileMenu, setShowMobileMenu] = useState(false);

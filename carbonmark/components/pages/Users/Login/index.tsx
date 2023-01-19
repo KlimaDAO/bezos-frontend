@@ -6,7 +6,7 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 
 import { Card } from "components/Card";
-import { MarketplaceLayout } from "components/Layout";
+import { Layout } from "components/Layout";
 import { PageHead } from "components/shared/PageHead";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 
@@ -37,7 +37,7 @@ export const Login: NextPage = () => {
         metaDescription="KlimaDao - Marketplace User Login"
       />
 
-      <MarketplaceLayout>
+      <Layout>
         <TwoColLayout>
           <Col>
             <Card>
@@ -105,7 +105,7 @@ export const Login: NextPage = () => {
             <Stats />
           </Col>
         </TwoColLayout>
-      </MarketplaceLayout>
+      </Layout>
     </>
   );
 };

@@ -1,7 +1,7 @@
 import { Text } from "@klimadao/lib/components";
 import { Project } from "@klimadao/lib/types/carbonmark";
 import { Category } from "components/Category";
-import { MarketplaceLayout } from "components/Layout";
+import { Layout } from "components/Layout";
 import { ProjectImage } from "components/ProjectImage";
 import { PageHead } from "components/shared/PageHead";
 import { Vintage } from "components/Vintage";
@@ -25,7 +25,7 @@ export const MarketPlaceProjects: NextPage<Props> = (props) => {
         metaDescription="KlimaDao - Marketplace Projects"
       />
 
-      <MarketplaceLayout>
+      <Layout>
         <div className={styles.list}>
           {hasProjects &&
             props.projects.map((project, index) => (
@@ -51,7 +51,7 @@ export const MarketPlaceProjects: NextPage<Props> = (props) => {
             ))}
           {!hasProjects && <Text>No projects found from Marketplace API</Text>}
         </div>
-      </MarketplaceLayout>
+      </Layout>
     </>
   );
 };

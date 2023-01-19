@@ -10,7 +10,7 @@ import { useState } from "react";
 import { Listing, Project } from "@klimadao/lib/types/carbonmark";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Card } from "components/Card";
-import { MarketplaceLayout } from "components/Layout";
+import { Layout } from "components/Layout";
 import { ProjectImage } from "components/ProjectImage";
 import { PageHead } from "components/shared/PageHead";
 import { createProjectLink, createSellerLink } from "lib/createUrls";
@@ -144,7 +144,7 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
         metaDescription={`KlimaDao - Purchase Marketplace Project: ${props.project.name}`}
       />
 
-      <MarketplaceLayout>
+      <Layout>
         <div className={styles.fullWidth}>
           <Link
             href={createProjectLink(props.project)}
@@ -238,7 +238,7 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
             </div>
           )}
         </Modal>
-      </MarketplaceLayout>
+      </Layout>
     </>
   );
 };
