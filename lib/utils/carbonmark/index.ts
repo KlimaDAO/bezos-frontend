@@ -26,7 +26,7 @@ export const getCarbonmarkProject = async (
   }
 };
 
-export const getMarketplaceUser = async (params: {
+export const getCarbonmarkUser = async (params: {
   user: string;
   type: "wallet" | "handle";
 }): Promise<User> => {
@@ -37,7 +37,7 @@ export const getMarketplaceUser = async (params: {
     const json = await result.json();
     return json;
   } catch (e) {
-    console.error("Failed to getMarketplaceUser", e);
+    console.error("Failed to getCarbonmarkUser", e);
     return Promise.reject(e);
   }
 };

@@ -9,7 +9,7 @@ import { getDomainByAddress } from "lib/shared/getDomainByAddress";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 
 import { User } from "@klimadao/lib/types/carbonmark";
-import { getMarketplaceUser } from "@klimadao/lib/utils";
+import { getCarbonmarkUser } from "@klimadao/lib/utils";
 
 interface Params extends ParsedUrlQuery {
   user: string;
@@ -44,7 +44,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     let marketplaceUser: User | null = null;
 
     if (!isDomainInURL && !isValidAddress) {
-      const userData = await getMarketplaceUser({
+      const userData = await getCarbonmarkUser({
         user: params.user,
         type: "handle",
       });
@@ -78,7 +78,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
     // Haven't fetched marketplace API yet?
     if (!marketplaceUser) {
-      const userData = await getMarketplaceUser({
+      const userData = await getCarbonmarkUser({
         user: userAddress,
         type: "wallet",
       });

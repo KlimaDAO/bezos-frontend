@@ -1,7 +1,7 @@
 export {
   getCarbonmarkProject,
   getCarbonmarkProjects,
-  getMarketplaceUser,
+  getCarbonmarkUser,
   getPurchase
 } from "./carbonmark";
 export { concatAddress } from "./concatAddress";
