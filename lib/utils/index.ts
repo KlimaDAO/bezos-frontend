@@ -2,7 +2,7 @@ export {
   getCarbonmarkProject,
   getCarbonmarkProjects,
   getCarbonmarkUser,
-  getPurchase
+  getPurchase,
 } from "./carbonmark";
 export { concatAddress } from "./concatAddress";
 // ENS

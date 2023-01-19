@@ -93,14 +93,14 @@ export const createListingTransaction = async (params: {
   onStatus: OnStatusHandler;
 }) => {
   try {
-    const marketPlaceContract = getContract({
-      contractName: "marketplace",
+    const carbonmarkContract = getContract({
+      contractName: "carbonmark",
       provider: params.provider.getSigner(),
     });
 
     params.onStatus("userConfirmation", "");
 
-    const listingTxn = await marketPlaceContract.addListing(
+    const listingTxn = await carbonmarkContract.addListing(
       params.tokenAddress,
       utils.parseUnits(params.totalAmountToSell, 18), // C3 token
       utils.parseUnits(params.singleUnitPrice, 18), // Make sure to switch back to 6 when moving from Mumbai to Mainnet! https://github.com/Atmosfearful/bezos-frontend/issues/15
@@ -131,14 +131,14 @@ export const updateListingTransaction = async (params: {
   onStatus: OnStatusHandler;
 }) => {
   try {
-    const marketPlaceContract = getContract({
-      contractName: "marketplace",
+    const carbonmarkContract = getContract({
+      contractName: "carbonmark",
       provider: params.provider.getSigner(),
     });
 
     params.onStatus("userConfirmation", "");
 
-    const listingTxn = await marketPlaceContract.updateListing(
+    const listingTxn = await carbonmarkContract.updateListing(
       params.listingId,
       params.tokenAddress,
       utils.parseUnits(params.totalAmountToSell, 18), // C3 token
@@ -169,14 +169,14 @@ export const makePurchase = async (params: {
   onStatus: OnStatusHandler;
 }): Promise<Transaction> => {
   try {
-    const marketPlaceContract = getContract({
-      contractName: "marketplace",
+    const carbonmarkContract = getContract({
+      contractName: "carbonmark",
       provider: params.provider.getSigner(),
     });
 
     params.onStatus("userConfirmation", "");
 
-    const purchaseTxn = await marketPlaceContract.purchase(
+    const purchaseTxn = await carbonmarkContract.purchase(
       params.listingId,
       utils.parseUnits(params.amount, 18), // C3 token
       utils.parseUnits(params.price, 18) // TODO: Make sure to switch back to 6 when moving from Mumbai to Mainnet! https://github.com/Atmosfearful/bezos-frontend/issues/15
@@ -202,16 +202,14 @@ export const deleteListingTransaction = async (params: {
   onStatus: OnStatusHandler;
 }) => {
   try {
-    const marketPlaceContract = getContract({
-      contractName: "marketplace",
+    const carbonmarkContract = getContract({
+      contractName: "carbonmark",
       provider: params.provider.getSigner(),
     });
 
     params.onStatus("userConfirmation", "");
 
-    const listingTxn = await marketPlaceContract.deleteListing(
-      params.listingId
-    );
+    const listingTxn = await carbonmarkContract.deleteListing(params.listingId);
 
     params.onStatus("networkConfirmation", "");
     await listingTxn.wait(1);

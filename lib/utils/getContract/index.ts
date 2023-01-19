@@ -70,7 +70,7 @@ const contractMap = {
   staking_helper: KlimaStakingHelper.abi, // stake
   staking: KlimaStakingv2.abi, // unstake
   retirementStorage: KlimaRetirementStorage.abi,
-  marketplace: Marketplace.abi,
+  carbonmark: Marketplace.abi,
 } as const;
 type ContractName = keyof typeof contractMap;
 
