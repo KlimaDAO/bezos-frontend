@@ -11,7 +11,7 @@ import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import * as styles from "./styles";
 
-const MARKETPLACE_FEE = 0.03; // 3%
+const CARBONMARK_FEE = 0.03; // 3%
 
 type TotalValueProps = {
   control: Control<FormValues>;
@@ -22,7 +22,7 @@ type TotalValueProps = {
 const TotalValue = ({ control, setValue, singlePrice }: TotalValueProps) => {
   const amount = useWatch({ name: "amount", control });
   const price = Number(singlePrice) * Number(amount);
-  const totalPrice = price + price * MARKETPLACE_FEE || 0;
+  const totalPrice = price + price * CARBONMARK_FEE || 0;
 
   useEffect(() => {
     // setValue on client only to prevent infinite loop
