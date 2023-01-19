@@ -13,7 +13,7 @@ import { SellerUnconnected } from "./SellerUnconnected";
 type Props = {
   userAddress: string;
   userDomain: string | null;
-  marketplaceUser: User | null;
+  carbonmarkUser: User | null;
 };
 
 export const Users: NextPage<Props> = (props) => {
@@ -24,7 +24,7 @@ export const Users: NextPage<Props> = (props) => {
   const [showEditModal, setShowEditModal] = useState(false);
 
   const userName =
-    props.userDomain || props.marketplaceUser?.handle || props.userAddress;
+    props.userDomain || props.carbonmarkUser?.handle || props.userAddress;
 
   // Wait until web3 is ready
   useEffect(() => {
@@ -55,7 +55,7 @@ export const Users: NextPage<Props> = (props) => {
           <SellerConnected
             userAddress={props.userAddress}
             userName={userName}
-            marketplaceUser={props.marketplaceUser}
+            carbonmarkUser={props.carbonmarkUser}
             showEditProfileModal={showEditModal}
             onToggleEditProfileModal={() => setShowEditModal((prev) => !prev)}
           />
@@ -63,7 +63,7 @@ export const Users: NextPage<Props> = (props) => {
 
         {isUnconnectedUser && (
           <SellerUnconnected
-            marketplaceUser={props.marketplaceUser}
+            carbonmarkUser={props.carbonmarkUser}
             userName={userName}
           />
         )}

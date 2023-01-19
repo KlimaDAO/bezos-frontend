@@ -33,7 +33,7 @@ import { getStaticProvider } from "@klimadao/lib/utils";
 import * as styles from "./styles";
 
 type Props = {
-  marketplaceUser: User | null;
+  carbonmarkUser: User | null;
   userName: string;
   userAddress: string;
   showEditProfileModal: boolean;
@@ -41,7 +41,7 @@ type Props = {
 };
 
 export const SellerConnected: FC<Props> = (props) => {
-  const [user, setUser] = useState<User | null>(props.marketplaceUser);
+  const [user, setUser] = useState<User | null>(props.carbonmarkUser);
   const [sortedListings, setSortedListings] = useState<Listing[] | null>(null);
   const [assetsData, setAssetsData] = useState<Asset[] | null>(null);
   const [isLoadingAssets, setIsLoadingAssets] = useState(true);

@@ -20,13 +20,13 @@ import { ProfileHeader } from "../ProfileHeader";
 import * as styles from "./styles";
 
 type Props = {
-  marketplaceUser: User | null;
+  carbonmarkUser: User | null;
   userName: string;
 };
 
 export const SellerUnconnected: FC<Props> = (props) => {
   const { address, renderModal, isConnected, toggleModal } = useWeb3();
-  const userData = props.marketplaceUser;
+  const userData = props.carbonmarkUser;
 
   const hasListings = !!userData?.listings?.length;
   const allListings = hasListings && getAllListings(userData.listings);
