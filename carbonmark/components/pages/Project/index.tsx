@@ -1,5 +1,5 @@
 import { Text } from "@klimadao/lib/components";
-import { Project } from "@klimadao/lib/types/carbonmark";
+import { Project as ProjectType } from "@klimadao/lib/types/carbonmark";
 import { Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Activities } from "components/Activities";
@@ -26,10 +26,10 @@ import { ProjectListing } from "./ProjectListing";
 import * as styles from "./styles";
 
 type Props = {
-  project: Project;
+  project: ProjectType;
 };
 
-export const MarketPlaceProject: NextPage<Props> = (props) => {
+export const Project: NextPage<Props> = (props) => {
   const hasListings = !!props.project.listings?.length;
   const allListings = hasListings && getAllListings(props.project.listings);
   const activeListings =

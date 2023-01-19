@@ -1,6 +1,6 @@
-import { Project } from "@klimadao/lib/types/carbonmark";
+import { Project as ProjectType } from "@klimadao/lib/types/carbonmark";
 import { getCarbonmarkProject } from "@klimadao/lib/utils";
-import { MarketPlaceProject } from "components/pages/Project";
+import { Project } from "components/pages/Project";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
@@ -10,7 +10,7 @@ interface Params extends ParsedUrlQuery {
 }
 
 interface PageProps {
-  project: Project;
+  project: ProjectType;
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
@@ -53,4 +53,4 @@ export const getStaticPaths = async () => {
   };
 };
 
-export default MarketPlaceProject;
+export default Project;
