@@ -35,7 +35,7 @@ type Props = {
 
 const FAKE_USDC = "0x284A5F4d90a49F7eb21C055eA3C824603314B1E7"; // TODO: delete me before switch to mainnet
 
-export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
+export const ProjectPurchase: NextPage<Props> = (props) => {
   const { locale, push } = useRouter();
   const { address, provider } = useWeb3();
   const [isLoadingAllowance, setIsLoadingAllowance] = useState(false);

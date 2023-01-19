@@ -1,6 +1,6 @@
 import { Listing, Project } from "@klimadao/lib/types/carbonmark";
 import { getCarbonmarkProject } from "@klimadao/lib/utils";
-import { MarketPlaceProjectPurchase } from "components/pages/Project/Purchase";
+import { ProjectPurchase } from "components/pages/Project/Purchase";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
@@ -65,4 +65,4 @@ export const getStaticPaths = async () => {
   };
 };
 
-export default MarketPlaceProjectPurchase;
+export default ProjectPurchase;
