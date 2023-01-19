@@ -3,7 +3,7 @@ import USDC from "public/icons/USDC.png";
 
 export type CarbonmarkToken = "usdc"; // what are the others?
 
-type MarketplaceTokenMap = {
+type CarbonmarkTokenMap = {
   [key in CarbonmarkToken]: {
     key: string;
     icon: StaticImageData;
@@ -11,6 +11,6 @@ type MarketplaceTokenMap = {
   };
 };
 
-export const carbonmarkTokenInfoMap: MarketplaceTokenMap = {
+export const carbonmarkTokenInfoMap: CarbonmarkTokenMap = {
   usdc: { key: "usdc", icon: USDC, label: "USDC" },
 };
