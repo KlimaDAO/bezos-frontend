@@ -42,11 +42,7 @@ export const MarketplaceLayout: FC<Props> = (props: Props) => {
       </div>
       <div className={styles.cardGrid}>
         <div className={styles.controls}>
-          <Link
-            href="/marketplace"
-            className={styles.mobileLogo}
-            data-mobile-only
-          >
+          <Link href="/" className={styles.mobileLogo} data-mobile-only>
             <MarketplaceLogo />
           </Link>
 
