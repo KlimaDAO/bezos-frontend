@@ -7,7 +7,7 @@ import { FC, useState } from "react";
 import { Listing } from "../Listing";
 import { EditListing, FormValues } from "./Forms/EditListing";
 
-import { MarketplaceButton } from "components/MarketplaceButton";
+import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Transaction } from "components/Transaction";
 import {
   deleteListingTransaction,
@@ -158,7 +158,7 @@ export const ListingEditable: FC<Props> = (props) => {
     <>
       {props.listings.map((listing) => (
         <Listing key={listing.id} listing={listing}>
-          <MarketplaceButton
+          <CarbonmarkButton
             label={<Trans id="profile.listing.edit">Edit</Trans>}
             className={styles.editListingButton}
             onClick={() => setListingToEdit(listing)}
@@ -185,7 +185,7 @@ export const ListingEditable: FC<Props> = (props) => {
                 getBalanceForListing(listingToEdit, props.assets)
               )}
             />
-            <MarketplaceButton
+            <CarbonmarkButton
               label={
                 <Trans id="profile.listing.edit.delete_listing">
                   Delete Listing

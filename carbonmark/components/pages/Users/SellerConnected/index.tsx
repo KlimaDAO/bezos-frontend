@@ -24,7 +24,7 @@ import {
   getTotalAmountSold,
 } from "lib/listingsGetter";
 
-import { MarketplaceButton } from "components/MarketplaceButton";
+import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 
 import { Asset, Listing, User } from "@klimadao/lib/types/carbonmark";
@@ -198,7 +198,7 @@ export const SellerConnected: FC<Props> = (props) => {
           )}
         </div>
 
-        <MarketplaceButton
+        <CarbonmarkButton
           label={
             isLoadingAssets ? (
               <Spinner />

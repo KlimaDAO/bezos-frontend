@@ -1,7 +1,7 @@
 import { Trans } from "@lingui/macro";
 import { FC, useState } from "react";
 
-import { MarketplaceButton } from "components/MarketplaceButton";
+import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { getMarketplaceAddress } from "lib/getAddresses";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { Approve } from "./Approve";
@@ -84,7 +84,7 @@ export const Transaction: FC<Props> = (props) => {
         />
       )}
       {!!props.onGoBack && (
-        <MarketplaceButton
+        <CarbonmarkButton
           label={<Trans id="transaction_modal.button.go_back">Go back</Trans>}
           disabled={isPending}
           onClick={props.onGoBack}

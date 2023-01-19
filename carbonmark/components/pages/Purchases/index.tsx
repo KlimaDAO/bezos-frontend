@@ -1,9 +1,9 @@
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
+import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { Layout } from "components/Layout";
-import { MarketplaceButton } from "components/MarketplaceButton";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -129,7 +129,7 @@ export const MarketPlacePurchaseReceipt: NextPage<Props> = (props) => {
                         </Trans>
                       }
                     />
-                    <MarketplaceButton
+                    <CarbonmarkButton
                       label={
                         <Trans id="purchase.button.view_assets">
                           View Assets
