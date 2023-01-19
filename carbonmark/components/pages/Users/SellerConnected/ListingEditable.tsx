@@ -11,7 +11,7 @@ import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Transaction } from "components/Transaction";
 import {
   deleteListingTransaction,
-  getC3tokenToMarketplaceAllowance,
+  getC3tokenToCarbonmarkAllowance,
   onApproveCarbonmarkTransaction,
   updateListingTransaction,
 } from "lib/actions";
@@ -70,7 +70,7 @@ export const ListingEditable: FC<Props> = (props) => {
     setIsLoading(true);
     try {
       if (!address || !provider) return;
-      const allowance = await getC3tokenToMarketplaceAllowance({
+      const allowance = await getC3tokenToCarbonmarkAllowance({
         tokenAddress: values.tokenAddress,
         userAddress: address,
         provider,
