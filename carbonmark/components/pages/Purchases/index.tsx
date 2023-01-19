@@ -22,7 +22,7 @@ type Props = {
   transaction: string;
 };
 
-export const MarketPlacePurchaseReceipt: NextPage<Props> = (props) => {
+export const PurchaseReceipt: NextPage<Props> = (props) => {
   const { locale } = useRouter();
 
   const projectName = props.purchase?.listing?.project?.name || "Loading";
@@ -30,9 +30,9 @@ export const MarketPlacePurchaseReceipt: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        title={`Carbonmark - Successfully Purchased Marketplace Project: ${projectName}`}
-        mediaTitle={`Carbonmark - Successfully Purchased Marketplace Project: ${projectName}`}
-        metaDescription={`Carbonmark - Successfully Purchased Marketplace Project: ${projectName}`}
+        title={`Carbonmark - Successfully Purchased Project: ${projectName}`}
+        mediaTitle={`Carbonmark - Successfully Purchased Project: ${projectName}`}
+        metaDescription={`Carbonmark - Successfully Purchased Project: ${projectName}`}
       />
 
       <Layout>

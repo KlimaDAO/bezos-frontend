@@ -1,6 +1,6 @@
 import { Purchase } from "@klimadao/lib/types/carbonmark";
 import { getPurchase, getStaticProvider } from "@klimadao/lib/utils";
-import { MarketPlacePurchaseReceipt } from "components/pages/Purchases";
+import { PurchaseReceipt } from "components/pages/Purchases";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
@@ -81,4 +81,4 @@ export const getStaticPaths = async () => {
   };
 };
 
-export default MarketPlacePurchaseReceipt;
+export default PurchaseReceipt;
