@@ -13,7 +13,7 @@ export const getMarketplaceProjects = async (): Promise<Project[]> => {
   }
 };
 
-export const getMarketplaceProject = async (
+export const getCarbonmarkProject = async (
   projectId: string
 ): Promise<Project> => {
   try {
@@ -21,7 +21,7 @@ export const getMarketplaceProject = async (
     const json = await result.json();
     return json;
   } catch (e) {
-    console.error("Failed to getMarketplaceProject", e);
+    console.error("Failed to getCarbonmarkProject", e);
     return Promise.reject(e);
   }
 };

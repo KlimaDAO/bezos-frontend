@@ -43,10 +43,10 @@ export {
   KNSContract,
 } from "./kns";
 export {
-  getMarketplaceProject,
-  getMarketplaceProjects,
-  getMarketplaceUser,
-  getPurchase,
+    getCarbonmarkProject,
+    getMarketplaceProjects,
+    getMarketplaceUser,
+    getPurchase
 } from "./marketplace";
 export { prettifySeconds } from "./prettifySeconds";
 export { prettifyUrl } from "./prettifyUrl";
