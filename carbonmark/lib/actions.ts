@@ -2,7 +2,7 @@ import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import { Asset } from "@klimadao/lib/types/carbonmark";
 import { formatUnits, getContract } from "@klimadao/lib/utils";
 import { Contract, ethers, providers, Transaction, utils } from "ethers";
-import { getMarketplaceAddress } from "./getAddresses";
+import { getCarbonmarkAddress } from "./getAddresses";
 import { OnStatusHandler } from "./statusMessage";
 
 // TODO: Before GO-LIVE replace with getContract("usdc")
@@ -22,7 +22,7 @@ export const getC3tokenToMarketplaceAllowance = async (params: {
 
   const allowance = await tokenContract.allowance(
     params.userAddress,
-    getMarketplaceAddress()
+    getCarbonmarkAddress()
   );
 
   return ethers.utils.formatUnits(allowance);
@@ -41,7 +41,7 @@ export const getUSDCtokenToMarketplaceAllowance = async (params: {
 
   const allowance = await tokenContract.allowance(
     params.userAddress,
-    getMarketplaceAddress()
+    getCarbonmarkAddress()
   );
 
   return ethers.utils.formatUnits(allowance); // TODO: ensure to pass 6 later for USDC
@@ -65,7 +65,7 @@ export const onApproveMarketplaceTransaction = async (params: {
     params.onStatus("userConfirmation");
 
     const txn = await tokenContract.approve(
-      getMarketplaceAddress(),
+      getCarbonmarkAddress(),
       parsedValue.toString()
     );
 
