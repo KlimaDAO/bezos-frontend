@@ -1,3 +1,4 @@
+import { urls } from "@klimadao/lib/constants";
 import { getOgImageSrc } from "@klimadao/lib/utils";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -24,7 +25,7 @@ export const PageHead = (props: PageHeadProps) => {
   const router = useRouter();
   const relativePath = router.asPath.split(/[#,?]/)[0];
   const canonicalUrl =
-    props.canonicalUrl || `https://www.carbonmark.com${relativePath}`;
+    props.canonicalUrl || `${urls.carbonmark}${relativePath}`;
   const mediaImageSrc = getOgImageSrc(props.mediaImageSrc);
   return (
     <Head>

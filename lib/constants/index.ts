@@ -154,6 +154,7 @@ export const urls = {
   moonpayMatic: "https://www.moonpay.com/buy/matic",
   transakMatic:
     "https://global.transak.com/?fiatCurrency=EUR&network=polygon&cryptoCurrencyCode=MATIC",
+  carbonmark: "https://www.carbonmark.com",
 };
 
 export const polygonNetworks = {
