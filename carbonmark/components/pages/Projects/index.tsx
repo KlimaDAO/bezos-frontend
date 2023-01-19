@@ -20,9 +20,9 @@ export const MarketPlaceProjects: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        title="KlimaDao - Marketplace Projects"
-        mediaTitle="KlimaDao - Marketplace Projects"
-        metaDescription="KlimaDao - Marketplace Projects"
+        title="Carbonmark - Marketplace Projects"
+        mediaTitle="Carbonmark - Marketplace Projects"
+        metaDescription="Carbonmark - Marketplace Projects"
       />
 
       <Layout>

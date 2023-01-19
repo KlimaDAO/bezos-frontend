@@ -226,7 +226,7 @@ export const ListingEditable: FC<Props> = (props) => {
             approvalText={t({
               id: "transaction.edit_listing.approval_description",
               message:
-                "You are about to transfer ownership of this asset from your wallet to the KlimaDAO  You can remove your listing at any time until it has been sold.",
+                "You are about to transfer ownership of this asset from your wallet to the KlimaDAO Carbonmark. You can remove your listing at any time until it has been sold.",
             })}
             onApproval={handleApproval}
             onSubmit={onUpdateListing}

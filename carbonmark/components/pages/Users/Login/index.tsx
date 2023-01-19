@@ -32,9 +32,9 @@ export const Login: NextPage = () => {
   return (
     <>
       <PageHead
-        title="KlimaDao - Marketplace User Login"
-        mediaTitle="KlimaDao - Marketplace User Login"
-        metaDescription="KlimaDao - Marketplace User Login"
+        title="Carbonmark - Marketplace User Login"
+        mediaTitle="Carbonmark - Marketplace User Login"
+        metaDescription="Carbonmark - Marketplace User Login"
       />
 
       <Layout>

@@ -25,9 +25,9 @@ export const Portfolio: NextPage = () => {
   return (
     <>
       <PageHead
-        title="KlimaDao - Marketplace Portfolio"
-        mediaTitle="KlimaDao - Marketplace Portfolio"
-        metaDescription="KlimaDao - Marketplace Portfolio"
+        title="Carbonmark - Portfolio"
+        mediaTitle="Carbonmark - Portfolio"
+        metaDescription="Carbonmark - Portfolio"
       />
 
       <Layout>

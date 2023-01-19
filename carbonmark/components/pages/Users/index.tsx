@@ -36,9 +36,9 @@ export const Users: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        title={`KlimaDao - Marketplace Profile for ${userName}`}
-        mediaTitle={`KlimaDao - Marketplace Profile for ${userName}`}
-        metaDescription={`KlimaDao - Marketplace Profile for ${userName}`}
+        title={`Carbonmark - Marketplace Profile for ${userName}`}
+        mediaTitle={`Carbonmark - Marketplace Profile for ${userName}`}
+        metaDescription={`Carbonmark - Marketplace Profile for ${userName}`}
       />
 
       <Layout

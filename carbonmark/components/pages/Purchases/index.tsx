@@ -30,9 +30,9 @@ export const MarketPlacePurchaseReceipt: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        title={`KlimaDao - Successfully Purchased Marketplace Project: ${projectName}`}
-        mediaTitle={`KlimaDao - Successfully Purchased Marketplace Project: ${projectName}`}
-        metaDescription={`KlimaDao - Successfully Purchased Marketplace Project: ${projectName}`}
+        title={`Carbonmark - Successfully Purchased Marketplace Project: ${projectName}`}
+        mediaTitle={`Carbonmark - Successfully Purchased Marketplace Project: ${projectName}`}
+        metaDescription={`Carbonmark - Successfully Purchased Marketplace Project: ${projectName}`}
       />
 
       <Layout>
