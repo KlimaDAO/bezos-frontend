@@ -14,7 +14,7 @@ type Props = {
   projects: Project[];
 };
 
-export const MarketPlaceProjects: NextPage<Props> = (props) => {
+export const Projects: NextPage<Props> = (props) => {
   const hasProjects = !!props.projects.length;
 
   return (

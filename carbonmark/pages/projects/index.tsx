@@ -1,6 +1,6 @@
 import { Project } from "@klimadao/lib/types/carbonmark";
 import { getCarbonmarkProjects } from "@klimadao/lib/utils";
-import { MarketPlaceProjects } from "components/pages/Projects";
+import { Projects } from "components/pages/Projects";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 
@@ -33,4 +33,4 @@ export const getStaticProps: GetStaticProps<PageProps> = async (ctx) => {
   }
 };
 
-export default MarketPlaceProjects;
+export default Projects;
