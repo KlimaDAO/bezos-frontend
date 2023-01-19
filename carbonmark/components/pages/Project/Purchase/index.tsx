@@ -20,7 +20,7 @@ import { formatBigToPrice } from "lib/formatNumbers";
 
 import { Transaction } from "components/Transaction";
 import {
-  getUSDCtokenToMarketplaceAllowance,
+  getUSDCtokenToCarbonmarkAllowance,
   makePurchase,
   onApproveMarketplaceTransaction,
 } from "lib/actions";
@@ -70,7 +70,7 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
     setIsLoadingAllowance(true);
     try {
       if (!address || !provider) return;
-      const allowance = await getUSDCtokenToMarketplaceAllowance({
+      const allowance = await getUSDCtokenToCarbonmarkAllowance({
         tokenAddress: FAKE_USDC,
         userAddress: address,
         provider,

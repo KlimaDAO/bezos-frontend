@@ -28,7 +28,7 @@ export const getC3tokenToMarketplaceAllowance = async (params: {
   return ethers.utils.formatUnits(allowance);
 };
 
-export const getUSDCtokenToMarketplaceAllowance = async (params: {
+export const getUSDCtokenToCarbonmarkAllowance = async (params: {
   userAddress: string;
   tokenAddress: string;
   provider: ethers.providers.Provider;
