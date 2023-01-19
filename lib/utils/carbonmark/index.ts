@@ -2,13 +2,13 @@ import { Project, Purchase, User } from "../../types/carbonmark";
 
 import { carbonmark } from "../../constants";
 
-export const getMarketplaceProjects = async (): Promise<Project[]> => {
+export const getCarbonmarkProjects = async (): Promise<Project[]> => {
   try {
     const result = await fetch(carbonmark.projects);
     const json = await result.json();
     return json;
   } catch (e) {
-    console.error("Failed to getMarketplaceProjects", e);
+    console.error("Failed to getCarbonmarkProjects", e);
     return Promise.reject(e);
   }
 };

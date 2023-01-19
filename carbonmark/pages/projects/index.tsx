@@ -1,5 +1,5 @@
 import { Project } from "@klimadao/lib/types/carbonmark";
-import { getMarketplaceProjects } from "@klimadao/lib/utils";
+import { getCarbonmarkProjects } from "@klimadao/lib/utils";
 import { MarketPlaceProjects } from "components/pages/Projects";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
@@ -10,7 +10,7 @@ interface PageProps {
 
 export const getStaticProps: GetStaticProps<PageProps> = async (ctx) => {
   try {
-    const projects = await getMarketplaceProjects();
+    const projects = await getCarbonmarkProjects();
     const translation = await loadTranslation(ctx.locale);
 
     if (!translation) {
