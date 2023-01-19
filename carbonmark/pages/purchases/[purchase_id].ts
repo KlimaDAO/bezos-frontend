@@ -54,7 +54,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     } catch (e) {
       // Only log the error on server,
       // Render page with default data because transaction was valid on chain
-      console.error("Failed to get Purchase from Marketplace API", e);
+      console.error("Failed to get Purchase from Carbonmark API", e);
     }
 
     return {
@@ -66,7 +66,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       revalidate: 10,
     };
   } catch (e) {
-    console.error("Failed to generate Marketplace Purchase Receipt Page", e);
+    console.error("Failed to generate Carbonmark Purchase Receipt Page", e);
     return {
       notFound: true,
       revalidate: 240,

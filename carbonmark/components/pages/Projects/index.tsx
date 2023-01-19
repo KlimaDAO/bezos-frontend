@@ -20,9 +20,9 @@ export const Projects: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        title="Carbonmark - Marketplace Projects"
-        mediaTitle="Carbonmark - Marketplace Projects"
-        metaDescription="Carbonmark - Marketplace Projects"
+        title="Carbonmark - Projects"
+        mediaTitle="Carbonmark - Projects"
+        metaDescription="Carbonmark - Projects"
       />
 
       <Layout>
@@ -49,7 +49,7 @@ export const Projects: NextPage<Props> = (props) => {
                 </div>
               </Link>
             ))}
-          {!hasProjects && <Text>No projects found from Marketplace API</Text>}
+          {!hasProjects && <Text>No projects found from Carbonmark API</Text>}
         </div>
       </Layout>
     </>

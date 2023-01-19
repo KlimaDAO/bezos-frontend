@@ -50,7 +50,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       revalidate: 240,
     };
   } catch (e) {
-    console.error("Failed to generate Marketplace Project Purchase Page", e);
+    console.error("Failed to generate Carbonmark Project Purchase Page", e);
     return {
       notFound: true,
       revalidate: 240,
