@@ -164,7 +164,7 @@ export const SellerConnected: FC<Props> = (props) => {
       <div className={styles.fullWidth}>
         <ProfileHeader
           userName={user?.username || props.userName}
-          isMarketplaceUser={!!user}
+          isCarbonmarkUser={!!user}
           description={
             user?.description ||
             t({
