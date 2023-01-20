@@ -6,6 +6,7 @@ import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 import { getSellerAddress } from "lib/sellerGetter";
 import { useRouter } from "next/router";
 import { FC } from "react";
+import { ACTIVITY_ACTIONS } from "./Activities.constants";
 import { activityTime } from "./Activities.utils";
 import * as styles from "./styles";
 
@@ -28,7 +29,7 @@ export const Activity: FC<ActivityT> = (activity) => {
         <span className="seller">
           {getSellerAddress(activity.seller.id, address)}
         </span>
-        {activity.activityType}
+        {ACTIVITY_ACTIONS[activity.activityType]}
       </Text>
       {!!activity.amount && activity.price && (
         <Text t="caption">

@@ -1,5 +1,4 @@
 import { BigNumber } from "ethers";
-import { ActivityActions } from "../constants/carbonmark.constants";
 
 export interface Project {
   id: string;
@@ -61,7 +60,13 @@ export type Listing = {
 };
 
 /** A type representing possible activity actions (e.g "Sold", "Purchase" etc) */
-export type ActivityActionT = typeof ActivityActions[number];
+export type ActivityActionT =
+  | "UpdatedQuantity"
+  | "UpdatedPrice"
+  | "CreatedListing"
+  | "DeletedListing"
+  | "Purchase"
+  | "Sold";
 
 export type ActivityType = {
   id: number;
