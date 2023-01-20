@@ -4,11 +4,11 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 import { formatWalletAddress } from "lib/formatWalletAddress";
+import { getActivityTime } from "lib/getActivityTime";
 import { notNil } from "lib/utils";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { ACTIVITY_ACTIONS } from "./Activities.constants";
-import { activityTime } from "./Activities.utils";
 import * as styles from "./styles";
 
 const tonnesT = t({ id: "tonnes.short", message: "t" });
@@ -34,8 +34,8 @@ export const Activity: FC<ActivityT> = (activity) => {
   amountA = notNil(activity.amount)
     ? `${formatBigToTonnes(activity.amount, locale)}${tonnesT}`
     : undefined;
-  amountB = activity.price
-    ? `${formatBigToPrice(activity.price ?? 0, locale)}`
+  amountB = notNil(activity.price)
+    ? `${formatBigToPrice(activity.price, locale)}`
     : undefined;
 
   /** Determine the order in which to display addresses based on the activity type */
@@ -74,7 +74,7 @@ export const Activity: FC<ActivityT> = (activity) => {
       <Text t="caption">{activity.project?.name || "unknown"}</Text>
       <Text t="caption" color="lighter">
         <i>
-          {activityTime({
+          {getActivityTime({
             locale: locale || "en",
             timeStamp: Number(activity.timeStamp),
           })}
@@ -98,7 +98,7 @@ export const Activity: FC<ActivityT> = (activity) => {
           </Anchor>
         )}
       </Text>
-      {[activity.amount, activity.price].every(notNil) && (
+      {!!amountA && !!amountB && (
         <Text t="caption">
           <span className="number">{`${amountA}`}</span> {transactionString}
           <span className="number">{`${amountB}`}</span>

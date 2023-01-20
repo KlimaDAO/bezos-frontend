@@ -7,10 +7,7 @@ export const formatBigToPrice = (value: BigNumberish, locale = "en") => {
   return formatToPrice(toNumber, locale);
 };
 
-export const formatToPrice = (
-  value: string | number | BigNumberish,
-  locale = "en"
-) => {
+export const formatToPrice = (value: string | number, locale = "en") => {
   const toNumber = Number(value);
   return new Intl.NumberFormat(locale, {
     style: "currency",
