@@ -1,18 +1,17 @@
 import { Anchor, Text } from "@klimadao/lib/components";
 import { ActivityType as ActivityT } from "@klimadao/lib/types/carbonmark";
 import { useWeb3 } from "@klimadao/lib/utils";
-import { Trans } from "@lingui/macro";
+import { t } from "@lingui/macro";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 import { formatWalletAddress } from "lib/formatWalletAddress";
+import { notNil } from "lib/utils";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { ACTIVITY_ACTIONS } from "./Activities.constants";
-import {
-  activityTime,
-  isPurchaseActivity,
-  isSaleActivity,
-} from "./Activities.utils";
+import { activityTime } from "./Activities.utils";
 import * as styles from "./styles";
+
+const tonnesT = t({ id: "tonnes.short", message: "t" });
 
 /** Represents a single activity of a user  */
 export const Activity: FC<ActivityT> = (activity) => {
@@ -20,21 +19,59 @@ export const Activity: FC<ActivityT> = (activity) => {
   const { locale } = useRouter();
 
   let addressA, addressB;
+  let amountA, amountB;
+  let transactionString = "at";
 
-  /** By default the seller is the "source" of all other actions */
+  const isPurchaseActivity = activity.activityType === "Purchase";
+  const isSaleActivity = activity.activityType === "Sold";
+  const isUpdateQuantity = activity.activityType === "UpdatedQuantity";
+  const isUpdatePrice = activity.activityType === "UpdatedPrice";
+
+  /** By default the seller is the "source" of all actions */
   addressA = activity.seller.id;
 
+  /** By default activities are buy or sell transactions */
+  amountA = notNil(activity.amount)
+    ? `${formatBigToTonnes(activity.amount, locale)}${tonnesT}`
+    : undefined;
+  amountB = activity.price
+    ? `${formatBigToPrice(activity.price ?? 0, locale)}`
+    : undefined;
+
   /** Determine the order in which to display addresses based on the activity type */
-  if (isPurchaseActivity(activity)) {
+  if (isPurchaseActivity) {
     addressA = activity.buyer.id;
     addressB = activity.seller.id;
-  } else if (isSaleActivity(activity)) {
+  } else if (isSaleActivity) {
     addressB = activity.buyer.id;
+  }
+
+  /** Price Labels */
+  if (isUpdatePrice) {
+    amountA = formatBigToPrice(activity.previousPrice ?? 0, locale);
+    amountB = formatBigToPrice(activity.price ?? 0, locale);
+  }
+
+  /** Quantity Labels */
+  if (isUpdateQuantity) {
+    amountA = formatBigToTonnes(activity.previousAmount ?? 0);
+    amountB = formatBigToTonnes(activity.amount ?? 0);
+  }
+
+  /** Determine the conjunction between the labels */
+  if (isPurchaseActivity || isSaleActivity) {
+    transactionString = t({
+      id: "activity.transaction.conjunction",
+      message: "for",
+    });
+  }
+  if (isUpdatePrice || isUpdateQuantity) {
+    transactionString = "->";
   }
 
   return (
     <div key={activity.id} className={styles.activity}>
-      <Text t="caption">{activity.project?.name ?? "unknown"}</Text>
+      <Text t="caption">{activity.project?.name || "unknown"}</Text>
       <Text t="caption" color="lighter">
         <i>
           {activityTime({
@@ -61,16 +98,10 @@ export const Activity: FC<ActivityT> = (activity) => {
           </Anchor>
         )}
       </Text>
-      {!!activity.amount && activity.price && (
+      {[activity.amount, activity.price].every(notNil) && (
         <Text t="caption">
-          <span className="number">
-            {formatBigToTonnes(activity.amount, locale)}
-            <Trans id="tonnes.short">t</Trans>
-          </span>{" "}
-          at
-          <span className="number">
-            {formatBigToPrice(activity.price, locale)}
-          </span>
+          <span className="number">{`${amountA}`}</span> {transactionString}
+          <span className="number">{`${amountB}`}</span>
         </Text>
       )}
     </div>

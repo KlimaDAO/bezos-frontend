@@ -59,7 +59,10 @@ export type Listing = {
   };
 };
 
-/** A type representing possible activity actions (e.g "Sold", "Purchase" etc) */
+/**
+ * A type representing possible activity actions (e.g "Sold", "Purchase" etc)
+ * Sourced from: https://github.com/Atmosfearful/bezos-frontend/issues/9#issuecomment-1348069483
+ */
 export type ActivityActionT =
   | "UpdatedQuantity"
   | "UpdatedPrice"
