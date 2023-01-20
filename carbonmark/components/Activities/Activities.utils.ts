@@ -1,3 +1,5 @@
+import { ActivityType } from "@klimadao/lib/types/carbonmark";
+
 export const activityTime = (params: { locale: string; timeStamp: number }) => {
   const now = Date.now();
   const elapsedSeconds = Math.abs((params.timeStamp * 1000 - now) / 1000);
@@ -20,3 +22,8 @@ export const activityTime = (params: { locale: string; timeStamp: number }) => {
     );
   }
 };
+
+export const isPurchaseActivity = (activity: ActivityType) =>
+  activity.activityType === "Purchase";
+export const isSaleActivity = (activity: ActivityType) =>
+  activity.activityType === "Sold";
