@@ -14,7 +14,7 @@ import * as styles from "./styles";
 const tonnesT = t({ id: "tonnes.short", message: "t" });
 
 /** Represents a single activity of a user  */
-export const Activity: FC<ActivityT> = (activity) => {
+export const Activity: FC<ActivityT> = (props) => {
   const { address: connectedAddress } = useWeb3();
   const { locale } = useRouter();
 
@@ -22,46 +22,46 @@ export const Activity: FC<ActivityT> = (activity) => {
   let amountA, amountB;
   let transactionString = "at";
 
-  const isPurchaseActivity = activity.activityType === "Purchase";
-  const isSaleActivity = activity.activityType === "Sold";
-  const isUpdateQuantity = activity.activityType === "UpdatedQuantity";
-  const isUpdatePrice = activity.activityType === "UpdatedPrice";
+  const isPurchaseActivity = props.activityType === "Purchase";
+  const isSaleActivity = props.activityType === "Sold";
+  const isUpdateQuantity = props.activityType === "UpdatedQuantity";
+  const isUpdatePrice = props.activityType === "UpdatedPrice";
 
   /** By default the seller is the "source" of all actions */
-  addressA = activity.seller.id;
+  addressA = props.seller.id;
 
   /** By default activities are buy or sell transactions */
-  amountA = notNil(activity.amount)
-    ? `${formatBigToTonnes(activity.amount, locale)}${tonnesT}`
+  amountA = notNil(props.amount)
+    ? `${formatBigToTonnes(props.amount, locale)}${tonnesT}`
     : undefined;
-  amountB = notNil(activity.price)
-    ? `${formatBigToPrice(activity.price, locale)}`
+  amountB = notNil(props.price)
+    ? `${formatBigToPrice(props.price, locale)}`
     : undefined;
 
   /** Determine the order in which to display addresses based on the activity type */
   if (isPurchaseActivity) {
-    addressA = activity.buyer.id;
-    addressB = activity.seller.id;
+    addressA = props.buyer.id;
+    addressB = props.seller.id;
   } else if (isSaleActivity) {
-    addressB = activity.buyer.id;
+    addressB = props.buyer.id;
   }
 
   /** Price Labels */
   if (isUpdatePrice) {
-    amountA = formatBigToPrice(activity.previousPrice ?? 0, locale);
-    amountB = formatBigToPrice(activity.price ?? 0, locale);
+    amountA = formatBigToPrice(props.previousPrice ?? 0, locale);
+    amountB = formatBigToPrice(props.price ?? 0, locale);
   }
 
   /** Quantity Labels */
   if (isUpdateQuantity) {
-    amountA = formatBigToTonnes(activity.previousAmount ?? 0);
-    amountB = formatBigToTonnes(activity.amount ?? 0);
+    amountA = formatBigToTonnes(props.previousAmount ?? 0);
+    amountB = formatBigToTonnes(props.amount ?? 0);
   }
 
   /** Determine the conjunction between the labels */
   if (isPurchaseActivity || isSaleActivity) {
     transactionString = t({
-      id: "activity.transaction.conjunction",
+      id: "props.transaction.conjunction",
       message: "for",
     });
   }
@@ -70,13 +70,13 @@ export const Activity: FC<ActivityT> = (activity) => {
   }
 
   return (
-    <div key={activity.id} className={styles.activity}>
-      <Text t="caption">{activity.project?.name || "unknown"}</Text>
+    <div key={props.id} className={styles.activity}>
+      <Text t="caption">{props.project?.name || "unknown"}</Text>
       <Text t="caption" color="lighter">
         <i>
           {getActivityTime({
             locale: locale || "en",
-            timeStamp: Number(activity.timeStamp),
+            timeStamp: Number(props.timeStamp),
           })}
         </i>
       </Text>
@@ -87,7 +87,7 @@ export const Activity: FC<ActivityT> = (activity) => {
         >
           {formatWalletAddress(addressA, connectedAddress)}{" "}
         </Anchor>
-        {ACTIVITY_ACTIONS[activity.activityType]}
+        {ACTIVITY_ACTIONS[props.activityType]}
         {addressB && (
           <Anchor
             className="account"
