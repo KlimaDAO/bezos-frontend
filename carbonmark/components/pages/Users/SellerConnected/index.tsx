@@ -167,14 +167,8 @@ export const SellerConnected: FC<Props> = (props) => {
       <div className={styles.fullWidth}>
         <ProfileHeader
           userName={user?.username || props.userName}
-          description={
-            user?.description ||
-            t({
-              id: "profile.edit_your_profile",
-              message: "Edit your profile to add a description",
-            })
-          }
           isCarbonmarkUser={isCarbonmarkUser}
+          description={user?.description}
         />
       </div>
 
