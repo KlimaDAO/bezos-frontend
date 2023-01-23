@@ -160,13 +160,21 @@ export const EditProfile: FC<Props> = (props) => {
               message: "Your display name",
             }),
             type: "text",
-            ...register("username", { required: true }),
+            ...register("username", {
+              required: {
+                value: true,
+                message: t({
+                  id: "user.edit.form.input.username.required",
+                  message: "Display Name is required",
+                }),
+              },
+            }),
           }}
           label={t({
             id: "user.edit.form.input.username.label",
             message: "Display Name",
           })}
-          errorMessage={formState.errors.username && "Display Name is required"}
+          errorMessage={formState.errors.username?.message}
         />
         <TextareaField
           id="description"
