@@ -1,8 +1,8 @@
 import { trimWithLocale } from "@klimadao/lib/utils";
-import { BigNumberish, utils } from "ethers";
+import { BigNumber, utils } from "ethers";
 
 // price is always only USDC??
-export const formatBigToPrice = (value: BigNumberish, locale = "en") => {
+export const formatBigToPrice = (value: BigNumber, locale = "en") => {
   const toNumber = Number(utils.formatUnits(value, 18)); // TODO: ensure to change this later to 6 decimals for USDC !!
   return formatToPrice(toNumber, locale);
 };
@@ -16,7 +16,7 @@ export const formatToPrice = (value: string | number, locale = "en") => {
   }).format(toNumber);
 };
 
-export const formatBigToTonnes = (value: BigNumberish, locale = "en") => {
+export const formatBigToTonnes = (value: BigNumber, locale = "en") => {
   const toNumber = utils.formatUnits(value, 18);
   return formatToTonnes(toNumber, locale);
 };

@@ -48,14 +48,15 @@ export const Activity: FC<ActivityT> = (props) => {
 
   /** Price Labels */
   if (isUpdatePrice) {
-    amountA = formatBigToPrice(props.previousPrice ?? 0, locale);
-    amountB = formatBigToPrice(props.price ?? 0, locale);
+    amountA =
+      props.previousPrice && formatBigToPrice(props.previousPrice, locale);
+    amountB = props.price && formatBigToPrice(props.price, locale);
   }
 
   /** Quantity Labels */
   if (isUpdateQuantity) {
-    amountA = formatBigToTonnes(props.previousAmount ?? 0);
-    amountB = formatBigToTonnes(props.amount ?? 0);
+    amountA = props.previousAmount && formatBigToTonnes(props.previousAmount);
+    amountB = props.amount && formatBigToTonnes(props.amount);
   }
 
   /** Determine the conjunction between the labels */
