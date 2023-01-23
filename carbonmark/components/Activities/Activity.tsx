@@ -29,8 +29,11 @@ export const Activity: FC<ActivityT> = (props) => {
   const isUpdateQuantity = props.activityType === "UpdatedQuantity";
   const isUpdatePrice = props.activityType === "UpdatedPrice";
 
+  const sellerID = props.seller.id;
+  const buyerId = props.buyer?.id;
+
   /** By default the seller is the "source" of all actions */
-  addressA = props.seller.id;
+  addressA = sellerID;
 
   /** By default activities are buy or sell transactions */
   amountA =
@@ -39,10 +42,13 @@ export const Activity: FC<ActivityT> = (props) => {
 
   /** Determine the order in which to display addresses based on the activity type */
   if (isPurchaseActivity) {
-    addressA = props.buyer.id;
-    addressB = props.seller.id;
-  } else if (isSaleActivity) {
-    addressB = props.buyer.id;
+    addressA = buyerId;
+    addressB = sellerID;
+  }
+
+  if (isSaleActivity) {
+    addressA = sellerID;
+    addressB = buyerId;
   }
 
   /** Price Labels */
@@ -81,13 +87,17 @@ export const Activity: FC<ActivityT> = (props) => {
         </i>
       </Text>
       <Text t="caption">
-        <Anchor
-          className="account"
-          href={`https://polygonscan.com/address/${addressA}`}
-        >
-          {formatWalletAddress(addressA, connectedAddress)}{" "}
-        </Anchor>
+        {!!addressA && (
+          <Anchor
+            className="account"
+            href={`https://polygonscan.com/address/${addressA}`}
+          >
+            {formatWalletAddress(addressA, connectedAddress)}{" "}
+          </Anchor>
+        )}
+
         {ACTIVITY_ACTIONS[props.activityType]}
+
         {addressB && (
           <Anchor
             className="account"
