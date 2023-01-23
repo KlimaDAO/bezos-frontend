@@ -5,7 +5,6 @@ import { t } from "@lingui/macro";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 import { formatWalletAddress } from "lib/formatWalletAddress";
 import { getElapsedTime } from "lib/getElapsedTime";
-import { notNil } from "lib/utils";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { ACTIVITY_ACTIONS } from "./Activities.constants";
@@ -31,12 +30,9 @@ export const Activity: FC<ActivityT> = (props) => {
   addressA = props.seller.id;
 
   /** By default activities are buy or sell transactions */
-  amountA = notNil(props.amount)
-    ? `${formatBigToTonnes(props.amount, locale)}${tonnesT}`
-    : undefined;
-  amountB = notNil(props.price)
-    ? `${formatBigToPrice(props.price, locale)}`
-    : undefined;
+  amountA =
+    !!props.amount && `${formatBigToTonnes(props.amount, locale)}${tonnesT}`;
+  amountB = !!props.price && `${formatBigToPrice(props.price, locale)}`;
 
   /** Determine the order in which to display addresses based on the activity type */
   if (isPurchaseActivity) {
