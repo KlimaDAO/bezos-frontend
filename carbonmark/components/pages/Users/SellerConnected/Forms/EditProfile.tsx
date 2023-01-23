@@ -128,13 +128,28 @@ export const EditProfile: FC<Props> = (props) => {
               message: "Your unique handle",
             }),
             type: "text",
-            ...register("handle", { required: true }),
+            ...register("handle", {
+              required: {
+                value: true,
+                message: t({
+                  id: "user.edit.form.input.handle.required",
+                  message: "Handle is required",
+                }),
+              },
+              pattern: {
+                value: /^[a-zA-Z0-9]+$/, // no special characters!
+                message: t({
+                  id: "user.edit.form.input.handle.pattern",
+                  message: "Handle should contain any special characters",
+                }),
+              },
+            }),
           }}
           label={t({
             id: "user.edit.form.input.handle.label",
             message: "Handle (not changeable later! Choose wisely)",
           })}
-          errorMessage={formState.errors.handle && "Handle is required"}
+          errorMessage={formState.errors.handle?.message}
         />
         <InputField
           id="username"
