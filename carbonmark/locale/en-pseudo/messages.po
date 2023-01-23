@@ -192,7 +192,7 @@ msgstr ""
 msgid "profile.editListing_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:183
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:206
 msgid "profile.edit_modal.submit"
 msgstr ""
 
@@ -542,20 +542,28 @@ msgstr ""
 msgid "user.edit.form.error.user_rejected"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:166
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:189
 msgid "user.edit.form.input.description.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:160
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:183
 msgid "user.edit.form.input.description.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:133
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:148
 msgid "user.edit.form.input.handle.label"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:141
+msgid "user.edit.form.input.handle.pattern"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:126
 msgid "user.edit.form.input.handle.placeholder"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:134
+msgid "user.edit.form.input.handle.required"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/AddListing.tsx:131
@@ -570,12 +578,16 @@ msgstr ""
 msgid "user.edit.form.input.totalAmountToSell.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:150
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:173
 msgid "user.edit.form.input.username.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:143
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:158
 msgid "user.edit.form.input.username.placeholder"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:166
+msgid "user.edit.form.input.username.required"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:86
