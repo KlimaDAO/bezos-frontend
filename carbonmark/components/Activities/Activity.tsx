@@ -19,7 +19,10 @@ export const Activity: FC<ActivityT> = (props) => {
 
   let addressA, addressB;
   let amountA, amountB;
-  let transactionString = "at";
+  let transactionString = t({
+    id: "props.transaction.conjunction.at",
+    message: "at",
+  });
 
   const isPurchaseActivity = props.activityType === "Purchase";
   const isSaleActivity = props.activityType === "Sold";
