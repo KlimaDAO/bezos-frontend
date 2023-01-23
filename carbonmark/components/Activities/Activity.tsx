@@ -4,7 +4,7 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 import { formatWalletAddress } from "lib/formatWalletAddress";
-import { getActivityTime } from "lib/getActivityTime";
+import { getElapsedTime } from "lib/getElapsedTime";
 import { notNil } from "lib/utils";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -75,7 +75,7 @@ export const Activity: FC<ActivityT> = (props) => {
       <Text t="caption">{props.project?.name || "unknown"}</Text>
       <Text t="caption" color="lighter">
         <i>
-          {getActivityTime({
+          {getElapsedTime({
             locale: locale || "en",
             timeStamp: Number(props.timeStamp),
           })}
