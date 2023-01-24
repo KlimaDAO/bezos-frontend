@@ -19,10 +19,7 @@ export interface Project {
     latitude: number;
     longitude: number;
   };
-  description?: {
-    latitude: number;
-    longitude: number;
-  };
+  description?: string;
   isPoolProject: boolean;
 }
 
