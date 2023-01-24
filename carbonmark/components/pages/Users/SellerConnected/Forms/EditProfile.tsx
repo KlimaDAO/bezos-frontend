@@ -4,6 +4,7 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
+import { utils } from "ethers";
 import { loginUser, postUser, putUser, verifyUser } from "lib/api";
 import { FC, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -143,13 +144,21 @@ export const EditProfile: FC<Props> = (props) => {
                   message: "Handle should contain any special characters",
                 }),
               },
+              validate: (value) => !utils.isAddress(value), // no polygon addresses
             }),
           }}
           label={t({
             id: "user.edit.form.input.handle.label",
             message: "Handle (not changeable later! Choose wisely)",
           })}
-          errorMessage={formState.errors.handle?.message}
+          errorMessage={
+            formState.errors.handle?.message ||
+            (formState.errors.handle &&
+              t({
+                id: "user.edit.form.input.handle.invalid",
+                message: "Not a valid handle name",
+              }))
+          }
         />
         <InputField
           id="username"
