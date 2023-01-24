@@ -23,6 +23,7 @@ export interface Project {
     latitude: number;
     longitude: number;
   };
+  isPoolProject: boolean;
 }
 
 export interface User {
