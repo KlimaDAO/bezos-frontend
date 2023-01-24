@@ -15,6 +15,14 @@ export interface Project {
   country: Country;
   activities: ActivityType[];
   updatedAt: string; // timestamp
+  location?: {
+    latitude: number;
+    longitude: number;
+  };
+  description?: {
+    latitude: number;
+    longitude: number;
+  };
 }
 
 export interface User {
