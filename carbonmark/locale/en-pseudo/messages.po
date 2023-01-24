@@ -192,7 +192,7 @@ msgstr ""
 msgid "profile.editListing_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:206
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:215
 msgid "profile.edit_modal.submit"
 msgstr ""
 
@@ -530,39 +530,43 @@ msgstr ""
 msgid "user.edit.form.edit.quantity.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:82
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:83
 msgid "user.edit.form.error.api_error"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:101
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:102
 msgid "user.edit.form.error.general_error"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:94
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:95
 msgid "user.edit.form.error.user_rejected"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:189
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:198
 msgid "user.edit.form.input.description.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:183
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:192
 msgid "user.edit.form.input.description.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:148
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:157
+msgid "user.edit.form.input.handle.invalid"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:150
 msgid "user.edit.form.input.handle.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:141
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:142
 msgid "user.edit.form.input.handle.pattern"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:126
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:127
 msgid "user.edit.form.input.handle.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:134
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:135
 msgid "user.edit.form.input.handle.required"
 msgstr ""
 
@@ -578,15 +582,15 @@ msgstr ""
 msgid "user.edit.form.input.totalAmountToSell.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:173
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:182
 msgid "user.edit.form.input.username.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:158
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:167
 msgid "user.edit.form.input.username.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:166
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:175
 msgid "user.edit.form.input.username.required"
 msgstr ""
 
