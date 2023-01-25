@@ -1,5 +1,6 @@
 import { Text } from "@klimadao/lib/components";
 import { Project } from "@klimadao/lib/types/carbonmark";
+import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
 import { ProjectImage } from "components/ProjectImage";
@@ -48,6 +49,9 @@ export const Projects: NextPage<Props> = (props) => {
                     <div className={styles.tags}>
                       {!!project.category?.id && (
                         <Category category={project.category.id} />
+                      )}
+                      {project.isPoolProject && (
+                        <SyncOutlinedIcon fontSize="large" />
                       )}
                       <Vintage vintage={project.vintage} />
                     </div>
