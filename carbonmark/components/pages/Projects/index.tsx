@@ -41,7 +41,9 @@ export const Projects: NextPage<Props> = (props) => {
                     )}
                   </div>
                   <div className={styles.cardContent}>
-                    <Text t="h4">{project.name}</Text>
+                    <Text t="h4">
+                      {project.name || "! MISSING PROJECT NAME !"}
+                    </Text>
                     <Text t="caption">{project.methodology}</Text>
                     <div className={styles.tags}>
                       {!!project.category?.id && (

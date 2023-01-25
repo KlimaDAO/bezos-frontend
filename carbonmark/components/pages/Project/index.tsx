@@ -68,7 +68,7 @@ export const Project: NextPage<Props> = (props) => {
             <div className={styles.imageGradient}></div>
             <div className="stack">
               <Text t="h4" align="center" className={styles.projectHeaderText}>
-                {props.project.name}
+                {props.project.name || "! MISSING PROJECT NAME !"}
               </Text>
             </div>
             <div className={styles.tags}>
