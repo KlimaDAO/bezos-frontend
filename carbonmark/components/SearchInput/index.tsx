@@ -1,4 +1,3 @@
-import { cx } from "@emotion/css";
 import { ButtonPrimary } from "@klimadao/lib/components";
 import SearchIcon from "@mui/icons-material/Search";
 import { InputField, InputFieldProps } from "components/shared/Form/InputField";
@@ -23,13 +22,7 @@ export const SearchInput: FC<SearchInputProps> = (props) => {
         label={props.label}
         hideLabel
       />
-      <ButtonPrimary
-        className={cx(styles.button, { dark, light })}
-        icon={<SearchIcon width={24} height={24} />}
-      />
-
-      {/* <input {...props} className={cx(styles.inputStyles, props.className)} />
-      <button > */}
+      <ButtonPrimary className={styles.button} icon={<SearchIcon />} />
     </div>
   );
 };

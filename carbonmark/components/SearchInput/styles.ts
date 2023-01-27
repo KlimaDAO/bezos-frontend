@@ -12,6 +12,7 @@ export const main = css`
 
 export const button = css`
   padding: 1.4rem;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
   //Unfortunately button styles win the selector war here
   color: var(--font-inverse-01) !important;
   background: var(--surface-inverse-01);
