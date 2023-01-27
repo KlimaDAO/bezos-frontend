@@ -3,7 +3,7 @@ import { ButtonPrimary, CarbonmarkLogo } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
-import { SearchBar } from "components/SearchBar";
+import { ProjectsController } from "components/ProjectsController";
 import { connectErrorStrings } from "lib/constants";
 import Link from "next/link";
 import { FC, ReactNode, useState } from "react";
@@ -59,7 +59,7 @@ export const Layout: FC<Props> = (props: Props) => {
 
           {/* <ChangeLanguageButton /> */}
           {/* {isDesktop && <ThemeToggle />} */}
-          <SearchBar />
+          <ProjectsController className={styles.projectsController} />
 
           {props.profileButton}
 

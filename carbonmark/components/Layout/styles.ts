@@ -199,3 +199,7 @@ export const global = css`
     }
   }
 `;
+
+export const projectsController = css`
+  margin-right: auto;
+`;
