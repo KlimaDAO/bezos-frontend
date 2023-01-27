@@ -202,4 +202,5 @@ export const global = css`
 
 export const projectsController = css`
   margin-right: auto;
+  width: 100%;
 `;
