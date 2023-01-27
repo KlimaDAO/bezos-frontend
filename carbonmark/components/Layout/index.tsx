@@ -28,7 +28,7 @@ export const Layout: FC<Props> = (props: Props) => {
   const { address, renderModal, isConnected, toggleModal, disconnect } =
     useWeb3();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  // const { isDesktop } = useResponsive();
+  const { isDesktop, isMobile } = useResponsive();
 
   return (
     <div
@@ -59,7 +59,10 @@ export const Layout: FC<Props> = (props: Props) => {
 
           {/* <ChangeLanguageButton /> */}
           {/* {isDesktop && <ThemeToggle />} */}
-          <ProjectsController className={styles.projectsController} />
+          {/* Desktop controller */}
+          {isDesktop && (
+            <ProjectsController className={styles.projectsController} />
+          )}
 
           {props.profileButton}
 
@@ -112,6 +115,10 @@ export const Layout: FC<Props> = (props: Props) => {
               },
             })}
         </div>
+
+        {isMobile && (
+          <ProjectsController className={styles.mobileProjectsController} />
+        )}
 
         {props.children}
 

@@ -5,6 +5,7 @@ import ListIcon from "@mui/icons-material/List";
 import TuneIcon from "@mui/icons-material/Tune";
 import { SearchInput } from "components/SearchInput";
 import { Toggle } from "components/Toggle";
+import { useResponsive } from "hooks/useResponsive";
 import { FC, HTMLAttributes } from "react";
 import * as styles from "./styles";
 
@@ -16,6 +17,7 @@ const TOGGLE_OPTIONS = [
 ];
 
 export const ProjectsController: FC<ProjectControllerProps> = (props) => {
+  const { isDesktop } = useResponsive();
   return (
     <div {...props} className={cx(styles.main, props.className)}>
       <SearchInput
@@ -29,7 +31,7 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
         icon={<TuneIcon />}
         label="Filters"
       />
-      <Toggle onChange={console.log} options={TOGGLE_OPTIONS} />
+      {isDesktop && <Toggle onChange={console.log} options={TOGGLE_OPTIONS} />}
     </div>
   );
 };
