@@ -4,8 +4,10 @@ import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
 import { ProjectsController } from "components/ProjectsController";
+import { useResponsive } from "hooks/useResponsive";
 import { connectErrorStrings } from "lib/constants";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { FC, ReactNode, useState } from "react";
 import { Footer } from "../Footer";
 import { NavDrawer } from "./NavDrawer";
@@ -29,6 +31,11 @@ export const Layout: FC<Props> = (props: Props) => {
     useWeb3();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const { isDesktop, isMobile } = useResponsive();
+  /**
+   * Only show the projects controller if on the Projects Page
+   * @todo lift this logic to projects/index.tsx and pass the child components as props to Layout
+   */
+  const isProjects = useRouter().pathname === "/projects";
 
   return (
     <div
@@ -60,7 +67,7 @@ export const Layout: FC<Props> = (props: Props) => {
           {/* <ChangeLanguageButton /> */}
           {/* {isDesktop && <ThemeToggle />} */}
           {/* Desktop controller */}
-          {isDesktop && (
+          {isProjects && isDesktop && (
             <ProjectsController className={styles.projectsController} />
           )}
 
@@ -116,7 +123,7 @@ export const Layout: FC<Props> = (props: Props) => {
             })}
         </div>
 
-        {isMobile && (
+        {isProjects && isMobile && (
           <ProjectsController className={styles.mobileProjectsController} />
         )}
 
