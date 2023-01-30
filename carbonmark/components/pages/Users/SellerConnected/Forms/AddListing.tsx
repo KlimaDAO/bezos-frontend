@@ -2,11 +2,12 @@ import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { Asset } from "@klimadao/lib/types/carbonmark";
 import { t, Trans } from "@lingui/macro";
 import { InputField } from "components/shared/Form/InputField";
+import { MINIMUM_TONNE_PRICE } from "lib/constants";
+import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useForm, useWatch } from "react-hook-form";
 import { ProjectTokenDropDown } from "../ProjectTokenDropDown";
 import * as styles from "./styles";
-
 export type FormValues = {
   tokenAddress: string;
   totalAmountToSell: string;
@@ -28,6 +29,8 @@ const defaultValues = {
 };
 
 export const AddListing: FC<Props> = (props) => {
+  const { locale } = useRouter();
+
   const { register, handleSubmit, formState, control, setValue } =
     useForm<FormValues>({
       defaultValues: {
@@ -136,7 +139,9 @@ export const AddListing: FC<Props> = (props) => {
                   value: 0.1,
                   message: t({
                     id: "user.listing.form.input.singleUnitPrice.minimum",
-                    message: "The minimum price per tonne is 0,1",
+                    message: `The minimum price per tonne is ${MINIMUM_TONNE_PRICE.toLocaleString(
+                      locale
+                    )}`,
                   }),
                 },
               }),
