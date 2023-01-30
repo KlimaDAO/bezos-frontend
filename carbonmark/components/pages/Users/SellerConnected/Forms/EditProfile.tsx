@@ -144,7 +144,14 @@ export const EditProfile: FC<Props> = (props) => {
                   message: "Handle should contain any special characters",
                 }),
               },
-              validate: (value) => !utils.isAddress(value), // no polygon addresses
+              validate: {
+                isAddress: (v) =>
+                  !utils.isAddress(v) || // do not allow polygon addresses
+                  t({
+                    id: "user.edit.form.input.handle.no_polygon_address",
+                    message: "Handle should not be an address",
+                  }),
+              },
             }),
           }}
           label={t({
