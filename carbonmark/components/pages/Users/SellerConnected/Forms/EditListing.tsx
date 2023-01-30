@@ -108,16 +108,27 @@ export const EditListing: FC<Props> = (props) => {
               }),
               type: "number",
               ...register("singleUnitPrice", {
-                required: true,
+                required: {
+                  value: true,
+                  message: t({
+                    id: "user.listing.form.input.singleUnitPrice.required",
+                    message: "Single Price is required",
+                  }),
+                },
+                min: {
+                  value: 0.1,
+                  message: t({
+                    id: "user.listing.form.input.singleUnitPrice.minimum",
+                    message: "The minimum price per tonne is 0,1",
+                  }),
+                },
               }),
             }}
             label={t({
               id: "user.edit.edit.input.price.label",
               message: "Price",
             })}
-            errorMessage={
-              formState.errors.singleUnitPrice && "Price is required"
-            }
+            errorMessage={formState.errors.singleUnitPrice?.message}
           />
 
           <ButtonPrimary
