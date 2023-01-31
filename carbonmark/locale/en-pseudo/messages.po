@@ -13,12 +13,21 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/pages/Project/Purchase/PurchaseForm.tsx:188
+msgid "...loading"
+msgstr ""
+
 #: components/pages/Home/index.tsx:14
 msgid "A new era for kleema dow"
 msgstr ""
 
 #: components/Stats/index.tsx:57
 msgid "Active listings:"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseForm.tsx:152
+#: components/pages/Project/Purchase/PurchaseForm.tsx:185
+msgid "Available:"
 msgstr ""
 
 #: components/shared/ChangeLanguageButton/index.tsx:48
@@ -167,11 +176,11 @@ msgstr ""
 msgid "connect_modal.connecting"
 msgstr ""
 
-#: lib/constants.ts:21
+#: lib/constants.ts:22
 msgid "connect_modal.error_message_default"
 msgstr ""
 
-#: lib/constants.ts:25
+#: lib/constants.ts:26
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
@@ -324,7 +333,7 @@ msgstr ""
 msgid "props.transaction.conjunction.at"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:199
+#: components/pages/Project/Purchase/PurchaseForm.tsx:211
 msgid "purchase.button.continue"
 msgstr ""
 
@@ -336,35 +345,35 @@ msgstr ""
 msgid "purchase.button.view_assets"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:138
+#: components/pages/Project/Purchase/PurchaseForm.tsx:145
 msgid "purchase.input.amount.label"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:131
+#: components/pages/Project/Purchase/PurchaseForm.tsx:138
 msgid "purchase.input.amount.maxAmount"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:124
+#: components/pages/Project/Purchase/PurchaseForm.tsx:131
 msgid "purchase.input.amount.minimum"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:108
+#: components/pages/Project/Purchase/PurchaseForm.tsx:115
 msgid "purchase.input.amount.placeholder"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:117
+#: components/pages/Project/Purchase/PurchaseForm.tsx:124
 msgid "purchase.input.amount.required"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:36
+#: components/pages/Project/Purchase/PurchaseForm.tsx:37
 msgid "purchase.input.cost.label"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:161
+#: components/pages/Project/Purchase/PurchaseForm.tsx:168
 msgid "purchase.input.price.maxAmount"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:154
+#: components/pages/Project/Purchase/PurchaseForm.tsx:161
 msgid "purchase.input.price.required"
 msgstr ""
 
@@ -558,7 +567,7 @@ msgid "shared.buy"
 msgstr ""
 
 #: components/pages/Project/ProjectListing/index.tsx:70
-#: components/pages/Project/Purchase/PurchaseForm.tsx:185
+#: components/pages/Project/Purchase/PurchaseForm.tsx:197
 #: components/pages/Users/SellerUnconnected/index.tsx:75
 msgid "shared.connect_to_buy"
 msgstr ""
