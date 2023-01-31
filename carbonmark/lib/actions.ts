@@ -13,16 +13,16 @@ import { OnStatusHandler } from "./statusMessage";
 // Currently, the USDC token is pointing to a fake one on Mumbai
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 
+const staticProvider = getStaticProvider({ chain: "mumbai" });
+
 export const getC3tokenToCarbonmarkAllowance = async (params: {
   userAddress: string;
   tokenAddress: string;
 }): Promise<string> => {
-  const provider = getStaticProvider({ chain: "mumbai" });
-
   const tokenContract = new Contract(
     params.tokenAddress,
     C3ProjectToken.abi,
-    provider
+    staticProvider
   );
 
   const allowance = await tokenContract.allowance(
@@ -37,12 +37,10 @@ export const getUSDCtokenToCarbonmarkAllowance = async (params: {
   userAddress: string;
   tokenAddress: string;
 }): Promise<string> => {
-  const provider = getStaticProvider({ chain: "mumbai" });
-
   const tokenContract = new Contract(
     params.tokenAddress, // TODO: replace this contract getter with getContract("usdc") later
     IERC20.abi,
-    provider
+    staticProvider
   );
 
   const allowance = await tokenContract.allowance(
@@ -236,15 +234,13 @@ export const getUserAssetsData = async (params: {
   userAddress: string;
 }): Promise<Asset[]> => {
   try {
-    const provider = getStaticProvider({ chain: "mumbai" });
-
     const assetsData = await params.assets.reduce<Promise<Asset[]>>(
       async (resultPromise, asset) => {
         const resolvedAssets = await resultPromise;
         const contract = new ethers.Contract(
           asset,
           C3ProjectToken.abi,
-          provider
+          staticProvider
         );
 
         const tokenName = await contract.symbol();
@@ -272,12 +268,10 @@ export const getTokenBalance = async (params: {
   tokenAddress: string;
   userAddress: string;
 }) => {
-  const provider = getStaticProvider({ chain: "mumbai" });
-
   const tokenContract = new Contract(
     params.tokenAddress, // TODO: replace this contract getter with getContract("<usdc>") later
     IERC20.abi,
-    provider
+    staticProvider
   );
 
   const balance = await tokenContract.balanceOf(params.userAddress);
