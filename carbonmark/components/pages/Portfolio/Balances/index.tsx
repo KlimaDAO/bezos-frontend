@@ -18,7 +18,9 @@ interface Props {
 export const Balances: FC<Props> = (props) => {
   const { locale } = useRouter();
   const { address } = useWeb3();
-  const [balances, setBalances] = useState<Balance[]>([]);
+  const [balances, setBalances] = useState<Balance[]>([
+    { tokenName: "tc02", balance: "0" }, // TODO: load tco2 balance ?
+  ]);
 
   const updateBalance = (updatedBalance: Balance) => {
     setBalances((prevState) => {
