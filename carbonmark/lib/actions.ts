@@ -36,12 +36,13 @@ export const getC3tokenToCarbonmarkAllowance = async (params: {
 export const getUSDCtokenToCarbonmarkAllowance = async (params: {
   userAddress: string;
   tokenAddress: string;
-  provider: ethers.providers.Provider;
 }): Promise<string> => {
+  const provider = getStaticProvider({ chain: "mumbai" });
+
   const tokenContract = new Contract(
     params.tokenAddress, // TODO: replace this contract getter with getContract("usdc") later
     IERC20.abi,
-    params.provider
+    provider
   );
 
   const allowance = await tokenContract.allowance(
