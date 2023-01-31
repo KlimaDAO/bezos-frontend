@@ -233,17 +233,18 @@ export const deleteListingTransaction = async (params: {
 
 export const getUserAssetsData = async (params: {
   assets: string[];
-  provider: providers.JsonRpcProvider;
   userAddress: string;
 }): Promise<Asset[]> => {
   try {
+    const provider = getStaticProvider({ chain: "mumbai" });
+
     const assetsData = await params.assets.reduce<Promise<Asset[]>>(
       async (resultPromise, asset) => {
         const resolvedAssets = await resultPromise;
         const contract = new ethers.Contract(
           asset,
           C3ProjectToken.abi,
-          params.provider
+          provider
         );
 
         const tokenName = await contract.symbol();
