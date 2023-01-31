@@ -5,7 +5,6 @@ import { t, Trans } from "@lingui/macro";
 import { InputField } from "components/shared/Form/InputField";
 import { HighlightValue } from "components/Transaction/HighlightValue";
 import { getTokenBalance } from "lib/actions";
-import { FAKE_USDC } from "lib/constants";
 import { CARBONMARK_FEE, FAKE_USDC } from "lib/constants";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
