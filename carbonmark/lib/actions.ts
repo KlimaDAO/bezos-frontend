@@ -270,13 +270,14 @@ export const getUserAssetsData = async (params: {
 
 export const getTokenBalance = async (params: {
   tokenAddress: string;
-  provider: providers.JsonRpcProvider;
   userAddress: string;
 }) => {
+  const provider = getStaticProvider({ chain: "mumbai" });
+
   const tokenContract = new Contract(
     params.tokenAddress, // TODO: replace this contract getter with getContract("<usdc>") later
     IERC20.abi,
-    params.provider
+    provider
   );
 
   const balance = await tokenContract.balanceOf(params.userAddress);
