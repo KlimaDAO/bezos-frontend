@@ -72,8 +72,8 @@ export const PurchaseForm: FC<Props> = (props) => {
       setBalance(balance);
     };
 
-    getBalance();
-  }, []);
+    !balance && getBalance();
+  }, [address]);
 
   const { register, handleSubmit, formState, control, setValue, clearErrors } =
     useForm<FormValues>({
