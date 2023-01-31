@@ -13,7 +13,7 @@ import { OnStatusHandler } from "./statusMessage";
 // Currently, the USDC token is pointing to a fake one on Mumbai
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 
-const staticProvider = getStaticProvider({ chain: "mumbai" });
+const staticProvider = getStaticProvider({ chain: "mumbai" }); // TODO: remove "mumbai" later
 
 export const getC3tokenToCarbonmarkAllowance = async (params: {
   userAddress: string;
