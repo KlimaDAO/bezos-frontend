@@ -6,13 +6,12 @@ import { InputField } from "components/shared/Form/InputField";
 import { HighlightValue } from "components/Transaction/HighlightValue";
 import { getTokenBalance } from "lib/actions";
 import { FAKE_USDC } from "lib/constants";
+import { CARBONMARK_FEE, FAKE_USDC } from "lib/constants";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { FC, useEffect, useState } from "react";
 import { Control, SubmitHandler, useForm, useWatch } from "react-hook-form";
 import * as styles from "./styles";
-
-const CARBONMARK_FEE = 0.03; // 3%
 
 type TotalValueProps = {
   control: Control<FormValues>;
