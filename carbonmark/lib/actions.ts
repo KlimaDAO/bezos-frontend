@@ -1,6 +1,10 @@
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import { Asset } from "@klimadao/lib/types/carbonmark";
-import { formatUnits, getContract } from "@klimadao/lib/utils";
+import {
+  formatUnits,
+  getContract,
+  getStaticProvider,
+} from "@klimadao/lib/utils";
 import { Contract, ethers, providers, Transaction, utils } from "ethers";
 import { getCarbonmarkAddress } from "./getAddresses";
 import { OnStatusHandler } from "./statusMessage";
@@ -12,12 +16,13 @@ import IERC20 from "@klimadao/lib/abi/IERC20.json";
 export const getC3tokenToCarbonmarkAllowance = async (params: {
   userAddress: string;
   tokenAddress: string;
-  provider: ethers.providers.Provider;
 }): Promise<string> => {
+  const provider = getStaticProvider({ chain: "mumbai" });
+
   const tokenContract = new Contract(
     params.tokenAddress,
     C3ProjectToken.abi,
-    params.provider
+    provider
   );
 
   const allowance = await tokenContract.allowance(
