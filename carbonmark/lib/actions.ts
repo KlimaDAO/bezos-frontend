@@ -252,8 +252,15 @@ export const getUserAssetsData = async (params: {
         resolvedAssets.push({
           tokenAddress: asset,
           tokenName,
-          projectName: projectInfo.name,
           balance,
+          projectId: projectInfo.project_id,
+          projectName: projectInfo.name,
+          projectType: projectInfo.project_type,
+          country: projectInfo.country,
+          methodology: projectInfo.methodology,
+          registry: projectInfo.registry,
+          projectUrl: projectInfo.uri,
+          active: projectInfo.active,
         });
         return resolvedAssets;
       },

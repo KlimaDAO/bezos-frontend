@@ -106,6 +106,7 @@ export type ActivityType = {
   } | null;
 };
 
+// data from C3 ABI function "getProjectInfo"
 export type ProjectInfo = {
   active: boolean;
   country: string;
@@ -117,14 +118,21 @@ export type ProjectInfo = {
   region: string | "";
   registry: "GS";
   uri: string;
-  category: Category;
+  project_type: string;
 };
 
 export type Asset = {
   tokenAddress: string;
   tokenName: string;
-  projectName: string;
   balance: string;
+  projectId: ProjectInfo["project_id"];
+  projectName: ProjectInfo["name"];
+  projectType: ProjectInfo["project_type"];
+  country: ProjectInfo["country"];
+  methodology: ProjectInfo["methodology"];
+  registry: ProjectInfo["registry"];
+  projectUrl: ProjectInfo["uri"];
+  active: ProjectInfo["active"];
 };
 
 export type Stats = {
