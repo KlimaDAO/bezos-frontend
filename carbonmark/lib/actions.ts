@@ -12,6 +12,7 @@ import { OnStatusHandler } from "./statusMessage";
 // TODO: Before GO-LIVE replace with getContract("usdc")
 // Currently, the USDC token is pointing to a fake one on Mumbai
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
+import { FAKE_USDC } from "./constants";
 
 const staticProvider = getStaticProvider({ chain: "mumbai" }); // TODO: remove "mumbai" later
 
@@ -276,4 +277,13 @@ export const getTokenBalance = async (params: {
 
   const balance = await tokenContract.balanceOf(params.userAddress);
   return formatUnits(balance); // TODO: ensure to pass 6 later for USDC
+};
+
+export const getUSDCBalance = async (params: { userAddress: string }) => {
+  const provider = getStaticProvider({ chain: "mumbai" });
+  return getTokenBalance({
+    userAddress: params.userAddress,
+    tokenAddress: FAKE_USDC,
+    provider,
+  });
 };
