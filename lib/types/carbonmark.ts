@@ -158,3 +158,5 @@ export type Purchase = {
   price: BigNumber;
   listing: Listing;
 };
+
+export type CarbonmarkToken = "usdc" | "c3" | "tc02";
