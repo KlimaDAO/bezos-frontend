@@ -160,3 +160,8 @@ export type Purchase = {
 };
 
 export type CarbonmarkToken = "usdc" | "c3" | "tc02";
+
+export type Balance = {
+  tokenName: CarbonmarkToken;
+  balance: string;
+};
