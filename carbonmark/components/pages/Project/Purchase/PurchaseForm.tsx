@@ -185,7 +185,7 @@ export const PurchaseForm: FC<Props> = (props) => {
           <Trans>Available:</Trans>{" "}
           {!balance ? (
             <i>
-              <Trans>...loading </Trans>
+              <Trans>Loading...</Trans>
             </i>
           ) : (
             formatToPrice(balance, locale)
