@@ -47,7 +47,8 @@ export const EditProfile: FC<Props> = (props) => {
         user: handle,
         type: "handle",
       });
-      return existingUser?.handle !== handle;
+      const apiHandle = existingUser?.handle || "";
+      return apiHandle.toLowerCase() !== handle.toLowerCase();
     } catch (error) {
       console.error(error);
     }
