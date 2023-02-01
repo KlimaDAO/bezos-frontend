@@ -13,10 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:188
-msgid "...loading"
-msgstr "...loading"
-
 #: components/pages/Home/index.tsx:14
 msgid "A new era for kleema dow"
 msgstr "A new era for kleema dow"
@@ -54,6 +50,10 @@ msgstr "Final price"
 #: components/pages/Users/SellerUnconnected/index.tsx:52
 msgid "Listings"
 msgstr "Listings"
+
+#: components/pages/Project/Purchase/PurchaseForm.tsx:188
+msgid "Loading..."
+msgstr "Loading..."
 
 #: components/shared/Navigation/index.tsx:54
 #: components/shared/Navigation/index.tsx:85
