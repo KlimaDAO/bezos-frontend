@@ -11,10 +11,10 @@ interface Props {
 export const AssetProject: FC<Props> = (props) => {
   return (
     <Card key={props.assetsData.projectId}>
-      <Text t="h4">
-        <Trans id="portfolio.asset.title">{props.assetsData.projectName}</Trans>
+      <Text t="h4">{props.assetsData.projectName}</Text>
+      <Text t="caption">
+        <Trans>Quantity Available:</Trans> {props.assetsData.balance}
       </Text>
-      <Text t="caption">Quantity Available: {props.assetsData.balance}</Text>
     </Card>
   );
 };
