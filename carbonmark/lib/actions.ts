@@ -287,10 +287,8 @@ export const getTokenBalance = async (params: {
 };
 
 export const getUSDCBalance = async (params: { userAddress: string }) => {
-  const provider = getStaticProvider({ chain: "mumbai" });
   return getTokenBalance({
-    userAddress: params.userAddress,
+    userAddress: params.userAddress, // TODO: replace this contract getter with getContract("<usdc>") later
     tokenAddress: FAKE_USDC,
-    provider,
   });
 };
