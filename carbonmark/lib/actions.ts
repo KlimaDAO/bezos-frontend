@@ -5,7 +5,15 @@ import {
   getContract,
   getStaticProvider,
 } from "@klimadao/lib/utils";
-import { Contract, ethers, providers, Transaction, utils } from "ethers";
+import {
+  BigNumber,
+  Contract,
+  ethers,
+  providers,
+  Transaction,
+  utils,
+} from "ethers";
+import { getCategoryFromMethodology } from "lib/getCategoryFromMethodology";
 import { getCarbonmarkAddress } from "./getAddresses";
 import { OnStatusHandler } from "./statusMessage";
 
@@ -248,12 +256,16 @@ export const getUserAssetsData = async (params: {
         const c3TokenBalance = await contract.balanceOf(params.userAddress);
         const balance = formatUnits(c3TokenBalance);
         const projectInfo = await contract.getProjectInfo();
+        const projectKey = await contract.getProjectIdentifier();
+        const vintage: BigNumber = await contract.getVintage();
 
         resolvedAssets.push({
           tokenAddress: asset,
           tokenName,
           balance,
           projectId: projectInfo.project_id,
+          key: projectKey,
+          vintage: ethers.utils.formatUnits(vintage, 0),
           projectName: projectInfo.name,
           projectType: projectInfo.project_type,
           country: projectInfo.country,
@@ -261,6 +273,7 @@ export const getUserAssetsData = async (params: {
           registry: projectInfo.registry,
           projectUrl: projectInfo.uri,
           active: projectInfo.active,
+          category: getCategoryFromMethodology(projectInfo.methodology),
         });
         return resolvedAssets;
       },

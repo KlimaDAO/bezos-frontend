@@ -133,6 +133,9 @@ export type Asset = {
   registry: ProjectInfo["registry"];
   projectUrl: ProjectInfo["uri"];
   active: ProjectInfo["active"];
+  category?: CategoryName;
+  key: string;
+  vintage: string;
 };
 
 export type Stats = {
