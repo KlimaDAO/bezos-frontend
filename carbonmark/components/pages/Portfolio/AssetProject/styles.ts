@@ -1,10 +1,24 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const fullWidth = css`
-  grid-column: 1 / 3;
+export const image = css`
+  position: relative;
+  overflow: hidden;
+
+  min-height: 12rem;
+
+  ${breakpoints.medium} {
+    min-height: 25rem;
+  }
 `;
 
-export const projectLink = css`
-  display: inline-flex;
-  margin: 1rem 0;
+export const tags = css`
+  display: flex;
+  gap: 1.6rem;
+  flex-direction: row;
+`;
+
+export const buttons = css`
+  display: flex;
+  gap: 2rem;
 `;

@@ -116,7 +116,11 @@ export const Portfolio: NextPage = () => {
             <Col>
               {!!assetsData &&
                 assetsData.map((a) => (
-                  <AssetProject key={a.projectId} assetsData={a} />
+                  <AssetProject
+                    key={a.projectId}
+                    assetsData={a}
+                    onSell={() => console.log("SELL")}
+                  />
                 ))}
               {!assetsData && (
                 <Text>
