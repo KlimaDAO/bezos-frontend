@@ -1,9 +1,9 @@
 import { cx } from "@emotion/css";
-import { ButtonPrimary, ButtonSecondary } from "@klimadao/lib/components";
+import { ButtonPrimary } from "@klimadao/lib/components";
 import GridViewIcon from "@mui/icons-material/GridView";
 import ListIcon from "@mui/icons-material/List";
 import TuneIcon from "@mui/icons-material/Tune";
-import Modal from "components/Modal";
+import { ProjectsFilterModal } from "components/ProjectFilterModal";
 import { SearchInput } from "components/SearchInput";
 import { Toggle } from "components/Toggle";
 import { useResponsive } from "hooks/useResponsive";
@@ -32,14 +32,7 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
       <ButtonPrimary
         className={styles.filterButton}
         icon={<TuneIcon />}
-        onClick={() =>
-          openModal(
-            <Modal title="Test">
-              <ButtonPrimary label="Apply" />
-              <ButtonSecondary label="Clear Filters" />
-            </Modal>
-          )
-        }
+        onClick={() => openModal(<ProjectsFilterModal />)}
         label="Filters"
       />
       {isDesktop && <Toggle onChange={console.log} options={TOGGLE_OPTIONS} />}
