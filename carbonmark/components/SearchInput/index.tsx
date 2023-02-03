@@ -18,6 +18,7 @@ export const SearchInput: FC<SearchInputProps> = (props) => {
           ...register(props.id),
           className: styles.input,
           placeholder: props.placeholder,
+          type: "search",
         }}
         label={props.label}
         hideLabel

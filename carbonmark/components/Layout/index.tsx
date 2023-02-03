@@ -3,7 +3,7 @@ import { ButtonPrimary, CarbonmarkLogo } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
-import { ProjectsController } from "components/ProjectsController";
+import { ProjectsController } from "components/pages/Project/ProjectsController";
 import { useResponsive } from "hooks/useResponsive";
 import { connectErrorStrings } from "lib/constants";
 import Link from "next/link";
