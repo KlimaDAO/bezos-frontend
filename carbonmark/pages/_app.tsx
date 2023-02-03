@@ -9,6 +9,7 @@ import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
 import type { AppProps } from "next/app";
 import Script from "next/script";
+import { ModalProvider } from "providers/ModalProvider";
 import { useEffect, useRef } from "react";
 
 const loadFallbackOnServer = async () => {
@@ -60,7 +61,9 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <>
       <Web3ContextProvider>
         <I18nProvider i18n={i18n}>
-          <Component {...pageProps} />
+          <ModalProvider>
+            <Component {...pageProps} />
+          </ModalProvider>
         </I18nProvider>
       </Web3ContextProvider>
       <Script
