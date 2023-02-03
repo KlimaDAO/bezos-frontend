@@ -173,7 +173,7 @@ const getMap = () => {
 
 export const getCategoryFromMethodology = (
   methodology: string
-): CategoryName | undefined => {
+): CategoryName => {
   const methodologyArray = methodology.split(","); // take the first, ignore the rest
   const firstMethod = methodologyArray[0].trim();
 
@@ -183,5 +183,5 @@ export const getCategoryFromMethodology = (
     throw new Error("Map cannot be null");
   }
 
-  return map.get(firstMethod);
+  return map.get(firstMethod) || "Other"; // fallback to Other not found, CarbonMark API does the same!
 };

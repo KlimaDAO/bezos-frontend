@@ -133,7 +133,7 @@ export type Asset = {
   registry: ProjectInfo["registry"];
   projectUrl: ProjectInfo["uri"];
   active: ProjectInfo["active"];
-  category?: CategoryName;
+  category: CategoryName;
   key: string;
   vintage: string;
 };

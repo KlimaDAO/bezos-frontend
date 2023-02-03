@@ -26,17 +26,15 @@ export const AssetProject: FC<Props> = (props) => {
   return (
     <Card>
       <div className={styles.tags}>
-        {props.assetsData.category && (
-          <Category category={props.assetsData.category} />
-        )}
+        <Category category={props.assetsData.category} />
         <Vintage vintage={props.assetsData.vintage} />
       </div>
       <Text t="h4">{props.assetsData.projectName}</Text>
-      {props.assetsData.category && (
-        <div className={styles.image}>
-          <ProjectImage category={props.assetsData.category} />
-        </div>
-      )}
+
+      <div className={styles.image}>
+        <ProjectImage category={props.assetsData.category} />
+      </div>
+
       <Text t="caption">
         <Trans>Quantity Available:</Trans>{" "}
         {formatToTonnes(props.assetsData.balance, locale)}
