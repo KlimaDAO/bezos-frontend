@@ -1,28 +1,29 @@
 import { ButtonPrimary, ButtonSecondary } from "@klimadao/lib/components";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
+import { Dropdown } from "components/Dropdown";
 import Modal from "components/Modal";
-
-type SortOptions =
-  | "updated"
-  | "price-low"
-  | "price-high"
-  | "vintage-new"
-  | "vintage-old";
+import { titleCase } from "lib/string.utils";
+import * as styles from "./styles";
+const SORT_OPTIONS = [
+  "recently-updated",
+  "price-lowest",
+  "price-highest",
+  "vintage-newest",
+  "vintage-oldest",
+] as const;
 
 export const ProjectsFilterModal = () => (
-  <Modal>
-    <Select
-      id="projects-sort-by-select"
-      value={10}
-      label="Sort Projects By"
+  <Modal title="Filter Results" className={styles.main}>
+    <Dropdown
+      className="dropdown"
+      default="recently-updated"
       onChange={console.log}
-    >
-      <MenuItem value={10}>Ten</MenuItem>
-      <MenuItem value={20}>Twenty</MenuItem>
-      <MenuItem value={30}>Thirty</MenuItem>
-    </Select>
-    <ButtonPrimary label="Apply" />
-    <ButtonSecondary label="Clear Filters" />
+      options={SORT_OPTIONS.map((option) => ({
+        id: option,
+        label: titleCase(option),
+        value: option,
+      }))}
+    />
+    <ButtonPrimary className={"action"} label="Apply" />
+    <ButtonSecondary className={"action"} label="Clear Filters" />
   </Modal>
 );

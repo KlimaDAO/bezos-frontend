@@ -1,6 +1,6 @@
+import { cx } from "@emotion/css";
 import { Text } from "@klimadao/lib/components";
 import CloseIcon from "@mui/icons-material/Close";
-import classNames from "classnames";
 import { useModal } from "providers/ModalProvider";
 import { ButtonHTMLAttributes, FC, HTMLAttributes, ReactElement } from "react";
 import * as styles from "./styles";
@@ -38,8 +38,8 @@ const Modal: FC<ModalProps> = (props) => {
       {overlay ? (
         <div className={styles.overlay} data-testid="modal-overlay" />
       ) : null}
-      <div className={classNames([styles.modal, props.className])} {...props}>
-        <div className={classNames([styles.heading, "modalHeading"])}>
+      <div {...props} className={cx(styles.modal, props.className)}>
+        <div className={cx(styles.heading, "modalHeading")}>
           {title && (
             <Text t="h4" className="title">
               {title}
@@ -55,9 +55,7 @@ const Modal: FC<ModalProps> = (props) => {
             <CloseIcon />
           </button>
         </div>
-        <div
-          className={classNames({ [styles.content]: !!title }, "modalContent")}
-        >
+        <div className={cx({ [styles.content]: !!title }, "modalContent")}>
           {children}
         </div>
         {/* {actions && (
