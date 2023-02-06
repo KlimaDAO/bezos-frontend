@@ -13,7 +13,7 @@ import {
   onApproveCarbonmarkTransaction,
 } from "lib/actions";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { AddListing, FormValues } from "./Forms/AddListing";
+import { CreateListingForm, FormValues } from "./Form";
 import * as styles from "./styles";
 
 type Props = {
@@ -23,7 +23,7 @@ type Props = {
   onSubmit: () => void;
 };
 
-export const CreateAListingModal: FC<Props> = (props) => {
+export const CreateListing: FC<Props> = (props) => {
   const { provider, address } = useWeb3();
   const [isLoading, setIsLoading] = useState(false);
   const [inputValues, setInputValues] = useState<FormValues | null>(null);
@@ -118,7 +118,7 @@ export const CreateAListingModal: FC<Props> = (props) => {
       onToggleModal={onModalClose}
     >
       {!showTransactionView && !isLoading && (
-        <AddListing
+        <CreateListingForm
           assets={props.assets}
           onSubmit={onAddListingFormSubmit}
           values={inputValues}

@@ -6,9 +6,9 @@ import { FC, useEffect, useState } from "react";
 
 import { Activities } from "components/Activities";
 import { Card } from "components/Card";
+import { CreateListing } from "components/CreateListing";
 import { Stats } from "components/Stats";
 import { ProfileHeader } from "../ProfileHeader";
-import { CreateAListingModal } from "./CreateAListingModal";
 import { EditProfile } from "./Forms/EditProfile";
 import { ListingEditable } from "./ListingEditable";
 
@@ -268,7 +268,7 @@ export const SellerConnected: FC<Props> = (props) => {
       </Modal>
 
       {!!assetsData?.length && (
-        <CreateAListingModal
+        <CreateListing
           onModalClose={() => setShowCreateListingModal(false)}
           onSubmit={onUpdateUser}
           assets={assetsData}
