@@ -14,7 +14,7 @@ import { ListingEditable } from "./ListingEditable";
 
 import { getUserAssetsData } from "lib/actions";
 import { getUser } from "lib/api";
-import { pollUntil } from "../utils";
+import { pollUntil } from "lib/pollUntil";
 
 import {
   getActiveListings,
