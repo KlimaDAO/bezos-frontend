@@ -3,6 +3,7 @@ import { Asset, User } from "@klimadao/lib/types/carbonmark";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Activities } from "components/Activities";
+import { CreateListing } from "components/CreateListing";
 import { Layout } from "components/Layout";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/shared/PageHead";
@@ -16,6 +17,7 @@ import {
   getAmountLeftToSell,
   getTotalAmountSold,
 } from "lib/listingsGetter";
+import { pollUntil } from "lib/pollUntil";
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { AssetProject } from "./AssetProject";
@@ -28,6 +30,7 @@ export const Portfolio: NextPage = () => {
   const [user, setUser] = useState<null | User>(null);
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
   const [assetsData, setAssetsData] = useState<Asset[] | null>(null);
+  const [assetToSell, setAssetToSell] = useState<Asset | null>(null);
 
   const hasAssets = !isLoadingAssets && !!user?.assets?.length;
   const hasListings = !isLoadingUser && !!user?.listings?.length;
@@ -88,6 +91,40 @@ export const Portfolio: NextPage = () => {
     }
   }, [user]);
 
+  const onUpdateUser = async () => {
+    if (!user) return; // TS typeguard
+
+    try {
+      setIsLoadingUser(true);
+
+      const fetchUser = () =>
+        getUser({
+          user: user.wallet,
+          type: "wallet",
+        });
+
+      // API is updated when new activity exists
+      const activityIsAdded = (value: User) => {
+        const newActivityLength = value.activities.length;
+        const currentActivityLength = user.activities.length;
+        return newActivityLength > currentActivityLength;
+      };
+
+      const updatedUser = await pollUntil({
+        fn: fetchUser,
+        validate: activityIsAdded,
+        ms: 1000,
+        maxAttempts: 50,
+      });
+
+      setUser((prev) => ({ ...prev, ...updatedUser }));
+    } catch (e) {
+      console.error("LOAD USER ACTIVITY error", e);
+    } finally {
+      setIsLoadingUser(false);
+    }
+  };
+
   return (
     <>
       <PageHead
@@ -107,7 +144,7 @@ export const Portfolio: NextPage = () => {
               <div className={styles.fullWidth}>
                 <Spinner />
                 <Text className={styles.isLoading}>
-                  <Trans>Loading...</Trans>
+                  <Trans>Loading your data...</Trans>
                 </Text>
               </div>
             )}
@@ -119,9 +156,18 @@ export const Portfolio: NextPage = () => {
                 <AssetProject
                   key={a.projectId}
                   assetsData={a}
-                  onSell={() => console.log("SELL")}
+                  onSell={() => setAssetToSell(a)}
                 />
               ))}
+
+            {!!assetToSell && (
+              <CreateListing
+                onModalClose={() => setAssetToSell(null)}
+                onSubmit={onUpdateUser}
+                assets={[assetToSell]}
+                showModal={!!assetToSell}
+              />
+            )}
 
             {isConnectedUser && !isLoading && !assetsData && (
               <Text>
