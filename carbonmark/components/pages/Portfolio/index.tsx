@@ -4,6 +4,7 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Activities } from "components/Activities";
 import { Layout } from "components/Layout";
+import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/shared/PageHead";
 import { Stats } from "components/Stats";
 import { Col, TwoColLayout } from "components/TwoColLayout";
@@ -16,35 +17,32 @@ import {
   getTotalAmountSold,
 } from "lib/listingsGetter";
 import { NextPage } from "next";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { AssetProject } from "./AssetProject";
 import { Balances } from "./Balances";
-
 import * as styles from "./styles";
 
 export const Portfolio: NextPage = () => {
-  const router = useRouter();
-  const { isConnected, address } = useWeb3();
-  const [isLoading, setIsLoading] = useState(true);
+  const { isConnected, address, toggleModal } = useWeb3();
+  const [isLoadingUser, setIsLoadingUser] = useState(false);
   const [user, setUser] = useState<null | User>(null);
-  const [assetsData, setAssetsData] = useState<Asset[] | null>(null);
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
+  const [assetsData, setAssetsData] = useState<Asset[] | null>(null);
 
-  const hasAssets = !!user?.assets?.length;
-  const hasListings = !isLoading && !!user?.listings?.length;
+  const hasAssets = !isLoadingAssets && !!user?.assets?.length;
+  const hasListings = !isLoadingUser && !!user?.listings?.length;
   const allListings = hasListings && getAllListings(user.listings);
   const activeListings = hasListings && getActiveListings(user.listings);
 
-  const shouldLoadUser = isConnected && address;
-  const shouldRedirect = !isConnected && !isLoading;
-  const showSpinner = !user || isLoadingAssets;
+  const isConnectedUser = isConnected && address;
+  const isLoading = isLoadingUser || isLoadingAssets;
 
   useEffect(() => {
-    if (!shouldLoadUser) return;
+    if (!isConnectedUser) return;
 
     const getUserData = async () => {
       try {
+        setIsLoadingUser(true);
         const user = await getUser({
           type: "wallet",
           user: address,
@@ -53,16 +51,12 @@ export const Portfolio: NextPage = () => {
       } catch (error) {
         console.error(error);
       } finally {
-        setIsLoading(false);
+        setIsLoadingUser(false);
       }
     };
 
     !user && getUserData();
-  }, [shouldLoadUser]);
-
-  useEffect(() => {
-    shouldRedirect && router.push(`/users/login`);
-  }, [shouldRedirect]);
+  }, [isConnectedUser]);
 
   // load Assets every time user changed
   useEffect(() => {
@@ -103,55 +97,61 @@ export const Portfolio: NextPage = () => {
       />
 
       <Layout>
-        {isLoading ||
-          (showSpinner && (
-            <div className={styles.fullWidth}>
-              <Text>Loading your data</Text>
-              <Spinner />
-            </div>
-          ))}
+        <TwoColLayout>
+          <Col>
+            {!isConnectedUser && (
+              <LoginCard isLoading={isLoadingUser} onLogin={toggleModal} />
+            )}
 
-        {!isLoading && isConnected && !showSpinner && (
-          <TwoColLayout>
-            <Col>
-              {!!assetsData &&
-                assetsData.map((a) => (
-                  <AssetProject
-                    key={a.projectId}
-                    assetsData={a}
-                    onSell={() => console.log("SELL")}
-                  />
-                ))}
-              {!assetsData && (
-                <Text>
-                  <Trans>
-                    We couldn't find any C3 tokens in your connected wallet :(
-                  </Trans>
+            {isConnectedUser && isLoading && (
+              <div className={styles.fullWidth}>
+                <Spinner />
+                <Text className={styles.isLoading}>
+                  <Trans>Loading...</Trans>
                 </Text>
-              )}
-            </Col>
+              </div>
+            )}
 
-            <Col>
-              <Balances assetsData={assetsData} />
-              <Stats
-                stats={{
-                  tonnesSold:
-                    (!!allListings && getTotalAmountSold(allListings)) || 0,
-                  tonnesOwned:
-                    (!!activeListings && getAmountLeftToSell(activeListings)) ||
-                    0,
-                  activeListings:
-                    (!!activeListings && activeListings.length) || 0,
-                }}
-                description={t({
-                  id: "user.stats.your_seller_data.description",
-                  message: "Your seller data",
-                })}
-              />
-              <Activities activities={user?.activities || []} />
-            </Col>
-          </TwoColLayout>
-        )}
+            {isConnectedUser &&
+              !isLoading &&
+              !!assetsData &&
+              assetsData.map((a) => (
+                <AssetProject
+                  key={a.projectId}
+                  assetsData={a}
+                  onSell={() => console.log("SELL")}
+                />
+              ))}
+
+            {isConnectedUser && !isLoading && !assetsData && (
+              <Text>
+                <Trans>
+                  We couldn't find any C3 tokens in your connected wallet :(
+                </Trans>
+              </Text>
+            )}
+          </Col>
+
+          <Col>
+            <Balances assetsData={assetsData} />
+            <Stats
+              stats={{
+                tonnesSold:
+                  (!!allListings && getTotalAmountSold(allListings)) || 0,
+                tonnesOwned:
+                  (!!activeListings && getAmountLeftToSell(activeListings)) ||
+                  0,
+                activeListings:
+                  (!!activeListings && activeListings.length) || 0,
+              }}
+              description={t({
+                id: "user.stats.your_seller_data.description",
+                message: "Your seller data",
+              })}
+            />
+            <Activities activities={user?.activities || []} />
+          </Col>
+        </TwoColLayout>
       </Layout>
     </>
   );
