@@ -4,17 +4,22 @@ import * as common from "@klimadao/lib/theme/common";
 
 export const container = css`
   position: relative;
-  padding: 3.2rem;
+  padding: 2.4rem;
   background-color: var(--surface-01);
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
   z-index: 3;
-  gap: 2.4rem;
+  gap: 1.6rem;
   max-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
+
+  ${breakpoints.large} {
+    gap: 2.4rem;
+    padding: 3.2rem;
+  }
 
   #klima-logo {
     height: 2.8rem;
@@ -106,7 +111,10 @@ export const container = css`
 
 export const addressContainer = css`
   display: grid;
-  gap: 1.2rem;
+  gap: 1.6rem;
+  ${breakpoints.large} {
+    gap: 2.4rem;
+  }
 `;
 
 export const mobile = {
