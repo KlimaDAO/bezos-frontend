@@ -40,27 +40,25 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
           onClick={props.onHide}
         />
       </div>
-      <div className="hr" />
-      <div data-mobile-only>
-        {!address && !isConnected && (
+      {!address && !isConnected && (
+        <div data-mobile-only>
           <ButtonPrimary
-            label={t({
-              id: "shared.login_connect",
-              message: "Login / Connect",
-            })}
+            label={t`Log in`}
             onClick={toggleModal}
             className="connectButton"
           />
-        )}
-        {address && isConnected && (
+          <div className="hr" />
+        </div>
+      )}
+      {address && isConnected && (
+        <div data-mobile-only>
           <ButtonPrimary
-            label={concatAddress(address)}
+            label={t`Log out`}
             onClick={disconnect}
             className="connectButton"
           />
-        )}
-      </div>
-      <div className={styles.addressContainer} data-desktop-only>
+        </div>
+      )}
         <AddressSection domain={connectedDomain} address={address} />
       </div>
       <div className="hr" />
