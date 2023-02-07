@@ -1,5 +1,5 @@
 import { ButtonPrimary, CarbonmarkLogo } from "@klimadao/lib/components";
-import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Close from "@mui/icons-material/Close";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
@@ -59,9 +59,11 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
           />
         </div>
       )}
+      <div className={styles.addressContainer}>
+        <div className="hr" />
         <AddressSection domain={connectedDomain} address={address} />
+        <div className="hr" />
       </div>
-      <div className="hr" />
       <NavMenu
         userAddress={props.userAddress}
         connectedAddress={address}
