@@ -1,15 +1,13 @@
 import { Checkbox } from "components/shared/Form";
 import { FC } from "react";
-import { Control, useController } from "react-hook-form";
+import { Control, FieldValues, useController } from "react-hook-form";
 import { CheckboxOption, DocumentType, TagSlug } from "../lib/cmsDataMap";
-
-import { FormValues } from "../ResourcesList";
 
 type Props = {
   options: CheckboxOption[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   formName: any; //  "tags" | "types"
-  control: Control<FormValues>;
+  control: Control<FieldValues>;
 };
 
 const randomNumber = Math.floor(Math.random() * 1000);

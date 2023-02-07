@@ -41,8 +41,4 @@ export const modal = css`
   max-height: 90vh;
   overflow: auto;
   align-items: center;
-
-  button {
-    width: fit-content;
-  }
 `;
