@@ -207,6 +207,6 @@ export const projectsController = css`
 `;
 
 export const mobileProjectsController = css`
-  ${projectsController}
+  ${projectsController};
   justify-content: center;
 `;
