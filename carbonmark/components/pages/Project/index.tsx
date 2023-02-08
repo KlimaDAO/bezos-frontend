@@ -115,7 +115,10 @@ export const Project: NextPage<Props> = (props) => {
             <ProjectMap lat={35.25} lng={-85.9} zoom={4} />
           </div>
           <div className={styles.descriptionContainer}>
-            {props.project.description}
+            <Text t="body4">
+              <Trans>Description</Trans>
+            </Text>
+            <Text t="body8">{props.project.description}</Text>
           </div>
         </div>
 

@@ -28,15 +28,22 @@ export const mapContainer = css`
 `;
 
 export const descriptionContainer = css`
-  display: grid;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 `;
 
 export const row = css`
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 4rem;
   grid-column: 1/3;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: auto;
+  ${breakpoints.large} {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
 `;
 
 export const listings = css`
