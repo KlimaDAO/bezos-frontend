@@ -1,4 +1,4 @@
-import { urls } from "@klimadao/lib/constants";
+import { polygonNetworks } from "@klimadao/lib/constants";
 import { t } from "@lingui/macro";
 
 /** True if actually deployed on the production domain (not a preview/staging domain, not local dev) */
@@ -30,3 +30,34 @@ export const connectErrorStrings = {
 };
 
 export const NEXT_PUBLIC_MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+interface NetworkURLs {
+  mainnet: string;
+  testnet: string;
+}
+
+interface AppConfig {
+  defaultNetwork: "testnet" | "mainnet";
+  urls: {
+    blockExplorer: NetworkURLs;
+    carbonmarkApi: NetworkURLs;
+    marketplaceSubgraph: NetworkURLs;
+  };
+}
+export const carbonmarkConfig: AppConfig = {
+  /** For static RPC and addresses. For transactions, always rely on the user's wallet network */
+  defaultNetwork: "testnet",
+  urls: {
+    blockExplorer: {
+      mainnet: polygonNetworks.mainnet.blockExplorerUrls[0],
+      testnet: polygonNetworks.testnet.blockExplorerUrls[0],
+    },
+    carbonmarkApi: {
+      mainnet: "https://marketplace-api-najada.vercel.app",
+      testnet: "https://marketplace-api-najada.vercel.app",
+    },
+    marketplaceSubgraph: {
+      mainnet: "https://api.thegraph.com/subgraphs/name/najada/marketplace-new",
+      testnet: "https://api.thegraph.com/subgraphs/name/najada/marketplace-new",
+    },
+  },
+};

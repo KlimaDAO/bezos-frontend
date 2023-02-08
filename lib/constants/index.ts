@@ -264,14 +264,3 @@ export const verra = {
   projectSearch: `${VERRA_REGISTRY_API}/resource/resource/search?maxResults=2000&$count=true&$skip=0&$top=50`,
   projectDetailPage: `${VERRA_REGISTRY}/app/projectDetail/VCS`, // add ID after VCS like /191
 };
-
-const CARBONMARK = "https://marketplace-api-najada.vercel.app";
-const CARBONMARK_API = `${CARBONMARK}/api`;
-export const carbonmark = {
-  projects: `${CARBONMARK_API}/projects`,
-  users: `${CARBONMARK_API}/users`,
-  purchases: `${CARBONMARK_API}/purchases`,
-  categories: `${CARBONMARK_API}/categories`,
-  countries: `${CARBONMARK_API}/countries`,
-  vintages: `${CARBONMARK_API}/vintages`,
-};
