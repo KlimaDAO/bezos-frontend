@@ -179,7 +179,7 @@ export const Portfolio: NextPage = () => {
           </Col>
 
           <Col>
-            <Balances assetsData={assetsData} />
+            <Balances />
             <Stats
               stats={{
                 tonnesSold:
