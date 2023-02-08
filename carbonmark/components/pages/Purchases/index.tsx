@@ -15,6 +15,7 @@ import { Purchase } from "lib/types/carbonmark";
 
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 
+import { getURL } from "lib/networkAware/getURL";
 import * as styles from "./styles";
 
 type Props = {
@@ -80,7 +81,7 @@ export const PurchaseReceipt: NextPage<Props> = (props) => {
                 <Text>
                   View transaction on{" "}
                   <a
-                    href={`https://mumbai.polygonscan.com/tx/${props.transaction}`} // TODO: switch link to mainnet
+                    href={`${getURL("blockExplorer")}/tx/${props.transaction}`}
                     target="_blank"
                     rel="noreferrer"
                   >

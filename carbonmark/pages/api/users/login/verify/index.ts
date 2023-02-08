@@ -1,4 +1,4 @@
-import { carbonmark } from "@klimadao/lib/constants";
+import { getURL } from "lib/networkAware/getURL";
 import { NextApiHandler } from "next";
 
 export interface APIDefaultResponse {
@@ -17,13 +17,16 @@ const verifyUser: NextApiHandler<
             .json({ message: "Bad request! Wallet or Signature is missing" });
         }
 
-        const result = await fetch(`${carbonmark.users}/login/verify`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(req.body),
-        });
+        const result = await fetch(
+          `${getURL("carbonmarkApi")}/users/login/verify`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(req.body),
+          }
+        );
 
         const json = await result.json();
 
