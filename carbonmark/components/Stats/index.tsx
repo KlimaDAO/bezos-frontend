@@ -12,19 +12,20 @@ import { FC } from "react";
 import * as styles from "./styles";
 
 interface Props {
-  allListings: Listing[] | false;
-  activeListings: Listing[] | false;
+  allListings?: Listing[];
+  activeListings?: Listing[];
   description?: string;
 }
 
 export const Stats: FC<Props> = (props) => {
   const { locale } = useRouter();
   const tonnesSold =
-    (props.allListings && getTotalAmountSold(props.allListings)) || 0;
+    (!!props.allListings?.length && getTotalAmountSold(props.allListings)) || 0;
   const tonnesOwned =
-    (props.activeListings && getAmountLeftToSell(props.activeListings)) || 0;
-  const activeListings =
-    (props.activeListings && props.activeListings.length) || 0;
+    (!!props.activeListings?.length &&
+      getAmountLeftToSell(props.activeListings)) ||
+    0;
+  const activeListings = props.activeListings?.length || 0;
 
   return (
     <Card>

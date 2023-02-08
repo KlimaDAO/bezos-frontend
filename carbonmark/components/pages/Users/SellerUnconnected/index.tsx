@@ -92,7 +92,10 @@ export const SellerUnconnected: FC<Props> = (props) => {
             ))}
         </Col>
         <Col>
-          <Stats allListings={allListings} activeListings={activeListings} />
+          <Stats
+            allListings={allListings || []}
+            activeListings={activeListings || []}
+          />
           <Activities activities={userData?.activities || []} />
         </Col>
       </TwoColLayout>

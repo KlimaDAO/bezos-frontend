@@ -235,8 +235,8 @@ export const SellerConnected: FC<Props> = (props) => {
 
         <Col>
           <Stats
-            allListings={allListings}
-            activeListings={activeListings}
+            allListings={allListings || []}
+            activeListings={activeListings || []}
             description={t({
               id: "user.stats.your_seller_data.description",
               message: "Your seller data",
