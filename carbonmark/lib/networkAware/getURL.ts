@@ -5,5 +5,7 @@ export const getURL = (
   key: keyof typeof carbonmarkConfig.urls,
   network?: "mainnet" | "testnet"
 ): string => {
-  return carbonmarkConfig.urls[key][network ?? globalThis.userNetwork];
+  return carbonmarkConfig.urls[key][
+    network ?? globalThis.userNetwork ?? "mainnet"
+  ];
 };

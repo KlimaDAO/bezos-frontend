@@ -5,6 +5,6 @@ import { Contract } from "ethers";
 export const getContract = (
   params: Parameters<typeof IGetContract>[0]
 ): Contract => {
-  const { network = globalThis.userNetwork } = params;
+  const { network = globalThis.userNetwork ?? "mainnet" } = params;
   return IGetContract({ ...params, network });
 };

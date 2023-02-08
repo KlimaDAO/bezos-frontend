@@ -5,5 +5,5 @@ export const getAddress = (
   name: keyof typeof addresses.mainnet,
   network?: "testnet" | "mainnet"
 ): string => {
-  return addresses[network ?? globalThis.userNetwork][name];
+  return addresses[network ?? globalThis.userNetwork ?? "mainnet"][name];
 };
