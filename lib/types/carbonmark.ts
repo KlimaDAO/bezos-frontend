@@ -127,12 +127,6 @@ export type Asset = {
   balance: string;
 };
 
-export type Stats = {
-  tonnesSold: number;
-  tonnesOwned: number;
-  activeListings: number;
-};
-
 export type Category = {
   id: CategoryNames;
 };
