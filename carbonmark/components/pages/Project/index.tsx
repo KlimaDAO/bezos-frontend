@@ -136,8 +136,8 @@ export const Project: NextPage<Props> = (props) => {
           <Col>
             <Stats
               description="Data for this project and vintage"
-              allListings={allListings}
-              activeListings={activeListings}
+              allListings={allListings || []}
+              activeListings={activeListings || []}
             />
             <Activities activities={props.project.activities || []} />
           </Col>
