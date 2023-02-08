@@ -71,6 +71,8 @@ export const desktopNavMenu = css`
 
 export const cardGrid = css`
   display: grid;
+  /* header body footer */
+  grid-template-rows: auto 1fr auto;
   gap: 1.6rem;
   padding: 1.6rem;
   align-content: start;
