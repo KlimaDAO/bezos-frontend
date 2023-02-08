@@ -35,7 +35,7 @@ const mainnet = {
   retirementAggregator: "0xEde3bd57a04960E6469B70B4863cE1c9d9363Cb8",
   liveOffsetWallet: "0xa17b52d5e17254b03dfdf7b4dff2fc0c6108faac",
   liveOffsetContract: "0xB99fAbB350bbb48b8d586835d001085c8F188BA0",
-  carbonmark: "0x694Ccc69525aecC522393e1e3623B937771ED1Af", // This is mumbai testnet
+  carbonmark: "",
 };
 
 const testnet: typeof mainnet = {
@@ -52,7 +52,7 @@ const testnet: typeof mainnet = {
   pklima_exercise: "0xBCE4486256bb306BF49e43DfdaFBc0A6660e95F9",
   sklima: "0xDe0cD0D51b9981BaB50DB974a1877c1C01b86e91",
   wsklima: "",
-  usdc: "",
+  usdc: "0x284A5F4d90a49F7eb21C055eA3C824603314B1E7",
   klimaUsdcLp: "",
   klimaBctLp: "0xb7225519550ED89C9B36c88d57d6059F698AaE97",
   klimaMco2Lp: "0x64a3b8cA5A7e406A78e660AE10c7563D9153a739",
@@ -213,6 +213,7 @@ export const allowancesContracts = {
   bond_nbo: ["nbo"],
   bond_ubo: ["ubo"],
   klimaProV2: ["klima"],
+  carbonmark: ["usdc"],
 } as const;
 
 export const EPOCH_INTERVAL = 11520;
