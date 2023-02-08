@@ -2,11 +2,9 @@ import { Trans } from "@lingui/macro";
 import { FC, useState } from "react";
 
 import { CarbonmarkButton } from "components/CarbonmarkButton";
-import { getCarbonmarkAddress } from "lib/getAddresses";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { Approve } from "./Approve";
 import { Submit } from "./Submit";
-
 import { Value } from "./types";
 
 import * as styles from "./styles";

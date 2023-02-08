@@ -1,7 +1,7 @@
-import { Purchase } from "@klimadao/lib/types/carbonmark";
-import { getPurchase, getStaticProvider } from "@klimadao/lib/utils";
 import { PurchaseReceipt } from "components/pages/Purchases";
+import { getPurchase } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
+import { Purchase } from "lib/types/carbonmark";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 

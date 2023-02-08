@@ -7,7 +7,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-import { Listing, Project } from "@klimadao/lib/types/carbonmark";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Card } from "components/Card";
 import { Layout } from "components/Layout";
@@ -15,6 +14,7 @@ import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
 import { FAKE_USDC } from "lib/constants";
 import { createProjectLink, createSellerLink } from "lib/createUrls";
+import { Listing, Project } from "lib/types/carbonmark";
 import { FormValues, PurchaseForm } from "./PurchaseForm";
 
 import { formatBigToPrice } from "lib/formatNumbers";

@@ -8,10 +8,10 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { Purchase } from "@klimadao/lib/types/carbonmark";
 import CelebrationOutlinedIcon from "@mui/icons-material/CelebrationOutlined";
 import { PageHead } from "components/PageHead";
 import { createProjectLink } from "lib/createUrls";
+import { Purchase } from "lib/types/carbonmark";
 
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 

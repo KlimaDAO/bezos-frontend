@@ -1,5 +1,5 @@
 import { carbonmark } from "@klimadao/lib/constants";
-import { User } from "@klimadao/lib/types/carbonmark";
+import { User } from "lib/types/carbonmark";
 import { NextApiHandler } from "next";
 
 export interface APIDefaultResponse {

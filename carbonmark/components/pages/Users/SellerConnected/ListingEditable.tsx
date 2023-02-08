@@ -18,7 +18,7 @@ import {
 import { formatToTonnes } from "lib/formatNumbers";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 
-import { Asset, Listing as ListingType } from "@klimadao/lib/types/carbonmark";
+import { Asset, Listing as ListingType } from "lib/types/carbonmark";
 
 import * as styles from "./styles";
 
