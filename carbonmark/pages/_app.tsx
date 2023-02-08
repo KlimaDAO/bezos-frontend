@@ -10,6 +10,8 @@ import { I18nProvider } from "@lingui/react";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 import { useEffect, useRef } from "react";
+/** Import with side-effects - create globalThis */
+import "lib/networkAware/initGlobalThis";
 
 const loadFallbackOnServer = async () => {
   if (typeof window === "undefined") {
