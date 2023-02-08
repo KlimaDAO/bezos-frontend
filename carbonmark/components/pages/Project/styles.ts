@@ -19,6 +19,26 @@ export const listingsHeader = css`
   grid-column: 1 / 3;
 `;
 
+export const mapContainer = css`
+  display: grid;
+  height: 100%;
+  min-height: 32rem;
+  min-width: 100%;
+  width: 100%;
+`;
+
+export const descriptionContainer = css`
+  display: grid;
+  width: 100%;
+`;
+
+export const row = css`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  grid-column: 1/3;
+`;
+
 export const listings = css`
   display: grid;
   gap: 2rem;

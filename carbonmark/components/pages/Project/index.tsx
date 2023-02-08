@@ -21,6 +21,7 @@ import {
 import { NextPage } from "next";
 import Link from "next/link";
 import { ProjectListing } from "./ProjectListing";
+import ProjectMap from "./ProjectMap";
 
 import * as styles from "./styles";
 
@@ -29,6 +30,7 @@ type Props = {
 };
 
 export const Project: NextPage<Props> = (props) => {
+  console.log(props.project);
   const allListings =
     Array.isArray(props.project.listings) &&
     getAllListings(props.project.listings);
@@ -40,7 +42,6 @@ export const Project: NextPage<Props> = (props) => {
     !!activeListings &&
     !!activeListings.length &&
     getSortByUpdateListings(activeListings);
-
   return (
     <>
       <PageHead
@@ -107,6 +108,14 @@ export const Project: NextPage<Props> = (props) => {
             <Text t="caption" color="lighter" align="end">
               {props.project.registry}
             </Text>
+          </div>
+        </div>
+        <div className={styles.row}>
+          <div className={styles.mapContainer}>
+            <ProjectMap lat={35.25} lng={-85.9} zoom={4} />
+          </div>
+          <div className={styles.descriptionContainer}>
+            {props.project.description}
           </div>
         </div>
 
