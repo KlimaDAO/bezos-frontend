@@ -9,6 +9,7 @@ import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Category } from "components/Category";
 import { ProjectImage } from "components/ProjectImage";
 import { Vintage } from "components/Vintage";
+import { createRetireLink } from "lib/createUrls";
 import { formatToTonnes } from "lib/formatNumbers";
 import * as styles from "./styles";
 
@@ -19,9 +20,10 @@ interface Props {
 
 export const AssetProject: FC<Props> = (props) => {
   const { locale } = useRouter();
-  const retireLink = `https://app.klimadao.finance/#/offset
-  ?quantity=${props.assetsData.balance}
-  &inputToken=${props.assetsData.tokenAddress}`;
+  const retireLink = createRetireLink({
+    quantity: props.assetsData.balance,
+    tokenAddress: props.assetsData.tokenAddress,
+  });
 
   return (
     <Card>
