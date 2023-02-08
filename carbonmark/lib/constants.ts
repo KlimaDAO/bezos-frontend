@@ -33,7 +33,6 @@ interface AppConfig {
   urls: {
     blockExplorer: NetworkURLs;
     carbonmarkApi: NetworkURLs;
-    marketplaceSubgraph: NetworkURLs;
   };
 }
 export const carbonmarkConfig: AppConfig = {
@@ -47,10 +46,6 @@ export const carbonmarkConfig: AppConfig = {
     carbonmarkApi: {
       mainnet: "https://marketplace-api-najada.vercel.app",
       testnet: "https://marketplace-api-najada.vercel.app",
-    },
-    marketplaceSubgraph: {
-      mainnet: "https://api.thegraph.com/subgraphs/name/najada/marketplace-new",
-      testnet: "https://api.thegraph.com/subgraphs/name/najada/marketplace-new",
     },
   },
 };
