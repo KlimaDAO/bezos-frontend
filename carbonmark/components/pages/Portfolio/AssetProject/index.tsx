@@ -1,5 +1,5 @@
 import { Anchor, ButtonPrimary, Text } from "@klimadao/lib/components";
-import { Asset } from "@klimadao/lib/types/carbonmark";
+import { AssetExtended } from "@klimadao/lib/types/carbonmark";
 import { Trans } from "@lingui/macro";
 import { Card } from "components/Card";
 import { useRouter } from "next/router";
@@ -13,7 +13,7 @@ import { formatToTonnes } from "lib/formatNumbers";
 import * as styles from "./styles";
 
 interface Props {
-  assetsData: Asset;
+  assetsData: AssetExtended;
   onSell: () => void;
 }
 

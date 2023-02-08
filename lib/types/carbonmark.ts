@@ -125,8 +125,15 @@ export type Asset = {
   tokenAddress: string;
   tokenName: string;
   balance: string;
-  projectId: ProjectInfo["project_id"];
   projectName: ProjectInfo["name"];
+};
+
+export type AssetExtended = {
+  tokenAddress: string;
+  tokenName: string;
+  balance: string;
+  projectName: ProjectInfo["name"];
+  projectId: ProjectInfo["project_id"];
   projectType: ProjectInfo["project_type"];
   country: ProjectInfo["country"];
   methodology: ProjectInfo["methodology"];

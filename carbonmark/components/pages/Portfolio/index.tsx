@@ -1,5 +1,5 @@
 import { Spinner, Text } from "@klimadao/lib/components";
-import { Asset, User } from "@klimadao/lib/types/carbonmark";
+import { AssetExtended, User } from "@klimadao/lib/types/carbonmark";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Activities } from "components/Activities";
@@ -9,7 +9,7 @@ import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/shared/PageHead";
 import { Stats } from "components/Stats";
 import { Col, TwoColLayout } from "components/TwoColLayout";
-import { getUserAssetsData } from "lib/actions";
+import { getAssetsExtended } from "lib/actions";
 import { getUser } from "lib/api";
 import {
   getActiveListings,
@@ -29,8 +29,8 @@ export const Portfolio: NextPage = () => {
   const [isLoadingUser, setIsLoadingUser] = useState(false);
   const [user, setUser] = useState<null | User>(null);
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
-  const [assetsData, setAssetsData] = useState<Asset[] | null>(null);
-  const [assetToSell, setAssetToSell] = useState<Asset | null>(null);
+  const [assetsData, setAssetsData] = useState<AssetExtended[] | null>(null);
+  const [assetToSell, setAssetToSell] = useState<AssetExtended | null>(null);
 
   const hasAssets = !isLoadingAssets && !!user?.assets?.length;
   const hasListings = !isLoadingUser && !!user?.listings?.length;
@@ -67,7 +67,7 @@ export const Portfolio: NextPage = () => {
       const getAssetsData = async () => {
         try {
           setIsLoadingAssets(true);
-          const assetsData = await getUserAssetsData({
+          const assetsData = await getAssetsExtended({
             assets: user.assets,
             userAddress: address,
           });

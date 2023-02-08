@@ -12,7 +12,7 @@ import { ProfileHeader } from "../ProfileHeader";
 import { EditProfile } from "./Forms/EditProfile";
 import { ListingEditable } from "./ListingEditable";
 
-import { getUserAssetsData } from "lib/actions";
+import { getAssets } from "lib/actions";
 import { getUser } from "lib/api";
 import { pollUntil } from "lib/pollUntil";
 
@@ -72,7 +72,7 @@ export const SellerConnected: FC<Props> = (props) => {
         try {
           setIsLoadingAssets(true);
 
-          const assetsData = await getUserAssetsData({
+          const assetsData = await getAssets({
             assets: user.assets,
             userAddress: props.userAddress,
           });
