@@ -119,7 +119,9 @@ export const Project: NextPage<Props> = (props) => {
             <Text t="body4">
               <Trans>Description</Trans>
             </Text>
-            <Text t="body8">{props.project.description}</Text>
+            <Text t="body8">
+              {props.project.description ?? "No project description found"}
+            </Text>
           </div>
         </div>
 
