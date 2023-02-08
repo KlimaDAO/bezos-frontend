@@ -3,7 +3,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Image from "next/legacy/image";
 import Link from "next/link";
 
-import { Text } from "@klimadao/lib/components";
+import { GridContainer, Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 
 import { Footer } from "components/Footer";
@@ -39,7 +39,7 @@ export const PostPage = (props: PostProps) => {
   ).toDateString()}`;
 
   return (
-    <>
+    <GridContainer>
       <PageHead
         title={props.post.title}
         mediaTitle={props.post.title}
@@ -133,6 +133,6 @@ export const PostPage = (props: PostProps) => {
       </div>
 
       <Footer />
-    </>
+    </GridContainer>
   );
 };
