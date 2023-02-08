@@ -165,14 +165,14 @@ export const polygonNetworks = {
     hexChainId: "0x13881",
     chainId: 80001,
     rpcUrls: [urls.polygonTestnetRpc],
-    blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
+    blockExplorerUrls: ["https://mumbai.polygonscan.com"],
   },
   mainnet: {
     chainName: "Polygon Mainnet",
     hexChainId: "0x89",
     chainId: 137,
     rpcUrls: [urls.polygonMainnetRpc],
-    blockExplorerUrls: ["https://polygonscan.com/"],
+    blockExplorerUrls: ["https://polygonscan.com"],
   },
 };
 
