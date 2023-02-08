@@ -28,6 +28,5 @@ export default function ProjectMap(props: MapProps) {
     }
     mapItUp();
   }, []);
-  // if (!map.current) return <div className={styles.placeholder} />;
   return <div ref={mapContainer} className={styles.mapBox} />;
 }

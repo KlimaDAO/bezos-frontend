@@ -112,6 +112,7 @@ export const Project: NextPage<Props> = (props) => {
         </div>
         <div className={styles.row}>
           <div className={styles.mapContainer}>
+            {/* hard coded for now because no projects have lat and lng data */}
             <ProjectMap lat={35.25} lng={-85.9} zoom={4} />
           </div>
           <div className={styles.descriptionContainer}>

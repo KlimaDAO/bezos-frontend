@@ -7,5 +7,6 @@ export const mapBox = css`
 export const placeholder = css`
   height: 100%;
   width: 100%;
-  min-width: 100%;
+  background-color: var(--klima-green);
+  border-radius: 0.8rem;
 `;
