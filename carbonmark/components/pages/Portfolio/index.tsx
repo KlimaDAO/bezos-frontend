@@ -19,6 +19,7 @@ import {
 } from "lib/listingsGetter";
 import { pollUntil } from "lib/pollUntil";
 import { NextPage } from "next";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AssetProject } from "./AssetProject";
 import { Balances } from "./Balances";
@@ -166,6 +167,15 @@ export const Portfolio: NextPage = () => {
                 onSubmit={onUpdateUser}
                 assets={[assetToSell]}
                 showModal={!!assetToSell}
+                successScreen={
+                  <Text>
+                    <Trans>
+                      Success. Go to your{" "}
+                      <Link href={`/users/${address}`}>Profile page</Link> to
+                      see your new listing.
+                    </Trans>
+                  </Text>
+                }
               />
             )}
 
