@@ -34,17 +34,12 @@ export const verifyUser = async (params: {
     }),
   });
 
-  try {
-    const data = await res.json();
+  const data = await res.json();
 
-    if (res.status !== 200 || !data.token) {
-      throw new Error(data.message);
-    }
-    return data;
-  } catch (e) {
-    console.error("Error verifyUser", e);
-    throw new Error("Error verifyUser");
+  if (res.status !== 200 || !data.token) {
+    throw new Error(data.message);
   }
+  return data;
 };
 
 export const putUser = async (params: {
