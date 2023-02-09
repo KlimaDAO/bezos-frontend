@@ -2,17 +2,14 @@ import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import { addresses } from "@klimadao/lib/constants";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
-import {
-  formatUnits,
-  getContract,
-  getStaticProvider
-} from "@klimadao/lib/utils";
+import { formatUnits, getContract } from "@klimadao/lib/utils";
 import { Contract, ethers, providers, Transaction, utils } from "ethers";
 import { getCategoryFromMethodology } from "lib/getCategoryFromMethodology";
 import { getAddress } from "lib/networkAware/getAddress";
+import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
+import { OnStatusHandler } from "lib/statusMessage";
 import { Asset, AssetExtended } from "lib/types/carbonmark";
-import { OnStatusHandler } from "./statusMessage";
 
 /** Get allowance for carbonmark contract, spending an 18 decimal token. Don't use this for USDC */
 export const getCarbonmarkAllowance = async (params: {
