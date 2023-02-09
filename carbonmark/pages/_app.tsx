@@ -31,6 +31,14 @@ import "@klimadao/lib/theme/globals.css"; // depends on variables
 //     i18n.activate("en");
 //   }
 // };
+const loadFallbackOnServer = async () => {
+  if (typeof window === "undefined") {
+    /* eslint-disable @typescript-eslint/no-var-requires */
+    const englishMessages = require("../locale/en/messages").messages;
+    i18n.load("en", englishMessages);
+    i18n.activate("en");
+  }
+};
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   useTabListener();
@@ -50,7 +58,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     router.isFallback &&
     firstRender.current
   ) {
-    // loadFallbackOnServer();
+    loadFallbackOnServer();
     firstRender.current = false;
   }
 
