@@ -62,7 +62,7 @@ export const putUser = async (params: {
 
   const data = await res.json();
 
-  if (res.status !== 200) {
+  if (res.status !== 200 || data.error) {
     throw new Error(data.message);
   }
   return data;
@@ -83,7 +83,7 @@ export const postUser = async (params: {
 
   const data = await res.json();
 
-  if (res.status !== 200) {
+  if (res.status !== 200 || data.error) {
     throw new Error(data.message);
   }
   return data;
