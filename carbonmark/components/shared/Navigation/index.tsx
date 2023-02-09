@@ -65,6 +65,12 @@ export const Navigation: FC<Props> = ({
           active={activePage === "Login"}
         />
         <LinkItemDesktop
+          name={t`Portfolio`}
+          key="portfolio"
+          url="/users/login"
+          active={activePage === "Login"}
+        />
+        <LinkItemDesktop
           name={t`Resources`}
           key="resources"
           url="/resources"
@@ -73,7 +79,9 @@ export const Navigation: FC<Props> = ({
       </HeaderDesktop>
 
       <HeaderMobile
-      // buttons={[<ChangeLanguageButton key="ChangeLanguageButton" />]}
+        transparent={transparent}
+
+        // buttons={[<ChangeLanguageButton key="ChangeLanguageButton" />]}
       >
         <div className={styles.navMain_MobileItemsWrapper}>
           <div className="links">

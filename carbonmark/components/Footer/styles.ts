@@ -64,7 +64,8 @@ export const footer_nav = css`
   }
 
   & a {
-    color: var(--font-02) !important;
+    // color: var(--font-02) !important;
+    color: #fff !important;
     &:hover {
       color: var(--font-01) !important;
     }
