@@ -79,7 +79,7 @@ msgstr "Created:"
 msgid "Enter App"
 msgstr "Enter App"
 
-#: components/pages/Users/SellerConnected/index.tsx:178
+#: components/pages/Users/SellerConnected/index.tsx:203
 msgid "Error:"
 msgstr "Error:"
 
@@ -91,7 +91,7 @@ msgstr "Final price"
 msgid "Home"
 msgstr "Home"
 
-#: components/pages/Users/SellerConnected/index.tsx:173
+#: components/pages/Users/SellerConnected/index.tsx:198
 #: components/pages/Users/SellerUnconnected/index.tsx:50
 msgid "Listings"
 msgstr "Listings"
@@ -216,6 +216,14 @@ msgstr "Thank you for supporting the planet! See purchase details below."
 msgid "The open platform for digital carbon."
 msgstr "The open platform for digital carbon."
 
+#: components/pages/Users/SellerConnected/index.tsx:136
+msgid "There was an error getting your data: {error}"
+msgstr "There was an error getting your data: {error}"
+
+#: components/pages/Users/SellerConnected/index.tsx:96
+msgid "There was an error loading your assets"
+msgstr "There was an error loading your assets"
+
 #: components/shared/InvalidNetworkModal/index.tsx:68
 msgid "This app only works on Polygon Mainnet."
 msgstr "This app only works on Polygon Mainnet."
@@ -240,7 +248,7 @@ msgstr "Updated:"
 msgid "Updates, guides and more from the CarbonMark team"
 msgstr "Updates, guides and more from the CarbonMark team"
 
-#: components/pages/Users/SellerConnected/index.tsx:222
+#: components/pages/Users/SellerConnected/index.tsx:252
 msgid "Updating your data..."
 msgstr "Updating your data..."
 
@@ -272,6 +280,10 @@ msgstr "Wrong Network"
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:99
 msgid "You chose to reject the transaction."
 msgstr "You chose to reject the transaction."
+
+#: components/pages/Users/SellerConnected/index.tsx:57
+msgid "You do not have any c3 tokens to create a listing :("
+msgstr "You do not have any c3 tokens to create a listing :("
 
 #: components/Layout/AddressSection/index.tsx:16
 msgid "Your Wallet Address:"
@@ -366,7 +378,7 @@ msgstr "Balances"
 msgid "profile.addListing_modal.submit"
 msgstr "Create Listing"
 
-#: components/pages/Users/SellerConnected/index.tsx:200
+#: components/pages/Users/SellerConnected/index.tsx:225
 msgid "profile.create_new_listing"
 msgstr "Create New Listing"
 
@@ -382,7 +394,7 @@ msgstr "Update Listing"
 msgid "profile.edit_modal.submit"
 msgstr "Save Changes"
 
-#: components/pages/Users/SellerConnected/index.tsx:253
+#: components/pages/Users/SellerConnected/index.tsx:283
 msgid "profile.edit_profile.title"
 msgstr "Your Profile"
 
@@ -402,7 +414,7 @@ msgstr "Edit"
 msgid "profile.listing.edit.delete_listing"
 msgstr "Delete Listing"
 
-#: components/pages/Users/SellerConnected/index.tsx:185
+#: components/pages/Users/SellerConnected/index.tsx:210
 #: components/pages/Users/SellerUnconnected/index.tsx:56
 msgid "profile.listings.empty_state"
 msgstr "No active listings to show."
@@ -411,15 +423,7 @@ msgstr "No active listings to show."
 msgid "profile.listings_modal.title"
 msgstr "Create a Listing"
 
-#: components/pages/Users/SellerConnected/index.tsx:89
-msgid "profile.load_assets.error"
-msgstr "There was an error loading your assets"
-
-#: components/pages/Users/SellerConnected/index.tsx:61
-msgid "profile.missing_assets"
-msgstr "You do not have any c3 tokens to create a listing :("
-
-#: components/pages/Users/SellerConnected/index.tsx:150
+#: components/pages/Users/SellerConnected/index.tsx:175
 msgid "profile.update_activity.error"
 msgstr "There was an error updating your data: {e}"
 
@@ -942,7 +946,7 @@ msgid "user.stats.title"
 msgstr "Stats"
 
 #: components/pages/Portfolio/index.tsx:191
-#: components/pages/Users/SellerConnected/index.tsx:240
+#: components/pages/Users/SellerConnected/index.tsx:270
 msgid "user.stats.your_seller_data.description"
 msgstr "Your seller data"
 

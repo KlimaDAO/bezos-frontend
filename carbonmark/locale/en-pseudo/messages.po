@@ -79,7 +79,7 @@ msgstr ""
 msgid "Enter App"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:178
+#: components/pages/Users/SellerConnected/index.tsx:203
 msgid "Error:"
 msgstr ""
 
@@ -91,7 +91,7 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:173
+#: components/pages/Users/SellerConnected/index.tsx:198
 #: components/pages/Users/SellerUnconnected/index.tsx:50
 msgid "Listings"
 msgstr ""
@@ -216,6 +216,14 @@ msgstr ""
 msgid "The open platform for digital carbon."
 msgstr ""
 
+#: components/pages/Users/SellerConnected/index.tsx:136
+msgid "There was an error getting your data: {error}"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/index.tsx:96
+msgid "There was an error loading your assets"
+msgstr ""
+
 #: components/shared/InvalidNetworkModal/index.tsx:68
 msgid "This app only works on Polygon Mainnet."
 msgstr ""
@@ -240,7 +248,7 @@ msgstr ""
 msgid "Updates, guides and more from the CarbonMark team"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:222
+#: components/pages/Users/SellerConnected/index.tsx:252
 msgid "Updating your data..."
 msgstr ""
 
@@ -271,6 +279,10 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:99
 msgid "You chose to reject the transaction."
+msgstr ""
+
+#: components/pages/Users/SellerConnected/index.tsx:57
+msgid "You do not have any c3 tokens to create a listing :("
 msgstr ""
 
 #: components/Layout/AddressSection/index.tsx:16
@@ -366,7 +378,7 @@ msgstr ""
 msgid "profile.addListing_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:200
+#: components/pages/Users/SellerConnected/index.tsx:225
 msgid "profile.create_new_listing"
 msgstr ""
 
@@ -382,7 +394,7 @@ msgstr ""
 msgid "profile.edit_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:253
+#: components/pages/Users/SellerConnected/index.tsx:283
 msgid "profile.edit_profile.title"
 msgstr ""
 
@@ -402,7 +414,7 @@ msgstr ""
 msgid "profile.listing.edit.delete_listing"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:185
+#: components/pages/Users/SellerConnected/index.tsx:210
 #: components/pages/Users/SellerUnconnected/index.tsx:56
 msgid "profile.listings.empty_state"
 msgstr ""
@@ -411,15 +423,7 @@ msgstr ""
 msgid "profile.listings_modal.title"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:89
-msgid "profile.load_assets.error"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/index.tsx:61
-msgid "profile.missing_assets"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/index.tsx:150
+#: components/pages/Users/SellerConnected/index.tsx:175
 msgid "profile.update_activity.error"
 msgstr ""
 
@@ -942,7 +946,7 @@ msgid "user.stats.title"
 msgstr ""
 
 #: components/pages/Portfolio/index.tsx:191
-#: components/pages/Users/SellerConnected/index.tsx:240
+#: components/pages/Users/SellerConnected/index.tsx:270
 msgid "user.stats.your_seller_data.description"
 msgstr ""
 
