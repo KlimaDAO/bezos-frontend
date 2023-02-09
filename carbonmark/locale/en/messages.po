@@ -188,6 +188,10 @@ msgstr "Sell"
 msgid "Seller Listing"
 msgstr "Seller Listing"
 
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:105
+msgid "Something went wrong. Please try again. {error}"
+msgstr "Something went wrong. Please try again. {error}"
+
 #: components/pages/errors/Custom404.tsx:26
 msgid "Sorry, looks like we sent you the wrong way."
 msgstr "Sorry, looks like we sent you the wrong way."
@@ -264,6 +268,10 @@ msgstr "We couldn't find any C3 tokens in your connected wallet :("
 #: components/shared/InvalidNetworkModal/index.tsx:62
 msgid "Wrong Network"
 msgstr "Wrong Network"
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:99
+msgid "You chose to reject the transaction."
+msgstr "You chose to reject the transaction."
 
 #: components/Layout/AddressSection/index.tsx:16
 msgid "Your Wallet Address:"
@@ -370,7 +378,7 @@ msgstr "Create your profile on Carbonmark and start selling"
 msgid "profile.editListing_modal.submit"
 msgstr "Update Listing"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:238
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:230
 msgid "profile.edit_modal.submit"
 msgstr "Save Changes"
 
@@ -811,47 +819,35 @@ msgstr "USDC per ton"
 msgid "user.edit.form.edit.quantity.label"
 msgstr "Quantity"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:95
-msgid "user.edit.form.error.api_error"
-msgstr "There was an error with the Request API. Please try again"
-
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:114
-msgid "user.edit.form.error.general_error"
-msgstr "Something went wrong. Please try again"
-
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:107
-msgid "user.edit.form.error.user_rejected"
-msgstr "You chose to reject the transaction."
-
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:221
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:213
 msgid "user.edit.form.input.description.label"
 msgstr "About"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:215
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:207
 msgid "user.edit.form.input.description.placeholder"
 msgstr "Description"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:171
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:163
 msgid "user.edit.form.input.handle.handle_exists"
 msgstr "Sorry, this handle already exists"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:172
 msgid "user.edit.form.input.handle.label"
 msgstr "Handle (not changeable later! Choose wisely)"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:165
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:157
 msgid "user.edit.form.input.handle.no_polygon_address"
 msgstr "Handle should not be an address"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:157
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
 msgid "user.edit.form.input.handle.pattern"
 msgstr "Handle should contain any special characters"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:139
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:131
 msgid "user.edit.form.input.handle.placeholder"
 msgstr "Your unique handle"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:150
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:142
 msgid "user.edit.form.input.handle.required"
 msgstr "Handle is required"
 
@@ -867,15 +863,15 @@ msgstr "USDC per ton"
 msgid "user.edit.form.input.totalAmountToSell.label"
 msgstr "Total Amount"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:205
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
 msgid "user.edit.form.input.username.label"
 msgstr "Display Name"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:190
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:182
 msgid "user.edit.form.input.username.placeholder"
 msgstr "Your display name"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:198
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:190
 msgid "user.edit.form.input.username.required"
 msgstr "Display Name is required"
 

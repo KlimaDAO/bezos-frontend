@@ -188,6 +188,10 @@ msgstr ""
 msgid "Seller Listing"
 msgstr ""
 
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:105
+msgid "Something went wrong. Please try again. {error}"
+msgstr ""
+
 #: components/pages/errors/Custom404.tsx:26
 msgid "Sorry, looks like we sent you the wrong way."
 msgstr ""
@@ -263,6 +267,10 @@ msgstr ""
 
 #: components/shared/InvalidNetworkModal/index.tsx:62
 msgid "Wrong Network"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:99
+msgid "You chose to reject the transaction."
 msgstr ""
 
 #: components/Layout/AddressSection/index.tsx:16
@@ -370,7 +378,7 @@ msgstr ""
 msgid "profile.editListing_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:238
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:230
 msgid "profile.edit_modal.submit"
 msgstr ""
 
@@ -811,47 +819,35 @@ msgstr ""
 msgid "user.edit.form.edit.quantity.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:95
-msgid "user.edit.form.error.api_error"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:114
-msgid "user.edit.form.error.general_error"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:107
-msgid "user.edit.form.error.user_rejected"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:221
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:213
 msgid "user.edit.form.input.description.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:215
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:207
 msgid "user.edit.form.input.description.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:171
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:163
 msgid "user.edit.form.input.handle.handle_exists"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:172
 msgid "user.edit.form.input.handle.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:165
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:157
 msgid "user.edit.form.input.handle.no_polygon_address"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:157
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
 msgid "user.edit.form.input.handle.pattern"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:139
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:131
 msgid "user.edit.form.input.handle.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:150
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:142
 msgid "user.edit.form.input.handle.required"
 msgstr ""
 
@@ -867,15 +863,15 @@ msgstr ""
 msgid "user.edit.form.input.totalAmountToSell.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:205
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
 msgid "user.edit.form.input.username.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:190
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:182
 msgid "user.edit.form.input.username.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:198
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:190
 msgid "user.edit.form.input.username.required"
 msgstr ""
 
