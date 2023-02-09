@@ -118,9 +118,28 @@ export const SellerConnected: FC<Props> = (props) => {
       setSortedListings(sortedListings);
   }, [user]);
 
-  const onEditProfile = (data: User) => {
-    setUser((prev) => ({ ...prev, ...data }));
-    props.onToggleEditProfileModal();
+  const onEditProfile = async (data: User) => {
+    try {
+      if (isCarbonmarkUser) {
+        setUser((prev) => ({ ...prev, ...data }));
+      } else {
+        // for a new user, get all data from backend
+        const newUser = await getUser({
+          user: props.userAddress,
+          type: "wallet",
+        });
+        setUser((prev) => ({ ...prev, ...newUser }));
+      }
+    } catch (error) {
+      console.error("GET NEW USER DATA error", error);
+      setErrorMessage(
+        t({
+          message: `There was an error getting your data: ${error}`,
+        })
+      );
+    } finally {
+      props.onToggleEditProfileModal();
+    }
   };
 
   const onUpdateUser = async () => {
