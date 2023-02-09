@@ -21,7 +21,7 @@ import {
 import { NextPage } from "next";
 import Link from "next/link";
 import { ProjectListing } from "./ProjectListing";
-import ProjectMap from "./ProjectMap";
+import { ProjectMap } from "./ProjectMap";
 
 import * as styles from "./styles";
 
@@ -30,7 +30,7 @@ type Props = {
 };
 
 export const Project: NextPage<Props> = (props) => {
-  console.log(props.project);
+  console.log(props.project.location);
   const allListings =
     Array.isArray(props.project.listings) &&
     getAllListings(props.project.listings);
