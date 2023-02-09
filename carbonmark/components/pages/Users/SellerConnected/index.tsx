@@ -52,17 +52,20 @@ export const SellerConnected: FC<Props> = (props) => {
   const allListings = hasListings && getAllListings(user.listings);
   const activeListings = hasListings && getActiveListings(user.listings);
 
+  const setMissingAssetsError = () => {
+    setErrorMessage(
+      t({
+        message: "You do not have any c3 tokens to create a listing :(",
+      })
+    );
+  };
+
   // load Assets every time user changed
   useEffect(() => {
     // show error message if a carbonmark user has no assets
     if (isCarbonmarkUser && !hasAssets) {
       setIsLoadingAssets(false);
-      setErrorMessage(
-        t({
-          id: "profile.missing_assets",
-          message: "You do not have any c3 tokens to create a listing :(",
-        })
-      );
+      setMissingAssetsError();
     }
 
     if (hasAssets) {
@@ -82,12 +85,15 @@ export const SellerConnected: FC<Props> = (props) => {
             (a) => Number(a.balance) > 0
           );
 
-          setAssetsData(assetsWithBalance);
+          if (assetsWithBalance.length) {
+            setAssetsData(assetsWithBalance);
+          } else {
+            setMissingAssetsError();
+          }
         } catch (e) {
           console.error(e);
           setErrorMessage(
             t({
-              id: "profile.load_assets.error",
               message: "There was an error loading your assets",
             })
           );
@@ -207,7 +213,12 @@ export const SellerConnected: FC<Props> = (props) => {
               </>
             )
           }
-          disabled={isLoadingAssets || !hasAssets || isUpdatingUser}
+          disabled={
+            isLoadingAssets ||
+            !hasAssets ||
+            isUpdatingUser ||
+            !assetsData?.length
+          }
           onClick={() => setShowCreateListingModal(true)}
         />
       </div>
