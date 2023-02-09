@@ -2,8 +2,10 @@ import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const footer = (transparent = false) => css`
-  background: ${transparent ? "none" : "var(--surface-02)"};
-  padding: 2.8rem 0;
+  background: ${transparent
+    ? "none"
+    : "#202020"}; // @todo - change this to variable
+  padding: 4rem 0;
   grid-column: full;
   display: grid;
   grid-template-columns: inherit;
@@ -29,7 +31,7 @@ export const footer_content = css`
   flex-direction: column;
   grid-column: main;
   align-items: center;
-  gap: 5rem;
+  gap: 4rem;
   justify-content: space-between;
   height: 100%;
 
@@ -61,7 +63,8 @@ export const footer_nav = css`
   }
 
   & a {
-    color: var(--font-02) !important;
+    // color: var(--font-02) !important;
+    color: #fff !important;
     &:hover {
       color: var(--font-01) !important;
     }
@@ -94,7 +97,8 @@ export const footer_icons = css`
   }
 
   & svg path {
-    fill: var(--font-02);
+    fill: #fff;
+    // fill: var(--font-02);
   }
 
   & svg:hover path {
