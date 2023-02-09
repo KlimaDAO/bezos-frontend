@@ -1,3 +1,4 @@
+import { cx } from "@emotion/css";
 import { Text } from "@klimadao/lib/components";
 import { Project as ProjectType } from "@klimadao/lib/types/carbonmark";
 import { t, Trans } from "@lingui/macro";
@@ -30,7 +31,6 @@ type Props = {
 };
 
 export const Project: NextPage<Props> = (props) => {
-  console.log(props.project.location);
   const allListings =
     Array.isArray(props.project.listings) &&
     getAllListings(props.project.listings);
@@ -110,11 +110,23 @@ export const Project: NextPage<Props> = (props) => {
             </Text>
           </div>
         </div>
-        <div className={styles.row}>
-          <div className={styles.mapContainer}>
-            {/* hard coded for now because no projects have lat and lng data */}
-            <ProjectMap lat={35.25} lng={-85.9} zoom={4} />
-          </div>
+        <div
+          className={cx(
+            {
+              hasMap: !!props.project.location,
+            },
+            styles.row
+          )}
+        >
+          {props.project.location && (
+            <div className={styles.mapContainer}>
+              <ProjectMap
+                lat={props.project.location?.geometry.coordinates[1]}
+                lng={props.project.location?.geometry.coordinates[0]}
+                zoom={5}
+              />
+            </div>
+          )}
           <div className={styles.descriptionContainer}>
             <Text t="body4">
               <Trans>Description</Trans>

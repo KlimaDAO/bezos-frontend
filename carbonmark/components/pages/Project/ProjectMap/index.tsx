@@ -9,7 +9,7 @@ interface MapProps {
   zoom: number;
 }
 
-export default function ProjectMap(props: MapProps) {
+export const ProjectMap = (props: MapProps) => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<Map | null>(null);
   useEffect(() => {
@@ -25,8 +25,11 @@ export default function ProjectMap(props: MapProps) {
         center: [props.lng, props.lat],
         zoom: props.zoom,
       });
+      new MapBoxGL.Marker()
+        .setLngLat([props.lng, props.lat])
+        .addTo(map.current);
     }
     mapItUp();
   }, []);
   return <div ref={mapContainer} className={styles.mapBox} />;
-}
+};

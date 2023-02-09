@@ -38,13 +38,21 @@ export const row = css`
   display: grid;
   gap: 4rem;
   grid-column: 1/3;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: auto;
+  grid-template-rows: 1fr;
   ${breakpoints.large} {
-    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
   }
+  &.hasMap {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    ${breakpoints.large} {
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 `;
+
+export const hasMap = css``;
 
 export const listings = css`
   display: grid;
