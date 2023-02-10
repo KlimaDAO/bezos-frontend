@@ -13,7 +13,7 @@ export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {
 
   const data = await res.json();
 
-  if (res.status !== 200) {
+  if (!res.ok || !data.nonce) {
     throw new Error(data.message);
   }
   return data;
@@ -36,7 +36,7 @@ export const verifyUser = async (params: {
 
   const data = await res.json();
 
-  if (res.status !== 200 || !data.token) {
+  if (!res.ok || !data.token) {
     throw new Error(data.message);
   }
   return data;
@@ -57,7 +57,7 @@ export const putUser = async (params: {
 
   const data = await res.json();
 
-  if (res.status !== 200 || data.error) {
+  if (!res.ok || data.error) {
     throw new Error(data.message);
   }
   return data;
@@ -78,7 +78,7 @@ export const postUser = async (params: {
 
   const data = await res.json();
 
-  if (res.status !== 200 || data.error) {
+  if (!res.ok || data.error) {
     throw new Error(data.message);
   }
   return data;
