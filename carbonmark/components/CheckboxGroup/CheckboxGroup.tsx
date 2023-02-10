@@ -1,52 +1,44 @@
 import { Checkbox } from "components/shared/Form";
-import { FC } from "react";
-import { Control, FieldValues, useController } from "react-hook-form";
-import { CheckboxOption, DocumentType, TagSlug } from "../lib/cmsDataMap";
+import { Control, FieldValues, Path, useController } from "react-hook-form";
+import * as styles from "./CheckboxGroup.styles";
+import { CheckboxOption } from "./CheckboxGroup.types";
 
-type Props = {
+type Props<T extends FieldValues> = {
   options: CheckboxOption[];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  formName: any; //  "tags" | "types"
-  control: Control<FieldValues>;
+  name: Path<T>;
+  control: Control<T>;
 };
 
-const randomNumber = Math.floor(Math.random() * 1000);
-
-// Need to wrap CheckBoxes in controller field to ensure the form values are updated correctly
-// https://react-hook-form.com/api/usecontroller
-
-export const CheckboxGroup: FC<Props> = (props) => {
+export const CheckboxGroup = <T extends FieldValues>(props: Props<T>) => {
   const { field } = useController({
     control: props.control,
-    name: props.formName,
+    name: props.name,
   });
-
   return (
-    <>
+    <div className={styles.main}>
       {props.options.map((option) => (
         <Checkbox
-          id={`${option.id}-${randomNumber}`} // this component is rendered twice, make sure that the ID is always different
-          key={`${option.id}-${randomNumber}`}
+          id={`${props.name}-${option.value}`}
+          key={`${props.name}-${option.value}`}
           label={option.label}
           inputProps={{
+            name: props.name,
             value: option.value,
-            checked: field.value.some(
-              (v: TagSlug | DocumentType) => v === option.value
-            ),
+            // checked: field.value.includes(option.value),
             onChange: (e) => {
               if (e.target.checked) {
+                /** Add field to list of checked values */
                 field.onChange([...field.value, e.target.value]);
               } else {
-                field.onChange(
-                  field.value.filter(
-                    (value: TagSlug | DocumentType) => value !== e.target.value
-                  )
+                /** Remove any field from list of checked values */
+                field.onChange(() =>
+                  field.value.filter(() => option.value !== e.target.value)
                 );
               }
             },
           }}
         />
       ))}
-    </>
+    </div>
   );
 };
