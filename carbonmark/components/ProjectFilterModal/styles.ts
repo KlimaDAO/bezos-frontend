@@ -20,3 +20,14 @@ export const main = css`
     }
   }
 `;
+
+export const option = css`
+  display: flex;
+  align-items: center;
+
+  svg {
+    font-size: 1.8rem;
+    opacity: 0.6;
+    margin-right: 5px;
+  }
+`;
