@@ -27,6 +27,7 @@ export const Portfolio: NextPage = () => {
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
   const [assetsData, setAssetsData] = useState<AssetExtended[] | null>(null);
   const [assetToSell, setAssetToSell] = useState<AssetExtended | null>(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const hasAssets = !isLoadingAssets && !!user?.assets?.length;
   const hasListings = !isLoadingUser && !!user?.listings?.length;
@@ -91,6 +92,7 @@ export const Portfolio: NextPage = () => {
     if (!user) return; // TS typeguard
 
     try {
+      setErrorMessage("");
       setIsLoadingUser(true);
 
       const fetchUser = () =>
@@ -116,6 +118,9 @@ export const Portfolio: NextPage = () => {
       updatedUser && setUser((prev) => ({ ...prev, ...updatedUser }));
     } catch (e) {
       console.error("LOAD USER ACTIVITY error", e);
+      setErrorMessage(
+        t`There was an error updating your data: ${e}. Please refresh the page.`
+      );
     } finally {
       setIsLoadingUser(false);
     }
@@ -143,6 +148,12 @@ export const Portfolio: NextPage = () => {
                   <Trans>Loading your data...</Trans>
                 </Text>
               </div>
+            )}
+
+            {errorMessage && (
+              <Text t="h5" className={styles.errorMessage}>
+                <Trans>Error: </Trans> {errorMessage}
+              </Text>
             )}
 
             {isConnectedUser &&

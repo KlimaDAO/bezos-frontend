@@ -105,6 +105,7 @@ export const SellerConnected: FC<Props> = (props) => {
 
   const onEditProfile = async (data: User) => {
     try {
+      setErrorMessage("");
       if (isCarbonmarkUser) {
         setUser((prev) => ({ ...prev, ...data }));
       } else {
@@ -127,6 +128,7 @@ export const SellerConnected: FC<Props> = (props) => {
     if (!user) return; // TS typeguard
 
     try {
+      setErrorMessage("");
       setIsUpdatingUser(true);
 
       const fetchUser = () =>
@@ -152,7 +154,9 @@ export const SellerConnected: FC<Props> = (props) => {
       updatedUser && setUser((prev) => ({ ...prev, ...updatedUser }));
     } catch (e) {
       console.error("LOAD USER ACTIVITY error", e);
-      setErrorMessage(t`There was an error updating your data: ${e}`);
+      setErrorMessage(
+        t`There was an error updating your data: ${e}. Please refresh the page.`
+      );
     } finally {
       setIsUpdatingUser(false);
     }
