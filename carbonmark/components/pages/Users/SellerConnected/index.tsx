@@ -270,7 +270,11 @@ export const SellerConnected: FC<Props> = (props) => {
         showModal={props.showEditProfileModal}
         onToggleModal={props.onToggleEditProfileModal}
       >
-        <EditProfile user={user} onSubmit={onEditProfile} />
+        <EditProfile
+          user={user}
+          onSubmit={onEditProfile}
+          isCarbonmarkUser={isCarbonmarkUser}
+        />
       </Modal>
 
       {!!assetsData?.length && (

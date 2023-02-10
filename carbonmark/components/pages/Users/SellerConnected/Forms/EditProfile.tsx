@@ -9,6 +9,7 @@ import { getUser, loginUser, postUser, putUser, verifyUser } from "lib/api";
 import { User } from "lib/types/carbonmark";
 import { FC, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { ProfileLogo } from "../../ProfileLogo";
 import * as styles from "./styles";
 
 type Props = {
@@ -16,14 +17,17 @@ type Props = {
     handle?: string;
     username?: string;
     description?: string;
+    profileImgUrl?: string;
   } | null;
   onSubmit: (data: User) => void;
+  isCarbonmarkUser: boolean;
 };
 
 const defaultValues = {
   handle: "",
   username: "",
   description: "",
+  profileImgUrl: "",
 };
 
 export const editSignMessage = (nonce: string): string =>
@@ -36,9 +40,13 @@ export const EditProfile: FC<Props> = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<null | string>(null);
 
-  const { register, handleSubmit, formState } = useForm<User>({
+  const { register, handleSubmit, formState, watch } = useForm<User>({
     defaultValues: { ...defaultValues, ...props.user, wallet: address },
   });
+  const watchProfileImgUrl = watch(
+    "profileImgUrl",
+    props.user?.profileImgUrl || ""
+  );
 
   const hasError = !isLoading && !!errorMessage;
 
@@ -120,6 +128,12 @@ export const EditProfile: FC<Props> = (props) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.formContainer}>
+        <ProfileLogo
+          isCarbonmarkUser={props.isCarbonmarkUser}
+          hasBorder={true}
+          className={styles.profileLogo}
+          profileImgUrl={watchProfileImgUrl}
+        />
         <InputField
           id="wallet"
           inputProps={{
@@ -199,10 +213,30 @@ export const EditProfile: FC<Props> = (props) => {
           })}
           errorMessage={formState.errors.username?.message}
         />
+        <InputField
+          id="profileImgUrl"
+          inputProps={{
+            disabled: isLoading,
+            placeholder: t({
+              // TODO: add translation id
+              id: "",
+              message: "https://...",
+            }),
+            type: "text",
+            ...register("profileImgUrl", {}),
+          }}
+          label={t({
+            // TODO: add translation id
+            id: "",
+            message: "Profile Picture",
+          })}
+          errorMessage={formState.errors.profileImgUrl?.message}
+        />
         <TextareaField
           id="description"
           textareaProps={{
             disabled: isLoading,
+            rows: 4,
             placeholder: t({
               id: "user.edit.form.input.description.placeholder",
               message: "Description",
