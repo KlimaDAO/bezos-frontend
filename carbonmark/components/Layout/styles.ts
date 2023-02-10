@@ -68,8 +68,18 @@ export const desktopNavMenu = css`
     display: flex;
   }
 `;
+export const fullWidthScrollableContainer = css`
+  width: 100%;
+  ${breakpoints.desktop} {
+    overflow-y: auto;
+    grid-column: full;
+  }
+`;
 
 export const cardGrid = css`
+  max-width: 111.6rem;
+  margin: auto;
+  height: 100%;
   display: grid;
   /* header body footer  */
   grid-template-rows: auto 1fr auto;
@@ -87,7 +97,6 @@ export const cardGrid = css`
     padding: 2.4rem;
   }
   ${breakpoints.desktop} {
-    overflow-y: auto;
     display: grid;
     grid-column: full;
   }
