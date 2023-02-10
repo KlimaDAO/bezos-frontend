@@ -2,7 +2,7 @@ import {
   ButtonPrimary,
   Section,
   Spinner,
-  Text
+  Text,
 } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
@@ -22,7 +22,7 @@ import {
   DocumentType,
   sortedByQueries,
   SortQuery,
-  TagSlug
+  TagSlug,
 } from "../lib/cmsDataMap";
 import { queryFilteredDocuments, searchDocumentsByText } from "../lib/queries";
 
