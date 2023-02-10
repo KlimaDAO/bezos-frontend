@@ -83,11 +83,6 @@ msgstr ""
 msgid "Enter App"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:155
-#: components/pages/Users/SellerConnected/index.tsx:183
-msgid "Error:"
-msgstr ""
-
 #: components/pages/Purchases/index.tsx:107
 msgid "Final price"
 msgstr ""
@@ -140,6 +135,11 @@ msgstr ""
 
 #: components/pages/Purchases/index.tsx:63
 msgid "Payment Successful"
+msgstr ""
+
+#: components/pages/Portfolio/index.tsx:122
+#: components/pages/Users/SellerConnected/index.tsx:158
+msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr ""
 
 #: components/Footer/index.tsx:33
@@ -227,11 +227,6 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:84
 msgid "There was an error loading your assets. {e}"
-msgstr ""
-
-#: components/pages/Portfolio/index.tsx:122
-#: components/pages/Users/SellerConnected/index.tsx:158
-msgid "There was an error updating your data: {e}. Please refresh the page."
 msgstr ""
 
 #: components/shared/InvalidNetworkModal/index.tsx:68

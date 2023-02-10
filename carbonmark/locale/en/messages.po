@@ -83,11 +83,6 @@ msgstr "Description"
 msgid "Enter App"
 msgstr "Enter App"
 
-#: components/pages/Portfolio/index.tsx:155
-#: components/pages/Users/SellerConnected/index.tsx:183
-msgid "Error:"
-msgstr "Error:"
-
 #: components/pages/Purchases/index.tsx:107
 msgid "Final price"
 msgstr "Final price"
@@ -141,6 +136,11 @@ msgstr "Not Connected"
 #: components/pages/Purchases/index.tsx:63
 msgid "Payment Successful"
 msgstr "Payment Successful"
+
+#: components/pages/Portfolio/index.tsx:122
+#: components/pages/Users/SellerConnected/index.tsx:158
+msgid "Please refresh the page. There was an error updating your data: {e}."
+msgstr "Please refresh the page. There was an error updating your data: {e}."
 
 #: components/Footer/index.tsx:33
 #: components/shared/Navigation/index.tsx:64
@@ -228,11 +228,6 @@ msgstr "There was an error getting your data: {error}"
 #: components/pages/Users/SellerConnected/index.tsx:84
 msgid "There was an error loading your assets. {e}"
 msgstr "There was an error loading your assets. {e}"
-
-#: components/pages/Portfolio/index.tsx:122
-#: components/pages/Users/SellerConnected/index.tsx:158
-msgid "There was an error updating your data: {e}. Please refresh the page."
-msgstr "There was an error updating your data: {e}. Please refresh the page."
 
 #: components/shared/InvalidNetworkModal/index.tsx:68
 msgid "This app only works on Polygon Mainnet."

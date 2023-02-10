@@ -119,7 +119,7 @@ export const Portfolio: NextPage = () => {
     } catch (e) {
       console.error("LOAD USER ACTIVITY error", e);
       setErrorMessage(
-        t`There was an error updating your data: ${e}. Please refresh the page.`
+        t`Please refresh the page. There was an error updating your data: ${e}.`
       );
     } finally {
       setIsLoadingUser(false);
@@ -152,7 +152,7 @@ export const Portfolio: NextPage = () => {
 
             {errorMessage && (
               <Text t="h5" className={styles.errorMessage}>
-                <Trans>Error: </Trans> {errorMessage}
+                {errorMessage}
               </Text>
             )}
 
