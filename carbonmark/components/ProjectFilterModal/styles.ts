@@ -2,7 +2,7 @@ import { css } from "@emotion/css";
 
 export const main = css`
   max-width: 50rem;
-  width: 32rem;
+  min-width: 30rem;
 
   button.action {
     width: 100%;

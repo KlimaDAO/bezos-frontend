@@ -31,7 +31,7 @@ export type ModalProps = {
  */
 const Modal: FC<ModalProps> = (props) => {
   const { closeModal } = useModal();
-  const { overlay = true, title, children, actions } = props;
+  const { overlay = true, title, children } = props;
   return (
     <div>
       {/* If the overlay has been specified render it first */}
@@ -58,23 +58,6 @@ const Modal: FC<ModalProps> = (props) => {
         <div className={cx({ [styles.content]: !!title }, "modalContent")}>
           {children}
         </div>
-        {/* {actions && (
-          <div className={classNames([styles.actions, "modalActions"])}>
-            {Object.entries(actions || {}).map(
-              ([key, { label, onClick}]) => {
-                const ButtonComponent = key === "primary" ? ButtonPrimary : ButtonSecondary;
-                return <ButtonComponent
-                  {...props}
-                  key={key}
-                  onClick={() => {
-                    onClick?.();
-                    if (key === "cancel") closeModal();
-                  }}
-                />}
-              )
-            )}
-          </div>
-        )} */}
       </div>
     </div>
   );

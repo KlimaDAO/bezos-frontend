@@ -17,7 +17,6 @@ export const heading = css`
 `;
 
 export const closeButton = css`
-  width: 18px;
   display: flex;
   border-radius: var(--border-radius);
   background: var(--surface-02);
