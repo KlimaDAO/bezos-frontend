@@ -92,11 +92,7 @@ export const SellerConnected: FC<Props> = (props) => {
           }
         } catch (e) {
           console.error(e);
-          setErrorMessage(
-            t({
-              message: "There was an error loading your assets",
-            })
-          );
+          setErrorMessage(t`There was an error loading your assets. ${e}`);
         } finally {
           setIsLoadingAssets(false);
         }
@@ -132,11 +128,7 @@ export const SellerConnected: FC<Props> = (props) => {
       }
     } catch (error) {
       console.error("GET NEW USER DATA error", error);
-      setErrorMessage(
-        t({
-          message: `There was an error getting your data: ${error}`,
-        })
-      );
+      setErrorMessage(t`There was an error getting your data: ${error}`);
     } finally {
       props.onToggleEditProfileModal();
     }
@@ -171,12 +163,7 @@ export const SellerConnected: FC<Props> = (props) => {
       setUser((prev) => ({ ...prev, ...updatedUser }));
     } catch (e) {
       console.error("LOAD USER ACTIVITY error", e);
-      setErrorMessage(
-        t({
-          id: "profile.update_activity.error",
-          message: `There was an error updating your data: ${e}`,
-        })
-      );
+      setErrorMessage(t`There was an error updating your data: ${e}`);
     } finally {
       setIsUpdatingUser(false);
     }
