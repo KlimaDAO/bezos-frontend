@@ -29,9 +29,9 @@ export const ResourcesFilters: FC<Props> = (props) => {
         </Text>
       </div>
       <div className={styles.filtersCheckboxGroup}>
-        <CheckboxGroup
+        <CheckboxGroup<FormValues>
           options={mainTags}
-          formName="tags"
+          name="tags"
           control={props.control}
         />
       </div>
@@ -41,9 +41,9 @@ export const ResourcesFilters: FC<Props> = (props) => {
         </Text>
       </div>
       <div className={styles.filtersCheckboxGroup}>
-        <CheckboxGroup
+        <CheckboxGroup<FormValues>
           options={subTags}
-          formName="tags"
+          name="tags"
           control={props.control}
         />
       </div>
