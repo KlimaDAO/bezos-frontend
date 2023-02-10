@@ -47,6 +47,7 @@ export const Layout: FC<Props> = (props: Props) => {
         <NavDrawer userAddress={props.userAddress} />
       </div>
       <div className={styles.cardGrid}>
+        {/* header  */}
         <div className={styles.controls}>
           <Link href="/" className={styles.mobileLogo} data-mobile-only>
             <CarbonmarkLogo />
@@ -123,12 +124,21 @@ export const Layout: FC<Props> = (props: Props) => {
             })}
           <InvalidNetworkModal />
         </div>
-        {isProjects && isMobile && (
-          <ProjectsController className={styles.mobileProjectsController} />
-        )}
+        {/* body  */}
+        <div
+          style={{
+            gridColumn: "1/3",
+            display: "inherit",
+            gridGap: "inherit",
+          }}
+        >
+          {isProjects && isMobile && (
+            <ProjectsController className={styles.mobileProjectsController} />
+          )}
 
-        {props.children}
-
+          {props.children}
+        </div>
+        {/* footer  */}
         <Footer className={styles.fullWidthFooter} />
       </div>
     </div>
