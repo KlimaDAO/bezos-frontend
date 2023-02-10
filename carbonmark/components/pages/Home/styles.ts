@@ -92,7 +92,14 @@ export const scroller = css`
   & .card-wrapper {
     gap: 1.6rem;
     display: flex;
+    padding: 1rem 0;
     overflow-x: auto;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    ::-webkit-scrollbar {
+      display: none;
+    }
 
     & > div {
       min-width: 80%;
