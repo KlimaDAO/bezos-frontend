@@ -52,20 +52,11 @@ export const SellerConnected: FC<Props> = (props) => {
   const allListings = hasListings && getAllListings(user.listings);
   const activeListings = hasListings && getActiveListings(user.listings);
 
-  const setMissingAssetsError = () => {
-    setErrorMessage(
-      t({
-        message: "You do not have any c3 tokens to create a listing :(",
-      })
-    );
-  };
-
   // load Assets every time user changed
   useEffect(() => {
-    // show error message if a carbonmark user has no assets
+    // stop loading assets when there are no assets to load
     if (isCarbonmarkUser && !hasAssets) {
       setIsLoadingAssets(false);
-      setMissingAssetsError();
     }
 
     if (hasAssets) {
@@ -87,8 +78,6 @@ export const SellerConnected: FC<Props> = (props) => {
 
           if (assetsWithBalance.length) {
             setAssetsData(assetsWithBalance);
-          } else {
-            setMissingAssetsError();
           }
         } catch (e) {
           console.error(e);
