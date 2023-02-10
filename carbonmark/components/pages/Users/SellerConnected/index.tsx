@@ -149,7 +149,7 @@ export const SellerConnected: FC<Props> = (props) => {
         maxAttempts: 50,
       });
 
-      setUser((prev) => ({ ...prev, ...updatedUser }));
+      updatedUser && setUser((prev) => ({ ...prev, ...updatedUser }));
     } catch (e) {
       console.error("LOAD USER ACTIVITY error", e);
       setErrorMessage(t`There was an error updating your data: ${e}`);

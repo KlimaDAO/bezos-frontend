@@ -88,13 +88,12 @@ export const getUser = async (params: {
   user: string;
   type: "wallet" | "handle";
 }): Promise<User> => {
-  try {
-    const result = await fetch(`/api/users/${params.user}?type=${params.type}`);
+  const result = await fetch(`/api/users/${params.user}?type=${params.type}`);
 
-    const json = await result.json();
-    return json;
-  } catch (e) {
-    console.error("Failed to getUser", e);
-    return Promise.reject(e);
+  const data = await result.json();
+
+  if (!result.ok || data.error) {
+    throw new Error(data.message);
   }
+  return data;
 };
