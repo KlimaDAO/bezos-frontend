@@ -30,7 +30,7 @@ msgstr "500 - Server Error"
 msgid "500 - Server error occurred"
 msgstr "500 - Server error occurred"
 
-#: components/Stats/index.tsx:63
+#: components/Stats/index.tsx:65
 msgid "Active listings:"
 msgstr "Active listings:"
 
@@ -75,11 +75,16 @@ msgstr "Change language"
 msgid "Created:"
 msgstr "Created:"
 
+#: components/pages/Project/index.tsx:132
+msgid "Description"
+msgstr "Description"
+
 #: components/shared/Navigation/index.tsx:104
 msgid "Enter App"
 msgstr "Enter App"
 
-#: components/pages/Users/SellerConnected/index.tsx:203
+#: components/pages/Portfolio/index.tsx:155
+#: components/pages/Users/SellerConnected/index.tsx:183
 msgid "Error:"
 msgstr "Error:"
 
@@ -91,12 +96,12 @@ msgstr "Final price"
 msgid "Home"
 msgstr "Home"
 
-#: components/pages/Users/SellerConnected/index.tsx:198
+#: components/pages/Users/SellerConnected/index.tsx:178
 #: components/pages/Users/SellerUnconnected/index.tsx:50
 msgid "Listings"
 msgstr "Listings"
 
-#: components/pages/Portfolio/index.tsx:143
+#: components/pages/Portfolio/index.tsx:148
 msgid "Loading your data..."
 msgstr "Loading your data..."
 
@@ -200,7 +205,7 @@ msgstr "Sorry, looks like we sent you the wrong way."
 msgid "Sorry, something went wrong."
 msgstr "Sorry, something went wrong."
 
-#: components/pages/Portfolio/index.tsx:167
+#: components/pages/Portfolio/index.tsx:178
 msgid "Success. Go to your <0>Profile page</0> to see your new listing."
 msgstr "Success. Go to your <0>Profile page</0> to see your new listing."
 
@@ -216,13 +221,18 @@ msgstr "Thank you for supporting the planet! See purchase details below."
 msgid "The open platform for digital carbon."
 msgstr "The open platform for digital carbon."
 
-#: components/pages/Users/SellerConnected/index.tsx:136
+#: components/pages/Users/SellerConnected/index.tsx:121
 msgid "There was an error getting your data: {error}"
 msgstr "There was an error getting your data: {error}"
 
-#: components/pages/Users/SellerConnected/index.tsx:96
-msgid "There was an error loading your assets"
-msgstr "There was an error loading your assets"
+#: components/pages/Users/SellerConnected/index.tsx:84
+msgid "There was an error loading your assets. {e}"
+msgstr "There was an error loading your assets. {e}"
+
+#: components/pages/Portfolio/index.tsx:122
+#: components/pages/Users/SellerConnected/index.tsx:158
+msgid "There was an error updating your data: {e}. Please refresh the page."
+msgstr "There was an error updating your data: {e}. Please refresh the page."
 
 #: components/shared/InvalidNetworkModal/index.tsx:68
 msgid "This app only works on Polygon Mainnet."
@@ -232,11 +242,11 @@ msgstr "This app only works on Polygon Mainnet."
 msgid "This offer no longer exists."
 msgstr "This offer no longer exists."
 
-#: components/Stats/index.tsx:53
+#: components/Stats/index.tsx:55
 msgid "Tonnes owned:"
 msgstr "Tonnes owned:"
 
-#: components/Stats/index.tsx:46
+#: components/Stats/index.tsx:48
 msgid "Tonnes sold:"
 msgstr "Tonnes sold:"
 
@@ -248,7 +258,7 @@ msgstr "Updated:"
 msgid "Updates, guides and more from the CarbonMark team"
 msgstr "Updates, guides and more from the CarbonMark team"
 
-#: components/pages/Users/SellerConnected/index.tsx:252
+#: components/pages/Users/SellerConnected/index.tsx:232
 msgid "Updating your data..."
 msgstr "Updating your data..."
 
@@ -269,7 +279,7 @@ msgstr "View the project details and other info for this purchase."
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 
-#: components/pages/Portfolio/index.tsx:179
+#: components/pages/Portfolio/index.tsx:190
 msgid "We couldn't find any C3 tokens in your connected wallet :("
 msgstr "We couldn't find any C3 tokens in your connected wallet :("
 
@@ -280,10 +290,6 @@ msgstr "Wrong Network"
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:99
 msgid "You chose to reject the transaction."
 msgstr "You chose to reject the transaction."
-
-#: components/pages/Users/SellerConnected/index.tsx:57
-msgid "You do not have any c3 tokens to create a listing :("
-msgstr "You do not have any c3 tokens to create a listing :("
 
 #: components/Layout/AddressSection/index.tsx:16
 msgid "Your Wallet Address:"
@@ -378,7 +384,7 @@ msgstr "Balances"
 msgid "profile.addListing_modal.submit"
 msgstr "Create Listing"
 
-#: components/pages/Users/SellerConnected/index.tsx:225
+#: components/pages/Users/SellerConnected/index.tsx:205
 msgid "profile.create_new_listing"
 msgstr "Create New Listing"
 
@@ -394,7 +400,7 @@ msgstr "Update Listing"
 msgid "profile.edit_modal.submit"
 msgstr "Save Changes"
 
-#: components/pages/Users/SellerConnected/index.tsx:283
+#: components/pages/Users/SellerConnected/index.tsx:263
 msgid "profile.edit_profile.title"
 msgstr "Your Profile"
 
@@ -414,7 +420,7 @@ msgstr "Edit"
 msgid "profile.listing.edit.delete_listing"
 msgstr "Delete Listing"
 
-#: components/pages/Users/SellerConnected/index.tsx:210
+#: components/pages/Users/SellerConnected/index.tsx:190
 #: components/pages/Users/SellerUnconnected/index.tsx:56
 msgid "profile.listings.empty_state"
 msgstr "No active listings to show."
@@ -422,10 +428,6 @@ msgstr "No active listings to show."
 #: components/CreateListing/index.tsx:120
 msgid "profile.listings_modal.title"
 msgstr "Create a Listing"
-
-#: components/pages/Users/SellerConnected/index.tsx:175
-msgid "profile.update_activity.error"
-msgstr "There was an error updating your data: {e}"
 
 #: lib/getCategoryInfo.ts:87
 msgid "project.category.agriculture"
@@ -455,7 +457,7 @@ msgstr "Other Nature-Based"
 msgid "project.category.renewable_energy"
 msgstr "Renewable Energy"
 
-#: components/pages/Project/index.tsx:98
+#: components/pages/Project/index.tsx:99
 msgid "project.single.best_price"
 msgstr "Best Price"
 
@@ -467,7 +469,7 @@ msgstr "Back to Project"
 msgid "project.single.button.back_to_project_details"
 msgstr "Back to Project Details"
 
-#: components/pages/Project/index.tsx:56
+#: components/pages/Project/index.tsx:57
 msgid "project.single.button.back_to_projects"
 msgstr "Back to Projects"
 
@@ -475,7 +477,7 @@ msgstr "Back to Projects"
 msgid "project.single.header.seller"
 msgstr "Seller:"
 
-#: components/pages/Project/index.tsx:105
+#: components/pages/Project/index.tsx:106
 msgid "project.single.methodology"
 msgstr "Methodology:"
 
@@ -937,21 +939,21 @@ msgstr "This feature is available only to users who are logged in. You can log i
 msgid "user.login.title"
 msgstr "Please login or connect your wallet"
 
-#: components/Stats/index.tsx:37
+#: components/Stats/index.tsx:39
 msgid "user.stats.seller.description"
 msgstr "Data for this seller"
 
-#: components/Stats/index.tsx:33
+#: components/Stats/index.tsx:35
 msgid "user.stats.title"
 msgstr "Stats"
 
-#: components/pages/Portfolio/index.tsx:191
-#: components/pages/Users/SellerConnected/index.tsx:270
+#: components/pages/Portfolio/index.tsx:202
+#: components/pages/Users/SellerConnected/index.tsx:250
 msgid "user.stats.your_seller_data.description"
 msgstr "Your seller data"
 
-#: components/pages/Project/index.tsx:47
 #: components/pages/Project/index.tsx:48
+#: components/pages/Project/index.tsx:49
 msgid "{0} | Carbonmark"
 msgstr "{0} | Carbonmark"
 
