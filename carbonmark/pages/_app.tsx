@@ -63,6 +63,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           <Component {...pageProps} />
         </I18nProvider>
       </Web3ContextProvider>
+      {/* change for the build */}
       <Script
         id="google-analytics"
         strategy="afterInteractive"
