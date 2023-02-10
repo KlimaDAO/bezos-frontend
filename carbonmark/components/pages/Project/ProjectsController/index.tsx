@@ -33,7 +33,7 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
         className={styles.filterButton}
         icon={<TuneIcon />}
         onClick={() => openModal(<ProjectsFilterModal />)}
-        label="Filters"
+        label={<span>Filters</span>}
       />
       {isDesktop && <Toggle onChange={console.log} options={TOGGLE_OPTIONS} />}
     </div>

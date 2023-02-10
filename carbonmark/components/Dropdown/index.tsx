@@ -4,17 +4,25 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import Tippy from "@tippyjs/react";
 import { FC, HTMLAttributes, useEffect, useState } from "react";
+import { Control, FieldValues, Path, useController } from "react-hook-form";
 import * as styles from "./styles";
 
-type Props<T> = {
-  onChange: (value: Option<T> | undefined) => void;
+type Props<V, T extends FieldValues> = {
   default: string;
-  options: Option<T>[];
+  options: Option<V>[];
+  name: Path<T>;
+  control: Control<T>;
 } & Pick<HTMLAttributes<HTMLDivElement>, "className">;
 
 type Option<T> = { id: string; value: T; label: string };
 
-export function Dropdown<T>(props: Props<T>) {
+export function Dropdown<V, T extends FieldValues = FieldValues>(
+  props: Props<V, T>
+) {
+  const { field } = useController({
+    control: props.control,
+    name: props.name,
+  });
   const defaultOption = props.options.find(({ id }) => id === props.default);
   const [value, setValue] = useState(defaultOption);
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +31,7 @@ export function Dropdown<T>(props: Props<T>) {
 
   // always close dropdown if label changed
   useEffect(() => {
-    props.onChange(value);
+    field.onChange(value);
     close();
   }, [value]);
 
@@ -86,7 +94,7 @@ type DropdownButtonProps = {
 
 const DropdownButton: FC<DropdownButtonProps> = (props) => (
   <button
-    className={styles.sortbyButton}
+    className={styles.dropdownButton}
     onClick={props.onClick}
     role="button"
     aria-label={props.label}

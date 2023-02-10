@@ -20,11 +20,15 @@ type ModalFieldValues = {
   countries: string[];
   categories: string[];
   vintages: string[];
+  sort: SortOption;
 };
+
+type SortOption = (typeof SORT_OPTIONS)[number];
 
 export const ProjectsFilterModal = () => {
   const { control } = useForm<ModalFieldValues>({
     defaultValues: {
+      sort: "recently-updated",
       countries: [],
       categories: [],
       vintages: [],
@@ -33,10 +37,11 @@ export const ProjectsFilterModal = () => {
 
   return (
     <Modal title="Filter Results" className={styles.main}>
-      <Dropdown
+      <Dropdown<SortOption, ModalFieldValues>
+        name="sort"
         className="dropdown"
         default="recently-updated"
-        onChange={console.log}
+        control={control}
         options={SORT_OPTIONS.map((option) => ({
           id: option,
           label: titleCase(option),
@@ -45,14 +50,7 @@ export const ProjectsFilterModal = () => {
       />
 
       <Accordion label="Country">
-        {/* <CheckboxGroup
-          options={[
-            { label: "Another test", value: "another" },
-            { label: "Test", value: "test" },
-          ]}
-          name="countries"
-          control={control}
-        /> */}
+        {/* @todo Extract available countries from projects data and add here */}
       </Accordion>
       <Accordion label="Category">
         <CheckboxGroup

@@ -33,14 +33,14 @@ export const dropDownMenu = css`
   box-shadow: var(--shadow-03);
 `;
 
-export const sortbyButton = css`
+export const dropdownButton = css`
   display: flex;
   align-items: center;
   background-color: var(--surface-02);
   border-radius: 1rem;
   padding: 1.2rem;
   min-height: auto;
-  justify-content: center;
+  justify-content: start;
 
   &:hover {
     cursor: pointer;
