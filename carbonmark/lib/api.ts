@@ -1,4 +1,5 @@
 import {
+  Category,
   CategoryName,
   CategoryNames,
   Project,
@@ -118,6 +119,16 @@ export const getProjects = async (params?: Params): Promise<Project[]> => {
   const url = withQueries ? `/api/projects?${withQueries}` : "/api/projects";
 
   const result = await fetch(url);
+  const data = await result.json();
+
+  if (!result.ok || data.error) {
+    throw new Error(data.message);
+  }
+  return data;
+};
+
+export const getCategories = async (): Promise<Category[]> => {
+  const result = await fetch("/api/categories");
   const data = await result.json();
 
   if (!result.ok || data.error) {
