@@ -24,6 +24,8 @@ import * as styles from "./styles";
 type Props = {
   userAddress?: string;
   profileButton?: JSX.Element;
+  /** if true then body of layout will not be constraied by max-width */
+  fullWidth?: boolean;
   children: ReactNode;
 };
 
@@ -37,7 +39,7 @@ export const Layout: FC<Props> = (props: Props) => {
    * @todo lift this logic to projects/index.tsx and pass the child components as props to Layout
    */
   const isProjects = useRouter().pathname === "/projects";
-
+  const { fullWidth } = props;
   return (
     <div
       className={cx(styles.container, styles.global)}
@@ -47,7 +49,7 @@ export const Layout: FC<Props> = (props: Props) => {
         <NavDrawer userAddress={props.userAddress} />
       </div>
       <div className={styles.fullWidthScrollableContainer}>
-        <div className={styles.cardGrid}>
+        <div className={cx(styles.cardGrid, { fullWidth })}>
           {/* header  */}
           <div className={styles.controls}>
             <Link href="/" className={styles.mobileLogo} data-mobile-only>

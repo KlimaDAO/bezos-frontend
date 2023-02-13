@@ -78,6 +78,9 @@ export const fullWidthScrollableContainer = css`
 
 export const cardGrid = css`
   max-width: 111.6rem;
+  &.fullWidth {
+    max-width: unset;
+  }
   margin: auto;
   height: 100%;
   display: grid;
@@ -103,6 +106,9 @@ export const cardGrid = css`
 `;
 
 export const controls = css`
+  max-width: 111.6rem;
+  margin: auto;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
