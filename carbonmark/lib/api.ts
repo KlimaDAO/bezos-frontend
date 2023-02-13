@@ -148,3 +148,12 @@ export const getCountries = async (): Promise<Country[]> => {
   return data;
 };
 
+export const getVintages = async (): Promise<string[]> => {
+  const result = await fetch("/api/vintages");
+  const data = await result.json();
+
+  if (!result.ok || data.error) {
+    throw new Error(data.message);
+  }
+  return data;
+};
