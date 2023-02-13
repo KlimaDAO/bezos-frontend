@@ -1,4 +1,9 @@
-import { User } from "@klimadao/lib/types/carbonmark";
+import {
+  CategoryName,
+  CategoryNames,
+  Project,
+  User,
+} from "@klimadao/lib/types/carbonmark";
 
 export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {
   const res = await fetch("/api/users/login", {
@@ -90,6 +95,29 @@ export const getUser = async (params: {
 }): Promise<User> => {
   const result = await fetch(`/api/users/${params.user}?type=${params.type}`);
 
+  const data = await result.json();
+
+  if (!result.ok || data.error) {
+    throw new Error(data.message);
+  }
+  return data;
+};
+
+type Params = {
+  search?: string;
+  country?: string;
+  category?: CategoryName | CategoryNames;
+};
+export const getProjects = async (params?: Params): Promise<Project[]> => {
+  const withQueries =
+    !!params &&
+    Object.keys(params)
+      .map((q) => `${q}=${params[q as keyof Params]}`)
+      .join("&");
+
+  const url = withQueries ? `/api/projects?${withQueries}` : "/api/projects";
+
+  const result = await fetch(url);
   const data = await result.json();
 
   if (!result.ok || data.error) {
