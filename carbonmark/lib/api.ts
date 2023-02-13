@@ -2,6 +2,7 @@ import {
   Category,
   CategoryName,
   CategoryNames,
+  Country,
   Project,
   User,
 } from "@klimadao/lib/types/carbonmark";
@@ -136,3 +137,14 @@ export const getCategories = async (): Promise<Category[]> => {
   }
   return data;
 };
+
+export const getCountries = async (): Promise<Country[]> => {
+  const result = await fetch("/api/countries");
+  const data = await result.json();
+
+  if (!result.ok || data.error) {
+    throw new Error(data.message);
+  }
+  return data;
+};
+
