@@ -112,13 +112,8 @@ type Params = {
   vintage?: string;
 };
 export const getProjects = async (params?: Params): Promise<Project[]> => {
-  const withQueries =
-    !!params &&
-    Object.keys(params)
-      .map((q) => `${q}=${params[q as keyof Params]}`)
-      .join("&");
-
-  const url = withQueries ? `/api/projects?${withQueries}` : "/api/projects";
+  const searchParams = !!params && new URLSearchParams(params);
+  const url = searchParams ? `/api/projects?${searchParams}` : "/api/projects";
 
   const result = await fetch(url);
   const data = await result.json();
