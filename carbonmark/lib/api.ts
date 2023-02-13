@@ -109,6 +109,7 @@ type Params = {
   search?: string;
   country?: string;
   category?: CategoryName | CategoryNames;
+  vintage?: string;
 };
 export const getProjects = async (params?: Params): Promise<Project[]> => {
   const withQueries =
