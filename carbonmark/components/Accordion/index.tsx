@@ -11,7 +11,7 @@ type AccordionProps = {
 export const Accordion: FC<AccordionProps> = (props) => {
   const [open, setOpen] = useState(false);
 
-  const toggle = () => setOpen(!open);
+  const toggle = () => setOpen((prev) => !prev);
 
   return (
     <div className={styles.main} data-open={open}>

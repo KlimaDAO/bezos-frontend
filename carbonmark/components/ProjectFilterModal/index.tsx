@@ -1,20 +1,13 @@
 import { ButtonPrimary, ButtonSecondary } from "@klimadao/lib/components";
+import { t } from "@lingui/macro";
 import { Accordion } from "components/Accordion";
 import { CheckboxGroup } from "components/CheckboxGroup/CheckboxGroup";
 import { Dropdown } from "components/Dropdown";
 import Modal from "components/Modal";
 import { titleCase } from "lib/string.utils";
 import { useForm } from "react-hook-form";
-import { FILTERS } from "./constants";
+import { FILTERS, SORT_OPTIONS } from "./constants";
 import * as styles from "./styles";
-
-const SORT_OPTIONS = [
-  "recently-updated",
-  "price-lowest",
-  "price-highest",
-  "vintage-newest",
-  "vintage-oldest",
-] as const;
 
 type ModalFieldValues = {
   countries: string[];
@@ -44,7 +37,10 @@ export const ProjectsFilterModal = () => {
         control={control}
         options={SORT_OPTIONS.map((option) => ({
           id: option,
-          label: titleCase(option),
+          label: t({
+            id: `projects.filter.${option}`,
+            message: titleCase(option),
+          }),
           value: option,
         }))}
       />

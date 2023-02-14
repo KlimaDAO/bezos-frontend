@@ -12,7 +12,6 @@ export const main = css`
     display: none;
     max-height: 0;
     transition: 2s;
-    // transition: max-height 0.2s ease-out;
   }
 
   &[data-open="true"] {
@@ -24,7 +23,7 @@ export const main = css`
 `;
 
 export const label = css`
-  ${typography.h5}
+  ${typography.h5};
   font-size: 1.6rem !important;
 `;
 
