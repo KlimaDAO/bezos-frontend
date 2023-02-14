@@ -17,7 +17,7 @@ interface Props {
   description?: string;
 }
 
-export const Stats: FC<Props> = (props) => {
+export const StatsListings: FC<Props> = (props) => {
   const { locale } = useRouter();
   const tonnesSold = props.allListings?.length
     ? getTotalAmountSold(props.allListings)

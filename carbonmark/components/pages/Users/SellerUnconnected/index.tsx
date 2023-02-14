@@ -2,7 +2,7 @@ import { ButtonPrimary } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Activities } from "components/Activities";
-import { Stats } from "components/Stats";
+import { StatsListings } from "components/StatsListings";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { createProjectPurchaseLink } from "lib/createUrls";
@@ -92,7 +92,7 @@ export const SellerUnconnected: FC<Props> = (props) => {
             ))}
         </Col>
         <Col>
-          <Stats
+          <StatsListings
             allListings={allListings || []}
             activeListings={activeListings || []}
           />

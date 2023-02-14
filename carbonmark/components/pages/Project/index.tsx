@@ -7,7 +7,7 @@ import { Category } from "components/Category";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
-import { Stats } from "components/Stats";
+import { StatsListings } from "components/StatsListings";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { Vintage } from "components/Vintage";
@@ -30,6 +30,7 @@ type Props = {
 };
 
 export const Project: NextPage<Props> = (props) => {
+  console.log("pros.project", props.project);
   const allListings =
     Array.isArray(props.project.listings) &&
     getAllListings(props.project.listings);
@@ -164,7 +165,7 @@ export const Project: NextPage<Props> = (props) => {
             </div>
           </Col>
           <Col>
-            <Stats
+            <StatsListings
               description="Data for this project and vintage"
               allListings={allListings || []}
               activeListings={activeListings || []}
