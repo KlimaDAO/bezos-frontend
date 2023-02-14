@@ -1,4 +1,8 @@
 /** CarbonMark Specific Styling */
+:root {
+  --cm-blue-4: #6EC6FF;
+  --cm-dark-blue: #1B4659;
+}
 
 :root {
   --bright-blue: #0019ff;
