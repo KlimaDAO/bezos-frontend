@@ -24,7 +24,7 @@ export const CheckboxGroup = <T extends FieldValues>(props: Props<T>) => {
           inputProps={{
             name: props.name,
             value: option.value,
-            // checked: field.value.includes(option.value),
+            checked: field.value.includes(option.value),
             onChange: (e) => {
               if (e.target.checked) {
                 /** Add field to list of checked values */
