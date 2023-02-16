@@ -88,8 +88,3 @@ export const button = css`
   font-weight: 600;
   letter-spacing: 3%;
 `;
-
-export const caption = css``;
-export const body5 = css``;
-export const body6 = css``;
-export const body7 = css``;
