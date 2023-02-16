@@ -18,7 +18,7 @@ export const StatsPoolProject: FC<Props> = (props) => {
   const retired = Number(props.totalRetired ?? 0);
   const remaining = Number(props.currentSupply ?? 0);
   const full = retired + remaining;
-  const retirementPercent = (retired / full) * 100;
+  const retirementPercent = Math.round((retired / full) * 100);
 
   return (
     <Card>
@@ -31,7 +31,7 @@ export const StatsPoolProject: FC<Props> = (props) => {
       <div
         className={styles.bar}
         style={{ "--percent": retirementPercent } as React.CSSProperties}
-      ></div>
+      />
       <div className={styles.list}>
         <div className={styles.listItem}>
           <Text t="caption" className={styles.itemWithColor}>
