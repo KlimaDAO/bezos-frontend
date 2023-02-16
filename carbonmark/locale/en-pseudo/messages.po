@@ -249,12 +249,12 @@ msgstr ""
 msgid "This offer no longer exists."
 msgstr ""
 
-#: components/Stats/index.tsx:48
+#: components/Stats/index.tsx:55
 msgid "Tonnes listed:"
 msgstr ""
 
-#: components/Stats/index.tsx:55
-msgid "Tonnes owned:"
+#: components/Stats/index.tsx:48
+msgid "Tonnes sold:"
 msgstr ""
 
 #: components/pages/Project/ProjectListing/index.tsx:62

@@ -249,13 +249,13 @@ msgstr "This app only works on Polygon Mainnet."
 msgid "This offer no longer exists."
 msgstr "This offer no longer exists."
 
-#: components/Stats/index.tsx:48
+#: components/Stats/index.tsx:55
 msgid "Tonnes listed:"
 msgstr "Tonnes listed:"
 
-#: components/Stats/index.tsx:55
-msgid "Tonnes owned:"
-msgstr "Tonnes owned:"
+#: components/Stats/index.tsx:48
+msgid "Tonnes sold:"
+msgstr "Tonnes sold:"
 
 #: components/pages/Project/ProjectListing/index.tsx:62
 msgid "Updated:"

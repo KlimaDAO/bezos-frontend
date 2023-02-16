@@ -45,14 +45,14 @@ export const Stats: FC<Props> = (props) => {
         <div className={styles.listItem}>
           <Text t="caption" className={styles.itemWithIcon}>
             <StoreOutlinedIcon />
-            <Trans>Tonnes listed:</Trans>
+            <Trans>Tonnes sold:</Trans>
           </Text>
           <Text t="caption">{trimWithLocale(tonnesSold || 0, 2, locale)}</Text>
         </div>
         <div className={styles.listItem}>
           <Text t="caption" className={styles.itemWithIcon}>
             <SavingsOutlinedIcon />
-            <Trans>Tonnes owned:</Trans>
+            <Trans>Tonnes listed:</Trans>
           </Text>
           <Text t="caption">
             {" "}
