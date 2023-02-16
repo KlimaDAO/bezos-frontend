@@ -106,7 +106,7 @@ msgid "Loading..."
 msgstr "Loading..."
 
 #: components/Layout/NavDrawer/index.tsx:56
-#: components/Layout/index.tsx:88
+#: components/Layout/index.tsx:92
 msgid "Log in"
 msgstr "Log in"
 
@@ -115,7 +115,7 @@ msgid "Log in to create a Carbonmark profile"
 msgstr "Log in to create a Carbonmark profile"
 
 #: components/Layout/NavDrawer/index.tsx:66
-#: components/Layout/index.tsx:95
+#: components/Layout/index.tsx:99
 msgid "Log out"
 msgstr "Log out"
 
@@ -319,11 +319,11 @@ msgid "activity.you"
 msgstr "You"
 
 #. Long sentence
-#: components/pages/Blog/Post/index.tsx:87
+#: components/pages/Blog/Post/index.tsx:88
 msgid "blog.disclaimer.description"
 msgstr "The information provided in this blog post pertaining to KlimaDAO (“KlimaDAO”), its crypto-assets, business assets, strategy, and operations, is for general informational purposes only and is not a formal offer to sell or a solicitation of an offer to buy any securities, options, futures, or other derivatives related to securities in any jurisdiction and its content is not prescribed by securities laws. Information contained in this blog post should not be relied upon as advice to buy or sell or hold such securities or as an offer to sell such securities. This blog post does not take into account nor does it provide any tax, legal or investment advice or opinion regarding the specific investment objectives or financial situation of any person. KlimaDAO and its agents, advisors, directors, officers, employees and shareholders make no representation or warranties, expressed or implied, as to the accuracy of such information and KlimaDAO expressly disclaims any and all liability that may be based on such information or errors or omissions thereof. KlimaDAO reserves the right to amend or replace the information contained herein, in part or entirely, at any time, and undertakes no obligation to provide the recipient with access to the amended information or to notify the recipient thereof. The information contained in this blog post supersedes any prior blog post or conversation concerning the same, similar or related information. Any information, representations or statements not contained herein shall not be relied upon for any purpose. Neither KlimaDAO nor any of its representatives shall have any liability whatsoever, under contract, tort, trust or otherwise, to you or any person resulting from the use of the information in this blog post by you or any of your representatives or for omissions from the information in this blog post. Additionally, KlimaDAO undertakes no obligation to comment on the expectations of, or statements made by, third parties in respect of the matters discussed in this blog post."
 
-#: components/pages/Blog/Post/index.tsx:84
+#: components/pages/Blog/Post/index.tsx:85
 msgid "blog.disclaimer.title"
 msgstr "Disclaimer:"
 
@@ -335,11 +335,11 @@ msgstr "Edit Profile"
 msgid "buy"
 msgstr "Buy"
 
-#: components/Layout/index.tsx:105
+#: components/Layout/index.tsx:109
 msgid "connectModal.continue"
 msgstr "or continue with"
 
-#: components/Layout/index.tsx:114
+#: components/Layout/index.tsx:118
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
@@ -351,11 +351,11 @@ msgstr "We had some trouble connecting. Please try again."
 msgid "connect_modal.error_message_refused"
 msgstr "User refused connection."
 
-#: components/Layout/index.tsx:118
+#: components/Layout/index.tsx:122
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
-#: components/Layout/index.tsx:110
+#: components/Layout/index.tsx:114
 msgid "connect_modal.sign_in"
 msgstr "Sign In / Connect"
 
@@ -363,7 +363,7 @@ msgstr "Sign In / Connect"
 msgid "menu.marketplace"
 msgstr "Marketplace"
 
-#: components/Layout/NavMenu/index.tsx:49
+#: components/Layout/NavMenu/index.tsx:48
 msgid "menu.portfolio"
 msgstr "Portfolio"
 
@@ -451,6 +451,10 @@ msgstr "Other Nature-Based"
 #: lib/getCategoryInfo.ts:37
 msgid "project.category.renewable_energy"
 msgstr "Renewable Energy"
+
+#: components/pages/Project/index.tsx:150
+msgid "project.listings.empty_state"
+msgstr "No listings found for this project."
 
 #: components/pages/Project/index.tsx:99
 msgid "project.single.best_price"
@@ -699,7 +703,7 @@ msgstr "Sign In / Connect To Buy"
 msgid "shared.enter_app"
 msgstr "Enter App"
 
-#: components/pages/Blog/Post/index.tsx:70
+#: components/pages/Blog/Post/index.tsx:71
 msgid "shared.resourcecenter"
 msgstr "Resource Center"
 
