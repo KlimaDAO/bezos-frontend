@@ -49,8 +49,12 @@ export const EditProfile: FC<Props> = (props) => {
       });
       const apiHandle = handleFromApi?.handle || "";
       return apiHandle.toLowerCase() !== handle.toLowerCase();
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
+      if (error.message === "Not Found") {
+        return true;
+      }
+      return false;
     }
   };
 
@@ -157,10 +161,7 @@ export const EditProfile: FC<Props> = (props) => {
                         }),
                       isNewHandle: async (v) =>
                         (await fetchIsNewHandle(v)) || // ensure unique handles
-                        t({
-                          id: "user.edit.form.input.handle.handle_exists",
-                          message: "Sorry, this handle already exists",
-                        }),
+                        t`Sorry, this handle already exists`,
                     },
                   }
                 : undefined
