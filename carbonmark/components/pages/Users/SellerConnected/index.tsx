@@ -1,7 +1,8 @@
-import { Spinner, Text } from "@klimadao/lib/components";
+import { Spinner } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import AddIcon from "@mui/icons-material/Add";
 import { Modal } from "components/shared/Modal";
+import { Text } from "components/shared/Text";
 import { FC, useEffect, useState } from "react";
 
 import { Activities } from "components/Activities";

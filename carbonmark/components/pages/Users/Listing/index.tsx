@@ -1,9 +1,8 @@
 import { Trans } from "@lingui/macro";
+import { Text } from "components/shared/Text";
+import { Listing as ListingType } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { FC, ReactNode } from "react";
-
-import { Text } from "@klimadao/lib/components";
-import { Listing as ListingType } from "lib/types/carbonmark";
 
 import { Card } from "components/Card";
 import { Category } from "components/Category";

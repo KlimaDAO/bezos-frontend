@@ -4,7 +4,7 @@ import { FC, ReactNode } from "react";
 
 import Image from "next/legacy/image";
 
-import { Text } from "@klimadao/lib/components";
+import { Text } from "../shared/Text";
 
 import * as styles from "./styles";
 

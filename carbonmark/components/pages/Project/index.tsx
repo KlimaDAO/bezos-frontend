@@ -1,5 +1,4 @@
 import { cx } from "@emotion/css";
-import { Text } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
@@ -21,6 +20,7 @@ import {
 import { Project as ProjectType } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
+import { Text } from "../../shared/Text";
 import { ProjectListing } from "./ProjectListing";
 import { ProjectMap } from "./ProjectMap";
 

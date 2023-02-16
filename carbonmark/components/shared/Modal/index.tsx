@@ -1,9 +1,8 @@
+import { cx } from "@emotion/css";
+import { useFocusTrap } from "@klimadao/lib/utils";
 import Close from "@mui/icons-material/Close";
 import { FC, HTMLAttributes, ReactNode, useEffect } from "react";
-
-import { cx } from "@emotion/css";
-import { Text } from "@klimadao/lib/components";
-import { useFocusTrap } from "@klimadao/lib/utils";
+import { Text } from "../Text";
 import * as styles from "./styles";
 
 export type ModalProps = {

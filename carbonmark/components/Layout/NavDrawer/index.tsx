@@ -5,9 +5,10 @@ import {
   DiscordIcon,
   GithubIcon,
   LinkedInIcon,
-  Text,
   TwitterIcon,
 } from "@klimadao/lib/components";
+import { Text } from "../../shared/Text";
+
 import { urls } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";

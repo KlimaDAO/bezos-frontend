@@ -1,4 +1,5 @@
-import { GridContainer, Section, Text } from "@klimadao/lib/components";
+import { GridContainer, Section } from "@klimadao/lib/components";
+import { Text } from "components/shared/Text";
 
 import { PageHead } from "components/PageHead";
 

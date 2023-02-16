@@ -1,4 +1,6 @@
-import { CopyAddressButton, Text } from "@klimadao/lib/components";
+import { CopyAddressButton } from "@klimadao/lib/components";
+import { Text } from "../../shared/Text";
+
 import { Domain } from "@klimadao/lib/types/domains";
 import { concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";

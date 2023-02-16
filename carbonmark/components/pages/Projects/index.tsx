@@ -1,4 +1,3 @@
-import { Text } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
 import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import { Category } from "components/Category";
@@ -12,6 +11,7 @@ import { Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { Text } from "../../shared/Text";
 import * as styles from "./styles";
 type Props = {
   projects: Project[];

@@ -1,4 +1,6 @@
-import { GridContainer, Section, Text } from "@klimadao/lib/components";
+import { GridContainer, Section } from "@klimadao/lib/components";
+import { Text } from "../../shared/Text";
+
 import { t, Trans } from "@lingui/macro";
 import { NextPage } from "next";
 import * as styles from "./styles";

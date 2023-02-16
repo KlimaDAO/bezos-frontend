@@ -1,4 +1,5 @@
-import { Text } from "@klimadao/lib/components";
+import { Text } from "../../shared/Text";
+
 import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { CarbonmarkButton } from "components/CarbonmarkButton";

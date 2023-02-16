@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
 
-import { Text } from "@klimadao/lib/components";
+import { Text } from "components/shared/Text";
 
 import { FeaturedPost } from "lib/queries";
 

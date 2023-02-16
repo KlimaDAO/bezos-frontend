@@ -1,7 +1,8 @@
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { ButtonPrimary } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Activities } from "components/Activities";
+import { Text } from "components/shared/Text";
 import { Stats } from "components/Stats";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { createProjectPurchaseLink } from "lib/createUrls";

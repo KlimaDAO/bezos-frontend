@@ -1,4 +1,6 @@
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { ButtonPrimary } from "@klimadao/lib/components";
+import { Text } from "components/shared/Text";
+
 import { Trans } from "@lingui/macro";
 import ClearIcon from "@mui/icons-material/ClearRounded";
 import { CheckboxGroup } from "components/CheckboxGroup/CheckboxGroup";

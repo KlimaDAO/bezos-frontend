@@ -1,9 +1,6 @@
-import {
-  ButtonPrimary,
-  Section,
-  Spinner,
-  Text,
-} from "@klimadao/lib/components";
+import { ButtonPrimary, Section, Spinner } from "@klimadao/lib/components";
+import { Text } from "components/shared/Text";
+
 import { t, Trans } from "@lingui/macro";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import SearchIcon from "@mui/icons-material/Search";

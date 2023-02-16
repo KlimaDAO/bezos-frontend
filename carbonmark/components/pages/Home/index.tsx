@@ -1,4 +1,6 @@
-import { GridContainer, Section, Text } from "@klimadao/lib/components";
+import { GridContainer, Section } from "@klimadao/lib/components";
+import { Text } from "../../shared/Text";
+
 import { t } from "@lingui/macro";
 import { Footer } from "components/Footer";
 import { PageHead } from "components/PageHead";

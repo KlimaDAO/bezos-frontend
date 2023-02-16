@@ -8,7 +8,9 @@ import SendRounded from "@mui/icons-material/SendRounded";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { getStatusMessage, TransactionStatusMessage } from "lib/statusMessage";
 
-import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
+import { ButtonPrimary, Spinner } from "@klimadao/lib/components";
+import { Text } from "../shared/Text";
+
 import { HighlightValue } from "./HighlightValue";
 import { Value } from "./types";
 

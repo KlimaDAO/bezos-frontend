@@ -1,4 +1,6 @@
-import { Spinner, Text } from "@klimadao/lib/components";
+import { Spinner } from "@klimadao/lib/components";
+import { Text } from "components/shared/Text";
+
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Modal } from "components/shared/Modal";

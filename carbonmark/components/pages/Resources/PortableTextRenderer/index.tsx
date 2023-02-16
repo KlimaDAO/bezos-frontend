@@ -1,7 +1,9 @@
 import Image from "next/legacy/image";
 import { FC } from "react";
 
-import { Anchor as A, Text } from "@klimadao/lib/components";
+import { Anchor as A } from "@klimadao/lib/components";
+import { Text } from "components/shared/Text";
+
 import {
   PortableText,
   PortableTextComponents,

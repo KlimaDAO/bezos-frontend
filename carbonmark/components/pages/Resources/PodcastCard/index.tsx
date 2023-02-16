@@ -1,4 +1,5 @@
-import { Text } from "@klimadao/lib/components";
+import { Text } from "components/shared/Text";
+
 import { PodcastDetails } from "lib/queries";
 
 import * as styles from "./styles";

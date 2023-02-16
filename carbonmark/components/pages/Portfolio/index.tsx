@@ -1,4 +1,4 @@
-import { Spinner, Text } from "@klimadao/lib/components";
+import { Spinner } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Activities } from "components/Activities";
@@ -16,6 +16,7 @@ import { AssetExtended, User } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Text } from "../../shared/Text";
 import { AssetProject } from "./AssetProject";
 import { Balances } from "./Balances";
 import * as styles from "./styles";

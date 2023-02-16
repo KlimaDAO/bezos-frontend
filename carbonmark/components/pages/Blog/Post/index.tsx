@@ -3,7 +3,9 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Image from "next/legacy/image";
 import Link from "next/link";
 
-import { GridContainer, Text } from "@klimadao/lib/components";
+import { GridContainer } from "@klimadao/lib/components";
+import { Text } from "components/shared/Text";
+
 import { urls } from "@klimadao/lib/constants";
 
 import { Footer } from "components/Footer";

@@ -10,7 +10,9 @@ import { getStatusMessage, TransactionStatusMessage } from "lib/statusMessage";
 
 import { HighlightValue } from "./HighlightValue";
 
-import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
+import { ButtonPrimary, Spinner } from "@klimadao/lib/components";
+import { Text } from "../shared/Text";
+
 import { Value } from "./types";
 
 import * as styles from "./styles";
