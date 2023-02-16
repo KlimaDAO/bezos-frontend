@@ -146,10 +146,7 @@ export const EditProfile: FC<Props> = (props) => {
                     },
                     pattern: {
                       value: /^[a-zA-Z0-9]+$/, // no special characters!
-                      message: t({
-                        id: "user.edit.form.input.handle.pattern",
-                        message: "Handle should contain any special characters",
-                      }),
+                      message: t`Handle should not contain any special characters`,
                     },
                     validate: {
                       isAddress: (v) =>
