@@ -129,6 +129,10 @@ msgstr "Login / Connect"
 msgid "Marketplace"
 msgstr "Marketplace"
 
+#: components/pages/Project/index.tsx:150
+msgid "No listings found for this project."
+msgstr "No listings found for this project."
+
 #: components/Layout/AddressSection/index.tsx:20
 msgid "Not Connected"
 msgstr "Not Connected"
@@ -451,10 +455,6 @@ msgstr "Other Nature-Based"
 #: lib/getCategoryInfo.ts:37
 msgid "project.category.renewable_energy"
 msgstr "Renewable Energy"
-
-#: components/pages/Project/index.tsx:150
-msgid "project.listings.empty_state"
-msgstr "No listings found for this project."
 
 #: components/pages/Project/index.tsx:99
 msgid "project.single.best_price"

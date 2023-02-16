@@ -17,7 +17,7 @@ import {
   getActiveListings,
   getAllListings,
   getLowestPriceFromListings,
-  getSortByUpdateListings
+  getSortByUpdateListings,
 } from "lib/listingsGetter";
 import { NextPage } from "next";
 import Link from "next/link";
@@ -147,9 +147,7 @@ export const Project: NextPage<Props> = (props) => {
           ) : (
             <Text t="caption" color="default">
               <i>
-                <Trans>
-                  No listings found for this project.
-                </Trans>
+                <Trans>No listings found for this project.</Trans>
               </i>
             </Text>
           )}
