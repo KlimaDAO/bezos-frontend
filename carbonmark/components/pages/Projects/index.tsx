@@ -1,5 +1,6 @@
 import { Text } from "@klimadao/lib/components";
 import { Project } from "@klimadao/lib/types/carbonmark";
+import { getCarbonmarkUser } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import { Category } from "components/Category";
@@ -12,6 +13,7 @@ import { formatBigToPrice } from "lib/formatNumbers";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import * as styles from "./styles";
 type Props = {
   projects: Project[];
@@ -24,6 +26,18 @@ export const Projects: NextPage<Props> = (props) => {
   const sortedProjects =
     hasProjects &&
     props.projects.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
+
+  useEffect(() => {
+    const getAll = async () => {
+      const user = await getCarbonmarkUser({
+        type: "wallet",
+        user: "0xD1a3699f2098ac92C2f4914979FCb22aba86D259",
+      });
+
+      console.log("user", user);
+    };
+    getAll();
+  }, []);
 
   return (
     <>
