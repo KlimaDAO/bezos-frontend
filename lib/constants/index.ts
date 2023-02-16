@@ -273,4 +273,7 @@ export const carbonmark = {
   projects: `${CARBONMARK_API}/projects`,
   users: `${CARBONMARK_API}/users`,
   purchases: `${CARBONMARK_API}/purchases`,
+  categories: `${CARBONMARK_API}/categories`,
+  countries: `${CARBONMARK_API}/countries`,
+  vintages: `${CARBONMARK_API}/vintages`,
 };
