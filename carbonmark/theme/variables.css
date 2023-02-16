@@ -3,6 +3,8 @@
 :root {
   --padding-small: 0.8rem;
   --padding-medium: 2rem;
+  --font-family: "Poppins", sans-serif;
+  --font-family-secondary: "DM Sans", sans-serif;
 }
 
 body,
