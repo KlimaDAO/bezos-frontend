@@ -1,5 +1,5 @@
 import { trimWithLocale } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans } from "@lingui/macro";
 import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import StoreOutlinedIcon from "@mui/icons-material/StoreOutlined";
@@ -14,7 +14,7 @@ import * as styles from "./styles";
 interface Props {
   allListings?: Listing[];
   activeListings?: Listing[];
-  description?: string;
+  description: string;
 }
 
 export const StatsListings: FC<Props> = (props) => {
@@ -32,14 +32,10 @@ export const StatsListings: FC<Props> = (props) => {
   return (
     <Card>
       <Text t="h4">
-        <Trans id="user.stats.title">Stats</Trans>
+        <Trans>Stats</Trans>
       </Text>
       <Text t="body1" color="lighter">
-        {props.description ||
-          t({
-            id: "user.stats.seller.description",
-            message: "Data for this seller",
-          })}
+        {props.description}
       </Text>
       <div className={styles.list}>
         <div className={styles.listItem}>

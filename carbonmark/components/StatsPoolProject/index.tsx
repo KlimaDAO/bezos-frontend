@@ -10,6 +10,7 @@ import * as styles from "./styles";
 interface Props {
   currentSupply: Project["currentSupply"];
   totalRetired: Project["totalRetired"];
+  description: string;
 }
 
 export const StatsPoolProject: FC<Props> = (props) => {
@@ -26,7 +27,7 @@ export const StatsPoolProject: FC<Props> = (props) => {
         <Trans>Stats</Trans>
       </Text>
       <Text t="caption" color="lighter">
-        <Trans>Data for this project and vintage</Trans>
+        {props.description}
       </Text>
       <div
         className={styles.bar}

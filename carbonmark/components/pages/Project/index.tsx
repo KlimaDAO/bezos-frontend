@@ -171,13 +171,14 @@ export const Project: NextPage<Props> = (props) => {
           <Col>
             {isPoolProject && (
               <StatsPoolProject
+                description={t`Data for this project and vintage`}
                 currentSupply={props.project.currentSupply}
                 totalRetired={props.project.totalRetired}
               />
             )}
             {!isPoolProject && (
               <StatsListings
-                description="Data for this project and vintage"
+                description={t`Data for this project and vintage`}
                 allListings={allListings || []}
                 activeListings={activeListings || []}
               />
