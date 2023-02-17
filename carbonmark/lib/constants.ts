@@ -57,8 +57,8 @@ export const config: AppConfig = {
       testnet: polygonNetworks.testnet.blockExplorerUrls[0],
     },
     api: {
-      mainnet: "https://marketplace-api-najada.vercel.app", // TODO https://api.carbonmark.com
-      testnet: "https://marketplace-api-najada.vercel.app", // TODO https://staging-api.carbonmark.com
+      mainnet: "https://marketplace-api-najada.vercel.app/api", // TODO https://api.carbonmark.com
+      testnet: "https://marketplace-api-najada.vercel.app/api", // TODO https://staging-api.carbonmark.com
     },
   },
 };
