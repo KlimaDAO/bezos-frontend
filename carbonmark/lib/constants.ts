@@ -23,6 +23,7 @@ export const connectErrorStrings = {
 };
 
 export const NEXT_PUBLIC_MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+
 interface NetworkURLs {
   mainnet: string;
   testnet: string;
@@ -31,7 +32,11 @@ interface NetworkURLs {
 interface AppConfig {
   defaultNetwork: "testnet" | "mainnet";
   urls: {
-    baseUrl: NetworkURLs;
+    baseUrl: {
+      production: string;
+      staging: string;
+      development: string;
+    };
     blockExplorer: NetworkURLs;
     api: NetworkURLs;
   };
@@ -43,8 +48,9 @@ export const config: AppConfig = {
   defaultNetwork: "testnet",
   urls: {
     baseUrl: {
-      mainnet: "https://carbonmark.vercel.app", // TODO https://www.carbonmark.com
-      testnet: "https://carbonmark.vercel.app", // TODO https://staging.carbonmark.com
+      production: "https://carbonmark.vercel.app", // TODO https://www.carbonmark.com
+      staging: "https://carbonmark.vercel.app", // TODO https://staging.carbonmark.com
+      development: "http://localhost:3002",
     },
     blockExplorer: {
       mainnet: polygonNetworks.mainnet.blockExplorerUrls[0],
@@ -57,6 +63,12 @@ export const config: AppConfig = {
   },
 };
 
+const BASE_URL = IS_PRODUCTION
+  ? config.urls.baseUrl.production
+  : IS_LOCAL_DEVELOPMENT
+  ? config.urls.baseUrl.development
+  : process.env.NEXT_PUBLIC_VERCEL_URL; // if on a preview link, use the unique vercel deployment URL
+
 export const urls = {
   api: {
     projects: `${config.urls.api[config.defaultNetwork]}/projects`,
@@ -67,5 +79,5 @@ export const urls = {
     vintages: `${config.urls.api[config.defaultNetwork]}/vintages`,
   },
   blockExplorer: `${config.urls.blockExplorer[config.defaultNetwork]}`,
-  baseUrl: `${config.urls.baseUrl[config.defaultNetwork]}`,
+  baseUrl: BASE_URL,
 };
