@@ -69,10 +69,7 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
           onClick={toggle}
           role="button"
           className={styles.dropdownHeader}
-          aria-label={t({
-            id: "resources.list.select.sort_by.toggle",
-            message: "Toggle Sorted by menu",
-          })}
+          aria-label={t`Toggle sort menu`}
         >
           {`Sort By: ${value?.label}`}
           {isOpen ? (
