@@ -1,8 +1,9 @@
 import { cx } from "@emotion/css";
-import { ButtonPrimary, CarbonmarkLogo } from "@klimadao/lib/components";
+import { ButtonPrimary, CarbonmarkLogo, Text } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
-import { t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
+import Tippy from "@tippyjs/react";
 import { ProjectsController } from "components/pages/Project/ProjectsController";
 import { InvalidNetworkModal } from "components/shared/InvalidNetworkModal";
 import { useResponsive } from "hooks/useResponsive";
@@ -10,6 +11,7 @@ import { connectErrorStrings } from "lib/constants";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, ReactNode, useState } from "react";
+import "tippy.js/dist/tippy.css";
 import { Footer } from "../Footer";
 import { NavDrawer } from "./NavDrawer";
 import * as styles from "./styles";
@@ -55,7 +57,24 @@ export const Layout: FC<Props> = (props: Props) => {
             <Link href="/" className={styles.mobileLogo} data-mobile-only>
               <CarbonmarkLogo />
             </Link>
-
+            <div className={styles.betaWrapperMobile}>
+              <Tippy
+                content={
+                  <p>
+                    <Trans id="beta.text">
+                      This product is still in Beta and hasn't been internally
+                      audited yet.
+                    </Trans>
+                  </p>
+                }
+              >
+                <span className={styles.betaButton}>
+                  <Text t="button">
+                    <Trans id="beta">BETA</Trans>
+                  </Text>
+                </span>
+              </Tippy>
+            </div>
             {/* keep mobile nav menu here in markup hierarchy for tab nav */}
             <div
               className={styles.mobileNavMenu_overlay}

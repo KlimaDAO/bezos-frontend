@@ -128,9 +128,21 @@ export const mobile = {
   `,
 };
 
-export const betaWraper = css`
+export const betaWraperDesktop = css`
+  display: none;
+  ${breakpoints.desktop} {
+    display: flex;
+    justify-content: center;
+  }
+`;
+
+export const loginWrapper = css`
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  ${breakpoints.desktop} {
+    display: none;
+  }
 `;
 
 export const betaButton = css`

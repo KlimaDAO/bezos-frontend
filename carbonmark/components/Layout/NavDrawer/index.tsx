@@ -74,7 +74,7 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
         </div>
       )}
       <div className={styles.addressContainer}>
-        <div className={styles.betaWraper}>
+        <div className={styles.betaWraperDesktop}>
           <Tippy
             content={
               <p>
@@ -84,7 +84,6 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
                 </Trans>
               </p>
             }
-            interactive={true}
           >
             <span className={styles.betaButton}>
               <Text t="button">
