@@ -11,13 +11,16 @@ import { urls } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import Close from "@mui/icons-material/Close";
+import Tippy from "@tippyjs/react";
 import { Text } from "components/Text";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
 import Link from "next/link";
 import { FC } from "react";
+import "tippy.js/dist/tippy.css";
 import { AddressSection } from "../AddressSection";
 import { NavMenu } from "../NavMenu";
 import * as styles from "./styles";
+
 // dynamic import for ThemeToggle as its reads the document and localStorage of Browser
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
 
@@ -41,6 +44,7 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
       <Link href="/" data-desktop-only>
         <CarbonmarkLogo />
       </Link>
+
       <div className={styles.mobile.header} data-mobile-only>
         {/* <DynamicThemeToggle /> */}
         <ButtonPrimary
@@ -70,6 +74,25 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
         </div>
       )}
       <div className={styles.addressContainer}>
+        <div className={styles.betaWraper}>
+          <Tippy
+            content={
+              <p>
+                <Trans id="beta.text">
+                  This product is still in Beta and hasn't been internally
+                  audited yet.
+                </Trans>
+              </p>
+            }
+            interactive={true}
+          >
+            <span className={styles.betaButton}>
+              <Text t="button">
+                <Trans id="beta">BETA</Trans>
+              </Text>
+            </span>
+          </Tippy>
+        </div>
         <div className="hr" />
         <AddressSection domain={connectedDomain} address={address} />
         <div className="hr" />

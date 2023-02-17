@@ -127,3 +127,17 @@ export const mobile = {
     }
   `,
 };
+
+export const betaWraper = css`
+  display: flex;
+  justify-content: center;
+`;
+
+export const betaButton = css`
+  background-color: var(--klima-blue);
+  border-radius: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  p {
+    color: var(--surface-01);
+  }
+`;
