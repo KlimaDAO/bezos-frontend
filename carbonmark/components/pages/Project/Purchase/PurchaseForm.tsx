@@ -2,6 +2,7 @@ import { ButtonPrimary, Spinner } from "@klimadao/lib/components";
 import { formatUnits, useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { InputField } from "components/shared/Form/InputField";
+import { Text } from "components/Text";
 import { HighlightValue } from "components/Transaction/HighlightValue";
 import { getUSDCBalance } from "lib/actions";
 import { CARBONMARK_FEE } from "lib/constants";
@@ -11,7 +12,6 @@ import { Listing } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { Control, SubmitHandler, useForm, useWatch } from "react-hook-form";
-import { Text } from "../../../Text";
 import * as styles from "./styles";
 
 type TotalValueProps = {

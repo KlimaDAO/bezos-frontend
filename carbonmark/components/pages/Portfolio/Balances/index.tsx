@@ -1,6 +1,7 @@
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import { Card } from "components/Card";
+import { Text } from "components/Text";
 import { getUSDCBalance } from "lib/actions";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
@@ -8,7 +9,6 @@ import { Balance } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
-import { Text } from "../../../Text";
 import * as styles from "./styles";
 
 export const Balances: FC = () => {

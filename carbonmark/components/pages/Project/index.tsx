@@ -8,6 +8,7 @@ import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
 import { Stats } from "components/Stats";
+import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { Vintage } from "components/Vintage";
 import { formatToPrice } from "lib/formatNumbers";
@@ -20,7 +21,6 @@ import {
 import { Project as ProjectType } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
-import { Text } from "../../Text";
 import { ProjectListing } from "./ProjectListing";
 import { ProjectMap } from "./ProjectMap";
 import * as styles from "./styles";

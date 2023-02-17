@@ -4,6 +4,7 @@ import { Category } from "components/Category";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
+import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
@@ -11,7 +12,6 @@ import { Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Text } from "../../Text";
 import * as styles from "./styles";
 
 type Props = {

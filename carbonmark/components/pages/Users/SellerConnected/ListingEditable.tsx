@@ -3,6 +3,7 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Modal } from "components/shared/Modal";
+import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
 import {
   approveTokenSpend,
@@ -14,7 +15,6 @@ import { formatToTonnes } from "lib/formatNumbers";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Asset, Listing as ListingType } from "lib/types/carbonmark";
 import { FC, useState } from "react";
-import { Text } from "../../../Text";
 import { Listing } from "../Listing";
 import { EditListing, FormValues } from "./Forms/EditListing";
 import * as styles from "./styles";

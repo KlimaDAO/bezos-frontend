@@ -7,6 +7,7 @@ import { Card } from "components/Card";
 import { CreateListing } from "components/CreateListing";
 import { Modal } from "components/shared/Modal";
 import { Stats } from "components/Stats";
+import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { getAssets } from "lib/actions";
 import { getUser } from "lib/api";
@@ -18,7 +19,6 @@ import {
 import { pollUntil } from "lib/pollUntil";
 import { Asset, Listing, User } from "lib/types/carbonmark";
 import { FC, useEffect, useState } from "react";
-import { Text } from "../../../Text";
 import { ProfileHeader } from "../ProfileHeader";
 import { EditProfile } from "./Forms/EditProfile";
 import { ListingEditable } from "./ListingEditable";

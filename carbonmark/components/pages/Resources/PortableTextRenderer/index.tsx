@@ -4,9 +4,9 @@ import {
   PortableTextComponents,
   PortableTextProps,
 } from "@portabletext/react";
+import { Text } from "components/Text";
 import Image from "next/legacy/image";
 import { FC } from "react";
-import { Text } from "../../../Text";
 import * as styles from "./styles";
 
 const components: PortableTextComponents = {

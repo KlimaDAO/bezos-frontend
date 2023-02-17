@@ -6,11 +6,11 @@ import { Footer } from "components/Footer";
 import { PageHead } from "components/PageHead";
 import PortableTextRenderer from "components/pages/Resources/PortableTextRenderer";
 import { Navigation } from "components/shared/Navigation";
+import { Text } from "components/Text";
 import { Post } from "lib/queries";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import defaultImage from "public/cover-default.png";
-import { Text } from "../../../Text";
 import * as styles from "./styles";
 
 interface PostProps {

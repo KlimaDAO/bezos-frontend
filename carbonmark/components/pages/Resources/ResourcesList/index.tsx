@@ -6,10 +6,10 @@ import { BlogPostCard } from "components/pages/Resources/BlogPostCard";
 import { PodcastCard } from "components/pages/Resources/PodcastCard";
 import { InputField } from "components/shared/Form";
 import { Modal } from "components/shared/Modal";
+import { Text } from "components/Text";
 import { Document } from "lib/queries";
 import { FC, useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Text } from "../../../Text";
 import {
   DocumentType,
   sortedByQueries,

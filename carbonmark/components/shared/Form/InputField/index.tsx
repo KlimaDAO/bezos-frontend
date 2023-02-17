@@ -1,7 +1,7 @@
 import { cx } from "@emotion/css";
 import React, { InputHTMLAttributes } from "react";
 
-import { Text } from "../../../Text";
+import { Text } from "components/Text";
 
 import * as styles from "./styles";
 

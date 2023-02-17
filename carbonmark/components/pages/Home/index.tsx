@@ -3,8 +3,8 @@ import { t } from "@lingui/macro";
 import { Footer } from "components/Footer";
 import { PageHead } from "components/PageHead";
 import { Navigation } from "components/shared/Navigation";
+import { Text } from "components/Text";
 import { NextPage } from "next";
-import { Text } from "../../Text";
 import * as styles from "./styles";
 
 export interface Props {

@@ -7,6 +7,7 @@ import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
 import { Modal } from "components/shared/Modal";
+import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
 import { approveTokenSpend, makePurchase } from "lib/actions";
 import { createProjectLink, createSellerLink } from "lib/createUrls";
@@ -20,7 +21,6 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { Text } from "../../../Text";
 import { FormValues, PurchaseForm } from "./PurchaseForm";
 import * as styles from "./styles";
 

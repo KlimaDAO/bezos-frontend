@@ -1,12 +1,12 @@
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import { InputField } from "components/shared/Form/InputField";
+import { Text } from "components/Text";
 import { MINIMUM_TONNE_PRICE } from "lib/constants";
 import { Asset } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useForm, useWatch } from "react-hook-form";
-import { Text } from "../../Text";
 import { ProjectTokenDropDown } from "./ProjectTokenDropDown";
 import * as styles from "./styles";
 

@@ -1,5 +1,6 @@
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
+import { Text } from "components/Text";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 import { formatWalletAddress } from "lib/formatWalletAddress";
 import { getElapsedTime } from "lib/getElapsedTime";
@@ -7,7 +8,6 @@ import { ActivityType as ActivityT } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
-import { Text } from "../Text";
 import { ACTIVITY_ACTIONS } from "./Activities.constants";
 import * as styles from "./styles";
 
