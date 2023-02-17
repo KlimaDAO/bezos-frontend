@@ -11,12 +11,7 @@ import {
   Web3State,
   WrappedProvider,
 } from "../../components/Web3Context/types";
-import { polygonNetworks, urls } from "../../constants";
-
-declare global {
-  // eslint-disable-next-line no-var
-  var userNetwork: "mainnet" | "testnet"; // must be var, not `let`
-}
+import { urls } from "../../constants";
 
 /** Type guards for convenience and readability */
 const isTorusProvider = (p?: WrappedProvider): p is TorusProvider =>
@@ -119,10 +114,6 @@ export const useProvider = (): Web3ModalState => {
       const signer = provider.getSigner();
       const address = await signer.getAddress();
       const network = await provider.getNetwork();
-      globalThis.userNetwork =
-        network.chainId === polygonNetworks.testnet.chainId
-          ? "testnet"
-          : "mainnet";
       const newState: ConnectedWeb3State = {
         provider,
         signer,
