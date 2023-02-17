@@ -1,7 +1,5 @@
-import { Text } from "components/shared/Text";
-
 import { PodcastDetails } from "lib/queries";
-
+import { Text } from "../../../Text";
 import * as styles from "./styles";
 
 interface CardProps {

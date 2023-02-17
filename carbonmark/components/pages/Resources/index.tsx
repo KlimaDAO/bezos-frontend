@@ -1,17 +1,14 @@
 import { GridContainer, Section } from "@klimadao/lib/components";
-import { Text } from "../../shared/Text";
-
 import { t, Trans } from "@lingui/macro";
-import { NextPage } from "next";
-import * as styles from "./styles";
-
 import { Footer } from "components/Footer";
 import { PageHead } from "components/PageHead";
 import { Navigation } from "components/shared/Navigation";
+import { Document, FeaturedPost } from "lib/queries";
+import { NextPage } from "next";
+import { Text } from "../../Text";
 import { ArticlesSlider } from "./FeaturedArticles/ArticlesSlider";
 import { ResourcesList } from "./ResourcesList";
-
-import { Document, FeaturedPost } from "lib/queries";
+import * as styles from "./styles";
 
 export interface Props {
   documents: Document[];

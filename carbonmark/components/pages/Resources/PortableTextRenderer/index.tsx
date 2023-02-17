@@ -1,14 +1,12 @@
-import Image from "next/legacy/image";
-import { FC } from "react";
-
 import { Anchor as A } from "@klimadao/lib/components";
-import { Text } from "components/shared/Text";
-
 import {
   PortableText,
   PortableTextComponents,
   PortableTextProps,
 } from "@portabletext/react";
+import Image from "next/legacy/image";
+import { FC } from "react";
+import { Text } from "../../../Text";
 import * as styles from "./styles";
 
 const components: PortableTextComponents = {

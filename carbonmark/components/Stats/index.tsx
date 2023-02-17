@@ -4,12 +4,11 @@ import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import StoreOutlinedIcon from "@mui/icons-material/StoreOutlined";
 import { Card } from "components/Card";
+import { Text } from "components/Text";
 import { getAmountLeftToSell, getTotalAmountSold } from "lib/listingsGetter";
 import { Listing } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { FC } from "react";
-import { Text } from "../shared/Text";
-
 import * as styles from "./styles";
 
 interface Props {

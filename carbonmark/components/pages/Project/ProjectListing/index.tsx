@@ -3,7 +3,7 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import { Card } from "components/Card";
-import { Text } from "components/shared/Text";
+import { Text } from "components/Text";
 import { createProjectPurchaseLink, createSellerLink } from "lib/createUrls";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 import { isConnectedAddress } from "lib/formatWalletAddress";
@@ -11,7 +11,6 @@ import { Listing, Project } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
-
 import * as styles from "./styles";
 
 type Props = {

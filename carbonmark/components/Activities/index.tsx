@@ -3,7 +3,7 @@ import { Trans } from "@lingui/macro";
 import { Card } from "components/Card";
 import { ActivityType } from "lib/types/carbonmark";
 import { FC } from "react";
-import { Text } from "../shared/Text";
+import { Text } from "../Text";
 import { Activity } from "./Activity";
 import * as styles from "./styles";
 

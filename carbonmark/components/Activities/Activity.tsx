@@ -7,7 +7,7 @@ import { ActivityType as ActivityT } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
-import { Text } from "../shared/Text";
+import { Text } from "../Text";
 import { ACTIVITY_ACTIONS } from "./Activities.constants";
 import * as styles from "./styles";
 

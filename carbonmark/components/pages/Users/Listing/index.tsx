@@ -1,15 +1,13 @@
 import { Trans } from "@lingui/macro";
-import { Text } from "components/shared/Text";
-import { Listing as ListingType } from "lib/types/carbonmark";
-import { useRouter } from "next/router";
-import { FC, ReactNode } from "react";
-
 import { Card } from "components/Card";
 import { Category } from "components/Category";
 import { ProjectImage } from "components/ProjectImage";
+import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
-
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
+import { Listing as ListingType } from "lib/types/carbonmark";
+import { useRouter } from "next/router";
+import { FC, ReactNode } from "react";
 
 import * as styles from "./styles";
 

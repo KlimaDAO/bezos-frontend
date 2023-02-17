@@ -7,8 +7,6 @@ import {
   LinkedInIcon,
   TwitterIcon,
 } from "@klimadao/lib/components";
-import { Text } from "../../shared/Text";
-
 import { urls } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
@@ -16,6 +14,7 @@ import Close from "@mui/icons-material/Close";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
 import Link from "next/link";
 import { FC } from "react";
+import { Text } from "../../Text";
 import { AddressSection } from "../AddressSection";
 import { NavMenu } from "../NavMenu";
 import * as styles from "./styles";

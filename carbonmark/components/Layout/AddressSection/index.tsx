@@ -1,10 +1,9 @@
 import { CopyAddressButton } from "@klimadao/lib/components";
-import { Text } from "../../shared/Text";
-
 import { Domain } from "@klimadao/lib/types/domains";
 import { concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import { FC } from "react";
+import { Text } from "../../Text";
 import * as styles from "./styles";
 
 interface AddressSectionProps {

@@ -1,11 +1,8 @@
+import { PostDetails } from "lib/queries";
 import Image from "next/legacy/image";
 import Link from "next/link";
-
-import { Text } from "components/shared/Text";
-
-import { PostDetails } from "lib/queries";
 import defaultImage from "public/cover-default.png";
-
+import { Text } from "../../../Text";
 import * as styles from "./styles";
 
 interface BlogPostCardProps {

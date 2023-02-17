@@ -1,21 +1,16 @@
+import { GridContainer } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
 import { Trans } from "@lingui/macro";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import Image from "next/legacy/image";
-import Link from "next/link";
-
-import { GridContainer } from "@klimadao/lib/components";
-import { Text } from "components/shared/Text";
-
-import { urls } from "@klimadao/lib/constants";
-
 import { Footer } from "components/Footer";
 import { PageHead } from "components/PageHead";
 import PortableTextRenderer from "components/pages/Resources/PortableTextRenderer";
 import { Navigation } from "components/shared/Navigation";
 import { Post } from "lib/queries";
-
+import Image from "next/legacy/image";
+import Link from "next/link";
 import defaultImage from "public/cover-default.png";
-
+import { Text } from "../../../Text";
 import * as styles from "./styles";
 
 interface PostProps {

@@ -1,11 +1,8 @@
 import { cx } from "@emotion/css";
 import { StaticImageData } from "next/image";
-import { FC, ReactNode } from "react";
-
 import Image from "next/legacy/image";
-
-import { Text } from "../shared/Text";
-
+import { FC, ReactNode } from "react";
+import { Text } from "../Text";
 import * as styles from "./styles";
 
 interface HighlightValueProps {

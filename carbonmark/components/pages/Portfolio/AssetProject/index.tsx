@@ -4,13 +4,13 @@ import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { Category } from "components/Category";
 import { ProjectImage } from "components/ProjectImage";
-import { Text } from "components/shared/Text";
 import { Vintage } from "components/Vintage";
 import { createRetireLink } from "lib/createUrls";
 import { formatToTonnes } from "lib/formatNumbers";
 import { AssetExtended } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { FC } from "react";
+import { Text } from "../../../Text";
 import * as styles from "./styles";
 
 interface Props {

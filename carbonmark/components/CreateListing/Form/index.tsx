@@ -6,9 +6,10 @@ import { Asset } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useForm, useWatch } from "react-hook-form";
-import { Text } from "../../shared/Text";
+import { Text } from "../../Text";
 import { ProjectTokenDropDown } from "./ProjectTokenDropDown";
 import * as styles from "./styles";
+
 export type FormValues = {
   tokenAddress: string;
   totalAmountToSell: string;

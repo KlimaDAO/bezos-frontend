@@ -1,33 +1,27 @@
 import { Spinner } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import AddIcon from "@mui/icons-material/Add";
-import { Modal } from "components/shared/Modal";
-import { Text } from "components/shared/Text";
-import { FC, useEffect, useState } from "react";
-
 import { Activities } from "components/Activities";
+import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { CreateListing } from "components/CreateListing";
+import { Modal } from "components/shared/Modal";
 import { Stats } from "components/Stats";
-import { ProfileHeader } from "../ProfileHeader";
-import { EditProfile } from "./Forms/EditProfile";
-import { ListingEditable } from "./ListingEditable";
-
+import { Col, TwoColLayout } from "components/TwoColLayout";
 import { getAssets } from "lib/actions";
 import { getUser } from "lib/api";
-import { pollUntil } from "lib/pollUntil";
-
 import {
   getActiveListings,
   getAllListings,
   getSortByUpdateListings,
 } from "lib/listingsGetter";
-
-import { CarbonmarkButton } from "components/CarbonmarkButton";
-import { Col, TwoColLayout } from "components/TwoColLayout";
-
+import { pollUntil } from "lib/pollUntil";
 import { Asset, Listing, User } from "lib/types/carbonmark";
-
+import { FC, useEffect, useState } from "react";
+import { Text } from "../../../Text";
+import { ProfileHeader } from "../ProfileHeader";
+import { EditProfile } from "./Forms/EditProfile";
+import { ListingEditable } from "./ListingEditable";
 import * as styles from "./styles";
 
 type Props = {

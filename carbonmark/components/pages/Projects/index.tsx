@@ -11,8 +11,9 @@ import { Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Text } from "../../shared/Text";
+import { Text } from "../../Text";
 import * as styles from "./styles";
+
 type Props = {
   projects: Project[];
 };

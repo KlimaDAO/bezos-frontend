@@ -16,7 +16,7 @@ import { AssetExtended, User } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Text } from "../../shared/Text";
+import { Text } from "../../Text";
 import { AssetProject } from "./AssetProject";
 import { Balances } from "./Balances";
 import * as styles from "./styles";
