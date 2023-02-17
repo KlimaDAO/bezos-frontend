@@ -1,4 +1,4 @@
-import { carbonmark } from "@klimadao/lib/constants";
+import { getURL } from "lib/networkAware/getURL";
 import { NextApiHandler } from "next";
 
 export interface APIDefaultResponse {
@@ -12,7 +12,7 @@ const getVintages: NextApiHandler<string[] | APIDefaultResponse> = async (
   switch (req.method) {
     case "GET":
       try {
-        const result = await fetch(`${carbonmark.vintages}`);
+        const result = await fetch(`${getURL("carbonmarkApi")}/vintages`);
 
         const json = await result.json();
 

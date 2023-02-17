@@ -4,7 +4,7 @@ import { getURL } from "lib/networkAware/getURL";
 
 export const getCarbonmarkProjects = async (): Promise<Project[]> => {
   try {
-    const result = await fetch(getURL("carbonmarkApi"));
+    const result = await fetch(`${getURL("carbonmarkApi")}/projects`);
     const json = await result.json();
     return json;
   } catch (e) {
