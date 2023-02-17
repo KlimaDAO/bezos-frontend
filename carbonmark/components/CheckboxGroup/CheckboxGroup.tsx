@@ -32,7 +32,9 @@ export const CheckboxGroup = <T extends FieldValues>(props: Props<T>) => {
               } else {
                 /** Remove any field from list of checked values */
                 field.onChange(() =>
-                  field.value.filter(() => option.value !== e.target.value)
+                  field.value.filter(
+                    (value: unknown) => value !== e.target.value
+                  )
                 );
               }
             },

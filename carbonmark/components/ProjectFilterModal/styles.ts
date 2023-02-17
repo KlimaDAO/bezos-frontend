@@ -1,24 +1,32 @@
 import { css } from "@emotion/css";
 
 export const main = css`
-  max-width: 90vw;
-  width: 3.6rem;
-  min-width: 30rem;
-
   button.action {
     width: 100%;
   }
 
   .modalContent {
+    max-width: 90vw;
+    width: 36rem;
+    min-width: 30rem;
     display: grid;
     grid-gap: 5px;
   }
 
+  .title {
+    margin-bottom: 2rem;
+  }
+
   .dropdown {
+    text-align: left;
     width: 100%;
     button {
       width: 100%;
     }
+  }
+
+  .accordion:last-of-type {
+    border-bottom: none;
   }
 `;
 

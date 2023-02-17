@@ -7,8 +7,7 @@ import { ProjectsFilterModal } from "components/ProjectFilterModal";
 import { SearchInput } from "components/SearchInput";
 import { Toggle } from "components/Toggle";
 import { useResponsive } from "hooks/useResponsive";
-import { useModal } from "providers/ModalProvider";
-import { FC, HTMLAttributes } from "react";
+import { FC, HTMLAttributes, useState } from "react";
 import * as styles from "./styles";
 
 type ProjectControllerProps = HTMLAttributes<HTMLDivElement>;
@@ -20,7 +19,9 @@ const TOGGLE_OPTIONS = [
 
 export const ProjectsController: FC<ProjectControllerProps> = (props) => {
   const { isDesktop } = useResponsive();
-  const { openModal } = useModal();
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const toggleModal = () => setModalOpen((prev) => !prev);
   return (
     <div {...props} className={cx(styles.main, props.className)}>
       <SearchInput
@@ -32,10 +33,15 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
       <ButtonPrimary
         className={styles.filterButton}
         icon={<TuneIcon />}
-        onClick={() => openModal(<ProjectsFilterModal />)}
+        onClick={toggleModal}
         label={<span>Filters</span>}
       />
       {isDesktop && <Toggle onChange={console.log} options={TOGGLE_OPTIONS} />}
+      <ProjectsFilterModal
+        showModal={modalOpen}
+        onToggleModal={toggleModal}
+        closeOnBackgroundClick
+      />
     </div>
   );
 };

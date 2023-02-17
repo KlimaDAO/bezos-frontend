@@ -1,3 +1,4 @@
+import { cx } from "@emotion/css";
 import { Text } from "@klimadao/lib/components";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -14,7 +15,7 @@ export const Accordion: FC<AccordionProps> = (props) => {
   const toggle = () => setOpen((prev) => !prev);
 
   return (
-    <div className={styles.main} data-open={open}>
+    <div className={cx("accordion", styles.main)} data-open={open}>
       <button onClick={toggle} className={styles.toggle}>
         <Text className={styles.label}>{props.label}</Text>
         {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}

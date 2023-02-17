@@ -1,10 +1,13 @@
-import { ButtonPrimary, ButtonSecondary } from "@klimadao/lib/components";
+import { ButtonPrimary } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
 import { Accordion } from "components/Accordion";
 import { CheckboxGroup } from "components/CheckboxGroup/CheckboxGroup";
 import { Dropdown } from "components/Dropdown";
-import Modal from "components/Modal";
+import { Modal, ModalProps } from "components/shared/Modal";
+// import Modal from "components/Modal";
 import { titleCase } from "lib/string.utils";
+import { omit } from "lodash";
+import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { FILTERS, SORT_OPTIONS } from "./constants";
 import * as styles from "./styles";
@@ -16,20 +19,24 @@ type ModalFieldValues = {
   sort: SortOption;
 };
 
+type ProjectFilterModalProps = Omit<ModalProps, "title" | "children">;
+
 type SortOption = (typeof SORT_OPTIONS)[number];
 
-export const ProjectsFilterModal = () => {
-  const { control } = useForm<ModalFieldValues>({
-    defaultValues: {
-      sort: "recently-updated",
-      countries: [],
-      categories: [],
-      vintages: [],
-    },
+const defaultValues: ModalFieldValues = {
+  sort: "recently-updated",
+  countries: [],
+  categories: [],
+  vintages: [],
+};
+
+export const ProjectsFilterModal: FC<ProjectFilterModalProps> = (props) => {
+  const { control, reset } = useForm<ModalFieldValues>({
+    defaultValues,
   });
 
   return (
-    <Modal title="Filter Results" className={styles.main}>
+    <Modal {...props} title="Filter Results" className={styles.main}>
       <Dropdown<SortOption, ModalFieldValues>
         name="sort"
         className="dropdown"
@@ -57,8 +64,13 @@ export const ProjectsFilterModal = () => {
       </Accordion>
       <Accordion label="Vintage">Content</Accordion>
 
-      <ButtonPrimary className={"action"} label="Apply" />
-      <ButtonSecondary className={"action"} label="Clear Filters" />
+      <ButtonPrimary className="action" label="Apply" />
+      <ButtonPrimary
+        variant="transparent"
+        className="action"
+        label="Clear Filters"
+        onClick={() => reset(omit(defaultValues, "sort"))}
+      />
     </Modal>
   );
 };
