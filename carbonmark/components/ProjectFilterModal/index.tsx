@@ -29,7 +29,7 @@ const defaultValues: ModalFieldValues = {
   vintages: [],
 };
 
-export const ProjectsFilterModal: FC<ProjectFilterModalProps> = (props) => {
+export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const { control, reset } = useForm<ModalFieldValues>({
     defaultValues,
   });
