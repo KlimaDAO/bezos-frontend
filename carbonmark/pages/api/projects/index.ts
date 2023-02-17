@@ -1,4 +1,4 @@
-import { getURL } from "lib/networkAware/getURL";
+import { urls } from "lib/constants";
 import { Project } from "lib/types/carbonmark";
 import { NextApiHandler } from "next";
 
@@ -13,7 +13,7 @@ const getProjects: NextApiHandler<Project[] | APIDefaultResponse> = async (
   switch (req.method) {
     case "GET":
       try {
-        const result = await fetch(`${getURL("carbonmarkApi")}/projects`);
+        const result = await fetch(urls.api.projects);
 
         const json = await result.json();
 

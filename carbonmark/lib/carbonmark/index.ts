@@ -1,10 +1,10 @@
 import { Project, Purchase, User } from "lib/types/carbonmark";
 
-import { getURL } from "lib/networkAware/getURL";
+import { urls } from "lib/constants";
 
 export const getCarbonmarkProjects = async (): Promise<Project[]> => {
   try {
-    const result = await fetch(`${getURL("carbonmarkApi")}/projects`);
+    const result = await fetch(urls.api.projects);
     const json = await result.json();
     return json;
   } catch (e) {
@@ -17,9 +17,7 @@ export const getCarbonmarkProject = async (
   projectId: string
 ): Promise<Project> => {
   try {
-    const result = await fetch(
-      `${getURL("carbonmarkApi")}/projects/${projectId}`
-    );
+    const result = await fetch(`${urls.api.projects}/${projectId}`);
     const json = await result.json();
     return json;
   } catch (e) {
@@ -34,7 +32,7 @@ export const getCarbonmarkUser = async (params: {
 }): Promise<User> => {
   try {
     const result = await fetch(
-      `${getURL("carbonmarkApi")}/users/${params.user}?type=${params.type}`
+      `${urls.api.users}/${params.user}?type=${params.type}`
     );
     const json = await result.json();
     return json;
@@ -48,9 +46,7 @@ export const getPurchase = async (params: {
   id: string;
 }): Promise<Purchase | null> => {
   try {
-    const result = await fetch(
-      `${getURL("carbonmarkApi")}/purchases/${params.id}`
-    );
+    const result = await fetch(`${urls.api.purchases}/${params.id}`);
 
     const json = await result.json();
     return json;

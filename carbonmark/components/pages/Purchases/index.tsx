@@ -15,7 +15,7 @@ import { Purchase } from "lib/types/carbonmark";
 
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 
-import { getURL } from "lib/networkAware/getURL";
+import { urls } from "lib/constants";
 import * as styles from "./styles";
 
 type Props = {
@@ -81,7 +81,7 @@ export const PurchaseReceipt: NextPage<Props> = (props) => {
                 <Text>
                   View transaction on{" "}
                   <a
-                    href={`${getURL("blockExplorer")}/tx/${props.transaction}`}
+                    href={`${urls.blockExplorer}/tx/${props.transaction}`}
                     target="_blank"
                     rel="noreferrer"
                   >

@@ -1,4 +1,4 @@
-import { getURL } from "lib/networkAware/getURL";
+import { urls } from "lib/constants";
 import { User } from "lib/types/carbonmark";
 import { NextApiHandler } from "next";
 
@@ -25,7 +25,7 @@ const createUser: NextApiHandler<User | APIDefaultResponse> = async (
             .json({ message: "Bad request! Handle or Wallet is missing" });
         }
 
-        const result = await fetch(`${getURL("carbonmarkApi")}/users`, {
+        const result = await fetch(urls.api.users, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

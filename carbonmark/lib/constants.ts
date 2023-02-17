@@ -31,21 +31,41 @@ interface NetworkURLs {
 interface AppConfig {
   defaultNetwork: "testnet" | "mainnet";
   urls: {
+    baseUrl: NetworkURLs;
     blockExplorer: NetworkURLs;
-    carbonmarkApi: NetworkURLs;
+    api: NetworkURLs;
   };
 }
-export const carbonmarkConfig: AppConfig = {
+
+/** See readme to understand how testnet/mainnet and environments work */
+export const config: AppConfig = {
   /** For static RPC and addresses. For transactions, always rely on the user's wallet network */
   defaultNetwork: "testnet",
   urls: {
+    baseUrl: {
+      mainnet: "https://carbonmark.vercel.app", // TODO https://www.carbonmark.com
+      testnet: "https://carbonmark.vercel.app", // TODO https://staging.carbonmark.com
+    },
     blockExplorer: {
       mainnet: polygonNetworks.mainnet.blockExplorerUrls[0],
       testnet: polygonNetworks.testnet.blockExplorerUrls[0],
     },
-    carbonmarkApi: {
-      mainnet: "https://marketplace-api-najada.vercel.app",
-      testnet: "https://marketplace-api-najada.vercel.app",
+    api: {
+      mainnet: "https://marketplace-api-najada.vercel.app", // TODO https://api.carbonmark.com
+      testnet: "https://marketplace-api-najada.vercel.app", // TODO https://staging-api.carbonmark.com
     },
   },
+};
+
+export const urls = {
+  api: {
+    projects: `${config.urls.api[config.defaultNetwork]}/projects`,
+    users: `${config.urls.api[config.defaultNetwork]}/users`,
+    purchases: `${config.urls.api[config.defaultNetwork]}/purchases`,
+    categories: `${config.urls.api[config.defaultNetwork]}/categories`,
+    countries: `${config.urls.api[config.defaultNetwork]}/countries`,
+    vintages: `${config.urls.api[config.defaultNetwork]}/vintages`,
+  },
+  blockExplorer: `${config.urls.blockExplorer[config.defaultNetwork]}`,
+  baseUrl: `${config.urls.baseUrl[config.defaultNetwork]}`,
 };

@@ -1,4 +1,4 @@
-import { getURL } from "lib/networkAware/getURL";
+import { urls } from "lib/constants";
 import { User } from "lib/types/carbonmark";
 import { NextApiHandler } from "next";
 
@@ -21,9 +21,7 @@ const singleUser: NextApiHandler<User | APIDefaultResponse> = async (
             .json({ message: "Not found! Queries are not correct" });
         }
 
-        const result = await fetch(
-          `${getURL("carbonmarkApi")}/users/${user}?type=${type}`
-        );
+        const result = await fetch(`${urls.api.users}/${user}?type=${type}`);
 
         const json = await result.json();
 
@@ -47,17 +45,14 @@ const singleUser: NextApiHandler<User | APIDefaultResponse> = async (
             .json({ message: "Bad request! Handle or Wallet is missing" });
         }
 
-        const result = await fetch(
-          `${getURL("carbonmarkApi")}/users/${req.body.wallet}`,
-          {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify(req.body),
-          }
-        );
+        const result = await fetch(`${urls.api.users}/${req.body.wallet}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(req.body),
+        });
 
         const json = await result.json();
 
