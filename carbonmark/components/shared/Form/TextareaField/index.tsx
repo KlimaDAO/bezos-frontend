@@ -1,7 +1,6 @@
 import { cx } from "@emotion/css";
 import React, { TextareaHTMLAttributes } from "react";
-import { Text } from "../../Text";
-
+import { Text } from "../../../Text";
 import * as styles from "./styles";
 
 interface Props {

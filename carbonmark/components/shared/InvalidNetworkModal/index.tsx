@@ -1,5 +1,5 @@
 import { ButtonPrimary } from "@klimadao/lib/components";
-import { Text } from "../Text";
+import { Text } from "../../Text";
 
 import { polygonNetworks } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
