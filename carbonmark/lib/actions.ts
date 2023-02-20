@@ -1,16 +1,13 @@
-import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import { addresses } from "@klimadao/lib/constants";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
 import { formatUnits } from "@klimadao/lib/utils";
 import { Contract, ethers, providers, Transaction, utils } from "ethers";
-import { getCategoryFromMethodology } from "lib/getCategoryFromMethodology";
 import { getAddress } from "lib/networkAware/getAddress";
 import { getContract } from "lib/networkAware/getContract";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { OnStatusHandler } from "lib/statusMessage";
-import { Asset, AssetForListing } from "lib/types/carbonmark";
 
 /** Get allowance for carbonmark contract, spending an 18 decimal token. Don't use this for USDC */
 export const getCarbonmarkAllowance = async (params: {
@@ -220,96 +217,6 @@ export const deleteListingTransaction = async (params: {
     }
     params.onStatus("error");
     throw error;
-  }
-};
-
-export const getAssets = async (params: {
-  assets: string[];
-  userAddress: string;
-}): Promise<AssetForListing[]> => {
-  try {
-    const assetsData = await params.assets.reduce<Promise<AssetForListing[]>>(
-      async (resultPromise, asset) => {
-        const resolvedAssets = await resultPromise;
-        const contract = new ethers.Contract(
-          asset,
-          C3ProjectToken.abi,
-          getStaticProvider()
-        );
-
-        const promises = [
-          contract.symbol(),
-          contract.balanceOf(params.userAddress),
-          contract.getProjectInfo(),
-        ];
-        const [tokenName, c3TokenBalance, projectInfo] = await Promise.all(
-          promises
-        );
-
-        resolvedAssets.push({
-          tokenAddress: asset,
-          tokenName,
-          balance: formatUnits(c3TokenBalance),
-          projectName: projectInfo.name,
-        });
-        return resolvedAssets;
-      },
-      Promise.resolve([])
-    );
-    return assetsData;
-  } catch (e) {
-    throw e;
-  }
-};
-
-export const getAssetsExtended = async (params: {
-  assets: string[];
-  userAddress: string;
-}): Promise<AssetExtended[]> => {
-  try {
-    const assetsData = await params.assets.reduce<Promise<AssetExtended[]>>(
-      async (resultPromise, asset) => {
-        const resolvedAssets = await resultPromise;
-        const contract = new ethers.Contract(
-          asset,
-          C3ProjectToken.abi,
-          getStaticProvider()
-        );
-
-        const promises = [
-          contract.symbol(),
-          contract.balanceOf(params.userAddress),
-          contract.getProjectInfo(),
-          contract.getProjectIdentifier(),
-          contract.getVintage(),
-        ];
-
-        const [tokenName, c3TokenBalance, projectInfo, projectKey, vintage] =
-          await Promise.all(promises);
-
-        resolvedAssets.push({
-          tokenAddress: asset,
-          tokenName,
-          balance: formatUnits(c3TokenBalance),
-          projectId: projectInfo.project_id,
-          key: projectKey,
-          vintage: ethers.utils.formatUnits(vintage, 0),
-          projectName: projectInfo.name,
-          projectType: projectInfo.project_type,
-          country: projectInfo.country,
-          methodology: projectInfo.methodology,
-          registry: projectInfo.registry,
-          projectUrl: projectInfo.uri,
-          active: projectInfo.active,
-          category: getCategoryFromMethodology(projectInfo.methodology),
-        });
-        return resolvedAssets;
-      },
-      Promise.resolve([])
-    );
-    return assetsData;
-  } catch (e) {
-    throw e;
   }
 };
 
