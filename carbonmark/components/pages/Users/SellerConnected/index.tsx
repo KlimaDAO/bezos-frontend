@@ -14,7 +14,7 @@ import { ProfileHeader } from "../ProfileHeader";
 import { EditProfile } from "./Forms/EditProfile";
 import { ListingEditable } from "./ListingEditable";
 
-import { getAssetsWithProjects } from "lib/actions";
+import { addProjectsToAssets } from "lib/actions";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
 import { pollUntil } from "lib/pollUntil";
 
@@ -70,7 +70,7 @@ export const SellerConnected: FC<Props> = (props) => {
           );
 
           if (assetWithProjectTokens.length) {
-            const assetsData = await getAssetsWithProjects({
+            const assetsData = await addProjectsToAssets({
               assets: assetWithProjectTokens,
             });
 

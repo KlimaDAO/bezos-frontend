@@ -9,7 +9,7 @@ import { PageHead } from "components/PageHead";
 import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
-import { getAssetsWithProjects } from "lib/actions";
+import { addProjectsToAssets } from "lib/actions";
 import { getUser } from "lib/api";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
 import { getActiveListings, getAllListings } from "lib/listingsGetter";
@@ -70,7 +70,7 @@ export const Portfolio: NextPage = () => {
           setIsLoadingAssets(true);
 
           if (assetWithProjectTokens) {
-            const assetsData = await getAssetsWithProjects({
+            const assetsData = await addProjectsToAssets({
               assets: assetWithProjectTokens,
             });
             // TODO: filter assets with balance > 0

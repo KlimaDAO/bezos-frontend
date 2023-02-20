@@ -225,7 +225,7 @@ export const deleteListingTransaction = async (params: {
   }
 };
 
-export const getAssetsWithProjects = async (params: {
+export const addProjectsToAssets = async (params: {
   assets: Asset[];
 }): Promise<AssetForListing[]> => {
   try {
