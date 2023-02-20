@@ -34,7 +34,7 @@ export interface User {
   wallet: string;
   listings: Listing[];
   activities: ActivityType[];
-  assets: string[]; // token addresses
+  assets: Asset[];
 }
 
 export type Listing = {
@@ -108,6 +108,17 @@ export type ActivityType = {
   buyer: {
     id: string;
   } | null;
+};
+
+export type Asset = {
+  token: {
+    id: string;
+    name: string;
+    symbol: "BCT" | "NBO" | "UBO" | "NCT" | `${"TCO2-" | "C3T-"}${string}`;
+    decimals: number;
+  };
+  tokenAmount: BigNumber;
+  updatedAt: string; // timestamp
 };
 
 // data from C3 ABI function "getProjectInfo"
