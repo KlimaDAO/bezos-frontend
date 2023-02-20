@@ -1,5 +1,5 @@
 import { css } from "@emotion/css";
-import breakpoints from "./breakpoints";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const h1 = css`
   font-family: var(--font-family-secondary);
