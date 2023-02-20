@@ -1,4 +1,3 @@
-/** <link> elements to load Righteous and Raleway fonts. For Next.js, render this in a <Head> component */
 export const WebFonts = () => {
   return (
     <>
