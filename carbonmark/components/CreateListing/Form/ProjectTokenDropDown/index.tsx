@@ -44,7 +44,7 @@ export const ProjectTokenDropDown: FC<Props> = (props) => {
                   props.selectedAsset.tokenAddress === asset.tokenAddress
                 }
               >
-                {asset.projectName}
+                {asset.project?.name || asset.tokenName}
               </button>
             ))}
           </div>
@@ -68,7 +68,11 @@ export const ProjectTokenDropDown: FC<Props> = (props) => {
             message: "Toggle Select Project",
           })}
         >
-          <span>{props.selectedAsset?.projectName || "not found"}</span>
+          <span>
+            {props.selectedAsset?.project?.name ||
+              props.selectedAsset.tokenName ||
+              "not found"}
+          </span>
           {!isDisabled && <ArrowDropDownIcon />}
         </button>
       </Tippy>

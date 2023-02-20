@@ -166,8 +166,8 @@ export const Portfolio: NextPage = () => {
               !!assetsData &&
               assetsData.map((a) => (
                 <AssetProject
-                  key={a.projectId}
-                  assetsData={a}
+                  key={a.tokenAddress}
+                  asset={a}
                   onSell={() => setAssetToSell(a)}
                 />
               ))}
