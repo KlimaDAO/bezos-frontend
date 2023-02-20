@@ -136,28 +136,18 @@ export type ProjectInfo = {
   project_type: string;
 };
 
-export type Asset = {
+export type AssetForListing = {
   tokenAddress: string;
   tokenName: string;
   balance: string;
-  projectName: ProjectInfo["name"];
-};
-
-export type AssetExtended = {
-  tokenAddress: string;
-  tokenName: string;
-  balance: string;
-  projectName: ProjectInfo["name"];
-  projectId: ProjectInfo["project_id"];
-  projectType: ProjectInfo["project_type"];
-  country: ProjectInfo["country"];
-  methodology: ProjectInfo["methodology"];
-  registry: ProjectInfo["registry"];
-  projectUrl: ProjectInfo["uri"];
-  active: ProjectInfo["active"];
-  category: CategoryName;
-  key: string;
-  vintage: string;
+  project?: {
+    key: string;
+    vintage: string;
+    name: string;
+    projectID: string;
+    methodology: string;
+    category: CategoryNames | CategoryName;
+  };
 };
 
 export type Category = {

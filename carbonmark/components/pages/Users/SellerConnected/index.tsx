@@ -17,11 +17,14 @@ import {
   getSortByUpdateListings,
 } from "lib/listingsGetter";
 import { pollUntil } from "lib/pollUntil";
-import { Asset, Listing, User } from "lib/types/carbonmark";
+import { Listing, User } from "lib/types/carbonmark";
 import { FC, useEffect, useState } from "react";
 import { ProfileHeader } from "../ProfileHeader";
 import { EditProfile } from "./Forms/EditProfile";
 import { ListingEditable } from "./ListingEditable";
+
+import { AssetForListing } from "lib/types/carbonmark";
+
 import * as styles from "./styles";
 
 type Props = {
@@ -35,7 +38,7 @@ type Props = {
 export const SellerConnected: FC<Props> = (props) => {
   const [user, setUser] = useState<User | null>(props.carbonmarkUser);
   const [sortedListings, setSortedListings] = useState<Listing[] | null>(null);
-  const [assetsData, setAssetsData] = useState<Asset[] | null>(null);
+  const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
   const [isUpdatingUser, setIsUpdatingUser] = useState(false);
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);

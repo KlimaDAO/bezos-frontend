@@ -1,15 +1,15 @@
 import { t } from "@lingui/macro";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Tippy from "@tippyjs/react";
-import { Asset } from "lib/types/carbonmark";
+import { AssetForListing } from "lib/types/carbonmark";
 import { FC, useEffect, useState } from "react";
 
 import * as styles from "./styles";
 
 interface Props {
   setValue: (field: "tokenAddress", value: string) => void;
-  assets: Asset[];
-  selectedAsset: Asset;
+  assets: AssetForListing[];
+  selectedAsset: AssetForListing;
 }
 
 export const ProjectTokenDropDown: FC<Props> = (props) => {

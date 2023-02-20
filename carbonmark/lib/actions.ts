@@ -10,7 +10,7 @@ import { getContract } from "lib/networkAware/getContract";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { OnStatusHandler } from "lib/statusMessage";
-import { Asset, AssetExtended } from "lib/types/carbonmark";
+import { Asset, AssetForListing } from "lib/types/carbonmark";
 
 /** Get allowance for carbonmark contract, spending an 18 decimal token. Don't use this for USDC */
 export const getCarbonmarkAllowance = async (params: {
@@ -226,9 +226,9 @@ export const deleteListingTransaction = async (params: {
 export const getAssets = async (params: {
   assets: string[];
   userAddress: string;
-}): Promise<Asset[]> => {
+}): Promise<AssetForListing[]> => {
   try {
-    const assetsData = await params.assets.reduce<Promise<Asset[]>>(
+    const assetsData = await params.assets.reduce<Promise<AssetForListing[]>>(
       async (resultPromise, asset) => {
         const resolvedAssets = await resultPromise;
         const contract = new ethers.Contract(

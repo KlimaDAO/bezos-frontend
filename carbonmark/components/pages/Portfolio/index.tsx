@@ -13,7 +13,7 @@ import { getAssetsExtended } from "lib/actions";
 import { getUser } from "lib/api";
 import { getActiveListings, getAllListings } from "lib/listingsGetter";
 import { pollUntil } from "lib/pollUntil";
-import { AssetExtended, User } from "lib/types/carbonmark";
+import { AssetForListing, User } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -26,8 +26,8 @@ export const Portfolio: NextPage = () => {
   const [isLoadingUser, setIsLoadingUser] = useState(false);
   const [user, setUser] = useState<null | User>(null);
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
-  const [assetsData, setAssetsData] = useState<AssetExtended[] | null>(null);
-  const [assetToSell, setAssetToSell] = useState<AssetExtended | null>(null);
+  const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
+  const [assetToSell, setAssetToSell] = useState<AssetForListing | null>(null);
   const [errorMessage, setErrorMessage] = useState("");
 
   const hasAssets = !isLoadingAssets && !!user?.assets?.length;

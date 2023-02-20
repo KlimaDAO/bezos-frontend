@@ -1,20 +1,21 @@
 import { Anchor, ButtonPrimary } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
-import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
+import { AssetForListing } from "lib/types/carbonmark";
+import { useRouter } from "next/router";
+import { FC } from "react";
+
+import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Category } from "components/Category";
 import { ProjectImage } from "components/ProjectImage";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { createRetireLink } from "lib/createUrls";
 import { formatToTonnes } from "lib/formatNumbers";
-import { AssetExtended } from "lib/types/carbonmark";
-import { useRouter } from "next/router";
-import { FC } from "react";
 import * as styles from "./styles";
 
 interface Props {
-  assetsData: AssetExtended;
+  asset: AssetForListing;
   onSell: () => void;
 }
 
