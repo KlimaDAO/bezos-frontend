@@ -13,6 +13,13 @@ export const profileHeader = css`
   }
 `;
 
+export const backToResults = css`
+  gap: 1.6rem;
+  display: flex;
+  align-items: center;
+  color: var(--font-01) !important;
+`;
+
 export const profileLogo = css`
   width: 10rem;
   height: 10rem;

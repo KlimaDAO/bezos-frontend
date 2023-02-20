@@ -4,7 +4,7 @@ import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
 import type { AppProps } from "next/app";
 import Script from "next/script";
-import { useEffect, useRef } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 
 // organize-imports-ignore
 import "@klimadao/lib/theme/normalize.css";
@@ -14,6 +14,8 @@ import "@klimadao/lib/theme/variables.css";
 import "@klimadao/carbonmark/theme/variables.css"; // overrides for variables.css - must be imported after
 // organize-imports-ignore
 import "@klimadao/lib/theme/globals.css"; // depends on variables
+
+export const HistoryContext = createContext<string[]>([]);
 
 const loadFallbackOnServer = async () => {
   if (typeof window === "undefined") {
@@ -28,6 +30,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   useTabListener();
 
   const firstRender = useRef(true);
+  const [history, setHistory] = useState([router.asPath]);
   const { translation, fixedThemeName } = pageProps;
 
   const locale = router.locale || (router.defaultLocale as string);
@@ -60,11 +63,26 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     }
   });
 
+  useEffect(() => {
+    // keep track of the previous url & current url
+    // useful on a user profile where we want to only show the
+    // back to project details button if the user navigated from
+    // the projects page.
+    const handleRouteChange = (url: string) =>
+      setHistory((history) => [history[history.length - 1], url]);
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <>
       <Web3ContextProvider>
         <I18nProvider i18n={i18n}>
-          <Component {...pageProps} />
+          <HistoryContext.Provider value={history}>
+            <Component {...pageProps} />
+          </HistoryContext.Provider>
         </I18nProvider>
       </Web3ContextProvider>
       <Script
