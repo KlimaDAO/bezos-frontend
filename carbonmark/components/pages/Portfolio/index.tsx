@@ -9,8 +9,9 @@ import { PageHead } from "components/PageHead";
 import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
-import { getAssetsExtended } from "lib/actions";
+import { getAssetsWithProjects } from "lib/actions";
 import { getUser } from "lib/api";
+import { getAssetsWithProjectTokens } from "lib/getAssetsData";
 import { getActiveListings, getAllListings } from "lib/listingsGetter";
 import { pollUntil } from "lib/pollUntil";
 import { AssetForListing, User } from "lib/types/carbonmark";
@@ -31,6 +32,8 @@ export const Portfolio: NextPage = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const hasAssets = !isLoadingAssets && !!user?.assets?.length;
+  const assetWithProjectTokens =
+    !!user?.assets?.length && getAssetsWithProjectTokens(user.assets);
   const hasListings = !isLoadingUser && !!user?.listings?.length;
   const allListings = hasListings && getAllListings(user.listings);
   const activeListings = hasListings && getActiveListings(user.listings);
@@ -65,19 +68,20 @@ export const Portfolio: NextPage = () => {
       const getAssetsData = async () => {
         try {
           setIsLoadingAssets(true);
-          const assetsData = await getAssetsExtended({
-            assets: user.assets,
-            userAddress: address,
-          });
 
-          // TODO: filter assets with balance > 0
-          // this will be unnecessary as soon as bezos switched to mainnet
+          if (assetWithProjectTokens) {
+            const assetsData = await getAssetsWithProjects({
+              assets: assetWithProjectTokens,
+            });
+            // TODO: filter assets with balance > 0
+            // this will be unnecessary as soon as bezos switched to mainnet
 
-          const assetsWithBalance = assetsData.filter(
-            (a) => Number(a.balance) > 0
-          );
+            const assetsWithBalance = assetsData.filter(
+              (a) => Number(a.balance) > 0
+            );
 
-          setAssetsData(assetsWithBalance);
+            setAssetsData(assetsWithBalance);
+          }
         } catch (e) {
           console.error(e);
         } finally {
