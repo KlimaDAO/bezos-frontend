@@ -144,7 +144,7 @@ export const Project: NextPage<Props> = (props) => {
               project:
             </Text>
           ) : (
-            <Text t="caption" color="default">
+            <Text t="body1" color="default">
               <i>
                 <Trans>No listings found for this project.</Trans>
               </i>
