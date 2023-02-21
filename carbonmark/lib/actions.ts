@@ -5,7 +5,11 @@ import { AllowancesToken } from "@klimadao/lib/types/allowances";
 import { formatUnits } from "@klimadao/lib/utils";
 import { Contract, ethers, providers, Transaction, utils } from "ethers";
 import { getProject } from "lib/api";
-import { createProjectIdFromAsset, isC3TToken } from "lib/getAssetsData";
+import {
+  createProjectIdFromAsset,
+  getTokenType,
+  isC3TToken,
+} from "lib/getAssetsData";
 import { getCategoryFromMethodology } from "lib/getCategoryFromMethodology";
 import { getAddress } from "lib/networkAware/getAddress";
 import { getContract } from "lib/networkAware/getContract";
@@ -257,6 +261,7 @@ export const addProjectsToAssets = async (params: {
           tokenAddress: asset.token.id,
           tokenName: asset.token.name,
           balance: ethers.utils.formatUnits(asset.amount, asset.token.decimals),
+          tokenType: getTokenType(asset),
           project,
         });
         return resolvedAssets;
