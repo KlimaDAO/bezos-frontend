@@ -6,12 +6,12 @@ export const tooltipButton = css`
   padding: 0.4rem 0.8rem;
   cursor: pointer;
   p {
-    color: var(--surface-01);
+    color: var(--white);
   }
 `;
 
 export const infoText = css`
-  color: var(--surface-01);
+  color: var(--white);
 `;
 
 export const tippyBox = css`
