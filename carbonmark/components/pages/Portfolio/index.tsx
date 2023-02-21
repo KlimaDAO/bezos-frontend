@@ -70,13 +70,13 @@ export const Portfolio: NextPage = () => {
           setIsLoadingAssets(true);
 
           if (assetWithProjectTokens) {
-            const assetsData = await addProjectsToAssets({
+            const assetsWithProject = await addProjectsToAssets({
               assets: assetWithProjectTokens,
             });
             // TODO: filter assets with balance > 0
             // this will be unnecessary as soon as bezos switched to mainnet
 
-            const assetsWithBalance = assetsData.filter(
+            const assetsWithBalance = assetsWithProject.filter(
               (a) => Number(a.balance) > 0
             );
 
