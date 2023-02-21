@@ -16,9 +16,7 @@ const singleProject: NextApiHandler<User | APIDefaultResponse> = async (
         const { project_id } = req.query;
 
         if (!project_id) {
-          return res
-            .status(400)
-            .json({ message: "Not found! Project ID are not correct" });
+          return res.status(400).json({ message: "No project_id provided" });
         }
 
         const result = await fetch(`${urls.api.projects}/${project_id}`);
