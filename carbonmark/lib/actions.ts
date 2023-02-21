@@ -93,6 +93,7 @@ export const createListingTransaction = async (params: {
   tokenAddress: string;
   totalAmountToSell: string;
   singleUnitPrice: string;
+  tokenType: "1" | "2";
   provider: providers.JsonRpcProvider;
   onStatus: OnStatusHandler;
 }) => {
@@ -109,7 +110,8 @@ export const createListingTransaction = async (params: {
       utils.parseUnits(params.totalAmountToSell, 18), // C3 token
       utils.parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
       [], // TODO batches
-      [] // TODO batches price
+      [], // TODO batches price
+      params.tokenType
     );
 
     params.onStatus("networkConfirmation", "");
