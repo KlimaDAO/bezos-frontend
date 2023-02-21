@@ -117,6 +117,8 @@ export const controls = css`
 
   .connectButton {
     white-space: nowrap;
+    background-color: var(--bright-blue);
+    color: var(--white);
   }
 `;
 
