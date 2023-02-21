@@ -144,12 +144,3 @@ export const loginWrapper = css`
     display: none;
   }
 `;
-
-export const betaButton = css`
-  background-color: var(--klima-blue);
-  border-radius: 0.4rem;
-  padding: 0.4rem 0.8rem;
-  p {
-    color: var(--surface-01);
-  }
-`;

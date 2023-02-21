@@ -1,11 +1,11 @@
 import { cx } from "@emotion/css";
-import { ButtonPrimary, CarbonmarkLogo, Text } from "@klimadao/lib/components";
+import { ButtonPrimary, CarbonmarkLogo } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
-import Tippy from "@tippyjs/react";
 import { ProjectsController } from "components/pages/Project/ProjectsController";
 import { InvalidNetworkModal } from "components/shared/InvalidNetworkModal";
+import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { useResponsive } from "hooks/useResponsive";
 import { connectErrorStrings } from "lib/constants";
 import Link from "next/link";
@@ -58,22 +58,13 @@ export const Layout: FC<Props> = (props: Props) => {
               <CarbonmarkLogo />
             </Link>
             <div className={styles.betaWrapperMobile}>
-              <Tippy
-                content={
-                  <p>
-                    <Trans id="beta.text">
-                      This product is still in Beta and hasn't been internally
-                      audited yet.
-                    </Trans>
-                  </p>
-                }
-              >
-                <span className={styles.betaButton}>
-                  <Text t="button">
-                    <Trans id="beta">BETA</Trans>
-                  </Text>
-                </span>
-              </Tippy>
+              <TextInfoTooltip
+                contentText={t({
+                  message:
+                    "This product is still in Beta and hasn't been internally audited yet.",
+                })}
+                tooltipText={t({ message: "BETA" })}
+              />
             </div>
             {/* keep mobile nav menu here in markup hierarchy for tab nav */}
             <div
