@@ -45,7 +45,7 @@ interface AppConfig {
 /** See readme to understand how testnet/mainnet and environments work */
 export const config: AppConfig = {
   /** For static RPC and addresses. For transactions, always rely on the user's wallet network */
-  defaultNetwork: "testnet",
+  defaultNetwork: "mainnet",
   urls: {
     baseUrl: {
       production: "https://carbonmark.vercel.app", // TODO https://www.carbonmark.com
