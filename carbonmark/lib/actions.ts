@@ -334,6 +334,24 @@ export const getProjectInfoFromC3Contract = async (
     console.error("getProjectInfoFromContract Error", e);
   }
 };
+/** Ethers uses the ABI to construct this response object for us */
+interface ProjectAttributes {
+  beneficiary: string;
+  category: string;
+  emissionType: string;
+  method: string;
+  methodology: string;
+  projectId: string;
+  region: string;
+  standard: string;
+  storageMethod: string;
+  uri: string;
+}
+interface VintageAttributes {
+  name: string; // yyyymmdd e.g. "20140701"
+}
+
+type Attributes = [ProjectAttributes, VintageAttributes];
 
 export const getProjectInfoFromTCO2Contract = async (
   tokenAddress: string
@@ -341,19 +359,21 @@ export const getProjectInfoFromTCO2Contract = async (
   const contract = new ethers.Contract(
     tokenAddress,
     TCO2.abi,
-    getStaticProvider()
+    getStaticProvider({ chain: "polygon" })
   );
 
   try {
     // https://docs.toucan.earth/toucan/dev-resources/smart-contracts/tco2#getattributes
-    const [projectData, vintageData] = await contract.getAttributes();
-
+    const [projectAttributes, vintageAttributes]: Attributes =
+      await contract.getAttributes();
     return {
-      key: projectData.projectId, // API defines key like this e.g. "VCS-191"
-      projectID: projectData.projectId.split("-")[1], // API defines ID like this "191"
-      methodology: projectData.methodology,
-      vintage: vintageData.name,
-      category: getCategoryFromMethodology(projectData.methodology),
+      key: projectAttributes.projectId,
+      projectID: projectAttributes.projectId // "VCS-191" or sometimes just "191"
+        .replace("VCS-", "")
+        .replace("GS-", ""),
+      methodology: projectAttributes.methodology,
+      vintage: vintageAttributes.name.slice(0, 4), // "2023"
+      category: getCategoryFromMethodology(projectAttributes.methodology),
     };
   } catch (e: any) {
     console.error("getProjectInfoFromTCO2Contract Error", e);
