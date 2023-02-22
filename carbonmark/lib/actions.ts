@@ -1,5 +1,6 @@
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
+import TCO2 from "@klimadao/lib/abi/TCO2.json";
 import { addresses } from "@klimadao/lib/constants";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
 import { formatUnits } from "@klimadao/lib/utils";
@@ -9,6 +10,7 @@ import {
   createProjectIdFromAsset,
   getTokenType,
   isC3TToken,
+  isTCO2Token,
 } from "lib/getAssetsData";
 import { getCategoryFromMethodology } from "lib/getCategoryFromMethodology";
 import { getAddress } from "lib/networkAware/getAddress";
@@ -256,7 +258,13 @@ export const addProjectsToAssets = async (params: {
             );
             project = projectFromContract;
           }
-          // TODO: Do the same if TCO2 token !
+
+          if (isTCO2Token(asset.token.symbol)) {
+            const projectFromContract = await getProjectInfoFromTCO2Contract(
+              asset.token.id
+            );
+            project = projectFromContract;
+          }
         }
 
         resolvedAssets.push({
@@ -324,6 +332,31 @@ export const getProjectInfoFromC3Contract = async (
     };
   } catch (e: any) {
     console.error("getProjectInfoFromContract Error", e);
+  }
+};
+
+export const getProjectInfoFromTCO2Contract = async (
+  tokenAddress: string
+): Promise<AssetForListing["project"] | undefined> => {
+  const contract = new ethers.Contract(
+    tokenAddress,
+    TCO2.abi,
+    getStaticProvider()
+  );
+
+  try {
+    // https://docs.toucan.earth/toucan/dev-resources/smart-contracts/tco2#getattributes
+    const [projectData, vintageData] = await contract.getAttributes();
+
+    return {
+      key: projectData.projectId, // API defines key like this e.g. "VCS-191"
+      projectID: projectData.projectId.split("-")[1], // API defines ID like this "191"
+      methodology: projectData.methodology,
+      vintage: vintageData.name,
+      category: getCategoryFromMethodology(projectData.methodology),
+    };
+  } catch (e: any) {
+    console.error("getProjectInfoFromTCO2Contract Error", e);
   }
 };
 
