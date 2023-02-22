@@ -53,7 +53,7 @@ export const config = {
   },
 } as const;
 
-const DEFAULT_NETWORK = config.networks[ENVIRONMENT];
+export const DEFAULT_NETWORK = config.networks[ENVIRONMENT];
 
 export const urls = {
   api: {
