@@ -16,12 +16,17 @@ import {
   getActiveListings,
   getAllListings,
   getLowestPriceFromListings,
-  getSortByUpdateListings,
+  sortPricesAndListingsByBestPrice,
 } from "lib/listingsGetter";
-import { Project as ProjectType } from "lib/types/carbonmark";
+import {
+  PriceFlagged,
+  Project as ProjectType,
+  ProjectBuyOption,
+} from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
-import { ProjectListing } from "./ProjectListing";
+import { PoolPrice } from "./BuyOptions/PoolPrice";
+import { SellerListing } from "./BuyOptions/SellerListing";
 import { ProjectMap } from "./ProjectMap";
 import * as styles from "./styles";
 
@@ -29,18 +34,46 @@ type Props = {
   project: ProjectType;
 };
 
+const isPoolPrice = (option: ProjectBuyOption): option is PriceFlagged =>
+  (option as PriceFlagged).isPoolProject !== undefined;
+
 export const Project: NextPage<Props> = (props) => {
   const allListings =
     Array.isArray(props.project.listings) &&
     getAllListings(props.project.listings);
   const activeListings =
-    Array.isArray(props.project.listings) &&
-    getActiveListings(props.project.listings);
+    (Array.isArray(props.project.listings) &&
+      getActiveListings(props.project.listings)) ||
+    [];
+  const poolPrices =
+    (Array.isArray(props.project?.prices) && props.project.prices) || [];
 
-  const sortedListings =
-    !!activeListings &&
-    !!activeListings.length &&
-    getSortByUpdateListings(activeListings);
+  const sortedListingsAndPrices = sortPricesAndListingsByBestPrice(
+    poolPrices,
+    activeListings
+  );
+
+  const pricesOrListings =
+    !!sortedListingsAndPrices.length &&
+    sortedListingsAndPrices.map((option) => {
+      if (isPoolPrice(option)) {
+        return (
+          <PoolPrice
+            key={option.tokenAddress}
+            price={option}
+            project={props.project}
+          />
+        );
+      }
+
+      return (
+        <SellerListing
+          key={option.tokenAddress}
+          project={props.project}
+          listing={option}
+        />
+      );
+    });
 
   return (
     <>
@@ -137,7 +170,7 @@ export const Project: NextPage<Props> = (props) => {
 
         <div className={styles.listingsHeader}>
           <Text t="h4">Listings</Text>
-          {sortedListings ? (
+          {sortedListingsAndPrices ? (
             <Text t="body1">
               We found <strong>{activeListings.length}</strong> prices for this
               project:
@@ -153,16 +186,7 @@ export const Project: NextPage<Props> = (props) => {
 
         <TwoColLayout>
           <Col>
-            <div className={styles.listings}>
-              {sortedListings &&
-                sortedListings.map((listing) => (
-                  <ProjectListing
-                    key={listing.id}
-                    listing={listing}
-                    project={props.project}
-                  />
-                ))}
-            </div>
+            <div className={styles.listings}>{pricesOrListings || null}</div>
           </Col>
           <Col>
             <Stats
