@@ -81,12 +81,12 @@ export const buttonPrimary = css`
   }
 
   &.red {
-    background-color: var(--warn);
+    background-color: var(--warning-red);
     color: var(--white);
   }
 
   &.blue {
-    background-color: var(--klima-blue);
+    background-color: var(--bright-blue);
     &:hover:not(:disabled),
     &:visited {
       color: #000; /* same in darkmode */
@@ -94,7 +94,7 @@ export const buttonPrimary = css`
   }
 
   &:disabled {
-    background-color: var(--surface-03);
+    background-color: var(--surface-02);
     color: var(--font-03);
     cursor: not-allowed;
   }
@@ -102,13 +102,13 @@ export const buttonPrimary = css`
 
 export const buttonSecondary = css`
   ${buttonBase};
-  border: 1px solid var(--klima-green);
-  color: var(--klima-green);
+  border: 1px solid var(--blue-yellow);
+  color: var(--blue-yellow);
   background-color: transparent;
 
   &:hover:not(:disabled),
   &:visited {
-    color: var(--klima-green); /* same in darkmode */
+    color: var(--blue-yellow); /* same in darkmode */
   }
 
   &.gray {
@@ -124,7 +124,7 @@ export const buttonSecondary = css`
 
   &.lightGray {
     background-color: var(--surface-01);
-    box-shadow: var(--shadow-07);
+    box-shadow: var(--shadow-01);
     &,
     &:hover,
     &:hover:not(:disabled),
@@ -134,24 +134,24 @@ export const buttonSecondary = css`
   }
 
   &.red {
-    border-color: var(--warn);
-    color: var(--warn);
+    border-color: var(--warning-red);
+    color: var(--warning-red);
     &,
     &:hover,
     &:hover:not(:disabled),
     &:visited {
-      color: var(--warn);
+      color: var(--warning-red);
     }
   }
 
   &.blue {
-    border-color: var(--klima-blue);
+    border-color: var(--bright-blue);
 
     &,
     &:hover,
     &:hover:not(:disabled),
     &:visited {
-      color: var(--klima-blue); /* same in darkmode */
+      color: var(--bright-blue); /* same in darkmode */
     }
   }
 `;
