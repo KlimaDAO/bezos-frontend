@@ -1,5 +1,6 @@
 import { formatUnits } from "@klimadao/lib/utils";
 import { Listing } from "lib/types/carbonmark";
+import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 
 export const getAmountLeftToSell = (listings: Listing[]) =>
   listings.reduce((acc, curr) => {
@@ -29,6 +30,9 @@ export const getSortByUpdateListings = (listings: Listing[]) =>
   listings.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
 
 export const getLowestPriceFromListings = (listings: Listing[]) => {
-  const allPrices = listings.map((l) => Number(formatUnits(l.singleUnitPrice)));
+  const decimals = getTokenDecimals("usdc");
+  const allPrices = listings.map((l) =>
+    Number(formatUnits(l.singleUnitPrice, decimals))
+  );
   return Math.min(...allPrices);
 };
