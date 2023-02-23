@@ -6,7 +6,7 @@ import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { CreateListing } from "components/CreateListing";
 import { Modal } from "components/shared/Modal";
-import { StatsListings } from "components/StatsListings";
+import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { getUser } from "lib/api";
@@ -250,7 +250,7 @@ export const SellerConnected: FC<Props> = (props) => {
         </Col>
 
         <Col>
-          <StatsListings
+          <Stats
             allListings={allListings || []}
             activeListings={activeListings || []}
             description={t`Your seller data`}

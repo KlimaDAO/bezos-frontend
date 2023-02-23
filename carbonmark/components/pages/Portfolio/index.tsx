@@ -6,7 +6,7 @@ import { CreateListing } from "components/CreateListing";
 import { Layout } from "components/Layout";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
-import { StatsListings } from "components/StatsListings";
+import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { addProjectsToAssets } from "lib/actions";
@@ -201,7 +201,7 @@ export const Portfolio: NextPage = () => {
 
           <Col>
             <Balances />
-            <StatsListings
+            <Stats
               allListings={allListings || []}
               activeListings={activeListings || []}
               description={t`Your seller data`}

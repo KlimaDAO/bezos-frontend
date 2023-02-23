@@ -9,7 +9,7 @@ import { PageHead } from "components/PageHead";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 
 import { Activities } from "components/Activities";
-import { StatsListings } from "components/StatsListings";
+import { Stats } from "components/Stats";
 import { useEffect, useState } from "react";
 
 export const Login: NextPage = () => {
@@ -41,7 +41,7 @@ export const Login: NextPage = () => {
           </Col>
           <Col>
             <Activities activities={[]} />
-            <StatsListings description={t`Data for this seller`} />
+            <Stats description={t`Data for this seller`} />
           </Col>
         </TwoColLayout>
       </Layout>

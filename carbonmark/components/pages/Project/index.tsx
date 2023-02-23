@@ -7,8 +7,7 @@ import { Category } from "components/Category";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
-import { StatsListings } from "components/StatsListings";
-import { StatsPoolProject } from "components/StatsPoolProject";
+import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { Vintage } from "components/Vintage";
@@ -31,7 +30,6 @@ type Props = {
 };
 
 export const Project: NextPage<Props> = (props) => {
-  console.log("pros.project", props.project);
   const allListings =
     Array.isArray(props.project.listings) &&
     getAllListings(props.project.listings);
@@ -43,8 +41,6 @@ export const Project: NextPage<Props> = (props) => {
     !!activeListings &&
     !!activeListings.length &&
     getSortByUpdateListings(activeListings);
-
-  const isPoolProject = props.project.isPoolProject;
 
   return (
     <>
@@ -169,20 +165,13 @@ export const Project: NextPage<Props> = (props) => {
             </div>
           </Col>
           <Col>
-            {isPoolProject && (
-              <StatsPoolProject
-                description={t`Data for this project and vintage`}
-                currentSupply={props.project.currentSupply}
-                totalRetired={props.project.totalRetired}
-              />
-            )}
-            {!isPoolProject && (
-              <StatsListings
-                description={t`Data for this project and vintage`}
-                allListings={allListings || []}
-                activeListings={activeListings || []}
-              />
-            )}
+            <Stats
+              description={t`Data for this project and vintage`}
+              currentSupply={props.project.currentSupply}
+              totalRetired={props.project.totalRetired}
+              allListings={allListings || []}
+              activeListings={activeListings || []}
+            />
             <Activities activities={props.project.activities || []} />
           </Col>
         </TwoColLayout>
