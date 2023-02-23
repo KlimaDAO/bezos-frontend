@@ -8,7 +8,7 @@ export const buyButton = css`
 
 export const sellerInfo = css`
   display: flex;
-  gap: 0.8rem;
+  gap: 1.2rem;
   flex-direction: row;
   align-items: center;
 
@@ -24,6 +24,15 @@ export const sellerInfo = css`
 export const sellerBadge = css`
   padding: 0.4rem 0.8rem;
   background-color: var(--surface-02);
+  align-items: center;
+  align-self: flex-start;
+  border-radius: var(--border-radius);
+  color: var(--font-01);
+`;
+
+export const bestPriceBadge = css`
+  padding: 0.4rem 0.8rem;
+  background-color: var(--yellow);
   align-items: center;
   align-self: flex-start;
   border-radius: var(--border-radius);

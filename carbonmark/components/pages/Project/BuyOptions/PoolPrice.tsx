@@ -12,6 +12,7 @@ import * as styles from "./styles";
 type Props = {
   price: PriceFlagged;
   project: Project;
+  isBestPrice: boolean;
 };
 
 export const PoolPrice: FC<Props> = (props) => {
@@ -22,6 +23,11 @@ export const PoolPrice: FC<Props> = (props) => {
         <div className={styles.sellerBadge}>
           <Trans>Carbon Pool</Trans>
         </div>
+        {props.isBestPrice && (
+          <div className={styles.bestPriceBadge}>
+            <Trans>Best Price</Trans>
+          </div>
+        )}
       </div>
       <Text t="h4">{formatToPrice(props.price.singleUnitPrice)}</Text>
       <Text t="body1">{props.price.name}</Text>

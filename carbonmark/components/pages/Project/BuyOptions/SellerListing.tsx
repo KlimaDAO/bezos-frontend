@@ -16,6 +16,7 @@ import * as styles from "./styles";
 type Props = {
   listing: ListingFormatted;
   project: Project;
+  isBestPrice: boolean;
 };
 
 const getFormattedDate = (timestamp: string, locale = "en") => {
@@ -41,6 +42,11 @@ export const SellerListing: FC<Props> = (props) => {
           <div className={styles.sellerBadge}>
             <Trans>Seller Listing</Trans>
           </div>
+          {props.isBestPrice && (
+            <div className={styles.bestPriceBadge}>
+              <Trans>Best Price</Trans>
+            </div>
+          )}
           <Text t="body1">
             <Link href={createSellerLink(props.listing.seller.handle)}>
               {isConnectedSeller ? "You" : "@" + props.listing.seller.handle}

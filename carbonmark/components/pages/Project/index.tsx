@@ -53,6 +53,10 @@ export const Project: NextPage<Props> = (props) => {
     activeListings
   );
 
+  const bestPrice =
+    !!sortedListingsAndPrices.length &&
+    getLowestPriceFromBuyOptions(sortedListingsAndPrices);
+
   const pricesOrListings =
     !!sortedListingsAndPrices.length &&
     sortedListingsAndPrices.map((option) => {
@@ -62,6 +66,7 @@ export const Project: NextPage<Props> = (props) => {
             key={option.tokenAddress}
             price={option}
             project={props.project}
+            isBestPrice={bestPrice === option.singleUnitPrice}
           />
         );
       }
@@ -71,6 +76,7 @@ export const Project: NextPage<Props> = (props) => {
           key={option.tokenAddress}
           project={props.project}
           listing={option}
+          isBestPrice={bestPrice === option.singleUnitPrice}
         />
       );
     });
@@ -118,22 +124,17 @@ export const Project: NextPage<Props> = (props) => {
         </div>
 
         <div className={styles.meta}>
-          <div className="best-price">
-            {!!sortedListingsAndPrices?.length && (
-              <>
-                <Text t="h4">
-                  <span className="badge">
-                    {formatToPrice(
-                      getLowestPriceFromBuyOptions(sortedListingsAndPrices)
-                    )}
-                  </span>
-                </Text>
-                <Text t="h4" color="lighter">
-                  <Trans id="project.single.best_price">Best Price</Trans>
-                </Text>
-              </>
-            )}
-          </div>
+          {bestPrice && (
+            <div className="best-price">
+              <Text t="h4">
+                <span className="badge">{formatToPrice(bestPrice)}</span>
+              </Text>
+              <Text t="h4" color="lighter">
+                <Trans id="project.single.best_price">Best Price</Trans>
+              </Text>
+            </div>
+          )}
+
           <div className="methodology">
             <Text t="h5" color="lighter">
               <Trans id="project.single.methodology">Methodology:</Trans>
