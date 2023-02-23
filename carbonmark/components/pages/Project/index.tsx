@@ -15,7 +15,7 @@ import { formatToPrice } from "lib/formatNumbers";
 import {
   getActiveListings,
   getAllListings,
-  getLowestPriceFromListings,
+  getLowestPriceFromBuyOptions,
   sortPricesAndListingsByBestPrice,
 } from "lib/listingsGetter";
 import {
@@ -119,11 +119,13 @@ export const Project: NextPage<Props> = (props) => {
 
         <div className={styles.meta}>
           <div className="best-price">
-            {sortedListings && (
+            {!!sortedListingsAndPrices?.length && (
               <>
                 <Text t="h4">
                   <span className="badge">
-                    {formatToPrice(getLowestPriceFromListings(activeListings))}
+                    {formatToPrice(
+                      getLowestPriceFromBuyOptions(sortedListingsAndPrices)
+                    )}
                   </span>
                 </Text>
                 <Text t="h4" color="lighter">
@@ -172,8 +174,8 @@ export const Project: NextPage<Props> = (props) => {
           <Text t="h4">Listings</Text>
           {sortedListingsAndPrices ? (
             <Text t="body1">
-              We found <strong>{activeListings.length}</strong> prices for this
-              project:
+              We found <strong>{sortedListingsAndPrices.length}</strong> prices
+              for this project:
             </Text>
           ) : (
             <Text t="body1" color="default">
