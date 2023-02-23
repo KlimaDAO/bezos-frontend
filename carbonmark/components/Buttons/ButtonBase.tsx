@@ -1,5 +1,5 @@
 import { cx } from "@emotion/css";
-import React, { FC, HTMLAttributes, ReactElement, ReactNode } from "react";
+import { FC, HTMLAttributes, ReactElement, ReactNode } from "react";
 
 interface RenderLinkProps {
   href: string;
