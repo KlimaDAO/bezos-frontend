@@ -4,7 +4,7 @@ import {
   CategoryNames,
   Country,
   Project,
-  User,
+  User
 } from "lib/types/carbonmark";
 
 export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {
@@ -105,13 +105,13 @@ export const getUser = async (params: {
   return data;
 };
 
-type Params = {
+export type GetProjectsParams = {
   search?: string;
   country?: string;
   category?: CategoryName | CategoryNames;
   vintage?: string;
 };
-export const getProjects = async (params?: Params): Promise<Project[]> => {
+export const getProjects = async (params?: GetProjectsParams): Promise<Project[]> => {
   const searchParams = !!params && new URLSearchParams(params);
   const url = searchParams ? `/api/projects?${searchParams}` : "/api/projects";
 

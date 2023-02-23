@@ -8,19 +8,43 @@ import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
+import { Project } from "lib/types/carbonmark";
+import { isEmpty } from "lodash";
+import { filter, pipe } from "lodash/fp";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ProjectsPageProps } from "pages/projects";
+import { useContext } from "react";
+import { ProjectsContext } from "./state/Projects.context";
+import { ProjectsProvider } from "./state/Projects.provider";
 import * as styles from "./styles";
 
-export const Projects: NextPage<ProjectsPageProps> = (props) => {
+const emptyOrIncludes = <T,>(arr: T[], i: T) => isEmpty(arr) || arr.includes(i);
+// overSome(isEmpty,includes())
+
+const Component: NextPage<ProjectsPageProps> = (props) => {
+  const {
+    state: { filters },
+  } = useContext(ProjectsContext);
+
   const { locale } = useRouter();
 
-  const hasProjects = !!props.projects.length;
-  const sortedProjects =
-    hasProjects &&
-    props.projects.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
+  const filterFn = filter(
+    ({ category }: Project) => emptyOrIncludes(filters.categories, category?.id)
+    // emptyOrIncludes(countries, country) &&
+    // emptyOrIncludes(vintages, vintage)
+  );
+
+  // const sort = curryRight(sortBy)("updatedAt");
+
+  const projects: Project[] = pipe(filterFn)(props.projects);
+
+  // console.log(categories);
+  console.log(props.projects);
+  console.log(projects);
+
+  const hasProjects = !isEmpty(projects);
 
   return (
     <>
@@ -32,8 +56,8 @@ export const Projects: NextPage<ProjectsPageProps> = (props) => {
 
       <Layout fullWidth={true}>
         <div className={styles.list}>
-          {sortedProjects &&
-            sortedProjects.map((project, index) => (
+          {projects &&
+            projects.map((project, index) => (
               <Link
                 key={project.key + "-" + index}
                 href={createProjectLink(project)}
@@ -70,3 +94,9 @@ export const Projects: NextPage<ProjectsPageProps> = (props) => {
     </>
   );
 };
+
+export const Projects: NextPage<ProjectsPageProps> = (props) => (
+  <ProjectsProvider>
+    <Component {...props} />
+  </ProjectsProvider>
+);
