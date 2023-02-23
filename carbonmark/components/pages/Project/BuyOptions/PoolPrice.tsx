@@ -4,7 +4,7 @@ import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { createRetireLink } from "lib/createUrls";
-import { formatToPrice } from "lib/formatNumbers";
+import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { PriceFlagged, Project } from "lib/types/carbonmark";
 import { FC } from "react";
 import * as styles from "./styles";
@@ -31,11 +31,15 @@ export const PoolPrice: FC<Props> = (props) => {
       </div>
       <Text t="h4">{formatToPrice(props.price.singleUnitPrice)}</Text>
       <Text t="body1">{props.price.name}</Text>
+      <Text t="body1">
+        <Trans>Quantity Available:</Trans>{" "}
+        {formatToTonnes(props.price.leftToSell)}
+      </Text>
 
       <div className={styles.buttons}>
         <ButtonPrimary
           className={styles.buyButton}
-          label={t`Buy ${props.price.name}`}
+          label={t`Buy` + ` ${props.price.name}`}
           href={"https://klimadao.finance"} // go where?
         />
 
