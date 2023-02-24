@@ -30,6 +30,7 @@ const defaultValues = {
   profileImgUrl: "",
 };
 
+/** DO NOT CHANGE: This needs to be synchronized with the backend */
 export const editSignMessage = (nonce: string): string =>
   `Sign to authenticate ownership and edit your Carbonmark profile 💚\n\nSignature nonce: ${nonce}`;
 
@@ -87,7 +88,7 @@ export const EditProfile: FC<Props> = (props) => {
       });
 
       let response;
-
+      console.log("putting values", values);
       if (isExistingUser) {
         response = await putUser({
           user: values,
@@ -108,17 +109,9 @@ export const EditProfile: FC<Props> = (props) => {
     } catch (error: any) {
       console.error(error);
       if (error.code === "ACTION_REJECTED") {
-        setErrorMessage(
-          t({
-            message: "You chose to reject the transaction.",
-          })
-        );
+        setErrorMessage(t`You chose to reject the transaction.`);
       } else {
-        setErrorMessage(
-          t({
-            message: `Something went wrong. Please try again. ${error}`,
-          })
-        );
+        setErrorMessage(t`Something went wrong. Please try again. ${error}`);
       }
     } finally {
       setIsLoading(false);
@@ -147,10 +140,7 @@ export const EditProfile: FC<Props> = (props) => {
           id="handle"
           inputProps={{
             disabled: isExistingUser,
-            placeholder: t({
-              id: "user.edit.form.input.handle.placeholder",
-              message: "Your unique handle",
-            }),
+            placeholder: t`Your unique handle`,
             type: "text",
             ...register(
               "handle",
@@ -158,10 +148,7 @@ export const EditProfile: FC<Props> = (props) => {
                 ? {
                     required: {
                       value: true,
-                      message: t({
-                        id: "user.edit.form.input.handle.required",
-                        message: "Handle is required",
-                      }),
+                      message: t`Handle is required`,
                     },
                     pattern: {
                       value: /^[a-zA-Z0-9]+$/, // no special characters!
@@ -170,10 +157,7 @@ export const EditProfile: FC<Props> = (props) => {
                     validate: {
                       isAddress: (v) =>
                         !utils.isAddress(v) || // do not allow polygon addresses
-                        t({
-                          id: "user.edit.form.input.handle.no_polygon_address",
-                          message: "Handle should not be an address",
-                        }),
+                        t`Handle should not be an address`,
                       isNewHandle: async (v) =>
                         (await fetchIsNewHandle(v)) || // ensure unique handles
                         t`Sorry, this handle already exists`,
@@ -182,54 +166,35 @@ export const EditProfile: FC<Props> = (props) => {
                 : undefined
             ),
           }}
-          label={t({
-            id: "user.edit.form.input.handle.label",
-            message: "Handle (not changeable later! Choose wisely)",
-          })}
+          label={t`@Username (note: this can not be changed!)`}
           errorMessage={formState.errors.handle?.message}
         />
         <InputField
           id="username"
           inputProps={{
             disabled: isLoading,
-            placeholder: t({
-              id: "user.edit.form.input.username.placeholder",
-              message: "Your display name",
-            }),
+            placeholder: t`Your display name`,
             type: "text",
             ...register("username", {
               required: {
                 value: true,
-                message: t({
-                  id: "user.edit.form.input.username.required",
-                  message: "Display Name is required",
-                }),
+                message: t`Display name is required`,
               },
             }),
           }}
-          label={t({
-            id: "user.edit.form.input.username.label",
-            message: "Display Name",
-          })}
+          label={t`Display name`}
           errorMessage={formState.errors.username?.message}
         />
         <InputField
           id="profileImgUrl"
           inputProps={{
             disabled: isLoading,
-            placeholder: t({
-              // TODO: add translation id
-              id: "",
-              message: "https://...",
-            }),
+            placeholder: "https://...",
             type: "text",
             ...register("profileImgUrl", {}),
           }}
-          label={t({
-            // TODO: add translation id
-            id: "",
-            message: "Profile Picture",
-          })}
+          label={t`Profile picture`}
+          infoTooltip={t`200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!`}
           errorMessage={formState.errors.profileImgUrl?.message}
         />
         <TextareaField
@@ -237,21 +202,20 @@ export const EditProfile: FC<Props> = (props) => {
           textareaProps={{
             disabled: isLoading,
             rows: 4,
-            placeholder: t({
-              id: "user.edit.form.input.description.placeholder",
-              message: "Description",
-            }),
+            placeholder: t`Say a few words about yourself. This will be visible in your seller profile.`,
             ...register("description"),
           }}
-          label={t({
-            id: "user.edit.form.input.description.label",
-            message: "About",
-          })}
+          label={t`About`}
         />
         {isLoading && (
-          <div className={styles.spinner}>
-            <Spinner />
-          </div>
+          <>
+            <div className={styles.spinner}>
+              <Spinner />
+            </div>
+            <Text align="center">
+              Please use your wallet to sign and confirm this edit.
+            </Text>
+          </>
         )}
         {hasError && (
           <Text t="body1" className="error">

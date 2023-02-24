@@ -10,12 +10,6 @@ export const profileLogo = css`
   justify-content: center;
   flex-shrink: 0;
 
-  .notRegisteredSvg {
-    width: 3rem;
-    height: 3rem;
-    color: var(--font-03);
-  }
-
   .imgUrl {
     object-fit: fill;
     border-radius: 50%;
@@ -25,5 +19,11 @@ export const profileLogo = css`
 
   &.hasBorder {
     border: 1px solid gray;
+  }
+
+  .placeholderIcon {
+    width: 4.8rem;
+    height: 4.8rem;
+    color: var(--manatee);
   }
 `;

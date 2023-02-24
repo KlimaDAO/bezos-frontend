@@ -8,12 +8,16 @@ type Props = {
   userName: string;
   description?: string;
   isCarbonmarkUser: boolean;
+  profileImgUrl?: string;
 };
 
 export const ProfileHeader: FC<Props> = (props) => {
   return (
     <div className={styles.profileHeader}>
-      <ProfileLogo isCarbonmarkUser={props.isCarbonmarkUser} />
+      <ProfileLogo
+        isCarbonmarkUser={props.isCarbonmarkUser}
+        profileImgUrl={props.profileImgUrl}
+      />
       <div className={styles.profileText}>
         <Text t="h4">{props.userName}</Text>
 

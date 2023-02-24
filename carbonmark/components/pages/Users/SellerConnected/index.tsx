@@ -9,25 +9,20 @@ import { Modal } from "components/shared/Modal";
 import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
-import { getUser } from "lib/api";
-import { ProfileHeader } from "../ProfileHeader";
-import { EditProfile } from "./Forms/EditProfile";
-import { ListingEditable } from "./ListingEditable";
-
 import { addProjectsToAssets } from "lib/actions";
+import { getUser } from "lib/api";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
-import { pollUntil } from "lib/pollUntil";
-
 import {
   getActiveListings,
   getAllListings,
   getSortByUpdateListings,
 } from "lib/listingsGetter";
-import { Listing, User } from "lib/types/carbonmark";
+import { pollUntil } from "lib/pollUntil";
+import { AssetForListing, Listing, User } from "lib/types/carbonmark";
 import { FC, useEffect, useState } from "react";
-
-import { AssetForListing } from "lib/types/carbonmark";
-
+import { ProfileHeader } from "../ProfileHeader";
+import { EditProfile } from "./Forms/EditProfile";
+import { ListingEditable } from "./ListingEditable";
 import * as styles from "./styles";
 
 type Props = {
@@ -169,15 +164,15 @@ export const SellerConnected: FC<Props> = (props) => {
   };
 
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.fullWidth}>
         <ProfileHeader
           userName={user?.username || props.userName}
           isCarbonmarkUser={isCarbonmarkUser}
           description={user?.description}
+          profileImgUrl={user?.profileImgUrl}
         />
       </div>
-
       <div className={styles.listings}>
         <div className={styles.listingsHeader}>
           <Text t="h4">
@@ -189,18 +184,7 @@ export const SellerConnected: FC<Props> = (props) => {
               {errorMessage}
             </Text>
           )}
-
-          {!hasListings && (
-            <Text t="body1" color="lighter">
-              <i>
-                <Trans id="profile.listings.empty_state">
-                  No active listings to show.
-                </Trans>
-              </i>
-            </Text>
-          )}
         </div>
-
         <CarbonmarkButton
           label={
             isLoadingAssets ? (
@@ -239,6 +223,13 @@ export const SellerConnected: FC<Props> = (props) => {
                 </i>
               </Text>
             </Card>
+          )}
+          {!hasListings && (
+            <Text t="body1" color="lighter">
+              <i>
+                <Trans>No active listings.</Trans>
+              </i>
+            </Text>
           )}
           {!!sortedListings && (
             <ListingEditable
@@ -285,6 +276,6 @@ export const SellerConnected: FC<Props> = (props) => {
           showModal={showCreateListingModal}
         />
       )}
-    </>
+    </div>
   );
 };
