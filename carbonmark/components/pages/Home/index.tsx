@@ -1,14 +1,23 @@
 import { cx } from "@emotion/css";
 import {
+  Anchor as A,
   ButtonPrimary,
   CircleLogo,
+  GithubIcon,
   GridContainer,
+  LinkedInIcon,
   LogoWithClaim,
   OffsetraLogo,
   SCBLogo,
   Section,
   Text,
+  TwitterIcon,
 } from "@klimadao/lib/components";
+import { Trans } from "@lingui/macro";
+import EmailIcon from "@mui/icons-material/Email";
+import Link from "next/link";
+
+import { urls } from "@klimadao/lib/constants";
 import { t } from "@lingui/macro";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import ControlPointDuplicateOutlinedIcon from "@mui/icons-material/ControlPointDuplicateOutlined";
@@ -19,13 +28,13 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import TravelExploreOutlinedIcon from "@mui/icons-material/TravelExploreOutlined";
 import Image from "next/image";
+import * as styles from "./styles";
 
 import { Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 
 import { Category } from "components/Category";
-import { Footer } from "components/Footer";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
 import { Navigation } from "components/shared/Navigation";
@@ -33,7 +42,6 @@ import { Vintage } from "components/Vintage";
 import { formatBigToPrice } from "lib/formatNumbers";
 
 import { useResponsive } from "hooks/useResponsive";
-import * as styles from "./styles";
 
 export interface Props {
   projects?: Project[];
@@ -404,7 +412,44 @@ export const Home: NextPage<Props> = (props) => {
           </Text>
         </div>
       </Section>
-      <Footer />
+      <footer className={styles.footer}>
+        <div className={styles.footerContent}>
+          <nav className={styles.footerNav}>
+            <Link href="/">
+              <Trans>Privacy Policy</Trans>
+            </Link>
+            <Link href="/">
+              <Trans>Terms of Use</Trans>
+            </Link>
+            <Link href="/">
+              <Trans>Contact</Trans>
+            </Link>
+            <Link href="/">
+              <Trans>Help</Trans>
+            </Link>
+            <Link href="/">
+              <Trans>Resources</Trans>
+            </Link>
+            <Link href="/">
+              <Trans>KlimaDAO</Trans>
+            </Link>
+          </nav>
+          <nav className={styles.footerIcons}>
+            <A href={urls.twitterCarbonmark}>
+              <TwitterIcon />
+            </A>
+            <A href={urls.github}>
+              <GithubIcon />
+            </A>
+            <A href={urls.linkedInCarbonmark}>
+              <LinkedInIcon />
+            </A>
+            <A href={urls.pressEmail}>
+              <EmailIcon />
+            </A>
+          </nav>
+        </div>
+      </footer>
     </GridContainer>
   );
 };
