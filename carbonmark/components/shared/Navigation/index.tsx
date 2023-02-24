@@ -12,7 +12,14 @@ import * as styles from "./styles";
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
 const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 
-export type PageName = "Home" | "About" | "Portfolio" | "Login" | "Resources";
+export type PageName =
+  | "Home"
+  | "Projects"
+  | "About"
+  | "Portfolio"
+  | "Login"
+  | "Resources"
+  | "Help";
 
 export type NavItemMobileID =
   | "Profile"
@@ -54,8 +61,8 @@ export const Navigation: FC<Props> = ({
         <LinkItemDesktop
           name={t`Marketplace`}
           key="marketplace"
-          url="/marketplace"
-          active={activePage === "Home"}
+          url="/projects"
+          active={activePage === "Projects"}
         />
         <LinkItemDesktop
           name={t`Profile`}
@@ -79,7 +86,7 @@ export const Navigation: FC<Props> = ({
           name={t`Help`}
           key="help"
           url="/help"
-          active={activePage === "About"}
+          active={activePage === "Help"}
         />
       </HeaderDesktop>
 
