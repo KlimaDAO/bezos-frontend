@@ -92,10 +92,11 @@ export const Home: NextPage<Props> = (props) => {
             Over 20 million verified digital carbon credits from hundreds of
             projects, $4 billion in trade to date
           </Text>
-          <div className={styles.list}>
+          <div className={cx(styles.list, "partners-scroller")}>
             <div className="card-wrapper">
+              <div className={cx(styles.card, "card")} />
               {props?.projects?.slice(0, 3)?.map((project, idx) => (
-                <div key={`project-${idx}`} className={styles.card}>
+                <div key={`project-${idx}`} className={cx(styles.card, "card")}>
                   <div className={styles.cardImage}>
                     {!!project.category?.id && (
                       <ProjectImage category={project.category.id} />
@@ -124,6 +125,7 @@ export const Home: NextPage<Props> = (props) => {
                   </div>
                 </div>
               ))}
+              <div className={cx(styles.card, "card")} />
             </div>
           </div>
           <ButtonPrimary
