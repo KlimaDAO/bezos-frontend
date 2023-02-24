@@ -8,17 +8,13 @@ import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
-import { Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { ProjectsPageProps } from "pages/projects";
 import * as styles from "./styles";
 
-type Props = {
-  projects: Project[];
-};
-
-export const Projects: NextPage<Props> = (props) => {
+export const Projects: NextPage<ProjectsPageProps> = (props) => {
   const { locale } = useRouter();
 
   const hasProjects = !!props.projects.length;

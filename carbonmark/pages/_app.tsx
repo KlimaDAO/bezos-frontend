@@ -5,6 +5,8 @@ import { I18nProvider } from "@lingui/react";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 import { useEffect, useRef } from "react";
+import { SWRConfig } from "swr";
+import { fetcher } from "../lib/fetcher";
 
 // organize-imports-ignore
 import "@klimadao/lib/theme/normalize.css";
@@ -62,11 +64,13 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <>
-      <Web3ContextProvider>
-        <I18nProvider i18n={i18n}>
-          <Component {...pageProps} />
-        </I18nProvider>
-      </Web3ContextProvider>
+      <SWRConfig value={{ fetcher }}>
+        <Web3ContextProvider>
+          <I18nProvider i18n={i18n}>
+            <Component {...pageProps} />
+          </I18nProvider>
+        </Web3ContextProvider>
+      </SWRConfig>
       <Script
         id="google-analytics"
         strategy="afterInteractive"
