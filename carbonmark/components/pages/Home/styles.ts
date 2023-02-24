@@ -8,7 +8,6 @@ export const hero = css`
   grid-column: full;
   grid-template-columns: inherit;
   background: url("/hero.png") center center / cover no-repeat;
-  padding-top: 2rem !important;
 
   .stack {
     gap: 3.2rem;

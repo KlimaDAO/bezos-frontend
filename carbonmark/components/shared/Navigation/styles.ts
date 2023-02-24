@@ -23,8 +23,8 @@ export const navMain_DesktopLink = css`
   }
   &:hover,
   &:focus {
-    color: var(--font-01) !important;
-    background: var(--klima-green);
+    font-weight: 700;
+    color: var(--bright-blue) !important;
   }
   &.dropdown {
     text-transform: uppercase;
@@ -36,8 +36,8 @@ export const navMain_DesktopLink = css`
     }
   }
   &[data-active="true"] {
-    color: var(--font-01);
-    font-weight: 600;
+    font-weight: 700;
+    color: var(--bright-blue) !important;
   }
 `;
 
