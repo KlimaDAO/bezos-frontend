@@ -109,12 +109,50 @@ export const partnersSection = css`
     }
   }
 
+  & .partners-scroller {
+    ${breakpoints.desktop} {
+      position: relative;
+      height: 40rem;
+    }
+  }
+
+  & .card {
+    ${breakpoints.desktop} {
+      height: 39rem;
+      min-width: 34rem;
+
+      &:first-of-type,
+      :last-of-type {
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.6) 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        border: none;
+        opacity: 0.5;
+        border-radius: 0.8rem;
+        box-shadow: none;
+      }
+
+      &:first-of-type {
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+      }
+
+      &:last-of-type {
+        transform: matrix(1, 0, 0, -1, 0, 0);
+      }
+    }
+  }
+
   & .card-wrapper {
     display: none;
 
     ${breakpoints.desktop} {
       display: flex;
-      margin-top: 6rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
     }
 
     p {
