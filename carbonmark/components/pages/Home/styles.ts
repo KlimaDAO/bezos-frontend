@@ -52,7 +52,7 @@ export const hero = css`
       }
     }
 
-    & button {
+    & a {
       margin: 0 !important;
       color: #fff;
       width: 100%;
@@ -72,8 +72,12 @@ export const hero = css`
 `;
 
 export const partnersSection = css`
-  padding: 7.6rem 0rem 11rem !important;
+  padding: 4rem 0rem 2rem !important;
   background: url("/partners-bg.png") center top / cover no-repeat;
+
+  ${breakpoints.desktop} {
+    padding: 7.6rem 0rem 11rem !important;
+  }
 
   & h2 {
     margin: 0 auto 4rem;
@@ -106,10 +110,26 @@ export const partnersSection = css`
   }
 
   & .card-wrapper {
-    margin-top: 6rem;
+    display: none;
+
+    ${breakpoints.desktop} {
+      display: flex;
+      margin-top: 6rem;
+    }
 
     p {
       height: 12rem;
+      overflow: hidden;
+    }
+  }
+
+  & a {
+    margin: 0;
+    display: none;
+
+    ${breakpoints.desktop} {
+      display: flex;
+      margin: 4rem auto 0;
     }
   }
 `;
@@ -155,7 +175,7 @@ export const offsetCarbonSection = css`
     line-height: 2rem; // desktop??
   }
 
-  & button {
+  & a {
     margin: 2rem 0;
   }
 `;
@@ -202,7 +222,7 @@ export const sellCarbonSection = css`
     line-height: 2rem; // desktop??
   }
 
-  & button {
+  & a {
     width: 100%;
     margin: 0 !important;
     background: var(--warning-red);
@@ -233,7 +253,7 @@ export const learnMoreSection = css`
     margin-bottom: 4rem;
   }
 
-  & button {
+  & a {
     color: #fff;
     margin: 0;
     background: #000;
@@ -337,11 +357,6 @@ export const list = css`
     ${breakpoints.desktop} {
       justify-content: center;
     }
-  }
-
-  ${breakpoints.desktop} {
-    // flex-wrap: wrap;
-    // flex-direction: row;
   }
 `;
 
@@ -724,14 +739,14 @@ export const sectionDark = css`
 `;
 
 export const browseButton = css`
+  width: auto;
   margin: 4rem auto 0;
-  width: 100%;
   font-size: 1.4rem;
   color: var(--white) !important;
   background-color: var(--bright-blue);
 
   ${breakpoints.desktop} {
-    width: auto;
+    width: 19rem;
     min-width: 19rem;
   }
 `;
