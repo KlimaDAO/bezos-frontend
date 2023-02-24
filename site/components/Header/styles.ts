@@ -23,9 +23,8 @@ export const menuDesktop = css`
   grid-column: main;
   grid-template-columns: auto 1fr auto;
   width: 100%;
-  z-index: 99;
   align-items: center;
-  margin-top: 2rem !important;
+  z-index: 99;
 `;
 
 export const headerTransparentDesktop = css`
