@@ -14,10 +14,11 @@ export const footer = (transparent = false) => css`
     width: 100%;
     justify-content: flex-start;
     flex-direction: row;
+    align-items: center;
   }
 
   ${breakpoints.medium} {
-    padding: 4.8rem 0;
+    padding: 4rem 0;
     nav {
       justify-content: space-between;
       width: unset;
@@ -66,6 +67,7 @@ export const footer_nav = css`
   & a {
     // color: var(--font-02) !important;
     color: #fff !important;
+    font-weight: 500;
     &:hover {
       color: var(--font-01) !important;
     }
@@ -85,15 +87,24 @@ export const footer_nav = css`
 `;
 
 export const footer_icons = css`
+  gap: 1.6rem;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 1.6rem;
-  flex-wrap: wrap;
+  justify-content: flex-start !important;
+
+  ${breakpoints.desktop} {
+    justify-content: center;
+  }
+
+  & a {
+    display: inline-flex;
+  }
 
   svg {
     width: 1.6rem;
+    height: 2rem;
   }
 
   & svg path {

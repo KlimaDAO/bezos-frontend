@@ -12,12 +12,7 @@ import * as styles from "./styles";
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
 const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 
-export type PageName =
-  | "Home"
-  | "Projects"
-  | "Portfolio"
-  | "Login"
-  | "Resources";
+export type PageName = "Home" | "About" | "Portfolio" | "Login" | "Resources";
 
 export type NavItemMobileID =
   | "Profile"
@@ -44,9 +39,13 @@ export const Navigation: FC<Props> = ({
           // <ChangeLanguageButton key="ChangeLanguageButton" />,
           ...(showThemeToggle ? [<ThemeToggle key="ThemeToggle" />] : []),
           <ButtonPrimary
-            key="Enter App"
-            label={t({ message: "Enter App", id: "shared.enter_app" })}
+            key="Browse Projects"
+            label={t({
+              message: "Browse Projects",
+              id: "shared.browse_projects",
+            })} // @todo remove ids?
             href="/projects"
+            className={styles.browseButton}
             renderLink={(linkProps) => <Link {...linkProps} />}
           />,
         ]}
@@ -55,18 +54,12 @@ export const Navigation: FC<Props> = ({
         <LinkItemDesktop
           name={t`Marketplace`}
           key="marketplace"
-          url="/projects"
-          active={activePage === "Projects"}
+          url="/marketplace"
+          active={activePage === "Home"}
         />
         <LinkItemDesktop
           name={t`Profile`}
           key="profile"
-          url="/users/login"
-          active={activePage === "Login"}
-        />
-        <LinkItemDesktop
-          name={t`Portfolio`}
-          key="portfolio"
           url="/users/login"
           active={activePage === "Login"}
         />
@@ -76,18 +69,28 @@ export const Navigation: FC<Props> = ({
           url="/resources"
           active={activePage === "Resources"}
         />
+        <LinkItemDesktop
+          name={t`About`}
+          key="about"
+          url="/about"
+          active={activePage === "About"}
+        />
+        <LinkItemDesktop
+          name={t`Help`}
+          key="help"
+          url="/help"
+          active={activePage === "About"}
+        />
       </HeaderDesktop>
 
       <HeaderMobile
-        transparent={transparent}
-
-        // buttons={[<ChangeLanguageButton key="ChangeLanguageButton" />]}
+      // buttons={[<ChangeLanguageButton key="ChangeLanguageButton" />]}
       >
         <div className={styles.navMain_MobileItemsWrapper}>
           <div className="links">
             <NavItemMobile
               name={t`Marketplace`}
-              active={activePage === "Projects"}
+              active={activePage === "About"}
               id="Marketplace"
               url="/projects"
             />

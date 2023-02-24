@@ -4,7 +4,7 @@ import {
   DiscordIcon,
   GithubIcon,
   LinkedInIcon,
-  TwitterIcon
+  TwitterIcon,
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { Trans } from "@lingui/macro";
