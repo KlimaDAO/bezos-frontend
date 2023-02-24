@@ -68,7 +68,12 @@ export const Home: NextPage<Props> = (props) => {
             sell, and retire digital carbon from any project instantly with 0%
             transaction fee.
           </Text>
-          <ButtonPrimary label="Get Started" className={styles.browseButton} />
+          <ButtonPrimary
+            href="/projects"
+            label="Get Started"
+            className={styles.browseButton}
+            renderLink={(linkProps) => <Link {...linkProps} />}
+          />
         </div>
       </Section>
       <Section className={cx(styles.section, styles.partnersSection)}>
@@ -87,7 +92,7 @@ export const Home: NextPage<Props> = (props) => {
             Over 20 million verified digital carbon credits from hundreds of
             projects, $4 billion in trade to date
           </Text>
-          <div className={cx(styles.list, isMobile ? styles.scroller : {})}>
+          <div className={styles.list}>
             <div className="card-wrapper">
               {props?.projects?.slice(0, 3)?.map((project, idx) => (
                 <div key={`project-${idx}`} className={styles.card}>
@@ -122,8 +127,10 @@ export const Home: NextPage<Props> = (props) => {
             </div>
           </div>
           <ButtonPrimary
+            href="/projects"
             label="Browse Projects"
             className={styles.browseButton}
+            renderLink={(linkProps) => <Link {...linkProps} />}
           />
         </div>
       </Section>
@@ -146,8 +153,10 @@ export const Home: NextPage<Props> = (props) => {
               do when you take ownership of your carbon assets.
             </Text>
             <ButtonPrimary
+              href="/projects"
               label="Browse Projects"
               className={styles.browseButton}
+              renderLink={(linkProps) => <Link {...linkProps} />}
             />
           </div>
           <div style={{ flex: "1" }}>
@@ -250,8 +259,10 @@ export const Home: NextPage<Props> = (props) => {
               Unprecedented transparency across the digital carbon market.
             </Text>
             <ButtonPrimary
+              href="/profile"
               label="Create Profile"
               className={styles.browseButton}
+              renderLink={(linkProps) => <Link {...linkProps} />}
             />
           </div>
         </div>
@@ -396,7 +407,12 @@ export const Home: NextPage<Props> = (props) => {
               </div>
             </div>
           </div>
-          <ButtonPrimary label="Resources" className={styles.browseButton} />
+          <ButtonPrimary
+            href="/resources"
+            label="Resources"
+            className={styles.browseButton}
+            renderLink={(linkProps) => <Link {...linkProps} />}
+          />
         </div>
       </Section>
       <Section className={cx(styles.section, styles.poweredBySection)}>
