@@ -25,6 +25,7 @@ export const menuDesktop = css`
   width: 100%;
   align-items: center;
   z-index: 99;
+  margin-top: 2rem !important;
 `;
 
 export const headerTransparentDesktop = css`
