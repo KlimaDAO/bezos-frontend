@@ -109,7 +109,7 @@ export const partnersSection = css`
     }
   }
 
-  & .partners-scroller {
+  & .partners-list {
     ${breakpoints.desktop} {
       position: relative;
       height: 40rem;
@@ -145,10 +145,10 @@ export const partnersSection = css`
   }
 
   & .card-wrapper {
-    display: none;
+    display: none !important;
 
     ${breakpoints.desktop} {
-      display: flex;
+      display: flex !important;
       position: absolute;
       top: 0;
       left: 0;
@@ -181,11 +181,12 @@ export const offsetCarbonSection = css`
   }
 
   & .stack {
-    gap: 2.7rem;
+    gap: 3.2rem;
     display: flex;
     flex-direction: column;
 
     ${breakpoints.desktop} {
+      gap: 2.7rem;
       flex-direction: row;
     }
   }
@@ -214,7 +215,11 @@ export const offsetCarbonSection = css`
   }
 
   & a {
-    margin: 2rem 0;
+    margin: 3.2rem 0 0;
+
+    ${breakpoints.desktop} {
+      margin: 2rem 0;
+    }
   }
 `;
 
@@ -227,7 +232,7 @@ export const sellCarbonSection = css`
   }
 
   & .stack {
-    gap: 7.3rem;
+    gap: 3.2rem;
     display: flex;
     flex-direction: column-reverse;
 
@@ -262,17 +267,23 @@ export const sellCarbonSection = css`
 
   & a {
     width: 100%;
-    margin: 0 !important;
-    background: var(--warning-red);
+    margin: 3.2rem 0 0 !important;
+    background: var(--warning-red) !important;
 
     ${breakpoints.desktop} {
       width: 16.5rem;
+      margin: 0 !important;
     }
   }
 
   & .card {
     background: #eddaa9 !important;
-    h4,
+    h4 {
+      color: var(--warning-red);
+    }
+  }
+
+  & .card-title {
     svg {
       color: var(--warning-red);
     }
@@ -384,7 +395,7 @@ export const poweredBySection = css`
 
 export const list = css`
   display: flex;
-  gap: 2rem;
+  gap: 3.2rem; // 2
   flex-direction: column;
   justify-content: center;
 
@@ -416,12 +427,6 @@ export const scroller = css`
       margin: 6rem auto;
     }
 
-    // scrollbar-width: none;
-    // -ms-overflow-style: none;
-    // ::-webkit-scrollbar {
-    //   display: none;
-    // }
-
     & > div {
       min-width: 100%;
     }
@@ -442,21 +447,37 @@ export const step = css`
   }
 
   & .card {
+    gap: 2rem;
     display: flex;
     align-items: center;
-    gap: 2rem;
-    flex-direction: row;
+    padding: 2.9rem 2rem;
+    flex-direction: column;
     justify-content: center;
-    padding: 1.6rem;
     border-radius: 1rem;
     background-color: var(--surface-02);
 
     ${breakpoints.desktop} {
       padding: 3rem;
+      flex-direction: row;
+    }
+
+    & .card-title {
+      flex: 1;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+
+      ${breakpoints.desktop} {
+        flex: 1;
+      }
     }
 
     & h4 {
-      flex: 1.5;
+      flex: none;
+      ${breakpoints.desktop} {
+        flex: 1.5;
+      }
     }
 
     svg {
@@ -466,13 +487,18 @@ export const step = css`
     }
 
     & .card-info {
-      flex: 2;
+      flex: 1;
       margin: 0;
       font-weight: 500;
       font-size: 1.8rem;
       line-height: 2.2rem;
       color: var(--font-01);
       font-family: var(--font-family-secondary);
+      text-align: center;
+
+      ${breakpoints.desktop} {
+        text-align: left;
+      }
     }
   }
 `;
