@@ -2,10 +2,8 @@ import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const footer = (transparent = false) => css`
-  background: ${transparent
-    ? "none"
-    : "#8B8FAE"}; // @todo - change this to variable
-  padding: 4rem 0;
+  background: ${transparent ? "none" : "var(--surface-02)"};
+  padding: 2.8rem 0;
   grid-column: full;
   display: grid;
   grid-template-columns: inherit;
@@ -16,11 +14,10 @@ export const footer = (transparent = false) => css`
     width: 100%;
     justify-content: space-between;
     flex-direction: row;
-    align-items: center;
   }
 
   ${breakpoints.medium} {
-    padding: 4rem 0;
+    padding: 4.8rem 0;
     nav {
       width: unset;
     }
@@ -32,7 +29,7 @@ export const footer_content = css`
   flex-direction: column;
   grid-column: main;
   align-items: center;
-  gap: 4rem;
+  gap: 5rem;
   justify-content: space-between;
   height: 100%;
 
@@ -64,16 +61,14 @@ export const footer_nav = css`
   }
 
   & a {
-    // color: var(--font-02) !important;
-    color: #fff !important;
-    font-weight: 500;
+    color: var(--font-02) !important;
     &:hover {
       color: var(--font-01) !important;
     }
   }
 
   ${breakpoints.large} {
-    gap: 3.2;
+    gap: 1.6rem 7rem;
     flex-direction: column;
   }
 
@@ -87,29 +82,19 @@ export const footer_nav = css`
 `;
 
 export const footer_icons = css`
-  gap: 1.6rem;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start !important;
-
-  ${breakpoints.desktop} {
-    justify-content: center;
-  }
-
-  & a {
-    display: inline-flex;
-  }
+  justify-content: center;
+  gap: 1.6rem;
+  flex-wrap: wrap;
 
   svg {
     width: 1.6rem;
-    height: 2rem;
   }
 
   & svg path {
-    fill: #fff;
-    // fill: var(--font-02);
+    fill: var(--font-02);
   }
 
   & svg:hover path {
