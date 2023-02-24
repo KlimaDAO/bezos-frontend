@@ -49,7 +49,7 @@ export interface Props {
 
 export const Home: NextPage<Props> = (props) => {
   const { locale } = useRouter();
-  const { isMobile } = useResponsive();
+  const { isDesktop, isMobile } = useResponsive();
   return (
     <GridContainer>
       <PageHead
@@ -92,7 +92,7 @@ export const Home: NextPage<Props> = (props) => {
             Over 20 million verified digital carbon credits from hundreds of
             projects, $4 billion in trade to date
           </Text>
-          <div className={cx(styles.list, "partners-scroller")}>
+          <div className={cx(styles.list, "partners-list")}>
             <div className="card-wrapper">
               <div className={cx(styles.card, "card")} />
               {props?.projects?.slice(0, 3)?.map((project, idx) => (
@@ -154,21 +154,25 @@ export const Home: NextPage<Props> = (props) => {
               Offset now, or acquire carbon to offset later- you decide what to
               do when you take ownership of your carbon assets.
             </Text>
-            <ButtonPrimary
-              href="/projects"
-              label="Browse Projects"
-              className={styles.browseButton}
-              renderLink={(linkProps) => <Link {...linkProps} />}
-            />
+            {isDesktop && (
+              <ButtonPrimary
+                href="/projects"
+                label="Browse Projects"
+                className={styles.browseButton}
+                renderLink={(linkProps) => <Link {...linkProps} />}
+              />
+            )}
           </div>
           <div style={{ flex: "1" }}>
             <div className={styles.list}>
               <div className={styles.step}>
                 <div className="card">
-                  <Text t="body3" as="h4">
-                    Step 1
-                  </Text>
-                  <TravelExploreOutlinedIcon fontSize="large" />
+                  <div className="card-title">
+                    <Text t="body3" as="h4">
+                      Step 1
+                    </Text>
+                    <TravelExploreOutlinedIcon fontSize="large" />
+                  </div>
                   <Text t="body3" className="card-info">
                     Choose a project and quantity
                   </Text>
@@ -176,10 +180,12 @@ export const Home: NextPage<Props> = (props) => {
               </div>
               <div className={styles.step}>
                 <div className="card">
-                  <Text t="body3" as="h4">
-                    Step 2
-                  </Text>
-                  <PaymentOutlinedIcon fontSize="large" />
+                  <div className="card-title">
+                    <Text t="body3" as="h4">
+                      Step 2
+                    </Text>
+                    <PaymentOutlinedIcon fontSize="large" />
+                  </div>
                   <Text t="body3" className="card-info">
                     Create profile and get connected
                   </Text>
@@ -187,19 +193,26 @@ export const Home: NextPage<Props> = (props) => {
               </div>
               <div className={styles.step}>
                 <div className="card">
-                  <Text t="body3" as="h4">
-                    Step 3
-                  </Text>
-                  <ParkOutlinedIcon fontSize="large" />
+                  <div className="card-title">
+                    <Text t="body3" as="h4">
+                      Step 3
+                    </Text>
+                    <ParkOutlinedIcon fontSize="large" />
+                  </div>
                   <Text t="body3" className="card-info">
                     Offset instantly, or purchase and hold digital carbon
                   </Text>
                 </div>
               </div>
             </div>
-            {/* <Text t="h3" className="coming-soon">
-              Coming Soon: Zero-fees when <span>paying with KLIMA</span>
-            </Text> */}
+            {isMobile && (
+              <ButtonPrimary
+                href="/projects"
+                label="Browse Projects"
+                className={cx(styles.browseButton, "mobile-only")}
+                renderLink={(linkProps) => <Link {...linkProps} />}
+              />
+            )}
           </div>
         </div>
       </Section>
@@ -209,10 +222,12 @@ export const Home: NextPage<Props> = (props) => {
             <div className={styles.list}>
               <div className={styles.step}>
                 <div className="card">
-                  <Text t="body3" as="h4">
-                    Step 1
-                  </Text>
-                  <ControlPointDuplicateOutlinedIcon fontSize="large" />
+                  <div className="card-title">
+                    <Text t="body3" as="h4">
+                      Step 1
+                    </Text>
+                    <ControlPointDuplicateOutlinedIcon fontSize="large" />
+                  </div>
                   <Text t="body3" className="card-info">
                     Digitize your carbon by using a supported bridge.
                   </Text>
@@ -220,10 +235,12 @@ export const Home: NextPage<Props> = (props) => {
               </div>
               <div className={styles.step}>
                 <div className="card">
-                  <Text t="body3" as="h4">
-                    Step 2
-                  </Text>
-                  <PersonOutlinedIcon fontSize="large" />
+                  <div className="card-title">
+                    <Text t="body3" as="h4">
+                      Step 2
+                    </Text>
+                    <PersonOutlinedIcon fontSize="large" />
+                  </div>
                   <Text t="body3" className="card-info">
                     Create a seller profile.
                   </Text>
@@ -231,22 +248,32 @@ export const Home: NextPage<Props> = (props) => {
               </div>
               <div className={styles.step}>
                 <div className="card">
-                  <Text t="body3" as="h4">
-                    Step 3
-                  </Text>
-                  <MouseOutlinedIcon fontSize="large" />
+                  <div className="card-title">
+                    <Text t="body3" as="h4">
+                      Step 3
+                    </Text>
+                    <MouseOutlinedIcon fontSize="large" />
+                  </div>
                   <Text t="body3" className="card-info">
                     List your projects for sale in just a few clicks.
                   </Text>
                 </div>
               </div>
             </div>
+            {isMobile && (
+              <ButtonPrimary
+                href="/profile"
+                label="Create Profile"
+                className={styles.browseButton}
+                renderLink={(linkProps) => <Link {...linkProps} />}
+              />
+            )}
           </div>
           <div
             style={{
               flex: "1",
-              justifyContent: "center",
               display: "flex",
+              justifyContent: "center",
               flexDirection: "column",
             }}
           >
@@ -260,12 +287,14 @@ export const Home: NextPage<Props> = (props) => {
             <Text t="body1" className="description">
               Unprecedented transparency across the digital carbon market.
             </Text>
-            <ButtonPrimary
-              href="/profile"
-              label="Create Profile"
-              className={styles.browseButton}
-              renderLink={(linkProps) => <Link {...linkProps} />}
-            />
+            {isDesktop && (
+              <ButtonPrimary
+                href="/profile"
+                label="Create Profile"
+                className={styles.browseButton}
+                renderLink={(linkProps) => <Link {...linkProps} />}
+              />
+            )}
           </div>
         </div>
       </Section>
