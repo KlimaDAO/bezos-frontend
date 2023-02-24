@@ -17,21 +17,23 @@ export const hero = css`
     justify-content: end;
     max-width: 100%;
     grid-column: main;
-    margin-bottom: 8rem;
+    margin-top: 8rem;
+    margin-bottom: 4rem;
 
     ${breakpoints.desktop} {
       max-width: 70%;
-      margin-bottom: 0;
       margin-bottom: 12rem;
     }
 
     & h1 {
       margin: 0;
-      color: #fff;
-      font-size: 4.8rem;
-      line-height: 4.8rem;
+      color: #000;
+      font-size: 4.4rem;
+      line-height: 4.4rem;
+      max-width: 75%;
 
       ${breakpoints.desktop} {
+        max-width: 100%;
         font-size: 6rem;
         line-height: 6rem;
       }
@@ -39,9 +41,11 @@ export const hero = css`
 
     & h2 {
       margin: 0;
-      color: #fff;
-      font-size: 2rem;
-      line-height: 2.8rem;
+      color: #000;
+      font-weight: 500;
+      font-size: 1.6rem;
+      line-height: 2rem;
+      font-family: var(--font-family);
 
       ${breakpoints.desktop} {
         font-size: 2.4rem;
@@ -51,10 +55,14 @@ export const hero = css`
 
     & button {
       margin: 0 !important;
+      color: #fff;
       width: 100%;
+      font-size: 1.4rem;
+      background: var(--warning-red);
 
       ${breakpoints.desktop} {
-        width: 17rem;
+        width: 15rem;
+        min-width: 15rem !important;
       }
     }
 
@@ -64,10 +72,262 @@ export const hero = css`
   }
 `;
 
+export const partnersSection = css`
+  padding: 7.6rem 0rem 11rem !important;
+  background: url("/partners-bg.png") center top / cover no-repeat;
+
+  & h2 {
+    margin: 0 auto 4rem;
+    max-width: 100%;
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+
+    ${breakpoints.desktop} {
+      max-width: 80%;
+      font-size: 3.2rem;
+      line-height: 3.6rem;
+    }
+  }
+
+  & .partners {
+    gap: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 6rem;
+    margin-top: 2.6rem;
+
+    ${breakpoints.desktop} {
+      gap: 7rem;
+      margin-top: 2rem;
+      flex-direction: row;
+      margin-bottom: 37rem;
+    }
+  }
+
+  & .card-wrapper {
+    margin-top: 6rem;
+
+    p {
+      height: 12rem;
+    }
+  }
+`;
+
+export const offsetCarbonSection = css`
+  padding: 4rem 0rem 4rem !important;
+  background: url("/offset-carbon-bg.png") center center / cover no-repeat;
+
+  ${breakpoints.desktop} {
+    padding: 20rem 0rem 28rem !important;
+  }
+
+  & .stack {
+    gap: 2.7rem;
+    display: flex;
+    flex-direction: column;
+
+    ${breakpoints.desktop} {
+      flex-direction: row;
+    }
+  }
+
+  & h2 {
+    margin-bottom: 3.2rem;
+    max-width: 100%;
+    text-align: left !important;
+    font-size: 3.6rem;
+    line-height: 3.6rem;
+
+    ${breakpoints.desktop} {
+      max-width: 80%;
+      font-size: 6rem;
+      line-height: 6rem;
+      margin-bottom: 2rem !important;
+    }
+  }
+
+  & .description {
+    margin: 0 !important;
+    margin-bottom: 2rem !important;
+    text-align: left !important;
+    font-size: 1.8rem; // desktop??
+    line-height: 2rem; // desktop??
+  }
+
+  & button {
+    margin: 2rem 0;
+  }
+`;
+
+export const sellCarbonSection = css`
+  padding: 4rem 0rem 4rem !important;
+  background: url("/sell-carbon-bg.png") center bottom / cover no-repeat;
+
+  ${breakpoints.desktop} {
+    padding: 20rem 0rem 28rem !important;
+  }
+
+  & .stack {
+    gap: 7.3rem;
+    display: flex;
+    flex-direction: column-reverse;
+
+    ${breakpoints.desktop} {
+      gap: 7.3rem;
+      flex-direction: row;
+    }
+  }
+
+  & h2 {
+    margin-bottom: 3.2rem;
+    max-width: 100%;
+    text-align: left !important;
+    font-size: 3.6rem;
+    line-height: 3.6rem;
+
+    ${breakpoints.desktop} {
+      max-width: 80%;
+      font-size: 6rem;
+      line-height: 6rem;
+      margin-bottom: 2rem !important;
+    }
+  }
+
+  & .description {
+    margin: 0 !important;
+    margin-bottom: 2rem !important;
+    text-align: left !important;
+    font-size: 1.8rem; // desktop??
+    line-height: 2rem; // desktop??
+  }
+
+  & button {
+    width: 100%;
+    margin: 0 !important;
+    background: var(--warning-red);
+
+    ${breakpoints.desktop} {
+      width: 16.5rem;
+    }
+  }
+
+  & .card {
+    background: #eddaa9 !important;
+    h4,
+    svg {
+      color: var(--warning-red);
+    }
+  }
+`;
+
+export const learnMoreSection = css`
+  padding: 4rem 0rem;
+  background: url("/learn-more-bg.png") center bottom / cover no-repeat;
+
+  ${breakpoints.desktop} {
+    padding: 7.5rem 0rem 3rem;
+  }
+
+  & h2 {
+    margin-bottom: 4rem;
+  }
+
+  & button {
+    color: #fff;
+    margin: 0;
+    background: #000;
+    min-width: 13.5rem;
+
+    ${breakpoints.desktop} {
+      margin: 4.8rem auto 0;
+    }
+  }
+
+  .card-wrapper div {
+    min-height: 2.75rem;
+
+    ${breakpoints.desktop} {
+      justify-content: center;
+    }
+
+    & .content > * {
+      text-align: center;
+    }
+
+    & .content {
+      p {
+        max-height: 6rem;
+      }
+
+      h5,
+      h6 {
+        font-size: 1.6rem;
+        line-height: 2rem;
+        font-family: var(--font-family-secondary);
+        font-weight: 700;
+        text-decoration: underline;
+      }
+
+      h5 {
+        text-decoration: none;
+      }
+    }
+  }
+`;
+
+export const poweredBySection = css`
+  padding: 8.4rem 0rem 6rem !important;
+  background: url("/powered-by-bg.png") center center / cover no-repeat;
+
+  ${breakpoints.desktop} {
+    padding: 16rem 0rem 6rem !important;
+  }
+
+  & h2 {
+    color: #fff;
+    margin: 0;
+    gap: 1rem;
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    ${breakpoints.desktop} {
+      font-size: 3.2rem;
+      line-height: 3.6rem;
+    }
+  }
+
+  & p.description {
+    max-width: 100%;
+    margin: 2.4rem auto !important;
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    color: #fff !important;
+
+    ${breakpoints.desktop} {
+      max-width: 75%;
+      font-size: 2.2rem;
+      line-height: 3.3rem;
+      margin: 3.2rem auto !important;
+    }
+  }
+
+  & svg path {
+    fill: #fff !important;
+    &:last-of-type {
+      fill: var(--klima-green) !important;
+    }
+  }
+`;
+
 export const list = css`
   display: flex;
-  gap: 3.6rem;
-  margin-top: 4rem;
+  gap: 2rem;
   flex-direction: column;
   justify-content: center;
 
@@ -75,37 +335,43 @@ export const list = css`
     gap: 2rem;
     display: flex;
     flex-direction: row;
+    ${breakpoints.desktop} {
+      justify-content: center;
+    }
   }
 
   ${breakpoints.desktop} {
-    flex-wrap: wrap;
-    flex-direction: row;
+    // flex-wrap: wrap;
+    // flex-direction: row;
   }
 `;
 
 export const scroller = css`
   gap: 2rem;
-  width: 110%;
+  width: 100%;
   flex-direction: row;
   justify-content: normal;
 
   & .card-wrapper {
     gap: 1.6rem;
     display: flex;
-    padding: 1rem 0;
-    overflow-x: auto;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 0 1.6rem;
+    flex-direction: column;
 
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    ::-webkit-scrollbar {
-      display: none;
+    ${breakpoints.desktop} {
+      margin: 6rem auto;
     }
 
+    // scrollbar-width: none;
+    // -ms-overflow-style: none;
+    // ::-webkit-scrollbar {
+    //   display: none;
+    // }
+
     & > div {
-      min-width: 80%;
-      &:last-child {
-        margin-right: 10%;
-      }
+      min-width: 100%;
     }
   }
 `;
@@ -115,42 +381,46 @@ export const step = css`
   display: flex;
   flex-direction: column;
 
-  ${breakpoints.desktop} {
-    &:nth-of-type(2) {
-      margin-top: 6rem;
-    }
-
-    &:nth-of-type(3) {
-      margin-top: 12rem;
-    }
-  }
-
   & h4 {
-    text-align: center;
-    color: var(--klima-green);
+    font-size: 4.8rem;
+    line-height: 4.8rem;
+    color: var(--bright-blue);
+    font-weight: 700;
+    font-family: var(--font-family-secondary);
   }
 
   & .card {
     display: flex;
     align-items: center;
-    flex-direction: column;
+    gap: 2rem;
+    flex-direction: row;
     justify-content: center;
-    margin-top: 2rem;
     padding: 1.6rem;
+    border-radius: 1rem;
     background-color: var(--surface-02);
 
     ${breakpoints.desktop} {
-      padding: 3.5rem 1.5rem;
+      padding: 3rem;
+    }
+
+    & h4 {
+      flex: 1.5;
+    }
+
+    svg {
+      flex: 0.5;
+      height: 4.9rem;
+      color: var(--bright-blue);
     }
 
     & .card-info {
+      flex: 2;
       margin: 0;
-      font-weight: 400;
-      text-align: center;
-      margin-top: 2.2rem;
-      font-size: 1.6rem;
-      line-height: 2.4rem;
+      font-weight: 500;
+      font-size: 1.8rem;
+      line-height: 2.2rem;
       color: var(--font-01);
+      font-family: var(--font-family-secondary);
     }
   }
 `;
@@ -187,12 +457,17 @@ export const cardContent = css`
   gap: 1.2rem;
 
   & h4 {
+    font-weight: 700;
     font-size: 2rem;
+    line-height: 2.8rem;
+    font-family: var(--font-family-secondary);
   }
 
   & h5 {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.6rem;
+    font-family: var(--font-family-secondary);
+    line-height: 2rem;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -317,7 +592,7 @@ export const sectionImage = css`
   min-height: 53rem;
 
   ${breakpoints.desktop} {
-    min-height: 100rem;
+    min-height: 70rem;
   }
 
   & div {
@@ -348,20 +623,26 @@ export const sectionImage = css`
 
     &.carbon-traders {
       & .image-bg {
-        background: url("/greenhouse.png") center center / cover no-repeat;
+        background: url("/plant-pots.png") center center / cover no-repeat;
+      }
+      & .pattern-bg {
+        background: url("/carbon-traders-bg.png") center center / cover
+          no-repeat;
       }
     }
 
     &.project-devs {
       & .image-bg {
-        background: url("/field.png") center center / cover no-repeat;
+        background: url("/plant.png") center center / cover no-repeat;
+      }
+      & .pattern-bg {
+        background: url("/project-devs-bg.png") center center / cover no-repeat;
       }
     }
 
     & .pattern-bg {
       width: 100%;
       height: auto;
-      background: url("/line-pattern.svg") center center / cover no-repeat;
 
       ${breakpoints.desktop} {
         width: 50%;
@@ -378,14 +659,22 @@ export const sectionImage = css`
 
         ${breakpoints.desktop} {
           padding: 0;
-          max-width: 75%;
+          max-width: 60%;
         }
       }
 
       & h2 {
-        margin-bottom: 3.2rem;
+        max-width: 75%;
+        text-align: center;
+        font-size: 3.6rem;
+        line-height: 3.6rem;
+        margin: 0 auto 3.2rem;
+
         ${breakpoints.desktop} {
+          max-width: 100%;
           margin-bottom: 4rem;
+          font-size: 6rem;
+          line-height: 6rem;
         }
       }
 
@@ -396,15 +685,19 @@ export const sectionImage = css`
         & li {
           gap: 1.8rem;
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           margin-bottom: 2rem;
+          font-size: 2.2rem;
+          line-height: 3.3rem;
 
           &:last-child {
             margin-bottom: 0;
           }
 
           & svg {
-            color: var(--klima-green);
+            width: 3rem;
+            height: 3rem;
+            color: var(--bright-blue);
           }
         }
       }
@@ -434,9 +727,12 @@ export const sectionDark = css`
 export const browseButton = css`
   margin: 4rem auto 0;
   width: 100%;
+  font-size: 1.4rem;
+  color: var(--white) !important;
+  background-color: var(--bright-blue);
 
   ${breakpoints.desktop} {
     width: auto;
-    min-width: 25rem;
+    min-width: 19rem;
   }
 `;

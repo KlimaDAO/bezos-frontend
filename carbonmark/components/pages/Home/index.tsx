@@ -1,12 +1,14 @@
 import { cx } from "@emotion/css";
 import {
   ButtonPrimary,
-  CarbonmarkLogo,
+  CircleLogo,
   GridContainer,
+  LogoWithClaim,
+  OffsetraLogo,
+  SCBLogo,
   Section,
   Text,
 } from "@klimadao/lib/components";
-import { Project } from "@klimadao/lib/types/carbonmark";
 import { t } from "@lingui/macro";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import ControlPointDuplicateOutlinedIcon from "@mui/icons-material/ControlPointDuplicateOutlined";
@@ -16,6 +18,9 @@ import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import TravelExploreOutlinedIcon from "@mui/icons-material/TravelExploreOutlined";
+import Image from "next/image";
+
+import { Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 
@@ -51,19 +56,28 @@ export const Home: NextPage<Props> = (props) => {
             The Universal Carbon Marketplace.
           </Text>
           <Text t="body1" as="h2">
-            Buy, sell, and offset any certified carbon offset project.
-            Transparent, open-source, & barrier-free.
+            The largest selection of digital carbon credits worldwide. Buy,
+            sell, and retire digital carbon from any project instantly with 0%
+            transaction fee.
           </Text>
-          <ButtonPrimary
-            label="View Projects"
-            className={styles.browseButton}
-          />
+          <ButtonPrimary label="Get Started" className={styles.browseButton} />
         </div>
       </Section>
-      <Section variant="gray" className={styles.section}>
+      <Section className={cx(styles.section, styles.partnersSection)}>
         <div className="stack">
+          <div className="">
+            <Text t="h2" as="h2">
+              Our Partners
+            </Text>
+            <div className="partners">
+              <CircleLogo height="50" />
+              <SCBLogo height="50" />
+              <OffsetraLogo height="50" />
+            </div>
+          </div>
           <Text t="h2" as="h2">
-            Featured Projects
+            Over 20 million verified digital carbon credits from hundreds of
+            projects, $4 billion in trade to date
           </Text>
           <div className={cx(styles.list, isMobile ? styles.scroller : {})}>
             <div className="card-wrapper">
@@ -83,7 +97,7 @@ export const Home: NextPage<Props> = (props) => {
                     </Text>
                     <Text t="body8">
                       {project.description ||
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor non sagittis egestas sellus ..."}
+                        "The Bull Run project is designed to protect 4,650 ha of tropical pine forests, grasslands, and mature humid broadleaf forest in the Cayo District of Belize, Central America. This area, which lies 23.5 km east-southeast of San Ignacio, Belize, includes 15 IUCN listed endangered species! The property consists primarily of a tropical pine savannah with a small component of tropical mixed broadleaf forest. Several studies involving bird conservation and protection on the property have been undertaken in the years since the project started, including a study on the threatened Orange-breasted falcons."}
                     </Text>
                     <div className={styles.tags}>
                       {!!project.category?.id && (
@@ -100,119 +114,141 @@ export const Home: NextPage<Props> = (props) => {
             </div>
           </div>
           <ButtonPrimary
-            label="Browse All Projects"
+            label="Browse Projects"
             className={styles.browseButton}
           />
         </div>
       </Section>
-      <Section variant="white" className={styles.section}>
+      <Section className={cx(styles.section, styles.offsetCarbonSection)}>
         <div className="stack">
-          <Text t="h2" as="h2">
-            For Offsetting
-          </Text>
-          <Text t="body1" className="description">
-            Maximize your impact-per-dollar with low fees and market-rate
-            pricing. Explore an ever-growing selection of 100% verified
-            projects.
-          </Text>
-          <Text t="body1" className="description">
-            Offset now, or buy now and offset later. Take full ownership of your
-            carbon assets.
-          </Text>
-          <div className={styles.list}>
-            <div className={styles.step}>
-              <Text t="body3" as="h4">
-                Step 1
-              </Text>
-              <div className="card">
-                <TravelExploreOutlinedIcon fontSize="large" />
-                <Text t="body3" className="card-info">
-                  Choose a project and quantity
-                </Text>
+          <div style={{ flex: "1" }}>
+            <Text t="h2" as="h2">
+              Buy or Offset Carbon
+            </Text>
+            <Text t="body1" className="description">
+              Maximize your climate impact.
+            </Text>
+            <Text t="body1" className="description">
+              Carbonmark doesn't charge an additional transaction fee and offers
+              best-in-the-market pricing. Explore hundreds of verified carbon
+              projects.
+            </Text>
+            <Text t="body1" className="description">
+              Offset now, or acquire carbon to offset later- you decide what to
+              do when you take ownership of your carbon assets.
+            </Text>
+            <ButtonPrimary
+              label="Browse Projects"
+              className={styles.browseButton}
+            />
+          </div>
+          <div style={{ flex: "1" }}>
+            <div className={styles.list}>
+              <div className={styles.step}>
+                <div className="card">
+                  <Text t="body3" as="h4">
+                    Step 1
+                  </Text>
+                  <TravelExploreOutlinedIcon fontSize="large" />
+                  <Text t="body3" className="card-info">
+                    Choose a project and quantity
+                  </Text>
+                </div>
+              </div>
+              <div className={styles.step}>
+                <div className="card">
+                  <Text t="body3" as="h4">
+                    Step 2
+                  </Text>
+                  <PaymentOutlinedIcon fontSize="large" />
+                  <Text t="body3" className="card-info">
+                    Create profile and get connected
+                  </Text>
+                </div>
+              </div>
+              <div className={styles.step}>
+                <div className="card">
+                  <Text t="body3" as="h4">
+                    Step 3
+                  </Text>
+                  <ParkOutlinedIcon fontSize="large" />
+                  <Text t="body3" className="card-info">
+                    Offset instantly, or purchase and hold digital carbon
+                  </Text>
+                </div>
               </div>
             </div>
-            <div className={styles.step}>
-              <Text t="body3" as="h4">
-                Step 2
-              </Text>
-              <div className="card">
-                <PaymentOutlinedIcon fontSize="large" />
-                <Text t="body3" className="card-info">
-                  Create profile and connect wallet
-                </Text>
+            {/* <Text t="h3" className="coming-soon">
+              Coming Soon: Zero-fees when <span>paying with KLIMA</span>
+            </Text> */}
+          </div>
+        </div>
+      </Section>
+      <Section className={cx(styles.section, styles.sellCarbonSection)}>
+        <div className="stack">
+          <div style={{ flex: "1.35" }}>
+            <div className={styles.list}>
+              <div className={styles.step}>
+                <div className="card">
+                  <Text t="body3" as="h4">
+                    Step 1
+                  </Text>
+                  <ControlPointDuplicateOutlinedIcon fontSize="large" />
+                  <Text t="body3" className="card-info">
+                    Digitize your carbon by using a supported bridge.
+                  </Text>
+                </div>
               </div>
-            </div>
-            <div className={styles.step}>
-              <Text t="body3" as="h4">
-                Step 3
-              </Text>
-              <div className="card">
-                <ParkOutlinedIcon fontSize="large" />
-                <Text t="body3" className="card-info">
-                  Offset instantly, or send the project tokens to your wallet
-                </Text>
+              <div className={styles.step}>
+                <div className="card">
+                  <Text t="body3" as="h4">
+                    Step 2
+                  </Text>
+                  <PersonOutlinedIcon fontSize="large" />
+                  <Text t="body3" className="card-info">
+                    Create a seller profile.
+                  </Text>
+                </div>
+              </div>
+              <div className={styles.step}>
+                <div className="card">
+                  <Text t="body3" as="h4">
+                    Step 3
+                  </Text>
+                  <MouseOutlinedIcon fontSize="large" />
+                  <Text t="body3" className="card-info">
+                    List your projects for sale in just a few clicks.
+                  </Text>
+                </div>
               </div>
             </div>
           </div>
-          <Text t="h3" className="coming-soon">
-            Coming Soon: Zero-fees when <span>paying with KLIMA</span>
-          </Text>
-        </div>
-      </Section>
-      <Section
-        variant="darkgray"
-        className={cx(styles.section, styles.sectionDark)}
-      >
-        <div className="stack">
-          <Text t="h2" as="h2">
-            For Sellers
-          </Text>
-          <Text t="body1" className="description">
-            Create your own carbon storefront. Sell directly to organizations
-            and individuals alike.
-          </Text>
-          <Text t="body1" className="description">
-            Unprecedented transparency across the digital carbon market.
-          </Text>
-          <div className={styles.list}>
-            <div className={styles.step}>
-              <Text t="body3" as="h4">
-                Step 1
-              </Text>
-              <div className="card">
-                <ControlPointDuplicateOutlinedIcon fontSize="large" />
-                <Text t="body3" className="card-info">
-                  Tokenize your projects using a supported bridge (C3, Toucan).
-                </Text>
-              </div>
-            </div>
-            <div className={styles.step}>
-              <Text t="body3" as="h4">
-                Step 2
-              </Text>
-              <div className="card">
-                <PersonOutlinedIcon fontSize="large" />
-                <Text t="body3" className="card-info">
-                  Create a seller profile.
-                </Text>
-              </div>
-            </div>
-            <div className={styles.step}>
-              <Text t="body3" as="h4">
-                Step 3
-              </Text>
-              <div className="card">
-                <MouseOutlinedIcon fontSize="large" />
-                <Text t="body3" className="card-info">
-                  List your projects for sale in just a few clicks.
-                </Text>
-              </div>
-            </div>
+          <div
+            style={{
+              flex: "1",
+              justifyContent: "center",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <Text t="h2" as="h2">
+              Sell Carbon
+            </Text>
+            <Text t="body1" className="description">
+              Create your own carbon storefront. Sell directly to organizations
+              and individuals alike.
+            </Text>
+            <Text t="body1" className="description">
+              Unprecedented transparency across the digital carbon market.
+            </Text>
+            <ButtonPrimary
+              label="Create Profile"
+              className={styles.browseButton}
+            />
           </div>
-          <ButtonPrimary label="Sell Carbon" className={styles.browseButton} />
         </div>
       </Section>
-      <Section variant="white" className={styles.sectionImage}>
+      <Section className={styles.sectionImage}>
         <div className="carbon-traders">
           <div className="pattern-bg">
             <div>
@@ -231,11 +267,15 @@ export const Home: NextPage<Props> = (props) => {
                 </li>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  List and sell for zero fees.
+                  0% listing fee.
                 </li>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  No barrier to entry -- all you need is a Web3 wallet.
+                  All assets sourced from major registries.
+                </li>
+                <li>
+                  <CheckCircleOutlineOutlinedIcon fontSize="large" />
+                  Instant settlement of all trades.
                 </li>
               </ul>
             </div>
@@ -243,7 +283,7 @@ export const Home: NextPage<Props> = (props) => {
           <div className="image-bg" />
         </div>
       </Section>
-      <Section variant="white" className={styles.sectionImage}>
+      <Section className={styles.sectionImage}>
         <div className="project-devs">
           <div className="image-bg" />
           <div className="pattern-bg">
@@ -254,46 +294,113 @@ export const Home: NextPage<Props> = (props) => {
               <ul>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  Efficiently connect directly with buyers.
-                </li>
-                <li>
-                  <CheckCircleOutlineOutlinedIcon fontSize="large" />
                   Get paid immediately, transactions are resolved in seconds.
                 </li>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  Support for major registries and carbon bridges.
+                  List and sell for free.
+                </li>
+                <li>
+                  <CheckCircleOutlineOutlinedIcon fontSize="large" />
+                  No barriers to entry for verified carbon projects.
+                </li>
+                <li>
+                  <CheckCircleOutlineOutlinedIcon fontSize="large" />
+                  Sell your digital carbon directly to buyers.
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </Section>
-      <Section
-        variant="darkgray"
-        style={{ background: "#2a2a2a" }}
-        className={cx(styles.sectionAlt, styles.sectionDark)}
-      >
+      <Section className={cx(styles.section, styles.learnMoreSection)}>
         <div className="stack">
           <Text t="h2" as="h2">
-            Powered By <CarbonmarkLogo color="#fff" />
+            Learn More
           </Text>
-          <Text t="body1" className="description">
-            KlimaDAO has incentivized millions of dollars of liquidity for key
-            carbon pools. KlimaDAO lets you buy carbon-backed KLIMA tokens to
-            get a stake in growing on-chain carbon markets. Earn daily rewards
-            on your KLIMA holdings as the carbon market and DAO treasury grows.
-          </Text>
+          <div className={cx(styles.list, isMobile ? styles.scroller : {})}>
+            <div className="card-wrapper">
+              <div className={styles.card}>
+                <div className={styles.cardImage}>
+                  <Image
+                    fill
+                    alt="Article"
+                    src="/article-bg.png"
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
+                <div className={cx(styles.cardContent, "content")}>
+                  <Text t="caption" as="h5">
+                    Introducing carbonmark article
+                  </Text>
+                  <Text t="body8">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Mauris tempor non sagittis egestas sellus ...
+                  </Text>
+                  <Text t="body8" as="h6">
+                    Read more
+                  </Text>
+                </div>
+              </div>
+              <div className={styles.card}>
+                <div className={styles.cardImage}>
+                  <Image
+                    fill
+                    alt="FAQs"
+                    src="/faq-bg.png"
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
+                <div className={cx(styles.cardContent, "content")}>
+                  <Text t="caption" as="h5">
+                    FAQs
+                  </Text>
+                  <Text t="body8">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Mauris tempor non sagittis egestas sellus ...
+                  </Text>
+                  <Text t="body8" as="h6">
+                    Read more
+                  </Text>
+                </div>
+              </div>
+              <div className={styles.card}>
+                <div className={styles.cardImage}>
+                  <Image
+                    fill
+                    alt="Role"
+                    src="/role-bg.png"
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
+                <div className={cx(styles.cardContent, "content")}>
+                  <Text t="caption" as="h5">
+                    Carbonmark's role
+                  </Text>
+                  <Text t="body8">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Mauris tempor non sagittis egestas sellus ...
+                  </Text>
+                  <Text t="body8" as="h6">
+                    Read more
+                  </Text>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ButtonPrimary label="Resources" className={styles.browseButton} />
         </div>
       </Section>
-      <Section variant="white" className={styles.sectionAlt}>
+      <Section className={cx(styles.section, styles.poweredBySection)}>
         <div className="stack">
           <Text t="h2" as="h2">
-            Governed by you
+            Powered by
+            <LogoWithClaim />
           </Text>
-          <Text t="body1" className="description" style={{ marginBottom: 0 }}>
-            KLIMA token holders participate in the future of the on-chain carbon
-            market.
+          <Text t="body1" className="description">
+            KlimaDAO provides the transparent, neutral, and public digital
+            carbon infrastructure to accelerate climate finance on a global
+            scale.
           </Text>
         </div>
       </Section>

@@ -38,7 +38,7 @@ export const categoryInfoMap: CategoryInfoMap = {
       id: "project.category.renewable_energy",
       message: "Renewable Energy",
     }),
-    color: "#66E185",
+    color: "#eeeff5",
     icon: BatterySaverIcon,
   },
   Forestry: {
@@ -48,7 +48,7 @@ export const categoryInfoMap: CategoryInfoMap = {
       id: "project.category.forestry",
       message: "Forestry",
     }),
-    color: "#6EC6FF",
+    color: "#eeeff5",
     icon: ParkOutlinedIcon,
   },
   "Other Nature-Based": {
@@ -58,7 +58,7 @@ export const categoryInfoMap: CategoryInfoMap = {
       id: "project.category.other_nature_based",
       message: "Other Nature-Based",
     }),
-    color: "#CEC2FF",
+    color: "#eeeff5",
     icon: TerrainOutlinedIcon,
   },
   Other: {
@@ -68,7 +68,7 @@ export const categoryInfoMap: CategoryInfoMap = {
       id: "project.category.other",
       message: "Other",
     }),
-    color: "#4F5555",
+    color: "#eeeff5",
     icon: EmojiNatureIcon,
   },
   "Energy Efficiency": {
@@ -78,7 +78,7 @@ export const categoryInfoMap: CategoryInfoMap = {
       id: "project.category.energy_efficiency",
       message: "Energy Efficiency",
     }),
-    color: "#FFCA66",
+    color: "#eeeff5",
     icon: BoltOutlinedIcon,
   },
   Agriculture: {
@@ -88,7 +88,7 @@ export const categoryInfoMap: CategoryInfoMap = {
       id: "project.category.agriculture",
       message: "Agriculture",
     }),
-    color: "#FFB8A3",
+    color: "#eeeff5",
     icon: AgricultureOutlinedIcon,
   },
   "Industrial Processing": {
@@ -98,7 +98,7 @@ export const categoryInfoMap: CategoryInfoMap = {
       id: "project.category.industria_processing",
       message: "Industrial Processing",
     }),
-    color: "#FF99BC",
+    color: "#eeeff5",
     icon: PrecisionManufacturingOutlinedIcon,
   },
 };

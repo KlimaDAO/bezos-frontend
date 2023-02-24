@@ -15,22 +15,6 @@ import "@klimadao/carbonmark/theme/variables.css"; // overrides for variables.cs
 // organize-imports-ignore
 import "@klimadao/lib/theme/globals.css"; // depends on variables
 
-// const loadFallbackOnServer = async () => {
-//   if (typeof window === "undefined") {
-//     /* eslint-disable @typescript-eslint/no-var-requires */
-//     const englishMessages = require("../locale/en/messages").messages;
-//     i18n.load("en", englishMessages);
-//     i18n.activate("en");
-//   }
-// };
-// const loadFallbackOnServer = async () => {
-//   if (typeof window === "undefined") {
-//     /* eslint-disable @typescript-eslint/no-var-requires */
-//     const englishMessages = require("../locale/en/messages").messages;
-//     i18n.load("en", englishMessages);
-//     i18n.activate("en");
-//   }
-// };
 const loadFallbackOnServer = async () => {
   if (typeof window === "undefined") {
     /* eslint-disable @typescript-eslint/no-var-requires */

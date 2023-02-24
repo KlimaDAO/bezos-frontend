@@ -1,7 +1,7 @@
-import { Project } from "@klimadao/lib/types/carbonmark";
-import { getCarbonmarkProjects } from "@klimadao/lib/utils";
 import { Home, Props } from "components/pages/Home";
+import { getCarbonmarkProjects } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
+import { Project } from "lib/types/carbonmark";
 import { GetStaticProps } from "next";
 
 interface HomeProps extends Props {

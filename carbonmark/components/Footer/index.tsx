@@ -1,15 +1,12 @@
 import { cx } from "@emotion/css";
 import {
   Anchor as A,
-  DiscordIcon,
+  GithubIcon,
   LinkedInIcon,
-  RedditIcon,
-  RSSIcon,
-  TelegramIcon,
   TwitterIcon,
-  YoutubeIcon,
 } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
+import EmailIcon from "@mui/icons-material/Email";
 import Link from "next/link";
 import { FC } from "react";
 
@@ -26,51 +23,36 @@ export const Footer: FC<Props> = (props) => (
     <div className={cx(styles.footer_content, "footer_content")}>
       <nav className={cx(styles.footer_nav, "footer_nav")}>
         <Link href="/">
-          <Trans>Home</Trans>
+          <Trans>Privacy Policy</Trans>
         </Link>
         <Link href="/">
-          <Trans>Buy</Trans>
-        </Link>
-        <Link href="/">
-          <Trans>Stake</Trans>
-        </Link>
-        <Link href="/">
-          <Trans>App</Trans>
-        </Link>
-        <Link href="/">
-          <Trans>Docs</Trans>
-        </Link>
-        <Link href="/">
-          <Trans>Blog</Trans>
+          <Trans>Terms of Use</Trans>
         </Link>
         <Link href="/">
           <Trans>Contact</Trans>
         </Link>
         <Link href="/">
-          <Trans>Disclaimer</Trans>
+          <Trans>Help</Trans>
+        </Link>
+        <Link href="/">
+          <Trans>Resources</Trans>
+        </Link>
+        <Link href="/">
+          <Trans>KlimaDAO</Trans>
         </Link>
       </nav>
       <nav className={styles.footer_icons}>
         <A href={urls.twitterCarbonmark}>
           <TwitterIcon />
         </A>
-        <A href={urls.youtube}>
-          <YoutubeIcon />
-        </A>
-        <A href={urls.discordInvite}>
-          <DiscordIcon />
-        </A>
-        <A href={urls.reddit}>
-          <RedditIcon />
+        <A href={urls.github}>
+          <GithubIcon />
         </A>
         <A href={urls.linkedInCarbonmark}>
           <LinkedInIcon />
         </A>
-        <A href={urls.telegram}>
-          <TelegramIcon />
-        </A>
-        <A href={urls.podcast}>
-          <RSSIcon />
+        <A href={urls.pressEmail}>
+          <EmailIcon />
         </A>
       </nav>
     </div>

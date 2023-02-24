@@ -36,7 +36,7 @@ export const HeaderMobile: FC<Props> = (props) => {
       >
         <div className={styles.mainLogoMobile}>
           <Link href={"/"}>
-            <CarbonmarkLogo height="26" />
+            <CarbonmarkLogo />
           </Link>
         </div>
         {props.buttons && (

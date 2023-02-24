@@ -53,8 +53,16 @@ export const navMain_MobileItem = css`
 
 export const navMain_MobileButton = css`
   width: min-content;
-  color: var(--font-01) !important;
   white-space: nowrap;
+  background-color: var(--bright-blue);
+  color: var(--white) !important;
+`;
+
+export const browseButton = css`
+  width: min-content;
+  white-space: nowrap;
+  background-color: var(--bright-blue);
+  color: var(--white) !important;
 `;
 
 export const navMain_MobileItemsWrapper = css`
