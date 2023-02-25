@@ -178,8 +178,14 @@ export type Category = {
 };
 
 export type Country = {
-  id: string;
+  id: CountryName;
 };
+/** For consistency */
+export type Vintage = string;
+
+export type ProjectFilter = Category | Country | Vintage;
+
+export type CountryName = string;
 
 export type CategoryName =
   | "Agriculture"

@@ -1,29 +1,23 @@
+import { ProjectsContext } from "@klimadao/carbonmark/components/pages/Projects/state/Projects.context";
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
 import { Accordion } from "components/Accordion";
 import { CheckboxGroup } from "components/CheckboxGroup/CheckboxGroup";
 import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
 import { Dropdown } from "components/Dropdown";
+import { ProjectFilterSortValues } from "components/pages/Projects/types";
 import { Modal, ModalProps } from "components/shared/Modal";
+import { Country, Vintage } from "lib/types/carbonmark";
 import { omit } from "lodash";
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { useForm } from "react-hook-form";
 import useSWRImmutable from "swr/immutable";
 import { PROJECT_FILTERS, PROJECT_SORT_OPTIONS } from "./constants";
 import * as styles from "./styles";
 
-type ModalFieldValues = {
-  countries: string[];
-  categories: string[];
-  vintages: string[];
-  sort: SortOption;
-};
-
 type ProjectFilterModalProps = Omit<ModalProps, "title" | "children">;
 
-type SortOption = keyof typeof PROJECT_SORT_OPTIONS;
-
-const defaultValues: ModalFieldValues = {
+const defaultValues: ProjectFilterSortValues = {
   sort: "recently-updated",
   countries: [],
   categories: [],
@@ -31,9 +25,11 @@ const defaultValues: ModalFieldValues = {
 };
 
 export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
-  const { control, reset } = useForm<ModalFieldValues>({
+  const { control, reset, handleSubmit } = useForm<ProjectFilterSortValues>({
     defaultValues,
   });
+
+  const { setFilters } = useContext(ProjectsContext);
 
   /**
    * Because we're prefilling these queries in getStaticProps
@@ -41,12 +37,9 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
    * We're also disabling revalidation since the data doesn't change much
    */
   const { data: vintages = [], isLoading: vintagesLoading } =
-    useSWRImmutable<string[]>("/api/vintages");
+    useSWRImmutable<Vintage[]>("/api/vintages");
   const { data: categories = [], isLoading: categoriesLoading } =
-    useSWRImmutable<{ id: string }[]>("/api/categories");
-
-  console.log(vintages);
-  console.log(categories);
+    useSWRImmutable<Country[]>("/api/categories");
 
   /**
    * @todo Not great. We need end to end typing to ensure that if the key values
@@ -64,48 +57,50 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
 
   return (
     <Modal {...props} title="Filter Results" className={styles.main}>
-      <Dropdown
-        name="sort"
-        className="dropdown"
-        default="recently-updated"
-        control={control}
-        options={Object.entries(PROJECT_SORT_OPTIONS).map(
-          ([option, label]) => ({
-            id: option,
-            label: label,
-            value: option,
-          })
-        )}
-      />
-      {/* Disabled until data can be provided by APIs */}
-      {/* <Accordion label={t`Country`}>
+      <form onSubmit={handleSubmit(setFilters)}>
+        <Dropdown
+          name="sort"
+          className="dropdown"
+          default="recently-updated"
+          control={control}
+          options={Object.entries(PROJECT_SORT_OPTIONS).map(
+            ([option, label]) => ({
+              id: option,
+              label: label,
+              value: option,
+            })
+          )}
+        />
+        {/* Disabled until data can be provided by APIs */}
+        {/* <Accordion label={t`Country`}>
           <CheckboxGroup
             options={countryOptions}
             name="countries"
             control={control}
           />
       </Accordion> */}
-      <Accordion label={t`Category`} loading={categoriesLoading}>
-        <CheckboxGroup
-          options={categoryOptions}
-          name="categories"
-          control={control}
+        <Accordion label={t`Category`} loading={categoriesLoading}>
+          <CheckboxGroup
+            options={categoryOptions}
+            name="categories"
+            control={control}
+          />
+        </Accordion>
+        <Accordion label={t`Vintage`} loading={vintagesLoading}>
+          <CheckboxGroup
+            options={vintageOptions}
+            name="vintages"
+            control={control}
+          />
+        </Accordion>
+        <ButtonPrimary type="submit" className="action" label={t`Apply`} />
+        <ButtonPrimary
+          variant="transparent"
+          className="action"
+          label={t`Clear Filters`}
+          onClick={() => reset(omit(defaultValues, "sort"))}
         />
-      </Accordion>
-      <Accordion label={t`Vintage`} loading={vintagesLoading}>
-        <CheckboxGroup
-          options={vintageOptions}
-          name="vintages"
-          control={control}
-        />
-      </Accordion>
-      <ButtonPrimary className="action" label={t`Apply`} />
-      <ButtonPrimary
-        variant="transparent"
-        className="action"
-        label={t`Clear Filters`}
-        onClick={() => reset(omit(defaultValues, "sort"))}
-      />
+      </form>
     </Modal>
   );
 };
