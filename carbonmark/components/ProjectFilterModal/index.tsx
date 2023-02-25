@@ -57,7 +57,7 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
 
   return (
     <Modal {...props} title="Filter Results" className={styles.main}>
-      <form onSubmit={handleSubmit(setFilters)}>
+      <form className={styles.form} onSubmit={handleSubmit(setFilters)}>
         <Dropdown
           name="sort"
           className="dropdown"

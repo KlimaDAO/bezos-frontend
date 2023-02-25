@@ -43,3 +43,9 @@ export const option = css`
     margin-right: 5px;
   }
 `;
+
+/** Make sure our form has equivalent spacing between elements as the parent */
+export const form = css`
+  display: grid;
+  gap: inherit;
+`;
