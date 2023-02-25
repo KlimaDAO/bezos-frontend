@@ -8,6 +8,7 @@ export const main = css`
 
   .content {
     padding: 0 0.4rem;
+    padding-bottom: 1rem;
     overflow: hidden;
     display: none;
     max-height: 0;
