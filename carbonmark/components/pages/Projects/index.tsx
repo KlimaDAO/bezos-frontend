@@ -3,14 +3,16 @@ import { t } from "@lingui/macro";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
+import { PROJECT_SORT_FNS } from "components/ProjectFilterModal/constants";
 import { ProjectImage } from "components/ProjectImage";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
 import { Project } from "lib/types/carbonmark";
-import { empty, emptyOrIncludes } from "lib/utils/array.utils";
-import { filter, pipe, sortBy } from "lodash/fp";
+import { emptyOrIncludes } from "lib/utils/array.utils";
+import { isEmpty } from "lodash";
+import { filter, pipe } from "lodash/fp";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -34,12 +36,12 @@ const Component: NextPage<ProjectsPageProps> = (props) => {
       emptyOrIncludes(filters.vintages, vintage)
   );
 
-  /** Set our sort function */
-  const sortFn = sortBy<Project>("updatedAt");
+  /** Find the correct sort function based on the chosen state */
+  const sortFn = PROJECT_SORT_FNS[filters.sort];
 
   const projects: Project[] = pipe(filterFn, sortFn)(props.projects);
 
-  const hasProjects = !empty(projects);
+  const hasProjects = !isEmpty(projects);
 
   return (
     <>

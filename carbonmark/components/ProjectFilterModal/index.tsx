@@ -29,7 +29,7 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     defaultValues,
   });
 
-  const { setFilters } = useContext(ProjectsContext);
+  const { state, setFilters } = useContext(ProjectsContext);
 
   /**
    * Because we're prefilling these queries in getStaticProps
@@ -61,7 +61,8 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
         <Dropdown
           name="sort"
           className="dropdown"
-          default="recently-updated"
+          /** @todo This seems dodgy.. it works but possible conflicting state in two places. */
+          default={state.filters.sort}
           control={control}
           options={Object.entries(PROJECT_SORT_OPTIONS).map(
             ([option, label]) => ({
