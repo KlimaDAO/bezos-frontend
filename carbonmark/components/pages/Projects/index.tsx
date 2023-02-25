@@ -9,8 +9,8 @@ import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
 import { Project } from "lib/types/carbonmark";
-import { isEmpty } from "lodash";
-import { filter, pipe } from "lodash/fp";
+import { empty, emptyOrIncludes } from "lib/utils/array.utils";
+import { filter, pipe, sortBy } from "lodash/fp";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -20,9 +20,6 @@ import { ProjectsContext } from "./state/Projects.context";
 import { ProjectsProvider } from "./state/Projects.provider";
 import * as styles from "./styles";
 
-const emptyOrIncludes = <T,>(arr: T[], i: T) => isEmpty(arr) || arr.includes(i);
-// overSome(isEmpty,includes())
-
 const Component: NextPage<ProjectsPageProps> = (props) => {
   const {
     state: { filters },
@@ -30,21 +27,19 @@ const Component: NextPage<ProjectsPageProps> = (props) => {
 
   const { locale } = useRouter();
 
+  /** Collate the selected filters */
   const filterFn = filter(
-    ({ category }: Project) => emptyOrIncludes(filters.categories, category?.id)
-    // emptyOrIncludes(countries, country) &&
-    // emptyOrIncludes(vintages, vintage)
+    ({ category, vintage }: Project) =>
+      emptyOrIncludes(filters.categories, category?.id) &&
+      emptyOrIncludes(filters.vintages, vintage)
   );
 
-  // const sort = curryRight(sortBy)("updatedAt");
+  /** Set our sort function */
+  const sortFn = sortBy<Project>("updatedAt");
 
-  const projects: Project[] = pipe(filterFn)(props.projects);
+  const projects: Project[] = pipe(filterFn, sortFn)(props.projects);
 
-  // console.log(categories);
-  console.log(props.projects);
-  console.log(projects);
-
-  const hasProjects = !isEmpty(projects);
+  const hasProjects = !empty(projects);
 
   return (
     <>
