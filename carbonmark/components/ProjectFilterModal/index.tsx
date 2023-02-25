@@ -45,9 +45,6 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const { data: categories = [], isLoading: categoriesLoading } =
     useSWRImmutable<{ id: string }[]>("/api/categories");
 
-  console.log(vintages);
-  console.log(categories);
-
   /**
    * @todo Not great. We need end to end typing to ensure that if the key values
    * change server side then our build fails
