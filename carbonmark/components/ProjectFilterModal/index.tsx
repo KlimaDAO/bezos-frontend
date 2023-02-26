@@ -6,6 +6,7 @@ import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
 import { Dropdown } from "components/Dropdown";
 import { Modal, ModalProps } from "components/shared/Modal";
 import { omit } from "lodash";
+import { useRouter } from "next/router";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 import useSWRImmutable from "swr/immutable";
@@ -31,7 +32,9 @@ const defaultValues: ModalFieldValues = {
 };
 
 export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
-  const { control, reset } = useForm<ModalFieldValues>({
+  const router = useRouter();
+
+  const { control, reset, handleSubmit } = useForm<ModalFieldValues>({
     defaultValues,
   });
 
@@ -59,50 +62,67 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     value: vintage,
   }));
 
+  const onSubmit = ({ categories }: ModalFieldValues) => {
+    console.log(categories);
+    router.replace(
+      "/projects",
+      categories
+        ? {
+            query: {
+              categories,
+            },
+          }
+        : undefined,
+      { shallow: true }
+    );
+  };
+
   return (
     <Modal {...props} title="Filter Results" className={styles.main}>
-      <Dropdown
-        name="sort"
-        className="dropdown"
-        default="recently-updated"
-        control={control}
-        options={Object.entries(PROJECT_SORT_OPTIONS).map(
-          ([option, label]) => ({
-            id: option,
-            label: label,
-            value: option,
-          })
-        )}
-      />
-      {/* Disabled until data can be provided by APIs */}
-      {/* <Accordion label={t`Country`}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Dropdown
+          name="sort"
+          className="dropdown"
+          default="recently-updated"
+          control={control}
+          options={Object.entries(PROJECT_SORT_OPTIONS).map(
+            ([option, label]) => ({
+              id: option,
+              label: label,
+              value: option,
+            })
+          )}
+        />
+        {/* Disabled until data can be provided by APIs */}
+        {/* <Accordion label={t`Country`}>
           <CheckboxGroup
             options={countryOptions}
             name="countries"
             control={control}
           />
       </Accordion> */}
-      <Accordion label={t`Category`} loading={categoriesLoading}>
-        <CheckboxGroup
-          options={categoryOptions}
-          name="categories"
-          control={control}
+        <Accordion label={t`Category`} loading={categoriesLoading}>
+          <CheckboxGroup
+            options={categoryOptions}
+            name="categories"
+            control={control}
+          />
+        </Accordion>
+        <Accordion label={t`Vintage`} loading={vintagesLoading}>
+          <CheckboxGroup
+            options={vintageOptions}
+            name="vintages"
+            control={control}
+          />
+        </Accordion>
+        <ButtonPrimary className="action" label={t`Apply`} type="submit" />
+        <ButtonPrimary
+          variant="transparent"
+          className="action"
+          label={t`Clear Filters`}
+          onClick={() => reset(omit(defaultValues, "sort"))}
         />
-      </Accordion>
-      <Accordion label={t`Vintage`} loading={vintagesLoading}>
-        <CheckboxGroup
-          options={vintageOptions}
-          name="vintages"
-          control={control}
-        />
-      </Accordion>
-      <ButtonPrimary className="action" label={t`Apply`} />
-      <ButtonPrimary
-        variant="transparent"
-        className="action"
-        label={t`Clear Filters`}
-        onClick={() => reset(omit(defaultValues, "sort"))}
-      />
+      </form>
     </Modal>
   );
 };

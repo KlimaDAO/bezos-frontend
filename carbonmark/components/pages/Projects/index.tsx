@@ -18,7 +18,11 @@ import { SWRConfig } from "swr";
 import * as styles from "./styles";
 
 const Page: NextPage = () => {
-  const { locale } = useRouter();
+  const { locale, query } = useRouter();
+  // const searchParams = query.categories
+  //   ? `?${new URLSearchParams({ category: query.categories })}`
+  //   : "";
+  // console.log(searchParams);
 
   const {
     projects: unsafeProjects,
@@ -28,6 +32,7 @@ const Page: NextPage = () => {
 
   // TEMP: the api has a bug where it sometimes returns `null`
   const safeProjects = unsafeProjects?.filter((p) => !!p);
+  // const { data: projects } = useSWR<Project[]>("/api/projects" + searchParams);
 
   const sortedProjects =
     isLoading || !safeProjects

@@ -16,6 +16,10 @@ const getProjects: NextApiHandler<Project[] | APIDefaultResponse> = async (
       try {
         const queryString = getProjectsQueryString(req.query);
         const result = await fetch(urls.api.projects + queryString);
+        // const searchParams = req.query.category
+        //   ? `?${new URLSearchParams({ category: req.query.category })}`
+        //   : "";
+        // const result = await fetch(urls.api.projects + searchParams);
 
         const json = await result.json();
 
