@@ -174,7 +174,7 @@ export const partnersSection = css`
 `;
 
 export const offsetCarbonSection = css`
-  padding: 4rem 0rem 4rem !important;
+  padding: 4rem 0rem !important;
   background: url("/offset-carbon-bg.png") center center / cover no-repeat;
 
   ${breakpoints.desktop} {
@@ -185,6 +185,10 @@ export const offsetCarbonSection = css`
     gap: 3.2rem;
     display: flex;
     flex-direction: column;
+
+    & > div {
+      flex: 1;
+    }
 
     ${breakpoints.desktop} {
       gap: 2.7rem;
@@ -211,8 +215,8 @@ export const offsetCarbonSection = css`
     margin: 0 !important;
     margin-bottom: 2rem !important;
     text-align: left !important;
-    font-size: 1.8rem; // desktop??
-    line-height: 2rem; // desktop??
+    font-size: 1.8rem;
+    line-height: 2rem;
   }
 
   & a {
@@ -225,7 +229,7 @@ export const offsetCarbonSection = css`
 `;
 
 export const sellCarbonSection = css`
-  padding: 4rem 0rem 4rem !important;
+  padding: 4rem 0rem !important;
   background: url("/sell-carbon-bg.png") center bottom / cover no-repeat;
 
   ${breakpoints.desktop} {
@@ -236,6 +240,18 @@ export const sellCarbonSection = css`
     gap: 3.2rem;
     display: flex;
     flex-direction: column-reverse;
+
+    & > div {
+      :first-child {
+        flex: 1.35;
+      }
+      :last-child {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+    }
 
     ${breakpoints.desktop} {
       gap: 7.3rem;
@@ -262,8 +278,8 @@ export const sellCarbonSection = css`
     margin: 0 !important;
     margin-bottom: 2rem !important;
     text-align: left !important;
-    font-size: 1.8rem; // desktop??
-    line-height: 2rem; // desktop??
+    font-size: 1.8rem;
+    line-height: 2rem;
   }
 
   & a {
@@ -330,17 +346,12 @@ export const learnMoreSection = css`
         max-height: 6rem;
       }
 
-      h5,
-      h6 {
-        font-size: 1.6rem;
-        line-height: 2rem;
-        font-family: var(--font-family-secondary);
-        font-weight: 700;
-        text-decoration: underline;
-      }
-
       h5 {
         text-decoration: none;
+      }
+
+      h6 {
+        text-decoration: underline;
       }
     }
   }
@@ -396,7 +407,7 @@ export const poweredBySection = css`
 
 export const list = css`
   display: flex;
-  gap: 3.2rem; // 2
+  gap: 3.2rem;
   flex-direction: column;
   justify-content: center;
 
@@ -410,7 +421,7 @@ export const list = css`
   }
 `;
 
-export const scroller = css`
+export const learnMoreList = css`
   gap: 2rem;
   width: 100%;
   flex-direction: row;
@@ -543,10 +554,6 @@ export const cardContent = css`
   }
 
   & h5 {
-    font-weight: 700;
-    font-size: 1.6rem;
-    font-family: var(--font-family-secondary);
-    line-height: 2rem;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -592,7 +599,6 @@ export const section = css`
     & p.description {
       margin: 3.2rem 0;
       text-align: center;
-      color: var(--font-02);
 
       ${breakpoints.desktop} {
         margin: 4rem 0;
@@ -615,50 +621,6 @@ export const section = css`
         text-decoration: underline;
         color: var(--klima-green);
       }
-    }
-  }
-`;
-
-export const sectionAlt = css`
-  display: grid;
-  grid-column: full;
-  padding: 8rem 0rem !important;
-  grid-template-columns: inherit;
-
-  ${breakpoints.desktop} {
-    padding: 20rem 0rem !important;
-  }
-
-  .stack {
-    grid-column: main;
-
-    & h2 {
-      gap: 1rem;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: center;
-
-      ${breakpoints.desktop} {
-        gap: 2rem;
-        flex-direction: row;
-      }
-
-      & svg {
-        height: 32px;
-        display: inline-flex;
-
-        ${breakpoints.desktop} {
-          height: 48px;
-        }
-      }
-    }
-
-    & p.description {
-      max-width: 60rem;
-      margin: 3.2rem auto;
-      text-align: center;
-      color: var(--font-02);
     }
   }
 `;
@@ -751,6 +713,7 @@ export const sectionImage = css`
 
         ${breakpoints.desktop} {
           max-width: 100%;
+          text-align: left;
           margin-bottom: 4rem;
           font-size: 6rem;
           line-height: 6rem;
@@ -780,25 +743,6 @@ export const sectionImage = css`
           }
         }
       }
-    }
-  }
-`;
-
-export const sectionDark = css`
-  & h2 {
-    color: #fff;
-    text-align: center;
-  }
-  & p.description {
-    color: #ddd !important;
-  }
-
-  & .card {
-    color: #fff;
-    background: #303030 !important;
-
-    & .card-info {
-      color: #fff;
     }
   }
 `;

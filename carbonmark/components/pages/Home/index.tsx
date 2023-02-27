@@ -10,7 +10,6 @@ import {
   OffsetraLogo,
   SCBLogo,
   Section,
-  Text,
   TwitterIcon,
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
@@ -29,6 +28,7 @@ import { Category } from "components/Category";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
 import { Navigation } from "components/shared/Navigation";
+import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { useResponsive } from "hooks/useResponsive";
 import { formatBigToPrice } from "lib/formatNumbers";
@@ -111,10 +111,10 @@ export const Home: NextPage<Props> = (props) => {
                     <Text t="body3" as="h4">
                       {formatBigToPrice(project.price, locale)}
                     </Text>
-                    <Text t="caption" as="h5">
+                    <Text as="h5">
                       {project.name || "! MISSING PROJECT NAME !"}
                     </Text>
-                    <Text t="body8">
+                    <Text t="body1">
                       {project.description ||
                         "The Bull Run project is designed to protect 4,650 ha of tropical pine forests, grasslands, and mature humid broadleaf forest in the Cayo District of Belize, Central America. This area, which lies 23.5 km east-southeast of San Ignacio, Belize, includes 15 IUCN listed endangered species! The property consists primarily of a tropical pine savannah with a small component of tropical mixed broadleaf forest. Several studies involving bird conservation and protection on the property have been undertaken in the years since the project started, including a study on the threatened Orange-breasted falcons."}
                     </Text>
@@ -143,7 +143,7 @@ export const Home: NextPage<Props> = (props) => {
       </Section>
       <Section className={cx(styles.section, styles.offsetCarbonSection)}>
         <div className="stack">
-          <div style={{ flex: "1" }}>
+          <div>
             <Text t="h2" as="h2">
               Buy or Offset Carbon
             </Text>
@@ -168,7 +168,7 @@ export const Home: NextPage<Props> = (props) => {
               />
             )}
           </div>
-          <div style={{ flex: "1" }}>
+          <div>
             <div className={styles.list}>
               <div className={styles.step}>
                 <div className="card">
@@ -223,7 +223,7 @@ export const Home: NextPage<Props> = (props) => {
       </Section>
       <Section className={cx(styles.section, styles.sellCarbonSection)}>
         <div className="stack">
-          <div style={{ flex: "1.35" }}>
+          <div>
             <div className={styles.list}>
               <div className={styles.step}>
                 <div className="card">
@@ -274,14 +274,7 @@ export const Home: NextPage<Props> = (props) => {
               />
             )}
           </div>
-          <div
-            style={{
-              flex: "1",
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-            }}
-          >
+          <div>
             <Text t="h2" as="h2">
               Sell Carbon
             </Text>
@@ -373,7 +366,9 @@ export const Home: NextPage<Props> = (props) => {
           <Text t="h2" as="h2">
             Learn More
           </Text>
-          <div className={cx(styles.list, isMobile ? styles.scroller : {})}>
+          <div
+            className={cx(styles.list, { [styles.learnMoreList]: isMobile })}
+          >
             <div className="card-wrapper">
               <div className={styles.card}>
                 <div className={styles.cardImage}>
@@ -385,14 +380,14 @@ export const Home: NextPage<Props> = (props) => {
                   />
                 </div>
                 <div className={cx(styles.cardContent, "content")}>
-                  <Text t="caption" as="h5">
+                  <Text t="h5" as="h5">
                     Introducing carbonmark article
                   </Text>
-                  <Text t="body8">
+                  <Text t="body1">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Mauris tempor non sagittis egestas sellus ...
                   </Text>
-                  <Text t="body8" as="h6">
+                  <Text t="h5" as="h6">
                     Read more
                   </Text>
                 </div>
@@ -407,14 +402,14 @@ export const Home: NextPage<Props> = (props) => {
                   />
                 </div>
                 <div className={cx(styles.cardContent, "content")}>
-                  <Text t="caption" as="h5">
+                  <Text t="h5" as="h5">
                     FAQs
                   </Text>
-                  <Text t="body8">
+                  <Text t="body1">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Mauris tempor non sagittis egestas sellus ...
                   </Text>
-                  <Text t="body8" as="h6">
+                  <Text t="h5" as="h6">
                     Read more
                   </Text>
                 </div>
@@ -429,14 +424,14 @@ export const Home: NextPage<Props> = (props) => {
                   />
                 </div>
                 <div className={cx(styles.cardContent, "content")}>
-                  <Text t="caption" as="h5">
+                  <Text t="h5" as="h5">
                     Carbonmark's role
                   </Text>
-                  <Text t="body8">
+                  <Text t="body1">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Mauris tempor non sagittis egestas sellus ...
                   </Text>
-                  <Text t="body8" as="h6">
+                  <Text t="h5" as="h6">
                     Read more
                   </Text>
                 </div>
