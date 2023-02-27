@@ -3,6 +3,7 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const footer = (transparent = false) => css`
   background: ${transparent ? "none" : "var(--manatee)"};
+  grid-column: 1/4;
   padding: 2.8rem 0;
   grid-column: full;
   display: grid;

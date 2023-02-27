@@ -139,7 +139,7 @@ export const Layout: FC<Props> = (props: Props) => {
           {/* body  */}
           <div
             style={{
-              gridColumn: "1/3",
+              gridColumn: "2/3",
               display: "inherit",
               gridGap: "inherit",
             }}
@@ -151,8 +151,8 @@ export const Layout: FC<Props> = (props: Props) => {
             {props.children}
           </div>
           {/* footer  */}
+          <Footer className={styles.fullWidthFooter} />
         </div>
-        <Footer className={styles.fullWidthFooter} />
       </div>
     </div>
   );
