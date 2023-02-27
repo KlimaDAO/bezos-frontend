@@ -54,7 +54,15 @@ export const Home: NextPage<Props> = (props) => {
         metaDescription={t`The open platform for digital carbon.`}
       />
       <Section className={styles.hero}>
-        <Image fill src="/hero.png" alt="Carbonmark Hero" />
+        <Image
+          fill
+          alt="Carbonmark Hero"
+          src="/hero.png"
+          style={{
+            zIndex: 1,
+            objectFit: "cover",
+          }}
+        />
         <Navigation transparent activePage="Home" />
         <div className="stack">
           <Text t="h1" as="h1">

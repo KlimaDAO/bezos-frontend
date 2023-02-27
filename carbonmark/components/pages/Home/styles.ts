@@ -13,14 +13,6 @@ export const hero = css`
     height: 100vh;
   }
 
-  & img {
-    ${breakpoints.desktop} {
-      z-index: 1;
-      object-fit: cover;
-      object-position: top center;
-    }
-  }
-
   .stack {
     z-index: 2;
     gap: 3.2rem;
