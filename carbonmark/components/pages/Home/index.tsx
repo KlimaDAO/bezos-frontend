@@ -57,7 +57,8 @@ export const Home: NextPage<Props> = (props) => {
         <Image
           fill
           alt="Carbonmark Hero"
-          src="/hero.png"
+          src="/hero.jpeg"
+          loader={(params) => params.src}
           style={{
             zIndex: 1,
             objectFit: "cover",
