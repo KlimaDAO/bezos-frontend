@@ -13,35 +13,31 @@ import {
   Text,
   TwitterIcon,
 } from "@klimadao/lib/components";
-import { Trans } from "@lingui/macro";
-import EmailIcon from "@mui/icons-material/Email";
-import Link from "next/link";
-
 import { urls } from "@klimadao/lib/constants";
-import { t } from "@lingui/macro";
+import { getImageSizes } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import ControlPointDuplicateOutlinedIcon from "@mui/icons-material/ControlPointDuplicateOutlined";
+import EmailIcon from "@mui/icons-material/Email";
 import MouseOutlinedIcon from "@mui/icons-material/MouseOutlined";
 import ParkOutlinedIcon from "@mui/icons-material/ParkOutlined";
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import TravelExploreOutlinedIcon from "@mui/icons-material/TravelExploreOutlined";
-import Image from "next/image";
-import * as styles from "./styles";
-
-import { Project } from "lib/types/carbonmark";
-import { NextPage } from "next";
-import { useRouter } from "next/router";
-
 import { Category } from "components/Category";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
 import { Navigation } from "components/shared/Navigation";
 import { Vintage } from "components/Vintage";
-import { formatBigToPrice } from "lib/formatNumbers";
-
 import { useResponsive } from "hooks/useResponsive";
+import { formatBigToPrice } from "lib/formatNumbers";
+import { Project } from "lib/types/carbonmark";
+import { NextPage } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import * as styles from "./styles";
 
 export interface Props {
   projects?: Project[];
@@ -58,6 +54,7 @@ export const Home: NextPage<Props> = (props) => {
         metaDescription={t`The open platform for digital carbon.`}
       />
       <Section className={styles.hero}>
+        <Image fill src="/hero.png" alt="Carbonmark Hero" />
         <Navigation transparent activePage="Home" />
         <div className="stack">
           <Text t="h1" as="h1">
@@ -376,7 +373,7 @@ export const Home: NextPage<Props> = (props) => {
                     fill
                     alt="Article"
                     src="/article-bg.png"
-                    style={{ objectFit: "cover" }}
+                    sizes={getImageSizes({ large: "320px" })}
                   />
                 </div>
                 <div className={cx(styles.cardContent, "content")}>
@@ -398,7 +395,7 @@ export const Home: NextPage<Props> = (props) => {
                     fill
                     alt="FAQs"
                     src="/faq-bg.png"
-                    style={{ objectFit: "cover" }}
+                    sizes={getImageSizes({ large: "320px" })}
                   />
                 </div>
                 <div className={cx(styles.cardContent, "content")}>
@@ -420,7 +417,7 @@ export const Home: NextPage<Props> = (props) => {
                     fill
                     alt="Role"
                     src="/role-bg.png"
-                    style={{ objectFit: "cover" }}
+                    sizes={getImageSizes({ large: "320px" })}
                   />
                 </div>
                 <div className={cx(styles.cardContent, "content")}>

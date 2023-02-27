@@ -4,12 +4,25 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 export const hero = css`
   display: grid;
   padding: 0 !important;
-  min-height: 60vh;
+  height: 60vh;
   grid-column: full;
   grid-template-columns: inherit;
-  background: url("/hero.png") center center / cover no-repeat;
+  position: relative;
+
+  ${breakpoints.desktop} {
+    height: 100vh;
+  }
+
+  & img {
+    ${breakpoints.desktop} {
+      z-index: 1;
+      object-fit: cover;
+      object-position: top center;
+    }
+  }
 
   .stack {
+    z-index: 2;
     gap: 3.2rem;
     display: flex;
     flex-direction: column;
@@ -21,7 +34,7 @@ export const hero = css`
 
     ${breakpoints.desktop} {
       max-width: 70%;
-      margin-bottom: 12rem;
+      margin-bottom: 10rem;
     }
 
     & h1 {
@@ -63,10 +76,6 @@ export const hero = css`
         width: 15rem;
         min-width: 15rem !important;
       }
-    }
-
-    ${breakpoints.desktop} {
-      min-height: 100vh;
     }
   }
 `;
