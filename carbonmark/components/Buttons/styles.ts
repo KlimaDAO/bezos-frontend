@@ -1,6 +1,5 @@
 import { css } from "@emotion/css";
 import { button } from "theme/typography";
-import { transparent } from "./mixins";
 
 const buttonBase = css`
   ${button};
@@ -40,7 +39,18 @@ const buttonBase = css`
   }
 
   &.transparent {
-    ${transparent}
+    background: none;
+    padding: 0;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &,
+    &:hover:not(:disabled),
+    &:visited {
+      color: inherit; /* override force to white */
+    }
   }
 `;
 
@@ -97,61 +107,5 @@ export const buttonPrimary = css`
     background-color: var(--surface-02);
     color: var(--font-03);
     cursor: not-allowed;
-  }
-`;
-
-export const buttonSecondary = css`
-  ${buttonBase};
-  border: 1px solid var(--blue-yellow);
-  color: var(--blue-yellow);
-  background-color: transparent;
-
-  &:hover:not(:disabled),
-  &:visited {
-    color: var(--blue-yellow); /* same in darkmode */
-  }
-
-  &.gray {
-    border-color: var(--surface-01);
-
-    &,
-    &:hover,
-    &:hover:not(:disabled),
-    &:visited {
-      color: var(--font-01); /* same in darkmode */
-    }
-  }
-
-  &.lightGray {
-    background-color: var(--surface-01);
-    box-shadow: var(--shadow-01);
-    &,
-    &:hover,
-    &:hover:not(:disabled),
-    &:visited {
-      color: var(--font-02); /* same in darkmode */
-    }
-  }
-
-  &.red {
-    border-color: var(--warning-red);
-    color: var(--warning-red);
-    &,
-    &:hover,
-    &:hover:not(:disabled),
-    &:visited {
-      color: var(--warning-red);
-    }
-  }
-
-  &.blue {
-    border-color: var(--bright-blue);
-
-    &,
-    &:hover,
-    &:hover:not(:disabled),
-    &:visited {
-      color: var(--bright-blue); /* same in darkmode */
-    }
   }
 `;
