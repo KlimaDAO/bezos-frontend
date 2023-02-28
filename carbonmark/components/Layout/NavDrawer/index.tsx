@@ -18,7 +18,7 @@ import * as styles from "./styles";
 // const DynamicThemeToggle = dynamic(
 //   () => import("components/shared/ThemeToggle"),
 //   { ssr: false }
-// );
+// )
 
 interface NavDrawerProps {
   userAddress?: string;
