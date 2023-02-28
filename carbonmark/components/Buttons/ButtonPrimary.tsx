@@ -1,5 +1,8 @@
 import { cx } from "@emotion/css";
-import { BaseButton, ButtonBaseProps } from "@klimadao/lib/components";
+import {
+  ButtonBaseProps,
+  ButtonPrimary as KlimaButton,
+} from "@klimadao/lib/components";
 import { FC } from "react";
 import * as styles from "./styles";
 
@@ -15,5 +18,5 @@ export const ButtonPrimary: FC<ButtonBaseProps> = (props) => {
     },
     props.className
   );
-  return <BaseButton {...props} className={className} />;
+  return <KlimaButton className={className} {...props} />;
 };
