@@ -170,12 +170,12 @@ export type AssetForListing = {
     name?: string;
     projectID: string;
     methodology: string;
-    category: CategoryNames | CategoryName;
+    category: CategoryName;
   };
 };
 
 export type Category = {
-  id: CategoryNames;
+  id: CategoryName;
 };
 
 export type Country = {
@@ -192,8 +192,6 @@ export type CategoryName =
   | "Renewable Energy"
   | "Other"
   | "Other Nature-Based";
-
-export type CategoryNames = `${CategoryName},${CategoryName}`;
 
 export type Purchase = {
   id: string; // TransactionHash
