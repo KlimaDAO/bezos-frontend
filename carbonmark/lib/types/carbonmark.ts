@@ -189,6 +189,7 @@ export type CategoryName =
   | "Energy Efficiency"
   | "Forestry"
   | "Industrial Processing"
+  | "Industrial Processing " // TODO remove this hack when cujo fixes subgraph
   | "Renewable Energy"
   | "Other"
   | "Other Nature-Based";

@@ -17,6 +17,18 @@ import Others from "public/category/Others.png";
 import OtherNatureBased from "public/category/Other_Nature_Based.png";
 import RenewableEnergy from "public/category/Renewable_Energy.jpeg";
 
+export const categoryNames: CategoryName[] = [
+  "Agriculture",
+  "Energy Efficiency",
+  "Forestry",
+  "Industrial Processing",
+  // TODO there is a bug in subgraph, this extra space needs to be removed
+  "Industrial Processing ",
+  "Other Nature-Based",
+  "Other",
+  "Renewable Energy",
+];
+
 type CategoryInfoMap = {
   [key in CategoryName]: {
     key: CategoryName;
@@ -89,11 +101,22 @@ export const getCategoryInfo = (category: CategoryName) => {
       color: "#FFB8A3",
       icon: AgricultureOutlinedIcon,
     },
+    // TODO when subgraph is fixed to remove the extra space in "Industrial Processing ", remove this entry
+    "Industrial Processing ": {
+      key: "Industrial Processing",
+      imageSrc: IndustrialProcessing,
+      label: t({
+        id: "project.category.industrial_processing",
+        message: "Industrial Processing",
+      }),
+      color: "#FF99BC",
+      icon: PrecisionManufacturingOutlinedIcon,
+    },
     "Industrial Processing": {
       key: "Industrial Processing",
       imageSrc: IndustrialProcessing,
       label: t({
-        id: "project.category.industria_processing",
+        id: "project.category.industrial_processing",
         message: "Industrial Processing",
       }),
       color: "#FF99BC",
