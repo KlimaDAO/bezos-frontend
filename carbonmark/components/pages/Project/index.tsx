@@ -15,12 +15,12 @@ import {
   getActiveListings,
   getAllListings,
   getLowestPriceFromBuyOptions,
-  sortPricesAndListingsByBestPrice
+  sortPricesAndListingsByBestPrice,
 } from "lib/listingsGetter";
 import {
   PriceFlagged,
   Project as ProjectType,
-  ProjectBuyOption
+  ProjectBuyOption,
 } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import { PoolPrice } from "./BuyOptions/PoolPrice";
@@ -78,7 +78,7 @@ export const Project: NextPage<Props> = (props) => {
         />
       );
     });
-console.log(props.project)
+  console.log(props.project);
   return (
     <>
       <PageHead
