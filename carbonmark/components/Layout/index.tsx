@@ -49,7 +49,7 @@ export const Layout: FC<Props> = (props: Props) => {
     return () => {
       console.log("layout unmount");
     };
-  });
+  }, []);
   return (
     <div
       className={cx(styles.container, styles.global)}

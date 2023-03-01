@@ -45,7 +45,7 @@ export const Projects: NextPage<ProjectsPageStaticProps> = (props) => {
     return () => {
       console.log("page unmount");
     };
-  });
+  }, []);
 
   return (
     <SWRConfig

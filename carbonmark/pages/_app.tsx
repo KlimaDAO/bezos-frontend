@@ -70,7 +70,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     return () => {
       console.log("app unmount");
     };
-  });
+  }, []);
 
   return (
     <>
