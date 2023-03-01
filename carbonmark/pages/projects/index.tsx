@@ -20,9 +20,11 @@ export const getStaticProps: GetStaticProps<ProjectsPageStaticProps> = async (
     const vintages = await fetcher<string[]>(urls.api.vintages);
     const categories = await fetcher<Category[]>(urls.api.categories);
     const countries = await fetcher<Country[]>(urls.api.countries);
+    console.log("loaded locale", ctx.locale);
     const translation = await loadTranslation(ctx.locale);
 
     if (!translation) {
+      console.log("no translation found", ctx.locale);
       throw new Error("No translation found");
     }
 
