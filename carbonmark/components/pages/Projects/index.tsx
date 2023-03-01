@@ -55,10 +55,15 @@ const Page: NextPage = () => {
         metaDescription={t`Browse our massive inventory of verified carbon offset projects. Buy, sell, or offset in a few clicks.`}
       />
       <Category category={"Renewable Energy"} />
+      {t({
+        id: "project.category.renewable_energy",
+      })}
       <Layout fullWidth={true}>
         <div className={styles.list}>
           <Category category={"Renewable Energy"} />
-
+          {t({
+            id: "project.category.renewable_energy",
+          })}
           {!sortedProjects?.length && !isValidating && !isLoading && (
             <Text>No projects found from Carbonmark API</Text>
           )}

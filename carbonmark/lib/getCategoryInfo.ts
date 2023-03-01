@@ -95,7 +95,7 @@ export const categoryInfoMap: CategoryInfoMap = {
     key: "Industrial Processing",
     imageSrc: IndustrialProcessing,
     label: t({
-      id: "project.category.industria_processing",
+      id: "project.category.industrial_processing",
       message: "Industrial Processing",
     }),
     color: "#FF99BC",

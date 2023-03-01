@@ -13,6 +13,7 @@ export const Category: FC<Props> = (props) => {
   // quick fix: take the first one
   const firstCategory = getFirstCategory(props.category);
   const category = categoryInfoMap[firstCategory];
+  console.log("infoMap is", categoryInfoMap["Renewable Energy"]);
 
   if (!category) {
     return <div className={styles.category}>??</div>;
@@ -21,7 +22,6 @@ export const Category: FC<Props> = (props) => {
   const Icon = category.icon;
 
   const other = category.key === "Other";
-
   return (
     <div
       className={cx(styles.category, { other })}
