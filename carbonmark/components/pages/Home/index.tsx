@@ -96,7 +96,7 @@ export const Home: NextPage<Props> = (props) => {
           </div>
           <Text t="h2" as="h2">
             Over 20 million verified digital carbon credits from hundreds of
-            projects, $4 billion in trade to date
+            projects, with over $4 billion traded to date
           </Text>
           <div className={cx(styles.list, "partners-list")}>
             <div className="card-wrapper">
@@ -144,7 +144,7 @@ export const Home: NextPage<Props> = (props) => {
         <div className="stack">
           <div>
             <Text t="h2" as="h2">
-              Buy or Offset Carbon
+              Buy or offset carbon
             </Text>
             <Text t="body1" className="description">
               Maximize your climate impact.
@@ -155,7 +155,7 @@ export const Home: NextPage<Props> = (props) => {
               projects.
             </Text>
             <Text t="body1" className="description">
-              Offset now, or acquire carbon to offset later- you decide what to
+              Offset now, or acquire carbon to offset later - you decide what to
               do when you take ownership of your carbon assets.
             </Text>
             {isDesktop && (
@@ -233,7 +233,7 @@ export const Home: NextPage<Props> = (props) => {
                     <ControlPointDuplicateOutlinedIcon fontSize="large" />
                   </div>
                   <Text t="body3" className="card-info">
-                    Digitize your carbon by using a supported bridge.
+                    Digitize your carbon by using a supported bridge
                   </Text>
                 </div>
               </div>
@@ -246,7 +246,7 @@ export const Home: NextPage<Props> = (props) => {
                     <PersonOutlinedIcon fontSize="large" />
                   </div>
                   <Text t="body3" className="card-info">
-                    Create a seller profile.
+                    Create a seller profile
                   </Text>
                 </div>
               </div>
@@ -259,7 +259,7 @@ export const Home: NextPage<Props> = (props) => {
                     <MouseOutlinedIcon fontSize="large" />
                   </div>
                   <Text t="body3" className="card-info">
-                    List your projects for sale in just a few clicks.
+                    List your projects for sale in just a few clicks
                   </Text>
                 </div>
               </div>
@@ -275,7 +275,7 @@ export const Home: NextPage<Props> = (props) => {
           </div>
           <div>
             <Text t="h2" as="h2">
-              Sell Carbon
+              Sell carbon
             </Text>
             <Text t="body1" className="description">
               Create your own carbon storefront. Sell directly to organizations
@@ -300,29 +300,28 @@ export const Home: NextPage<Props> = (props) => {
           <div className="pattern-bg">
             <div>
               <Text t="h2" as="h2">
-                For Carbon Traders
+                For carbon traders
               </Text>
               <ul>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  Compare prices across all sellers and trading pools.
+                  Compare prices across all sellers and trading pools
                 </li>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  Real-time price and transaction data powered by the
-                  blockchain.
+                  Real-time price and transaction data powered by the blockchain
                 </li>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  0% listing fee.
+                  0% listing fee
                 </li>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  All assets sourced from major registries.
+                  All assets sourced from major registries
                 </li>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  Instant settlement of all trades.
+                  Instant settlement of all trades
                 </li>
               </ul>
             </div>
@@ -336,24 +335,24 @@ export const Home: NextPage<Props> = (props) => {
           <div className="pattern-bg">
             <div>
               <Text t="h2" as="h2">
-                For Project Developers
+                For project developers
               </Text>
               <ul>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  Get paid immediately, transactions are resolved in seconds.
+                  Get paid immediately: transactions are resolved in seconds
                 </li>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  List and sell for free.
+                  List and sell for free
                 </li>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  No barriers to entry for verified carbon projects.
+                  No barriers to entry for verified carbon projects
                 </li>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  Sell your digital carbon directly to buyers.
+                  Sell your digital carbon directly to buyers
                 </li>
               </ul>
             </div>
@@ -363,7 +362,7 @@ export const Home: NextPage<Props> = (props) => {
       <Section className={cx(styles.section, styles.learnMoreSection)}>
         <div className="stack">
           <Text t="h2" as="h2">
-            Learn More
+            Learn more
           </Text>
           <div
             className={cx(styles.list, { [styles.learnMoreList]: isMobile })}
@@ -462,10 +461,10 @@ export const Home: NextPage<Props> = (props) => {
         <div className={styles.footerContent}>
           <nav className={styles.footerNav}>
             <Link href="/">
-              <Trans>Privacy Policy</Trans>
+              <Trans>Privacy policy</Trans>
             </Link>
             <Link href="/">
-              <Trans>Terms of Use</Trans>
+              <Trans>Terms of use</Trans>
             </Link>
             <Link href="/">
               <Trans>Contact</Trans>
