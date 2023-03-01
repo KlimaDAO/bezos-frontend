@@ -54,9 +54,11 @@ const Page: NextPage = () => {
         mediaTitle={t`Browse Carbon Projects | Carbonmark`}
         metaDescription={t`Browse our massive inventory of verified carbon offset projects. Buy, sell, or offset in a few clicks.`}
       />
-
+      <Category category={"Renewable Energy"} />
       <Layout fullWidth={true}>
         <div className={styles.list}>
+          <Category category={"Renewable Energy"} />
+
           {!sortedProjects?.length && !isValidating && !isLoading && (
             <Text>No projects found from Carbonmark API</Text>
           )}
@@ -72,6 +74,7 @@ const Page: NextPage = () => {
               href={createProjectLink(project)}
               passHref
             >
+              <Category category={"Renewable Energy"} />
               <div className={styles.card}>
                 <div className={styles.cardImage}>
                   {!!project.category?.id && (
