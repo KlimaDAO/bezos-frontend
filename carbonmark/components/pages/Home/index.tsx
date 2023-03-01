@@ -100,7 +100,6 @@ export const Home: NextPage<Props> = (props) => {
           </Text>
           <div className={cx(styles.list, "partners-list")}>
             <div className="card-wrapper">
-              <div className={cx(styles.card, "card")} />
               {props?.projects?.slice(0, 3)?.map((project, idx) => (
                 <div key={`project-${idx}`} className={cx(styles.card, "card")}>
                   <div className={styles.cardImage}>
@@ -131,7 +130,6 @@ export const Home: NextPage<Props> = (props) => {
                   </div>
                 </div>
               ))}
-              <div className={cx(styles.card, "card")} />
             </div>
           </div>
           <ButtonPrimary

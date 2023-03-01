@@ -97,7 +97,7 @@ export const partnersSection = css`
     gap: 2rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     margin-bottom: 6rem;
     margin-top: 2.6rem;
@@ -117,43 +117,11 @@ export const partnersSection = css`
     }
   }
 
-  & .card {
-    ${breakpoints.desktop} {
-      height: 39rem;
-      min-width: 34rem;
-
-      &:first-of-type,
-      :last-of-type {
-        background: linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 0.6) 0%,
-          rgba(255, 255, 255, 0) 100%
-        );
-        border: none;
-        opacity: 0.5;
-        border-radius: 0.8rem;
-        box-shadow: none;
-      }
-
-      &:first-of-type {
-        transform: matrix(-1, 0, 0, 1, 0, 0);
-      }
-
-      &:last-of-type {
-        transform: matrix(1, 0, 0, -1, 0, 0);
-      }
-    }
-  }
-
   & .card-wrapper {
     display: none !important;
 
     ${breakpoints.desktop} {
       display: flex !important;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
     }
 
     p {
@@ -519,7 +487,6 @@ export const card = css`
   background-color: var(--surface-01);
   border-radius: var(--border-radius);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24);
-  max-width: 32rem;
   display: flex;
   flex: 1;
   gap: 1.6rem;
