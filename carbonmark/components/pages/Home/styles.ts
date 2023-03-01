@@ -87,7 +87,7 @@ export const partnersSection = css`
     line-height: 2.8rem;
 
     ${breakpoints.desktop} {
-      max-width: 80%;
+      max-width: 90%;
       font-size: 3.2rem;
       line-height: 3.6rem;
     }
@@ -114,6 +114,9 @@ export const partnersSection = css`
     ${breakpoints.desktop} {
       position: relative;
       height: 40rem;
+    }
+    & .card {
+      min-width: 3.5rem;
     }
   }
 
