@@ -47,10 +47,7 @@ export const Navigation: FC<Props> = ({
           ...(showThemeToggle ? [<ThemeToggle key="ThemeToggle" />] : []),
           <ButtonPrimary
             key="Browse Projects"
-            label={t({
-              message: "Browse Projects",
-              id: "shared.browse_projects",
-            })} // @todo remove ids?
+            label={t`Browse Projects`}
             href="/projects"
             className={styles.browseButton}
             renderLink={(linkProps) => <Link {...linkProps} />}
