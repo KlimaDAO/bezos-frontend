@@ -11,7 +11,7 @@ import { useResponsive } from "hooks/useResponsive";
 import { connectErrorStrings } from "lib/constants";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FC, ReactNode, useState } from "react";
+import { FC, ReactNode, useEffect, useState } from "react";
 import "tippy.js/dist/tippy.css";
 import { Footer } from "../Footer";
 import { NavDrawer } from "./NavDrawer";
@@ -43,6 +43,13 @@ export const Layout: FC<Props> = (props: Props) => {
    */
   const isProjects = useRouter().pathname === "/projects";
   const { fullWidth } = props;
+
+  useEffect(() => {
+    console.log("layout mount");
+    return () => {
+      console.log("layout unmount");
+    };
+  });
   return (
     <div
       className={cx(styles.container, styles.global)}

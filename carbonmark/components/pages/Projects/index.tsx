@@ -18,7 +18,7 @@ import { useEffect } from "react";
 import { SWRConfig } from "swr";
 import * as styles from "./styles";
 
-const Page: NextPage = () => {
+export const Projects: NextPage<ProjectsPageStaticProps> = (props) => {
   const { locale } = useRouter();
 
   const {
@@ -48,13 +48,24 @@ const Page: NextPage = () => {
   });
 
   return (
-    <>
+    <SWRConfig
+      value={{
+        fetcher,
+        // Prefill our API responses with server side fetched data
+        // see: https://swr.vercel.app/docs/with-nextjs#pre-rendering-with-default-data
+        fallback: {
+          "/api/projects": props.projects,
+          "/api/vintages": props.vintages,
+          "/api/categories": props.categories,
+          "/api/countries": props.countries,
+        },
+      }}
+    >
       <PageHead
         title={t`Projects | Carbonmark`}
         mediaTitle={t`Browse Carbon Projects | Carbonmark`}
         metaDescription={t`Browse our massive inventory of verified carbon offset projects. Buy, sell, or offset in a few clicks.`}
       />
-
       <Layout fullWidth={true}>
         <div className={styles.list}>
           {!sortedProjects?.length && !isValidating && !isLoading && (
@@ -97,24 +108,6 @@ const Page: NextPage = () => {
           ))}
         </div>
       </Layout>
-    </>
+    </SWRConfig>
   );
 };
-
-export const Projects: NextPage<ProjectsPageStaticProps> = (props) => (
-  <SWRConfig
-    value={{
-      fetcher,
-      // Prefill our API responses with server side fetched data
-      // see: https://swr.vercel.app/docs/with-nextjs#pre-rendering-with-default-data
-      fallback: {
-        "/api/projects": props.projects,
-        "/api/vintages": props.vintages,
-        "/api/categories": props.categories,
-        "/api/countries": props.countries,
-      },
-    }}
-  >
-    <Page />
-  </SWRConfig>
-);
