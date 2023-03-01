@@ -14,6 +14,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
+import { useEffect } from "react";
 import { SWRConfig } from "swr";
 import * as styles from "./styles";
 
@@ -38,6 +39,13 @@ const Page: NextPage = () => {
   // when re-doing a search with cached results, this will be false -> results are shown, and the query runs in the background
   const showLoadingProjectsSpinner =
     isLoading || (isValidating && !sortedProjects?.length);
+
+  useEffect(() => {
+    console.log("page mount");
+    return () => {
+      console.log("page unmount");
+    };
+  });
 
   return (
     <>

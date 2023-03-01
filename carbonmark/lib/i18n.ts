@@ -4,24 +4,27 @@ import { IS_LOCAL_DEVELOPMENT, IS_PRODUCTION } from "lib/constants";
 
 export const locales = getLocales(IS_PRODUCTION);
 
-// TODO: revert this when we add translations
-const tempLocale = locales["en"];
-i18n.loadLocaleData("en", { plurals: tempLocale.plurals });
+export const loadLocaleData = () => {
+  console.log("will load locale data", i18n.localeData);
+  for (const key in locales) {
+    const locale = locales[key];
+    i18n.loadLocaleData(key, { plurals: locale.plurals });
+  }
+  console.log("loaded locale data", i18n.localeData);
+};
 
-// for (const key in locales) {
-//   const locale = locales[key];
-//   i18n.loadLocaleData(key, { plurals: locale.plurals });
-// }
 /**
  * Loads a translation file
  */
-async function loadTranslation(locale = "en") {
+export const loadTranslation = async (locale = "en") => {
+  loadLocaleData();
   let data;
   if (IS_LOCAL_DEVELOPMENT) {
     console.log("loading local development strings");
     // dynamic loading in dev https://lingui.js.org/ref/loader.html
     data = await import(`@lingui/loader!../locale/${locale}/messages.po`);
   } else {
+    console.log("loading prod development strings");
     data = await import(`../locale/${locale}/messages`);
   }
   console.log(
@@ -29,9 +32,4 @@ async function loadTranslation(locale = "en") {
     data.messages["project.category.renewable_energy"]
   );
   return data.messages;
-}
-
-export const createLinkWithLocaleQuery = (url: string, locale = "en"): string =>
-  `${url}?locale=${locale}`;
-
-export { loadTranslation };
+};

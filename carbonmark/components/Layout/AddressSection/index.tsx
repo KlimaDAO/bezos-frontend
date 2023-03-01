@@ -13,6 +13,7 @@ interface AddressSectionProps {
 export const AddressSection: FC<AddressSectionProps> = (props) => {
   return (
     <div className={styles.address}>
+      <Trans id="project.category.renewable_energy" />
       <Text t="body1">
         <Trans>Your Wallet Address:</Trans>
       </Text>
