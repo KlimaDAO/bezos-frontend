@@ -10,6 +10,8 @@ export const tagSlugs = [
   "press-releases",
   "policy",
   "carbon-footprint",
+  "digital-carbon",
+  "carbonmark-overview",
 ] as const;
 
 export type TagSlug = (typeof tagSlugs)[number];
@@ -37,34 +39,42 @@ type SortedByQueries = {
   value: SortQuery;
 };
 
-export const mainTags: CheckboxOption[] = [
+export const getMainTags = (): CheckboxOption[] => [
   {
-    value: "klima-overview",
-    id: "e448b05c-86e1-4354-946b-e4f54f246c48",
+    value: "carbonmark-overview",
+    id: "",
     label: t({
-      id: "resources.list.filter.tag.klima_overview",
-      message: "Klima Overview",
+      id: "",
+      message: "Carbonmark Overview",
     }),
   },
   {
-    value: "klima-infinity",
-    id: "266fd446-34e6-46c6-bb5d-26425e667423",
+    value: "digital-carbon",
+    id: "",
     label: t({
-      id: "resources.list.filter.tag.klima_infinity",
-      message: "Klima Infinity",
+      id: "",
+      message: "Digital Carbon",
     }),
   },
   {
-    value: "partnerships",
-    id: "c3f29fc2-b763-4db3-a529-70fae8bd0d36",
+    value: "press-releases",
+    id: "",
     label: t({
-      id: "resources.list.filter.tag.partnerships",
-      message: "Partnerships",
+      id: "",
+      message: "Press Releases",
+    }),
+  },
+  {
+    value: "user-guides",
+    id: "",
+    label: t({
+      id: "",
+      message: "User Guides",
     }),
   },
 ];
 
-export const subTags: CheckboxOption[] = [
+export const getSubTags = (): CheckboxOption[] => [
   {
     value: "basics",
     id: "d424ffeb-d0f7-4e1a-83b5-691d122fe5e8",
@@ -115,7 +125,7 @@ export const subTags: CheckboxOption[] = [
   },
 ];
 
-export const documentTypes: CheckboxOption[] = [
+export const getDocumentTypes = (): CheckboxOption[] => [
   {
     value: "post",
     label: t({
@@ -134,7 +144,7 @@ export const documentTypes: CheckboxOption[] = [
   },
 ];
 
-export const sortedByQueries: SortedByQueries[] = [
+export const getSortedByQueries = (): SortedByQueries[] => [
   {
     label: t({
       id: "resources.list.sort_by.latest_first",
