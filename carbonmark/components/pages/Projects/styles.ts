@@ -23,7 +23,7 @@ export const loadingPlaceholder = css`
 export const card = css`
   background-color: var(--surface-01);
   border-radius: var(--border-radius);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: var(--shadow-01);
   max-width: 32rem;
   width: 100%;
   display: flex;
