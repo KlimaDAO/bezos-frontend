@@ -73,7 +73,6 @@ export const desktopNavMenu = css`
 `;
 export const fullWidthScrollableContainer = css`
   width: 100%;
-
   ${breakpoints.desktop} {
     overflow-y: auto;
     grid-column: full;
@@ -81,12 +80,11 @@ export const fullWidthScrollableContainer = css`
 `;
 
 export const cardGrid = css`
-  max-width: 111.6rem;
   min-height: 100vh;
+
   &.fullWidth {
     max-width: unset;
   }
-  margin: auto;
   display: grid;
   /* header body footer  */
   grid-template-rows: auto 1fr auto;

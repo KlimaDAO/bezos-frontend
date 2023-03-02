@@ -142,6 +142,9 @@ export const Layout: FC<Props> = (props: Props) => {
               gridColumn: "2/3",
               display: "inherit",
               gridGap: "inherit",
+              maxWidth: "111.6rem",
+              margin: "auto",
+              width: "100%",
             }}
           >
             {isProjects && isMobile && (
