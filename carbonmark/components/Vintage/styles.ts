@@ -10,8 +10,5 @@ export const vintage = css`
   flex-direction: row;
   align-items: center;
   align-self: flex-start;
-
-  font-size: 1.4rem;
-  color: #000;
   border: 1px solid var(--font-03);
 `;
