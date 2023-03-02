@@ -90,7 +90,6 @@ export const cardGrid = css`
   grid-template-rows: auto 1fr auto;
   gap: 1.6rem;
   grid-template-columns: auto 1fr auto;
-  padding-top: 2.4rem;
   align-content: start;
   justify-self: center;
   width: 100%;
@@ -100,7 +99,6 @@ export const cardGrid = css`
   ${breakpoints.desktop} {
     display: grid;
     grid-column: full;
-    padding: 4rem;
   }
 `;
 
@@ -112,7 +110,6 @@ export const controls = css`
   justify-content: flex-end;
   align-items: center;
   gap: 1.6rem;
-  grid-column: 2 / 3;
   .connectButton {
     white-space: nowrap;
     background-color: var(--bright-blue);
@@ -120,7 +117,9 @@ export const controls = css`
   }
   background-color: var(--surface-01);
   padding: 0.8rem 1.6rem;
+  grid-column: 1 / 4;
   ${breakpoints.desktop} {
+    grid-column: 2 / 3;
     padding: 4rem 4rem 0rem 4rem;
     background-color: var(--surface-02);
   }
