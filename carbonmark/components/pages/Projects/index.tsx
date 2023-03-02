@@ -75,6 +75,11 @@ const Page: NextPage = () => {
                   <Text t="h5">
                     {project.name || "! MISSING PROJECT NAME !"}
                   </Text>
+                  {project.description && (
+                    <Text t="body1" className={styles.cardDescription}>
+                      {project.description}
+                    </Text>
+                  )}
                   <div className={styles.tags}>
                     <Vintage vintage={project.vintage} />
                     {!!project.category?.id && (
