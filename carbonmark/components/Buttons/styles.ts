@@ -3,7 +3,7 @@ import { button } from "theme/typography";
 
 export const buttonPrimary = css`
   ${button};
-  background-color: var(--bright-blue) !important;
+  background-color: var(--blue-yellow) !important;
   color: white; /* same in darkmode */
 
   &,
