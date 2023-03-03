@@ -5,6 +5,7 @@ import { CheckboxGroup } from "components/CheckboxGroup/CheckboxGroup";
 import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
 import { Dropdown } from "components/Dropdown";
 import { Modal, ModalProps } from "components/shared/Modal";
+import { Country } from "lib/types/carbonmark";
 import { omit } from "lodash";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -48,6 +49,8 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
    */
   const { data: vintages = [], isLoading: vintagesLoading } =
     useSWRImmutable<string[]>("/api/vintages");
+  const { data: countries = [], isLoading: countriesLoading } =
+    useSWRImmutable<Country[]>("/api/countries");
   const { data: categories = [], isLoading: categoriesLoading } =
     useSWRImmutable<{ id: string }[]>("/api/categories");
 
@@ -58,6 +61,12 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const categoryOptions = getProjectFilters().CATEGORIES.filter((cat) =>
     categories.map(({ id }) => id).includes(cat.value)
   );
+
+  const countryOptions: CheckboxOption[] = countries.map(({ id }) => ({
+    label: id,
+    value: id,
+    id,
+  }));
 
   const vintageOptions: CheckboxOption[] = vintages.map((vintage) => ({
     label: vintage,
@@ -96,13 +105,13 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
           )}
         />
         {/* Disabled until data can be provided by APIs */}
-        {/* <Accordion label={t`Country`}>
+        <Accordion label={t`Country`} loading={countriesLoading}>
           <CheckboxGroup
             options={countryOptions}
-            name="countries"
+            name="country"
             control={control}
           />
-      </Accordion> */}
+        </Accordion>
         <Accordion label={t`Category`} loading={categoriesLoading}>
           <CheckboxGroup
             options={categoryOptions}
