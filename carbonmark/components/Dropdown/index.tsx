@@ -53,10 +53,12 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
             ))}
           </div>
         }
+        arrow={false}
         interactive={true}
         onClickOutside={toggle}
         visible={isOpen}
-        placement="bottom-end"
+        placement="bottom-start"
+        /** @todo Need to add nested positioning */
         popperOptions={{
           modifiers: [
             {
