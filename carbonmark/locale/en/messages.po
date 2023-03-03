@@ -51,7 +51,7 @@ msgstr "About"
 msgid "Active listings:"
 msgstr "Active listings:"
 
-#: components/ProjectFilterModal/index.tsx:99
+#: components/ProjectFilterModal/index.tsx:120
 msgid "Apply"
 msgstr "Apply"
 
@@ -69,7 +69,7 @@ msgstr "BETA"
 msgid "Best Price"
 msgstr "Best Price"
 
-#: components/pages/Projects/index.tsx:46
+#: components/pages/Projects/index.tsx:42
 msgid "Browse Carbon Projects | Carbonmark"
 msgstr "Browse Carbon Projects | Carbonmark"
 
@@ -77,7 +77,7 @@ msgstr "Browse Carbon Projects | Carbonmark"
 msgid "Browse Projects"
 msgstr "Browse Projects"
 
-#: components/pages/Projects/index.tsx:47
+#: components/pages/Projects/index.tsx:43
 msgid "Browse our massive inventory of verified carbon offset projects. Buy, sell, or offset in a few clicks."
 msgstr "Browse our massive inventory of verified carbon offset projects. Buy, sell, or offset in a few clicks."
 
@@ -105,15 +105,15 @@ msgstr "CarbonMark | Resources"
 msgid "Carbonmark Overview"
 msgstr "Carbonmark Overview"
 
-#: components/pages/Home/index.tsx:53
+#: components/pages/Home/index.tsx:54
 msgid "Carbonmark | Universal Carbon Market"
 msgstr "Carbonmark | Universal Carbon Market"
 
-#: components/pages/Home/index.tsx:52
+#: components/pages/Home/index.tsx:53
 msgid "Carbonmark.com"
 msgstr "Carbonmark.com"
 
-#: components/ProjectFilterModal/index.tsx:85
+#: components/ProjectFilterModal/index.tsx:106
 msgid "Category"
 msgstr "Category"
 
@@ -121,12 +121,12 @@ msgstr "Category"
 msgid "Change language"
 msgstr "Change language"
 
-#: components/ProjectFilterModal/index.tsx:103
+#: components/ProjectFilterModal/index.tsx:125
 msgid "Clear Filters"
 msgstr "Clear Filters"
 
 #: components/Footer/index.tsx:39
-#: components/pages/Home/index.tsx:470
+#: components/pages/Home/index.tsx:471
 msgid "Contact"
 msgstr "Contact"
 
@@ -164,8 +164,8 @@ msgid "Display name is required"
 msgstr "Display name is required"
 
 #: components/shared/Navigation/index.tsx:117
-msgid "Enter App"
-msgstr "Enter App"
+msgid "Enter Marketplace"
+msgstr "Enter Marketplace"
 
 #: components/pages/Purchases/index.tsx:105
 msgid "Final price"
@@ -184,13 +184,13 @@ msgid "Handle should not contain any special characters"
 msgstr "Handle should not contain any special characters"
 
 #: components/Footer/index.tsx:44
-#: components/pages/Home/index.tsx:473
+#: components/pages/Home/index.tsx:474
 #: components/shared/Navigation/index.tsx:83
 msgid "Help"
 msgstr "Help"
 
 #: components/Footer/index.tsx:54
-#: components/pages/Home/index.tsx:479
+#: components/pages/Home/index.tsx:480
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
@@ -272,11 +272,11 @@ msgstr "Please refresh the page. There was an error updating your data: {e}."
 msgid "Press Releases"
 msgstr "Press Releases"
 
-#: components/ProjectFilterModal/constants.tsx:8
+#: components/ProjectFilterModal/constants.tsx:11
 msgid "Price Highest"
 msgstr "Price Highest"
 
-#: components/ProjectFilterModal/constants.tsx:9
+#: components/ProjectFilterModal/constants.tsx:12
 msgid "Price Lowest"
 msgstr "Price Lowest"
 
@@ -284,7 +284,7 @@ msgstr "Price Lowest"
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
-#: components/pages/Home/index.tsx:464
+#: components/pages/Home/index.tsx:465
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
@@ -301,7 +301,7 @@ msgstr "Profile picture"
 msgid "Project"
 msgstr "Project"
 
-#: components/pages/Projects/index.tsx:45
+#: components/pages/Projects/index.tsx:41
 msgid "Projects | Carbonmark"
 msgstr "Projects | Carbonmark"
 
@@ -325,7 +325,7 @@ msgstr "Quantity Available:"
 msgid "Quantity purchased:"
 msgstr "Quantity purchased:"
 
-#: components/ProjectFilterModal/constants.tsx:10
+#: components/ProjectFilterModal/constants.tsx:13
 msgid "Recently Updated"
 msgstr "Recently Updated"
 
@@ -334,8 +334,8 @@ msgid "Remaining Supply:"
 msgstr "Remaining Supply:"
 
 #: components/Footer/index.tsx:49
-#: components/pages/Home/index.tsx:476
-#: components/pages/Resources/ResourcesList/index.tsx:153
+#: components/pages/Home/index.tsx:477
+#: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:71
 #: components/shared/Navigation/index.tsx:108
 msgid "Resources"
@@ -393,7 +393,7 @@ msgstr "Switch to Polygon"
 msgid "Terms of Use"
 msgstr "Terms of Use"
 
-#: components/pages/Home/index.tsx:467
+#: components/pages/Home/index.tsx:468
 msgid "Terms of use"
 msgstr "Terms of use"
 
@@ -401,7 +401,7 @@ msgstr "Terms of use"
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr "Thank you for supporting the planet! See purchase details below."
 
-#: components/pages/Home/index.tsx:54
+#: components/pages/Home/index.tsx:55
 msgid "The open platform for digital carbon."
 msgstr "The open platform for digital carbon."
 
@@ -425,7 +425,7 @@ msgstr "This offer no longer exists."
 msgid "This product is still in Beta and audits have not been completed yet."
 msgstr "This product is still in Beta and audits have not been completed yet."
 
-#: components/Dropdown/index.tsx:72
+#: components/ProjectFilterModal/index.tsx:87
 msgid "Toggle sort menu"
 msgstr "Toggle sort menu"
 
@@ -470,15 +470,15 @@ msgstr "View seller listings, carbon market activity and more."
 msgid "View the project details and other info for this purchase."
 msgstr "View the project details and other info for this purchase."
 
-#: components/ProjectFilterModal/index.tsx:92
+#: components/ProjectFilterModal/index.tsx:113
 msgid "Vintage"
 msgstr "Vintage"
 
-#: components/ProjectFilterModal/constants.tsx:11
+#: components/ProjectFilterModal/constants.tsx:14
 msgid "Vintage Newest"
 msgstr "Vintage Newest"
 
-#: components/ProjectFilterModal/constants.tsx:12
+#: components/ProjectFilterModal/constants.tsx:15
 msgid "Vintage Oldest"
 msgstr "Vintage Oldest"
 
@@ -769,15 +769,15 @@ msgstr "Select one or more"
 msgid "resources.form.filters.clear_all"
 msgstr "Clear All"
 
-#: components/pages/Resources/ResourcesList/index.tsx:171
+#: components/pages/Resources/ResourcesList/index.tsx:172
 msgid "resources.form.input.search.label"
 msgstr "Search"
 
-#: components/pages/Resources/ResourcesList/index.tsx:162
+#: components/pages/Resources/ResourcesList/index.tsx:163
 msgid "resources.form.input.search.placeholder"
 msgstr "Search..."
 
-#: components/pages/Resources/ResourcesList/index.tsx:195
+#: components/pages/Resources/ResourcesList/index.tsx:196
 msgid "resources.form.input.sort_by.label"
 msgstr "Sort by"
 
@@ -790,11 +790,11 @@ msgstr "Select"
 msgid "resources.list.select.sort_by.toggle"
 msgstr "Toggle Sorted by menu"
 
-#: components/pages/Resources/ResourcesList/index.tsx:296
+#: components/pages/Resources/ResourcesList/index.tsx:297
 msgid "resources.mobile_modal.button.show_results"
 msgstr "Show Results"
 
-#: components/pages/Resources/ResourcesList/index.tsx:269
+#: components/pages/Resources/ResourcesList/index.tsx:270
 msgid "resources.mobile_modal.title"
 msgstr "Sort By"
 
@@ -806,19 +806,19 @@ msgstr "Updates and thought leadership from the CarbonMark team."
 msgid "resources.page.header.title"
 msgstr "Featured Articles"
 
-#: components/pages/Resources/ResourcesList/index.tsx:234
+#: components/pages/Resources/ResourcesList/index.tsx:235
 msgid "resources.page.list.no_search_results.title"
 msgstr "Sorry. We couldn't find any matching results."
 
-#: components/pages/Resources/ResourcesList/index.tsx:226
+#: components/pages/Resources/ResourcesList/index.tsx:227
 msgid "resources.page.list.on_fetch_error"
 msgstr "Sorry! Something went wrong."
 
-#: components/pages/Resources/ResourcesList/index.tsx:247
+#: components/pages/Resources/ResourcesList/index.tsx:248
 msgid "resources.page.list.search_submit.no_filter_results"
 msgstr "Please use a different filter combination."
 
-#: components/pages/Resources/ResourcesList/index.tsx:240
+#: components/pages/Resources/ResourcesList/index.tsx:241
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Check your search for typos or try a different search term."
 
@@ -852,7 +852,7 @@ msgstr "Login"
 msgid "shared.resourcecenter"
 msgstr "Resource Center"
 
-#: components/pages/Resources/ResourcesList/index.tsx:201
+#: components/pages/Resources/ResourcesList/index.tsx:202
 msgid "shared.resources.sort_by.header"
 msgstr "Sort by:"
 
