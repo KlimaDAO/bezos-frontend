@@ -1,4 +1,4 @@
-const PROJECT_QUERY_PARAMS = ["search", "country", "vintage"] as const;
+const PROJECT_QUERY_PARAMS = ["search", "category", "vintage"] as const;
 type ProjectsParam = (typeof PROJECT_QUERY_PARAMS)[number];
 
 /**

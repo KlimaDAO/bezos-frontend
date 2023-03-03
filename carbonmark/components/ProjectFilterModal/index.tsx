@@ -14,9 +14,9 @@ import { getProjectFilters, PROJECT_SORT_OPTIONS } from "./constants";
 import * as styles from "./styles";
 
 type ModalFieldValues = {
-  countries: string[];
-  categories: string[];
-  vintages: string[];
+  country: string[];
+  category: string[];
+  vintage: string[];
   sort: SortOption;
 };
 
@@ -26,9 +26,9 @@ type SortOption = keyof typeof PROJECT_SORT_OPTIONS;
 
 const defaultValues: ModalFieldValues = {
   sort: "recently-updated",
-  countries: [],
-  categories: [],
-  vintages: [],
+  country: [],
+  category: [],
+  vintage: [],
 };
 
 export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
@@ -62,19 +62,9 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     value: vintage,
   }));
 
-  const onSubmit = ({ categories }: ModalFieldValues) => {
-    console.log(categories);
-    router.replace(
-      "/projects",
-      categories
-        ? {
-            query: {
-              categories,
-            },
-          }
-        : undefined,
-      { shallow: true }
-    );
+  const onSubmit = (query: ModalFieldValues) => {
+    console.log(query);
+    router.replace("/projects", { query }, { shallow: true });
   };
 
   return (
@@ -104,14 +94,14 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
         <Accordion label={t`Category`} loading={categoriesLoading}>
           <CheckboxGroup
             options={categoryOptions}
-            name="categories"
+            name="category"
             control={control}
           />
         </Accordion>
         <Accordion label={t`Vintage`} loading={vintagesLoading}>
           <CheckboxGroup
             options={vintageOptions}
-            name="vintages"
+            name="vintage"
             control={control}
           />
         </Accordion>
