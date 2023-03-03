@@ -1,10 +1,9 @@
 import { getCategoryInfo } from "lib/getCategoryInfo";
-import { CategoryName } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { FC } from "react";
 
 type Props = {
-  category: CategoryName;
+  category: string;
 };
 
 export const ProjectImage: FC<Props> = (props) => {

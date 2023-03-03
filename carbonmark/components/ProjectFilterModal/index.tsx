@@ -63,7 +63,8 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
    */
   const categoryOptions = pipe(
     sortBy<CheckboxOption>("value"),
-    filter((cat) => categories.map(({ id }) => id).includes(cat.value))
+    /** @note because the API is returning trailing empty spaces on some categories, trim them here */
+    filter((cat) => categories.map(({ id }) => id.trim()).includes(cat.value))
   )(getCategoryFilters().CATEGORIES);
 
   const countryOptions: CheckboxOption[] = pipe(
