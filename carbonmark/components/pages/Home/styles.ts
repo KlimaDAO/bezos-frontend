@@ -812,7 +812,7 @@ export const footerNav = css`
   }
 
   ${breakpoints.large} {
-    gap: 1.6rem 7rem;
+    gap: 1.6rem 2rem;
     flex-direction: column;
   }
 
