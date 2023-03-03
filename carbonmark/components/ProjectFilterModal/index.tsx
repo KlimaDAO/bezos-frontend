@@ -134,7 +134,6 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
         </Accordion>
         <ButtonPrimary className="action" label={t`Apply`} type="submit" />
         <ButtonPrimary
-          variant="transparent"
           className="action"
           type="submit"
           label={t`Clear Filters`}
