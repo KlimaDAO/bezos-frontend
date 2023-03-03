@@ -1,17 +1,17 @@
 import { cx } from "@emotion/css";
-import { t } from "@lingui/macro";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import Tippy from "@tippyjs/react";
-import { FC, HTMLAttributes, useEffect, useState } from "react";
+import { FC, HTMLAttributes, ReactNode, useEffect, useState } from "react";
 import { Control, FieldValues, Path, useController } from "react-hook-form";
 import * as styles from "./styles";
 
 type Props<V, T extends FieldValues> = {
-  default?: string;
+  initial?: string;
   options: Option<V>[];
   name: Path<T>;
   control: Control<T>;
+  renderLabel: (option: Option<V>) => string | ReactNode;
 } & Pick<HTMLAttributes<HTMLDivElement>, "className">;
 
 type Option<T> = { id: string; value: T; label: string };
@@ -19,12 +19,14 @@ type Option<T> = { id: string; value: T; label: string };
 export function Dropdown<V, T extends FieldValues = FieldValues>(
   props: Props<V, T>
 ) {
+  const { control, name, initial, options, className, renderLabel, ...rest } =
+    props;
+
   const { field } = useController({
-    control: props.control,
-    name: props.name,
+    control,
+    name,
   });
-  const defaultOption =
-    props.options.find(({ id }) => id === props.default) ?? props.options[0];
+  const defaultOption = options.find(({ id }) => id === initial) ?? options[0];
   const [selected, setSelected] = useState(defaultOption);
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen((current) => !current);
@@ -37,11 +39,11 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
   }, [selected]);
 
   return (
-    <div className={cx(styles.tippyContainer, props.className)}>
+    <div className={cx(styles.tippyContainer, className)}>
       <Tippy
         content={
           <div className={styles.dropDownMenu}>
-            {props.options.map((option) => (
+            {options.map((option) => (
               <DropdownButton
                 key={option.id}
                 label={option.label}
@@ -67,12 +69,13 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
         }}
       >
         <button
+          {...rest}
           onClick={toggle}
           role="button"
+          type="button"
           className={styles.dropdownHeader}
-          aria-label={t`Toggle sort menu`}
         >
-          {`Sort By: ${selected?.label}`}
+          {renderLabel(selected)}
           {isOpen ? (
             <ArrowDropUpIcon fontSize="large" />
           ) : (
@@ -95,6 +98,7 @@ const DropdownButton: FC<DropdownButtonProps> = (props) => (
     className={styles.dropdownButton}
     onClick={props.onClick}
     role="button"
+    type="button"
     aria-label={props.label}
     data-active={props.active}
   >

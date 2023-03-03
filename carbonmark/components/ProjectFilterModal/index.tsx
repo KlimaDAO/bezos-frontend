@@ -20,6 +20,13 @@ type ModalFieldValues = {
   sort: SortOption;
 };
 
+const DEFAULTS: ModalFieldValues = {
+  sort: "recently-updated",
+  country: [],
+  category: [],
+  vintage: [],
+};
+
 type ProjectFilterModalProps = Omit<ModalProps, "title" | "children">;
 
 type SortOption = keyof typeof PROJECT_SORT_OPTIONS;
@@ -27,12 +34,9 @@ type SortOption = keyof typeof PROJECT_SORT_OPTIONS;
 export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const router = useRouter();
 
-  const defaultValues: ModalFieldValues = {
-    sort: "recently-updated",
-    country: [],
-    category: [],
-    vintage: [],
-  };
+  //Set the default values and override with any existing url params
+  const defaultValues = { ...DEFAULTS, ...router.query };
+
   const { control, reset, handleSubmit } = useForm<ModalFieldValues>({
     defaultValues,
   });
@@ -78,6 +82,8 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
         <Dropdown
           name="sort"
           className="dropdown"
+          aria-label={t`Toggle sort menu`}
+          renderLabel={(selected) => `Sort By: ${selected?.label}`}
           control={control}
           options={Object.entries(PROJECT_SORT_OPTIONS).map(
             ([option, label]) => ({
@@ -113,8 +119,9 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
         <ButtonPrimary
           variant="transparent"
           className="action"
+          type="submit"
           label={t`Clear Filters`}
-          onClick={() => reset(omit(defaultValues, "sort"))}
+          onClick={() => reset(omit(DEFAULTS, "sort"))}
         />
       </form>
     </Modal>
