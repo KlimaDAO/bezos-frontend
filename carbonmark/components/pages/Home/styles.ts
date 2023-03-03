@@ -408,12 +408,19 @@ export const learnMoreList = css`
     padding: 0 0 1.6rem;
     flex-direction: column;
 
-    ${breakpoints.desktop} {
-      margin: 6rem auto;
-    }
-
     & > div {
       min-width: 100%;
+    }
+
+    ${breakpoints.medium} {
+      flex-direction: row;
+      & > div {
+        min-width: auto;
+      }
+    }
+
+    ${breakpoints.desktop} {
+      margin: 6rem auto;
     }
   }
 `;
@@ -495,6 +502,7 @@ export const card = css`
   display: flex;
   flex: 1;
   gap: 1.6rem;
+  max-width: 32rem;
   flex-direction: column;
   height: 100%;
   transition: all 0.2s ease 0s;
@@ -510,6 +518,10 @@ export const cardImage = css`
   overflow: hidden;
   height: 12rem;
   border-radius: var(--border-radius) var(--border-radius) 0 0;
+
+  img {
+    object-fit: cover;
+  }
 `;
 
 export const cardContent = css`
