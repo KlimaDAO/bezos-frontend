@@ -1,6 +1,7 @@
 import { t } from "@lingui/macro";
 import { Accordion } from "components/Accordion";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { ButtonSecondary } from "components/Buttons/ButtonSecondary";
 import { CheckboxGroup } from "components/CheckboxGroup/CheckboxGroup";
 import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
 import { Dropdown } from "components/Dropdown";
@@ -133,7 +134,8 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
           />
         </Accordion>
         <ButtonPrimary className="action" label={t`Apply`} type="submit" />
-        <ButtonPrimary
+        <ButtonSecondary
+          variant="transparent"
           className="action"
           type="submit"
           label={t`Clear Filters`}
