@@ -8,7 +8,7 @@ import { Control, FieldValues, Path, useController } from "react-hook-form";
 import * as styles from "./styles";
 
 type Props<V, T extends FieldValues> = {
-  default: string;
+  default?: string;
   options: Option<V>[];
   name: Path<T>;
   control: Control<T>;
@@ -23,7 +23,8 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
     control: props.control,
     name: props.name,
   });
-  const defaultOption = props.options.find(({ id }) => id === props.default);
+  const defaultOption =
+    props.options.find(({ id }) => id === props.default) ?? props.options[0];
   const [selected, setSelected] = useState(defaultOption);
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen((current) => !current);

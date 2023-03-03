@@ -75,7 +75,6 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
         <Dropdown
           name="sort"
           className="dropdown"
-          default={sort ?? "recently-updated"}
           control={control}
           options={Object.entries(PROJECT_SORT_OPTIONS).map(
             ([option, label]) => ({
