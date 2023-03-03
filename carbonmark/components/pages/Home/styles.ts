@@ -73,12 +73,17 @@ export const hero = css`
 `;
 
 export const partnersSection = css`
+  position: relative;
   padding: 4rem 0rem 2rem !important;
-  background: url("/partners-bg.png") -145rem -85rem / auto no-repeat;
+  background: url("/partners-bg.jpeg") -145rem -85rem / auto no-repeat;
 
   ${breakpoints.desktop} {
     padding: 7.6rem 0rem 11rem !important;
-    background: url("/partners-bg.png") center 27% / cover no-repeat !important;
+    background: url("/partners-bg.jpeg") center 27% / cover no-repeat !important;
+  }
+
+  & .stack {
+    z-index: 2;
   }
 
   & h2 {
@@ -661,7 +666,7 @@ export const sectionImage = css`
       & div {
         display: flex;
         max-width: 100%;
-        padding: 8rem 1.8rem;
+        padding: 8rem 3.2rem;
         margin: 0 auto;
         flex-direction: column;
         justify-content: center;
@@ -669,19 +674,19 @@ export const sectionImage = css`
         ${breakpoints.desktop} {
           padding: 0;
           max-width: 60%;
+          padding: 8rem 1.8rem;
         }
       }
 
       & h2 {
         max-width: 75%;
-        text-align: center;
+        text-align: left;
         font-size: 3.6rem;
         line-height: 3.6rem;
-        margin: 0 auto 3.2rem;
+        margin: 0 0 3.2rem 0;
 
         ${breakpoints.desktop} {
           max-width: 100%;
-          text-align: left;
           margin-bottom: 4rem;
           font-size: 6rem;
           line-height: 6rem;

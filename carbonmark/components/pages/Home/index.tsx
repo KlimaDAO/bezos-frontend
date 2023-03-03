@@ -11,7 +11,7 @@ import {
   SCBLogo,
   Section,
   TwitterIcon,
-  VlinderLogo,
+  VlinderLogo
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { getImageSizes } from "@klimadao/lib/utils";
@@ -59,7 +59,6 @@ export const Home: NextPage<Props> = (props) => {
           fill
           alt="Carbonmark Hero"
           src="/hero.jpeg"
-          loader={(params) => params.src}
           style={{
             zIndex: 1,
             objectFit: "cover",
