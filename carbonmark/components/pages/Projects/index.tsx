@@ -30,7 +30,7 @@ const Page: NextPage = () => {
   // only show the spinner when there are no cached results to show
   // when re-doing a search with cached results, this will be false -> results are shown, and the query runs in the background
   const showLoadingProjectsSpinner =
-    isLoading || (isValidating && !sortedProjects?.length);
+    isEmpty(sortedProjects) && (isLoading || isValidating);
 
   return (
     <>
