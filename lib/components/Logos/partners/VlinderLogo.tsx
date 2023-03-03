@@ -8,7 +8,7 @@ export const VlinderLogo = (props: any) => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 150 42"
   >
-    <g clip-path="url(#a)">
+    <g clipPath="url(#a)">
       <path
         d="m28.337 23.533-17.99-9.912-7.285-4.015-1.322-.727C.579 8.24 0 7.394 0 6.552v32.419c0 2.656 1.901 3.78 4.222 2.5l24.115-13.286c2.323-1.28 2.323-3.373 0-4.652Z"
         fill="#32D5D1"
