@@ -11,24 +11,22 @@ import { Vintage } from "components/Vintage";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
-import { notNil } from "lib/utils/functional.utils";
-import { identity, isEmpty } from "lodash";
+import { get, identity, isEmpty } from "lodash";
 import { NextPage } from "next";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
 import { SWRConfig } from "swr";
 import * as styles from "./styles";
 
 const Page: NextPage = () => {
-  const { locale } = useRouter();
+  const { locale, query } = useRouter();
 
-  const sortKey = useSearchParams().get("sort");
+  const sortKey = String(query["sort"]);
 
   const { projects, isLoading, isValidating } = useFetchProjects();
 
-  const sortFn = notNil(sortKey) ? PROJECT_SORT_FNS[sortKey] : identity;
+  const sortFn = get(PROJECT_SORT_FNS, sortKey) ?? identity;
 
   const sortedProjects = sortFn(projects);
 

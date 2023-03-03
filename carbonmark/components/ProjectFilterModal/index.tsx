@@ -6,7 +6,6 @@ import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
 import { Dropdown } from "components/Dropdown";
 import { Modal, ModalProps } from "components/shared/Modal";
 import { omit } from "lodash";
-import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
@@ -25,21 +24,18 @@ type ProjectFilterModalProps = Omit<ModalProps, "title" | "children">;
 
 type SortOption = keyof typeof PROJECT_SORT_OPTIONS;
 
-const defaultValues: ModalFieldValues = {
-  sort: "recently-updated",
-  country: [],
-  category: [],
-  vintage: [],
-};
-
 export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const router = useRouter();
 
+  const defaultValues: ModalFieldValues = {
+    sort: "recently-updated",
+    country: [],
+    category: [],
+    vintage: [],
+  };
   const { control, reset, handleSubmit } = useForm<ModalFieldValues>({
     defaultValues,
   });
-
-  const sort = useSearchParams().get("sort");
 
   /**
    * Because we're prefilling these queries in getStaticProps
@@ -65,8 +61,15 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     value: vintage,
   }));
 
-  const onSubmit = (query: ModalFieldValues) => {
-    router.replace("/projects", { query }, { shallow: true });
+  const onSubmit = (values: ModalFieldValues) => {
+    const { search } = router.query;
+    // Maintain any search value
+    const query = search ? { search, ...values } : values;
+    router.replace(
+      { query },
+      undefined,
+      { shallow: true } // don't refetch props nor reload page
+    );
   };
 
   return (
