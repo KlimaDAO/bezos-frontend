@@ -42,138 +42,44 @@ type SortedByQueries = {
 export const getMainTags = (): CheckboxOption[] => [
   {
     value: "carbonmark-overview",
-    id: "",
-    label: t({
-      id: "",
-      message: "Carbonmark Overview",
-    }),
+    id: "carbonmark-overview",
+    label: t`Carbonmark Overview`,
   },
   {
     value: "digital-carbon",
-    id: "",
-    label: t({
-      id: "",
-      message: "Digital Carbon",
-    }),
+    id: "digital-carbon",
+    label: t`Digital Carbon`,
   },
   {
     value: "press-releases",
-    id: "",
-    label: t({
-      id: "",
-      message: "Press Releases",
-    }),
+    id: "press-releases",
+    label: t`Press Releases`,
   },
   {
     value: "user-guides",
-    id: "",
-    label: t({
-      id: "",
-      message: "User Guides",
-    }),
-  },
-];
-
-export const getSubTags = (): CheckboxOption[] => [
-  {
-    value: "basics",
-    id: "d424ffeb-d0f7-4e1a-83b5-691d122fe5e8",
-    label: t({
-      id: "resources.list.filter.tag.basics",
-      message: "Basics",
-    }),
-  },
-  {
-    value: "deep-dives",
-    id: "e1211d9a-7bb8-46b5-ac36-1bcea905a529",
-    label: t({
-      id: "resources.list.filter.tag.deep_dives",
-      message: "Deep Dives",
-    }),
-  },
-  {
-    value: "user-guides",
-    id: "42507335-b1b7-434c-871e-b83ec43295c6",
-    label: t({
-      id: "resources.list.filter.tag.user_guides",
-      message: "User Guides",
-    }),
-  },
-  {
-    value: "press-releases",
-    id: "70cc04d9-e4e0-4957-b1e1-b1f3c183b398",
-    label: t({
-      id: "resources.list.filter.tag.press_releases",
-      message: "Press Releases",
-    }),
-  },
-  {
-    value: "policy",
-    id: "ebad9808-941a-42ef-b459-9bd1dad442ec",
-    label: t({
-      id: "resources.list.filter.tag.policy",
-      message: "Policy",
-    }),
-  },
-  {
-    value: "carbon-footprint",
-    id: "e047189f-e11f-4777-ac59-58162ee4c8c2",
-    label: t({
-      id: "resources.list.filter.tag.carbon_footprint",
-      message: "Carbon Footprint",
-    }),
-  },
-];
-
-export const getDocumentTypes = (): CheckboxOption[] => [
-  {
-    value: "post",
-    label: t({
-      id: "resources.list.filter.type.blog",
-      message: "Blog",
-    }),
-    id: "dc8d7ce2-d60a-4cee-a6fa-36b2c79f77de",
-  },
-  {
-    value: "podcast",
-    label: t({
-      id: "resources.list.filter.type.podcast",
-      message: "Podcast",
-    }),
-    id: "9b0c4d2b-7eb2-469d-b84a-f88dcaaf8ced",
+    id: "user-guides",
+    label: t`User Guides`,
   },
 ];
 
 export const getSortedByQueries = (): SortedByQueries[] => [
   {
-    label: t({
-      id: "resources.list.sort_by.latest_first",
-      message: "Latest First",
-    }),
+    label: t`Latest First`,
     id: "latest-first",
     value: "publishedAt desc",
   },
   {
-    label: t({
-      id: "resources.list.sort_by.oldest_first",
-      message: "Oldest First",
-    }),
+    label: t`Oldest First`,
     id: "oldest-first",
     value: "publishedAt asc",
   },
   {
-    label: t({
-      id: "resources.list.sort_by.a-z",
-      message: "A-Z",
-    }),
+    label: t`A-Z`,
     id: "a-z",
     value: "lower(title) asc",
   },
   {
-    label: t({
-      id: "resources.list.sort_by.z-a",
-      message: "Z-A",
-    }),
+    label: t`Z-A`,
     id: "z-a",
     value: "lower(title) desc",
   },
