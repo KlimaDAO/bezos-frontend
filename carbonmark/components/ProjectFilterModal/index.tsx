@@ -6,6 +6,7 @@ import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
 import { Dropdown } from "components/Dropdown";
 import { Modal, ModalProps } from "components/shared/Modal";
 import { omit } from "lodash";
+import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
@@ -38,6 +39,8 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     defaultValues,
   });
 
+  const sort = useSearchParams().get("sort");
+
   /**
    * Because we're prefilling these queries in getStaticProps
    * the cache will return us the server fetched values
@@ -63,7 +66,6 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   }));
 
   const onSubmit = (query: ModalFieldValues) => {
-    console.log(query);
     router.replace("/projects", { query }, { shallow: true });
   };
 
@@ -73,7 +75,7 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
         <Dropdown
           name="sort"
           className="dropdown"
-          default="recently-updated"
+          default={sort ?? "recently-updated"}
           control={control}
           options={Object.entries(PROJECT_SORT_OPTIONS).map(
             ([option, label]) => ({
