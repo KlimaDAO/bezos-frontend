@@ -4,7 +4,7 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 export const hero = css`
   display: grid;
   padding: 0 !important;
-  height: 60vh;
+  height: 80vh;
   grid-column: full;
   grid-template-columns: inherit;
   position: relative;
@@ -74,10 +74,11 @@ export const hero = css`
 
 export const partnersSection = css`
   padding: 4rem 0rem 2rem !important;
-  background: url("/partners-bg.png") center top / cover no-repeat;
+  background: url("/partners-bg.png") -145rem -85rem / auto no-repeat;
 
   ${breakpoints.desktop} {
     padding: 7.6rem 0rem 11rem !important;
+    background: url("/partners-bg.png") center top / cover no-repeat !important;
   }
 
   & h2 {
@@ -113,7 +114,6 @@ export const partnersSection = css`
   & .partners-list {
     ${breakpoints.desktop} {
       position: relative;
-      height: 40rem;
     }
     & .card {
       min-width: 3.5rem;
@@ -125,11 +125,6 @@ export const partnersSection = css`
 
     ${breakpoints.desktop} {
       display: flex !important;
-    }
-
-    p {
-      height: 12rem;
-      overflow: hidden;
     }
   }
 
@@ -530,6 +525,8 @@ export const cardContent = css`
   }
 
   & p {
+    overflow: hidden;
+    height: 12rem;
     line-height: 2rem;
     background: linear-gradient(
       180deg,
@@ -547,6 +544,10 @@ export const tags = css`
   flex-direction: row;
   margin-top: auto;
   align-items: center;
+
+  p {
+    height: auto;
+  }
 `;
 
 export const section = css`
