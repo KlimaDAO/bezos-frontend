@@ -126,3 +126,31 @@ export const meta = css`
     border-radius: var(--border-radius);
   }
 `;
+
+export const methodology = css`
+  gap: 0.2rem;
+  display: flex;
+  flex-direction: column;
+
+  & p:last-of-type {
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 1.6rem;
+    line-height: 2rem;
+
+    & svg {
+      width: 1.7rem;
+      height: 1.7rem;
+    }
+  }
+`;
+
+export const info_content = css`
+  color: var(--white);
+  padding: 1.2rem;
+  max-width: 23rem;
+  border-radius: 0.4rem;
+  text-align: left !important;
+`;

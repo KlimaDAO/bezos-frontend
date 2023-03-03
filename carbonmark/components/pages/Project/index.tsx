@@ -1,6 +1,8 @@
 import { cx } from "@emotion/css";
 import { PoolIcon } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import Tippy from "@tippyjs/react";
 import { Activities } from "components/Activities";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
@@ -124,12 +126,28 @@ export const Project: NextPage<Props> = (props) => {
             </div>
           )}
 
-          <div className="methodology">
+          <div className={styles.methodology}>
             <Text t="h5" color="lighter">
-              <Trans id="project.single.methodology">Methodology:</Trans>
+              <Trans id="project.single.methodology">Methodology</Trans>
             </Text>
             <Text t="body1" color="lighter" align="end">
-              {props.project.registry}
+              {props.project.methodology}
+              {props?.project?.methodologies?.[0]?.name && (
+                <Tippy
+                  visible
+                  content={
+                    <Text
+                      t="body1"
+                      align="center"
+                      className={styles.info_content}
+                    >
+                      {props.project.methodologies[0].name}
+                    </Text>
+                  }
+                >
+                  <InfoOutlined />
+                </Tippy>
+              )}
             </Text>
           </div>
         </div>
