@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 import {
   BraveIcon,
   ButtonPrimary,
-  CircleLogo,
+  CircleWalletIcon,
   CoinbaseWalletIcon,
   DiscordColorIcon,
   FacebookColorIcon,
@@ -28,6 +28,7 @@ const ExtensionIcon = (ExtensionIconDefault as any).default as any;
 export interface ConnectModalProps {
   torusText: string;
   walletText: string;
+  institutionalText: string;
   titles: {
     connect: string;
     loading: string;
@@ -206,14 +207,14 @@ export const ConnectModal = (props: ConnectModalProps) => {
                   <p className={styles.button}>walletconnect</p>
                 </button>
               </div>
-              <div>
+              <div className={styles.buttonsContainer}>
                 <span className={styles.textBox}>
                   <div className={styles.leftLine} />
-                  <p className={styles.subText}>{props.walletText}</p>
+                  <p className={styles.subText}>{props.institutionalText}</p>
                   <div className={styles.rightLine} />
                 </span>
                 <button className={styles.walletButtonCircle}>
-                  <CircleLogo />
+                  <CircleWalletIcon className={styles.browserWalletIcon} />
                   <p className={styles.button}>circle custody</p>
                 </button>
               </div>
