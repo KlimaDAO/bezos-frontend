@@ -59,11 +59,6 @@ export const Home: NextPage<Props> = (props) => {
           fill
           alt="Carbonmark Hero"
           src={isDesktop ? "/hero.jpeg" : "/hero-sm.jpeg"}
-          style={{
-            zIndex: 1,
-            objectFit: "cover",
-            objectPosition: isDesktop ? "top" : "-0.25rem 1rem",
-          }}
         />
         <Navigation transparent activePage="Home" />
         <div className="stack">
@@ -84,6 +79,11 @@ export const Home: NextPage<Props> = (props) => {
         </div>
       </Section>
       <Section className={cx(styles.section, styles.partnersSection)}>
+        <Image
+          fill
+          alt="Partners Background"
+          src={isDesktop ? "/partners-bg.jpeg" : "/partners-bg-sm.jpeg"}
+        />
         <div className="stack">
           <div className="">
             <Text t="h2" as="h2">
@@ -143,6 +143,7 @@ export const Home: NextPage<Props> = (props) => {
         </div>
       </Section>
       <Section className={cx(styles.section, styles.offsetCarbonSection)}>
+        <Image fill alt="Offset Carbon" src={"/offset-carbon-bg.jpeg"} />
         <div className="stack">
           <div>
             <Text t="h2" as="h2">
@@ -223,6 +224,7 @@ export const Home: NextPage<Props> = (props) => {
         </div>
       </Section>
       <Section className={cx(styles.section, styles.sellCarbonSection)}>
+        <Image fill alt="Sell Carbon" src={"/sell-carbon-bg.jpeg"} />
         <div className="stack">
           <div>
             <div className={styles.list}>
@@ -300,6 +302,7 @@ export const Home: NextPage<Props> = (props) => {
       <Section className={styles.sectionImage}>
         <div className="carbon-traders">
           <div className="pattern-bg">
+            <Image fill alt="Pattern" src={"/carbon-traders-bg.jpeg"} />
             <div>
               <Text t="h2" as="h2">
                 For carbon traders
@@ -328,13 +331,18 @@ export const Home: NextPage<Props> = (props) => {
               </ul>
             </div>
           </div>
-          <div className="image-bg" />
+          <div className="image-bg">
+            <Image fill alt="Pattern" src={"/plant-pots.jpeg"} />
+          </div>
         </div>
       </Section>
       <Section className={styles.sectionImage}>
         <div className="project-devs">
-          <div className="image-bg" />
+          <div className="image-bg">
+            <Image fill alt="Pattern" src={"/plant.jpeg"} />
+          </div>
           <div className="pattern-bg">
+            <Image fill alt="Pattern" src={"/project-devs-bg.jpeg"} />
             <div>
               <Text t="h2" as="h2">
                 For project developers
@@ -362,6 +370,7 @@ export const Home: NextPage<Props> = (props) => {
         </div>
       </Section>
       <Section className={cx(styles.section, styles.learnMoreSection)}>
+        <Image fill alt="Learn More" src={"/learn-more-bg.jpeg"} />
         <div className="stack">
           <Text t="h2" as="h2">
             Learn more
@@ -450,6 +459,7 @@ export const Home: NextPage<Props> = (props) => {
         </div>
       </Section>
       <Section className={cx(styles.section, styles.poweredBySection)}>
+        <Image fill alt="Powered By" src={"/powered-by-bg.jpeg"} />
         <div className="stack">
           <Text t="h2" as="h2">
             Powered by
