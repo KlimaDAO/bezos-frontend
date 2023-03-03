@@ -3,14 +3,14 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const hero = css`
   display: grid;
-  padding: 0 !important;
-  height: 80vh;
+  padding: 4rem 0 0 !important;
   grid-column: full;
   grid-template-columns: inherit;
   position: relative;
 
   ${breakpoints.desktop} {
     height: 100vh;
+    padding: 0 !important;
   }
 
   .stack {
@@ -26,7 +26,7 @@ export const hero = css`
 
     ${breakpoints.desktop} {
       max-width: 70%;
-      margin-bottom: 10rem;
+      margin-bottom: 8.4rem;
     }
 
     & h1 {
@@ -52,6 +52,7 @@ export const hero = css`
       font-family: var(--font-family);
 
       ${breakpoints.desktop} {
+        max-width: 70%;
         font-size: 2.4rem;
         line-height: 3.2rem;
       }
