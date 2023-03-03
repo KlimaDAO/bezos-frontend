@@ -6,12 +6,14 @@ import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
 import { Dropdown } from "components/Dropdown";
 import { Modal, ModalProps } from "components/shared/Modal";
 import { Country } from "lib/types/carbonmark";
+import { sortBy } from "lib/utils/array.utils";
 import { omit } from "lodash";
+import { filter, map, pipe } from "lodash/fp";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 import useSWRImmutable from "swr/immutable";
-import { getProjectFilters, PROJECT_SORT_OPTIONS } from "./constants";
+import { getCategoryFilters, PROJECT_SORT_OPTIONS } from "./constants";
 import * as styles from "./styles";
 
 type ModalFieldValues = {
@@ -58,17 +60,21 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
    * @todo Not great. We need end to end typing to ensure that if the key values
    * change server side then our build fails
    */
-  const categoryOptions = getProjectFilters().CATEGORIES.filter((cat) =>
-    categories.map(({ id }) => id).includes(cat.value)
-  );
+  const categoryOptions = pipe(
+    sortBy<CheckboxOption>("value"),
+    filter((cat) => categories.map(({ id }) => id).includes(cat.value))
+  )(getCategoryFilters().CATEGORIES);
 
-  const countryOptions: CheckboxOption[] = countries.map(({ id }) => ({
-    label: id,
-    value: id,
-    id,
-  }));
+  const countryOptions: CheckboxOption[] = pipe(
+    sortBy<Country>("id"),
+    map(({ id }) => ({
+      label: id,
+      value: id,
+      id,
+    }))
+  )(countries);
 
-  const vintageOptions: CheckboxOption[] = vintages.map((vintage) => ({
+  const vintageOptions: CheckboxOption[] = vintages.sort().map((vintage) => ({
     label: vintage,
     id: vintage,
     value: vintage,
