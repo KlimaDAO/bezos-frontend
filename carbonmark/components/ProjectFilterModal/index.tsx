@@ -74,6 +74,8 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
       undefined,
       { shallow: true } // don't refetch props nor reload page
     );
+    //Close the modal on submit
+    props.onToggleModal?.();
   };
 
   return (
