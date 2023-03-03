@@ -24,16 +24,16 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
     name: props.name,
   });
   const defaultOption = props.options.find(({ id }) => id === props.default);
-  const [value, setValue] = useState(defaultOption);
+  const [selected, setSelected] = useState(defaultOption);
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen((current) => !current);
   const close = () => setIsOpen(false);
 
   // always close dropdown if label changed
   useEffect(() => {
-    field.onChange(value);
+    field.onChange(selected?.value);
     close();
-  }, [value]);
+  }, [selected]);
 
   return (
     <div className={cx(styles.tippyContainer, props.className)}>
@@ -44,8 +44,8 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
               <DropdownButton
                 key={option.id}
                 label={option.label}
-                onClick={() => setValue(option)}
-                active={value === option.value}
+                onClick={() => setSelected(option)}
+                active={selected?.value === option.value}
               />
             ))}
           </div>
@@ -71,7 +71,7 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
           className={styles.dropdownHeader}
           aria-label={t`Toggle sort menu`}
         >
-          {`Sort By: ${value?.label}`}
+          {`Sort By: ${selected?.label}`}
           {isOpen ? (
             <ArrowDropUpIcon fontSize="large" />
           ) : (
