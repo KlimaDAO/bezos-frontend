@@ -11,7 +11,7 @@ import {
   SCBLogo,
   Section,
   TwitterIcon,
-  VlinderLogo
+  VlinderLogo,
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { getImageSizes } from "@klimadao/lib/utils";
@@ -57,12 +57,9 @@ export const Home: NextPage<Props> = (props) => {
       <Section className={styles.hero}>
         <Image
           fill
-          alt="Carbonmark Hero"
           src="/hero.jpeg"
-          style={{
-            zIndex: 1,
-            objectFit: "cover",
-          }}
+          alt="Carbonmark Hero"
+          style={{ zIndex: 1, objectFit: "cover" }}
         />
         <Navigation transparent activePage="Home" />
         <div className="stack">
