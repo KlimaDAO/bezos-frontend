@@ -78,7 +78,7 @@ export const partnersSection = css`
 
   ${breakpoints.desktop} {
     padding: 7.6rem 0rem 11rem !important;
-    background: url("/partners-bg.png") center top / cover no-repeat !important;
+    background: url("/partners-bg.png") center 27% / cover no-repeat !important;
   }
 
   & h2 {
@@ -329,6 +329,7 @@ export const poweredBySection = css`
 
   ${breakpoints.desktop} {
     padding: 16rem 0rem 6rem !important;
+    background: url("/powered-by-bg.png") center top / cover no-repeat;
   }
 
   & h2 {
@@ -524,7 +525,7 @@ export const cardContent = css`
     text-overflow: ellipsis;
   }
 
-  & p {
+  & > p {
     overflow: hidden;
     height: 12rem;
     line-height: 2rem;
@@ -544,10 +545,6 @@ export const tags = css`
   flex-direction: row;
   margin-top: auto;
   align-items: center;
-
-  p {
-    height: auto;
-  }
 `;
 
 export const section = css`
