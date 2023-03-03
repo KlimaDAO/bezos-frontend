@@ -37,7 +37,7 @@ type CategoryInfoMap = {
   };
 };
 
-export const getCategoryInfo = (category: string) => {
+export const getCategoryInfo = (category: CategoryName) => {
   const categoryInfoMap: CategoryInfoMap = {
     "Renewable Energy": {
       key: "Renewable Energy",

@@ -4,7 +4,7 @@ import { isNil } from "lodash";
 import { negate } from "lodash/fp";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { Category, Project } from "../lib/types/carbonmark";
+import { Category, CategoryName, Project } from "../lib/types/carbonmark";
 
 /** SWR hook that listens to the router for query param changes */
 export const useFetchProjects = () => {
@@ -21,7 +21,7 @@ export const useFetchProjects = () => {
 /** Remove trailing spaces from Category  */
 export const sanitizeCategory = (cat: Category): Category => ({
   ...cat,
-  id: cat?.id.trim(),
+  id: cat?.id.trim() as CategoryName,
 });
 
 export const sanitizeProject = (project: Project): Project => ({

@@ -175,7 +175,7 @@ export type AssetForListing = {
 };
 
 export type Category = {
-  id: string;
+  id: CategoryName;
 };
 
 export type Country = {
