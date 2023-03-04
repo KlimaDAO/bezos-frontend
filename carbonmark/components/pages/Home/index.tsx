@@ -46,9 +46,9 @@ export interface Props {
 
 export const Home: NextPage<Props> = (props) => {
   const { locale } = useRouter();
-  const { isDesktop, isMobile } = useResponsive();
+  const { isMobile } = useResponsive();
   return (
-    <GridContainer>
+    <GridContainer className={styles.global}>
       <PageHead
         title={t`Carbonmark.com`}
         mediaTitle={t`Carbonmark | Universal Carbon Market`}
@@ -57,8 +57,15 @@ export const Home: NextPage<Props> = (props) => {
       <Section className={styles.hero}>
         <Image
           fill
+          data-desktop-only
           alt="Carbonmark Hero"
-          src={isDesktop ? "/hero.jpeg" : "/hero-sm.jpeg"}
+          src={"/hero.jpeg"}
+        />
+        <Image
+          fill
+          data-mobile-only
+          alt="Carbonmark Hero"
+          src={"/hero-sm.jpeg"}
         />
         <Navigation transparent activePage="Home" />
         <div className="stack">
@@ -81,8 +88,15 @@ export const Home: NextPage<Props> = (props) => {
       <Section className={cx(styles.section, styles.partnersSection)}>
         <Image
           fill
+          data-desktop-only
           alt="Partners Background"
-          src={isDesktop ? "/partners-bg.jpeg" : "/partners-bg-sm.jpeg"}
+          src={"/partners-bg.jpeg"}
+        />
+        <Image
+          fill
+          data-mobile-only
+          alt="Partners Background"
+          src={"/partners-bg-sm.jpeg"}
         />
         <div className="stack">
           <div className="">
@@ -161,14 +175,14 @@ export const Home: NextPage<Props> = (props) => {
               Offset now, or acquire carbon to offset later - you decide what to
               do when you take ownership of your carbon assets.
             </Text>
-            {isDesktop && (
-              <ButtonPrimary
-                href="/projects"
-                label="Browse Projects"
-                className={styles.browseButton}
-                renderLink={(linkProps) => <Link {...linkProps} />}
-              />
-            )}
+            <ButtonPrimary
+              href="/projects"
+              label="Browse Projects"
+              className={styles.browseButton}
+              renderLink={(linkProps) => (
+                <Link data-desktop-only {...linkProps} />
+              )}
+            />
           </div>
           <div>
             <div className={styles.list}>
@@ -212,14 +226,14 @@ export const Home: NextPage<Props> = (props) => {
                 </div>
               </div>
             </div>
-            {isMobile && (
-              <ButtonPrimary
-                href="/projects"
-                label="Browse Projects"
-                className={cx(styles.browseButton, "mobile-only")}
-                renderLink={(linkProps) => <Link {...linkProps} />}
-              />
-            )}
+            <ButtonPrimary
+              href="/projects"
+              label="Browse Projects"
+              className={cx(styles.browseButton, "mobile-only")}
+              renderLink={(linkProps) => (
+                <Link data-mobile-only {...linkProps} />
+              )}
+            />
           </div>
         </div>
       </Section>
@@ -268,14 +282,14 @@ export const Home: NextPage<Props> = (props) => {
                 </div>
               </div>
             </div>
-            {isMobile && (
-              <ButtonPrimary
-                href="/profile"
-                label="Create Profile"
-                className={styles.browseButton}
-                renderLink={(linkProps) => <Link {...linkProps} />}
-              />
-            )}
+            <ButtonPrimary
+              href="/profile"
+              label="Create Profile"
+              className={styles.browseButton}
+              renderLink={(linkProps) => (
+                <Link data-mobile-only {...linkProps} />
+              )}
+            />
           </div>
           <div>
             <Text t="h2" as="h2">
@@ -288,14 +302,14 @@ export const Home: NextPage<Props> = (props) => {
             <Text t="body1" className="description">
               Unprecedented transparency across the digital carbon market.
             </Text>
-            {isDesktop && (
-              <ButtonPrimary
-                href="/profile"
-                label="Create Profile"
-                className={styles.browseButton}
-                renderLink={(linkProps) => <Link {...linkProps} />}
-              />
-            )}
+            <ButtonPrimary
+              href="/profile"
+              label="Create Profile"
+              className={styles.browseButton}
+              renderLink={(linkProps) => (
+                <Link data-desktop-only {...linkProps} />
+              )}
+            />
           </div>
         </div>
       </Section>
