@@ -77,7 +77,6 @@ export const hero = css`
       font-family: var(--font-family);
 
       ${breakpoints.desktop} {
-        max-width: 70%;
         font-size: 2.4rem;
         line-height: 3.2rem;
       }

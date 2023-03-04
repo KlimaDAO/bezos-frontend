@@ -55,17 +55,12 @@ export const Home: NextPage<Props> = (props) => {
         metaDescription={t`The open platform for digital carbon.`}
       />
       <Section className={styles.hero}>
-        <Image
-          fill
-          data-desktop-only
-          alt="Carbonmark Hero"
-          src={"/hero.jpeg"}
-        />
+        <Image fill data-desktop-only alt="Carbonmark Hero" src="/hero.jpeg" />
         <Image
           fill
           data-mobile-only
           alt="Carbonmark Hero"
-          src={"/hero-sm.jpeg"}
+          src="/hero-sm.jpeg"
         />
         <Navigation transparent activePage="Home" />
         <div className="stack">
@@ -90,13 +85,13 @@ export const Home: NextPage<Props> = (props) => {
           fill
           data-desktop-only
           alt="Partners Background"
-          src={"/partners-bg.jpeg"}
+          src="/partners-bg.jpeg"
         />
         <Image
           fill
           data-mobile-only
           alt="Partners Background"
-          src={"/partners-bg-sm.jpeg"}
+          src="/partners-bg-sm.jpeg"
         />
         <div className="stack">
           <div className="">
