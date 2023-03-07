@@ -487,7 +487,9 @@ export const Home: NextPage<Props> = (props) => {
         <div className="stack">
           <Text t="h2" as="h2">
             Powered by
-            <LogoWithClaim />
+            <A href={urls.home}>
+              <LogoWithClaim />
+            </A>
           </Text>
           <Text t="body1" className="description">
             KlimaDAO provides the transparent, neutral, and public digital
@@ -514,9 +516,9 @@ export const Home: NextPage<Props> = (props) => {
             <Link href="/">
               <Trans>Resources</Trans>
             </Link>
-            <Link href={urls.home}>
+            <A href={urls.home}>
               <Trans>KlimaDAO</Trans>
-            </Link>
+            </A>
           </nav>
           <nav className={styles.footerIcons}>
             <A href={urls.twitterCarbonmark}>
