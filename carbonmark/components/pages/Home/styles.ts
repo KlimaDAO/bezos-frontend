@@ -428,6 +428,12 @@ export const poweredBySection = css`
       font-size: 3.2rem;
       line-height: 3.6rem;
     }
+
+    & svg {
+      :hover {
+        opacity: 1 !important;
+      }
+    }
   }
 
   & p.description {

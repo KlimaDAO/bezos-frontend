@@ -218,7 +218,7 @@ export const Home: NextPage<Props> = (props) => {
                     <PaymentOutlinedIcon fontSize="large" />
                   </div>
                   <Text t="body3" className="card-info">
-                    Create profile and get connected
+                    Create a profile and get connected
                   </Text>
                 </div>
               </div>
@@ -514,7 +514,7 @@ export const Home: NextPage<Props> = (props) => {
             <Link href="/">
               <Trans>Resources</Trans>
             </Link>
-            <Link href="/">
+            <Link href={urls.home}>
               <Trans>KlimaDAO</Trans>
             </Link>
           </nav>
