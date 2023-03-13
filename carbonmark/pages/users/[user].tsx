@@ -37,6 +37,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     }
 
     const userInUrl = params.user;
+    console.log("params.user", params.user);
     const isDomainInURL = getIsDomainInURL(userInUrl);
     const isValidAddress = !isDomainInURL && ethers.utils.isAddress(userInUrl);
 
@@ -70,7 +71,12 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       });
       // API returns object on 404 not found
       if (userData?.handle) {
-        carbonmarkUser = userData;
+        return {
+          redirect: {
+            destination: `/users/${userData?.handle}`,
+            permanent: true,
+          },
+        };
       }
     }
 
