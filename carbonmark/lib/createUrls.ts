@@ -17,7 +17,7 @@ export const createSellerLink = (handle: string) => `/users/${handle}`;
 
 export const createRetireLink = (params: {
   quantity: string;
-  tokenAddress: string;
+  retirementToken: string;
 }) => `${urls.offset}
 ?quantity=${params.quantity}
-&inputToken=${params.tokenAddress}`;
+&retirementToken=${params.retirementToken}`;
