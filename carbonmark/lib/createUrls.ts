@@ -21,3 +21,9 @@ export const createRetireLink = (params: {
 }) => `${urls.offset}
 ?quantity=${params.quantity}
 &retirementToken=${params.retirementToken}`;
+
+export const createRedeemLink = (params: {
+  poolName: string;
+  projectTokenAddress: string;
+}) =>
+  `${urls.redeem}?projectTokenAddress=${params.projectTokenAddress}&pool=${params.poolName}`;
