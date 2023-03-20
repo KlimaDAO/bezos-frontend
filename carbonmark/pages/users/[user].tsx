@@ -37,7 +37,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     }
 
     const userInUrl = params.user;
-    console.log("params.user", params.user);
     const isDomainInURL = getIsDomainInURL(userInUrl);
     const isValidAddress = !isDomainInURL && ethers.utils.isAddress(userInUrl);
 
@@ -69,7 +68,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         user: userAddress,
         type: "wallet",
       });
-      // API returns object on 404 not found
       if (userData?.handle) {
         return {
           redirect: {
