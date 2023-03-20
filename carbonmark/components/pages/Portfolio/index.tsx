@@ -193,12 +193,12 @@ export const Portfolio: NextPage = () => {
                 <Text>
                   <Trans>No listable assets found.</Trans>
                 </Text>
-                <Text>
-                  <Trans>
-                    Have you already created your Carbonmark Profile?
-                  </Trans>
-                </Text>
               </>
+            )}
+            {!isLoading && !user && (
+              <Text>
+                <Trans>Have you already created your Carbonmark Profile?</Trans>
+              </Text>
             )}
           </Col>
 
