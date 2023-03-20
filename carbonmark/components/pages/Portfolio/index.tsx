@@ -189,9 +189,16 @@ export const Portfolio: NextPage = () => {
             )}
 
             {isConnectedUser && !isLoading && !hasAssets && (
-              <Text>
-                <Trans>No listable assets found.</Trans>
-              </Text>
+              <>
+                <Text>
+                  <Trans>No listable assets found.</Trans>
+                </Text>
+                <Text>
+                  <Trans>
+                    Have you already created your Carbonmark Profile?
+                  </Trans>
+                </Text>
+              </>
             )}
           </Col>
 
