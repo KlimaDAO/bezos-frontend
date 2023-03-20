@@ -112,6 +112,6 @@ export const getCategoryInfo = (category: CategoryName) => {
       icon: PrecisionManufacturingOutlinedIcon,
     },
   };
-  const info = categoryInfoMap[trimmed];
+  const info = categoryInfoMap[trimmed] || categoryInfoMap.Other;
   return info;
 };

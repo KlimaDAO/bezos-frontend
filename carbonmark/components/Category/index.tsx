@@ -14,10 +14,6 @@ export const Category: FC<Props> = (props) => {
   // quick fix: take the first one
   const categoryInfo = getCategoryInfo(props.category);
 
-  if (!categoryInfo) {
-    return <div className={styles.category}>??</div>;
-  }
-
   const Icon = categoryInfo.icon;
 
   const other = categoryInfo.key === "Other";
