@@ -78,7 +78,7 @@ msgstr "Back to Project"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:28
 #: components/pages/Project/BuyOptions/SellerListing.tsx:47
-#: components/pages/Project/index.tsx:120
+#: components/pages/Project/index.tsx:121
 msgid "Best Price"
 msgstr "Best Price"
 
@@ -156,7 +156,7 @@ msgstr "Country"
 msgid "Created:"
 msgstr "Created:"
 
-#: components/pages/Project/index.tsx:179
+#: components/pages/Project/index.tsx:180
 msgid "Data for this project and vintage"
 msgstr "Data for this project and vintage"
 
@@ -165,7 +165,7 @@ msgstr "Data for this project and vintage"
 msgid "Data for this seller"
 msgstr "Data for this seller"
 
-#: components/pages/Project/index.tsx:151
+#: components/pages/Project/index.tsx:152
 msgid "Description"
 msgstr "Description"
 
@@ -201,9 +201,9 @@ msgstr "Handle should not be an address"
 msgid "Handle should not contain any special characters"
 msgstr "Handle should not contain any special characters"
 
-#: components/pages/Portfolio/index.tsx:197
-msgid "Have you already created your Carbonmark Profile?"
-msgstr "Have you already created your Carbonmark Profile?"
+#: components/pages/Portfolio/index.tsx:200
+msgid "Have you already created your Carbonmark <0>Profile</0>?"
+msgstr "Have you already created your Carbonmark <0>Profile</0>?"
 
 #: components/Footer/index.tsx:42
 #: components/pages/Home/index.tsx:507
@@ -253,7 +253,7 @@ msgstr "Login"
 msgid "Marketplace"
 msgstr "Marketplace"
 
-#: components/pages/Project/index.tsx:128
+#: components/pages/Project/index.tsx:129
 msgid "Methodology"
 msgstr "Methodology"
 
@@ -274,7 +274,7 @@ msgstr "No active listings."
 msgid "No listable assets found."
 msgstr "No listable assets found."
 
-#: components/pages/Project/index.tsx:169
+#: components/pages/Project/index.tsx:170
 msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
@@ -545,7 +545,7 @@ msgstr "Your Wallet Address:"
 msgid "Your display name"
 msgstr "Your display name"
 
-#: components/pages/Portfolio/index.tsx:210
+#: components/pages/Portfolio/index.tsx:213
 #: components/pages/Users/SellerConnected/index.tsx:236
 msgid "Your seller data"
 msgstr "Your seller data"
@@ -1029,8 +1029,8 @@ msgstr "Total Amount to Sell is required"
 msgid "user.login.description"
 msgstr "This feature is available only to users who are logged in. You can log in or create an account via the button below."
 
-#: components/pages/Project/index.tsx:84
 #: components/pages/Project/index.tsx:85
+#: components/pages/Project/index.tsx:86
 msgid "{0} | Carbonmark"
 msgstr "{0} | Carbonmark"
 

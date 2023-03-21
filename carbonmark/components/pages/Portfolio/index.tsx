@@ -197,7 +197,10 @@ export const Portfolio: NextPage = () => {
             )}
             {!isLoading && !user && (
               <Text>
-                <Trans>Have you already created your Carbonmark Profile?</Trans>
+                <Trans>
+                  Have you already created your Carbonmark{" "}
+                  <Link href={`/users/${address}`}>Profile</Link>?
+                </Trans>
               </Text>
             )}
           </Col>
