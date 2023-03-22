@@ -19,7 +19,7 @@ export const createRetireLink = (params: {
   quantity: string;
   retirementToken: string;
 }) => {
-  const searchParams = new URLSearchParams({});
+  const searchParams = new URLSearchParams();
 
   if (params.retirementToken) {
     searchParams.append("retirementToken", params.retirementToken);
@@ -35,7 +35,7 @@ export const createRedeemLink = (params: {
   poolName: string;
   projectTokenAddress: string;
 }) => {
-  const searchParams = new URLSearchParams({});
+  const searchParams = new URLSearchParams();
 
   if (params.poolName) {
     searchParams.append("pool", params.poolName);
