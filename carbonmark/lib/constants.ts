@@ -8,12 +8,12 @@ export const IS_PRODUCTION =
 /** True if local development (not preview deployment) */
 export const IS_LOCAL_DEVELOPMENT = process.env.NODE_ENV === "development";
 
-// const ENVIRONMENT = IS_PRODUCTION
-//   ? "production"
-//   : IS_LOCAL_DEVELOPMENT
-//   ? "development"
-//   : "preview";
-const ENVIRONMENT = "production";
+const ENVIRONMENT = IS_PRODUCTION
+  ? "production"
+  : IS_LOCAL_DEVELOPMENT
+  ? "development"
+  : "preview";
+
 export const MINIMUM_TONNE_PRICE = 0.1;
 export const CARBONMARK_FEE = 0.0; // 0%
 
