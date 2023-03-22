@@ -96,13 +96,18 @@ export const useProvider = (): Web3ModalState => {
         const { default: Torus } = await import("@toruslabs/torus-embed");
         const torus = new Torus();
         await torus.init({
+          buildEnv: "production",
+          enableLogging: false,
           network: {
-            host: urls.infuraPolygonRpcClient,
+            host: urls.polygonMainnetRpc,
             chainId: 137,
             networkName: "Polygon",
           },
           showTorusButton: false,
-        });
+          useLocalStorage: true,
+          // torus types are incorrect
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } as any);
         await torus.login();
         provider = getWeb3Provider(torus.provider);
         (provider.provider as TorusProvider).torus = torus; // inject so we can access this later (on disconnect)
