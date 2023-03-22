@@ -63,12 +63,19 @@ export const Home: NextPage<Props> = (props) => {
         metaDescription={t`The open platform for digital carbon.`}
       />
       <Section className={styles.hero}>
-        <Image fill data-desktop-only alt="Carbonmark Hero" src="/hero.jpeg" />
+        <Image
+          fill
+          data-desktop-only
+          alt="Carbonmark Hero"
+          src="/hero.jpeg"
+          className="heroDesktopImage"
+        />
         <Image
           fill
           data-mobile-only
           alt="Carbonmark Hero"
           src="/hero-sm.jpeg"
+          className="heroMobileImage"
         />
         <div data-mobile-only className="circle-tree">
           <Image fill alt="Circle Tree" src="/circle-tree.png" />
@@ -80,8 +87,8 @@ export const Home: NextPage<Props> = (props) => {
           </Text>
           <Text t="body1" as="h2">
             The largest selection of digital carbon credits worldwide. Buy,
-            sell, and retire digital carbon from any project instantly with 0%
-            transaction fee.
+            sell, and retire carbon from any project instantly with
+            zero-commission fees.
           </Text>
           <ButtonPrimary
             href="/projects"

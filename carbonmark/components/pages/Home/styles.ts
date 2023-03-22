@@ -17,11 +17,14 @@ export const global = css`
 `;
 
 export const hero = css`
-  display: grid;
-  padding: 4rem 0 0 !important;
   grid-column: full;
   grid-template-columns: inherit;
   position: relative;
+
+  .heroDesktopImage,
+  .heroMobileImage {
+    filter: blur(6px);
+  }
 
   & img {
     z-index: 1;
@@ -44,8 +47,9 @@ export const hero = css`
 
   ${breakpoints.desktop} {
     height: 100vh;
-    padding: 0 !important;
-
+    align-content: start;
+    padding: unset;
+    gap: 6.4rem;
     & img {
       object-position: top;
     }
