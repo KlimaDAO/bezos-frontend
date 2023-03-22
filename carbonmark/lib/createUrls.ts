@@ -18,21 +18,31 @@ export const createSellerLink = (handle: string) => `/users/${handle}`;
 export const createRetireLink = (params: {
   quantity: string;
   retirementToken: string;
-}) =>
-  `${urls.offset}
-?${
-    params.quantity &&
-    `quantity=${params.quantity}
-&`
-  }${params.retirementToken && `retirementToken=${params.retirementToken}`}`;
+}) => {
+  const searchParams = new URLSearchParams({});
+
+  if (params.retirementToken) {
+    searchParams.append("retirementToken", params.retirementToken);
+  }
+  if (params.quantity) {
+    searchParams.append("quantity", params.quantity);
+  }
+
+  return `${urls.offset}?${searchParams}`;
+};
 
 export const createRedeemLink = (params: {
   poolName: string;
   projectTokenAddress: string;
-}) =>
-  params.poolName && params.projectTokenAddress
-    ? `${urls.redeem}?${
-        params.projectTokenAddress &&
-        `projectTokenAddress=${params.projectTokenAddress}&`
-      }${params.poolName && `pool=${params.poolName}`}`
-    : urls.redeem;
+}) => {
+  const searchParams = new URLSearchParams({});
+
+  if (params.poolName) {
+    searchParams.append("pool", params.poolName);
+  }
+  if (params.projectTokenAddress) {
+    searchParams.append("projectTokenAddress", params.projectTokenAddress);
+  }
+
+  return `${urls.redeem}?${searchParams}`;
+};
