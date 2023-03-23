@@ -7,7 +7,7 @@ import { PageHead } from "components/PageHead";
 import PortableTextRenderer from "components/pages/Resources/PortableTextRenderer";
 import { Navigation } from "components/shared/Navigation";
 import { Text } from "components/Text";
-import { url as carbonmarkUrls } from "lib/constants";
+import { urls as carbonmarkUrls } from "lib/constants";
 import { Post } from "lib/queries";
 import Image from "next/legacy/image";
 import Link from "next/link";
