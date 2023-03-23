@@ -71,7 +71,7 @@ export const listingsAndStats = css`
   .statsColumn {
     display: grid;
     align-content: flex-start;
-    gap: 2rem;
+    gap: 1.2rem;
     ${breakpoints.desktop} {
       grid-column: 3/4;
     }
