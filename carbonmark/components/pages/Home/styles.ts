@@ -23,6 +23,21 @@ export const hero = css`
   grid-template-columns: inherit;
   position: relative;
 
+  .heroImg {
+    z-index: 0;
+  }
+
+  .heroImgMask {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+  }
+
   & img {
     z-index: 1;
     object-fit: cover;
@@ -69,7 +84,7 @@ export const hero = css`
 
     & h1 {
       margin: 0;
-      color: #000;
+      color: white;
       font-size: 4.4rem;
       line-height: 4.4rem;
       max-width: 75%;
@@ -83,7 +98,7 @@ export const hero = css`
 
     & h2 {
       margin: 0;
-      color: #000;
+      color: white;
       font-weight: 500;
       font-size: 1.6rem;
       line-height: 2rem;
@@ -681,16 +696,6 @@ export const section = css`
       }
     }
   }
-`;
-
-export const heroBackground = css`
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 40.1%,
-    rgba(255, 255, 255, 0.72) 100%
-  );
-  border-radius: 1rem;
-  padding: 2rem 2.4rem;
 `;
 
 export const sectionImage = css`

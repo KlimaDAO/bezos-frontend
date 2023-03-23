@@ -52,18 +52,15 @@ export const Home: NextPage<Props> = (props) => {
         metaDescription={t`The open platform for digital carbon.`}
       />
       <Section className={styles.hero}>
-        <Image fill data-desktop-only alt="Carbonmark Hero" src="/hero.jpeg" />
         <Image
           fill
-          data-mobile-only
           alt="Carbonmark Hero"
-          src="/hero-sm.jpeg"
+          className="heroImg"
+          src="/hero_road.jpg"
         />
-        <div data-mobile-only className="circle-tree">
-          <Image fill alt="Circle Tree" src="/circle-tree.png" />
-        </div>
+        <div className="heroImgMask" />
         <Navigation transparent activePage="Home" />
-        <div className={cx(["stack", styles.heroBackground])}>
+        <div className="stack">
           <Text t="h1" as="h1">
             The Universal Carbon Marketplace
           </Text>
