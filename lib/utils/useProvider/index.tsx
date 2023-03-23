@@ -95,6 +95,7 @@ export const useProvider = (): Web3ModalState => {
       } else if (wallet === "torus" || connectedWallet === "torus") {
         const { default: Torus } = await import("@toruslabs/torus-embed");
         const torus = new Torus();
+        await torus.cleanUp();
         await torus.init({
           buildEnv: "production",
           enableLogging: false,
