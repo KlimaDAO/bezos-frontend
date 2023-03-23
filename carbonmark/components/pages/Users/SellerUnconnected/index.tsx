@@ -10,7 +10,7 @@ import { createProjectPurchaseLink } from "lib/createUrls";
 import {
   getActiveListings,
   getAllListings,
-  getSortByUpdateListings
+  getSortByUpdateListings,
 } from "lib/listingsGetter";
 import { User } from "lib/types/carbonmark";
 import { FC } from "react";
