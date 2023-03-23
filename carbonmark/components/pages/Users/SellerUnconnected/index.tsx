@@ -10,7 +10,7 @@ import { createProjectPurchaseLink } from "lib/createUrls";
 import {
   getActiveListings,
   getAllListings,
-  getSortByUpdateListings,
+  getSortByUpdateListings
 } from "lib/listingsGetter";
 import { User } from "lib/types/carbonmark";
 import { FC } from "react";
@@ -44,6 +44,7 @@ export const SellerUnconnected: FC<Props> = (props) => {
       <div className={styles.fullWidth}>
         <ProfileHeader
           userName={userData?.username || props.userName}
+          handle={props.carbonmarkUser?.handle}
           isCarbonmarkUser={!!userData}
           description={userData?.description}
           profileImgUrl={userData?.profileImgUrl}
