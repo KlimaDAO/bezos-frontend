@@ -57,7 +57,7 @@ export const Home: NextPage<Props> = (props) => {
           fill
           data-desktop-only
           alt="Carbonmark Hero"
-          src="/landing-hero-1.jpg"
+          src="/landing-hero-2.jpg"
         />
         <Image
           fill
