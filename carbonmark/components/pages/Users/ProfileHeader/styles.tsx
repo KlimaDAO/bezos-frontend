@@ -33,10 +33,11 @@ export const titles = css`
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 0rem;
   ${breakpoints.desktop} {
     flex-direction: row;
+    gap: 2rem;
   }
-  gap: 2rem;
   .handle {
     color: var(--bright-blue);
   }
