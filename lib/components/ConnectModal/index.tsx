@@ -5,6 +5,7 @@ import MailOutlineIconDefault from "@mui/icons-material/MailOutline";
 import { providers } from "ethers";
 import React, { useEffect, useState } from "react";
 import {
+  Anchor,
   BraveIcon,
   ButtonPrimary,
   CircleWalletIcon,
@@ -213,10 +214,12 @@ export const ConnectModal = (props: ConnectModalProps) => {
                   <p className={styles.subText}>{props.institutionalText}</p>
                   <div className={styles.rightLine} />
                 </span>
-                <button className={styles.walletButtonCircle}>
-                  <CircleWalletIcon className={styles.browserWalletIcon} />
-                  <p className={styles.button}>circle custody</p>
-                </button>
+                <Anchor href="https://www.carbonmark.com/blog/circle-institutional-custody-solution">
+                  <button className={styles.walletButtonCircle}>
+                    <CircleWalletIcon className={styles.browserWalletIcon} />
+                    <p className={styles.button}>circle custody</p>
+                  </button>
+                </Anchor>
               </div>
             </div>
           )}
