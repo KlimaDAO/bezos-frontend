@@ -33,6 +33,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   const firstRender = useRef(true);
   const { translation, fixedThemeName } = pageProps;
+  const appRouter = useRouter();
 
   const locale = router.locale || (router.defaultLocale as string);
   // run only once on the first render (for server side)
@@ -61,11 +62,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       document.body.dataset.theme = fixedThemeName;
     }
   });
-  const appRouter = useRouter();
 
   useEffect(() => {
     const handleStart = (url: string) => {
       console.log(`Loading: ${url}`);
+      NProgress.configure({ showSpinner: false });
       NProgress.start();
     };
 
