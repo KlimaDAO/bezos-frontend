@@ -4,7 +4,10 @@ import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
 import { activateLocale, loadTranslation } from "lib/i18n";
 import type { AppProps } from "next/app";
+import { useRouter } from "next/router";
 import Script from "next/script";
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
 import { useEffect, useRef } from "react";
 
 // organize-imports-ignore
@@ -58,6 +61,28 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       document.body.dataset.theme = fixedThemeName;
     }
   });
+  const appRouter = useRouter();
+
+  useEffect(() => {
+    const handleStart = (url: string) => {
+      console.log(`Loading: ${url}`);
+      NProgress.start();
+    };
+
+    const handleStop = () => {
+      NProgress.done();
+    };
+
+    appRouter.events.on("routeChangeStart", handleStart);
+    appRouter.events.on("routeChangeComplete", handleStop);
+    appRouter.events.on("routeChangeError", handleStop);
+
+    return () => {
+      appRouter.events.off("routeChangeStart", handleStart);
+      appRouter.events.off("routeChangeComplete", handleStop);
+      appRouter.events.off("routeChangeError", handleStop);
+    };
+  }, [appRouter]);
 
   return (
     <>
