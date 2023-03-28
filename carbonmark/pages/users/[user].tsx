@@ -14,15 +14,16 @@ interface Params extends ParsedUrlQuery {
   user: string;
 }
 
-interface PageProps {
+export interface UserPageStaticProps {
   userAddress: string;
   userDomain: string | null;
   carbonmarkUser: User | null;
 }
 
-export const getStaticProps: GetStaticProps<PageProps, Params> = async (
-  ctx
-) => {
+export const getStaticProps: GetStaticProps<
+  UserPageStaticProps,
+  Params
+> = async (ctx) => {
   const { params, locale } = ctx;
 
   if (!params || !params?.user) {
