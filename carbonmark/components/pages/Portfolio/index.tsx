@@ -33,7 +33,6 @@ export const Portfolio: NextPage = () => {
     revalidateOnMount: true,
     refreshInterval: interval,
     revalidateIfStale: true,
-    keepPreviousData: true,
   });
 
   const [isLoadingUser, setIsLoadingUser] = useState(true);
