@@ -10,61 +10,58 @@ import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col } from "components/TwoColLayout";
+import { useFetchUser } from "hooks/useFetchUser";
 import { addProjectsToAssets } from "lib/actions";
-import { getUser } from "lib/api";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
 import { getActiveListings, getAllListings } from "lib/listingsGetter";
-import { pollUntil } from "lib/pollUntil";
 import { AssetForListing, User } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AssetProject } from "./AssetProject";
 import { Balances } from "./Balances";
 import * as styles from "./styles";
 
+// API is updated when new activity exists
+const activityWasAdded = (oldUser: User, newUser: User) => {
+  const formerActivityLength = oldUser?.activities?.length || 0;
+  const newActivityLength = newUser?.activities?.length || 0;
+  return newActivityLength > formerActivityLength;
+};
+
 export const Portfolio: NextPage = () => {
   const { isConnected, address, toggleModal } = useWeb3();
-  const [isLoadingUser, setIsLoadingUser] = useState(false);
-  const [user, setUser] = useState<null | User>(null);
+  const initialUser = useRef<User | null>(null);
+  const fetchIntervalTimer = useRef<NodeJS.Timeout | undefined>();
+
+  const [interval, setInterval] = useState(0);
+  const { carbonmarkUser } = useFetchUser(address, {
+    revalidateOnMount: true,
+    refreshInterval: interval,
+    revalidateIfStale: true,
+    keepPreviousData: true,
+  });
+
+  const [isLoadingUser, setIsLoadingUser] = useState(true);
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
   const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
   const [assetToSell, setAssetToSell] = useState<AssetForListing | null>(null);
   const [errorMessage, setErrorMessage] = useState("");
 
   const assetWithProjectTokens =
-    !!user?.assets?.length && getAssetsWithProjectTokens(user.assets);
-  const hasListings = !isLoadingUser && !!user?.listings?.length;
-  const allListings = hasListings && getAllListings(user.listings);
-  const activeListings = hasListings && getActiveListings(user.listings);
+    !!carbonmarkUser?.assets?.length &&
+    getAssetsWithProjectTokens(carbonmarkUser.assets);
+  const hasListings = !isLoadingUser && !!carbonmarkUser?.listings?.length;
+  const allListings = hasListings && getAllListings(carbonmarkUser.listings);
+  const activeListings =
+    hasListings && getActiveListings(carbonmarkUser.listings);
 
   const isConnectedUser = isConnected && address;
   const isLoading = isLoadingUser || isLoadingAssets;
 
   const hasAssets = !isLoadingAssets && !!assetWithProjectTokens;
 
-  useEffect(() => {
-    if (!isConnectedUser) return;
-
-    const getInitialUserData = async () => {
-      try {
-        setIsLoadingUser(true);
-        const newUser = await getUser({
-          type: "wallet",
-          user: address,
-        });
-        setUser(newUser);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsLoadingUser(false);
-      }
-    };
-
-    !user && getInitialUserData();
-  }, [isConnectedUser]);
-
-  // load Assets every time user changed
+  // load Assets every time assets changed
   useEffect(() => {
     if (hasAssets && address) {
       const getAssetsData = async () => {
@@ -75,6 +72,7 @@ export const Portfolio: NextPage = () => {
             const assetsWithProject = await addProjectsToAssets({
               assets: assetWithProjectTokens,
             });
+
             // TODO: filter assets with balance > 0
             // this will be unnecessary as soon as bezos switched to mainnet
 
@@ -93,44 +91,51 @@ export const Portfolio: NextPage = () => {
 
       getAssetsData();
     }
-  }, [user]);
+  }, [carbonmarkUser?.assets]);
+
+  // when carbonmark user data changed
+  useEffect(() => {
+    // store first data and return
+    if (!initialUser.current && carbonmarkUser) {
+      initialUser.current = carbonmarkUser;
+      setIsLoadingUser(false);
+      return;
+    }
+
+    // when activity data differs => reset state and update initial user
+    if (
+      initialUser.current &&
+      carbonmarkUser &&
+      activityWasAdded(initialUser.current, carbonmarkUser)
+    ) {
+      setInterval(0);
+      setIsLoadingUser(false);
+      initialUser.current = carbonmarkUser;
+      fetchIntervalTimer.current && clearTimeout(fetchIntervalTimer.current);
+    }
+  }, [carbonmarkUser]);
+
+  // on unmount
+  useEffect(() => {
+    return () => {
+      fetchIntervalTimer.current && clearTimeout(fetchIntervalTimer.current);
+    };
+  }, []);
 
   const onUpdateUser = async () => {
-    if (!user) return; // TS typeguard
+    // increase fetch interval
+    // the useEffect above will take care of updated carbonmark user data
+    setInterval(1000);
+    setIsLoadingUser(true);
 
-    try {
-      setErrorMessage("");
-      setIsLoadingUser(true);
-
-      const fetchUser = () =>
-        getUser({
-          user: user.wallet,
-          type: "wallet",
-        });
-
-      // API is updated when new activity exists
-      const activityIsAdded = (value: User) => {
-        const newActivityLength = value.activities.length;
-        const currentActivityLength = user.activities.length;
-        return newActivityLength > currentActivityLength;
-      };
-
-      const updatedUser = await pollUntil({
-        fn: fetchUser,
-        validate: activityIsAdded,
-        ms: 1000,
-        maxAttempts: 50,
-      });
-
-      updatedUser && setUser((prev) => ({ ...prev, ...updatedUser }));
-    } catch (e) {
-      console.error("LOAD USER ACTIVITY error", e);
-      setErrorMessage(
-        t`Please refresh the page. There was an error updating your data: ${e}.`
-      );
-    } finally {
+    // Show error message after 50 seconds
+    fetchIntervalTimer.current = setTimeout(() => {
+      setInterval(0);
       setIsLoadingUser(false);
-    }
+      setErrorMessage(
+        t`Please refresh the page. There was an error updating your data.`
+      );
+    }, 50000);
   };
 
   return (
@@ -195,7 +200,7 @@ export const Portfolio: NextPage = () => {
                 </Text>
               </>
             )}
-            {isConnectedUser && !isLoading && !user && (
+            {isConnectedUser && !isLoading && !carbonmarkUser && (
               <Text>
                 <Trans>
                   Have you already created your Carbonmark{" "}
@@ -212,7 +217,7 @@ export const Portfolio: NextPage = () => {
               activeListings={activeListings || []}
               description={t`Your seller data`}
             />
-            <Activities activities={user?.activities || []} />
+            <Activities activities={carbonmarkUser?.activities || []} />
           </Col>
         </div>
       </Layout>

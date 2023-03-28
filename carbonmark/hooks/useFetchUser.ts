@@ -4,9 +4,9 @@ import type { SWRConfiguration } from "swr";
 import useSWR from "swr";
 import { User } from "../lib/types/carbonmark";
 
-export const useFetchUser = (address: string, options?: SWRConfiguration) => {
+export const useFetchUser = (address?: string, options?: SWRConfiguration) => {
   const { data, ...rest } = useSWR<User>(
-    `${urls.baseUrl}/api/users/${address}?type=wallet`,
+    address ? `${urls.baseUrl}/api/users/${address}?type=wallet` : null,
     fetcher,
     options
   );
