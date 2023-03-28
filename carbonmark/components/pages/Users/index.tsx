@@ -5,7 +5,6 @@ import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { Spinner } from "components/shared/Spinner";
 import { useConnectedUser } from "hooks/useConnectedUser";
-import { urls } from "lib/constants";
 import { NextPage } from "next";
 import { UserPageStaticProps } from "pages/users/[user]";
 import { useEffect, useState } from "react";
@@ -68,8 +67,7 @@ export const Users: NextPage<UserPageStaticProps> = (props) => (
     value={{
       fetcher,
       fallback: {
-        [`${urls.baseUrl}/api/users/${props.userAddress}?type=wallet`]:
-          props.carbonmarkUser,
+        [`/api/users/${props.userAddress}?type=wallet`]: props.carbonmarkUser,
       },
     }}
   >

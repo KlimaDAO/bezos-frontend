@@ -11,7 +11,6 @@ import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { useFetchProject } from "hooks/useFetchProject";
-import { urls } from "lib/constants";
 import { formatToPrice } from "lib/formatNumbers";
 import {
   getActiveListings,
@@ -228,7 +227,7 @@ export const Project: NextPage<ProjectPageStaticProps> = (props) => (
     value={{
       fetcher,
       fallback: {
-        [`${urls.baseUrl}/api/projects/${props.projectID}`]: props.project,
+        [`/api/projects/${props.projectID}`]: props.project,
       },
     }}
   >
