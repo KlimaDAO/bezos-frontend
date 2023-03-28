@@ -12,6 +12,7 @@ import { Text } from "components/Text";
 import { Col } from "components/TwoColLayout";
 import { useFetchUser } from "hooks/useFetchUser";
 import { addProjectsToAssets } from "lib/actions";
+import { getActivityIsUpdated } from "lib/getActivityIsUpdated";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
 import { getActiveListings, getAllListings } from "lib/listingsGetter";
 import { AssetForListing, User } from "lib/types/carbonmark";
@@ -21,13 +22,6 @@ import { useEffect, useRef, useState } from "react";
 import { AssetProject } from "./AssetProject";
 import { Balances } from "./Balances";
 import * as styles from "./styles";
-
-// API is updated when new activity exists
-const activityWasAdded = (oldUser: User, newUser: User) => {
-  const formerActivityLength = oldUser?.activities?.length || 0;
-  const newActivityLength = newUser?.activities?.length || 0;
-  return newActivityLength > formerActivityLength;
-};
 
 export const Portfolio: NextPage = () => {
   const { isConnected, address, toggleModal } = useWeb3();
@@ -106,7 +100,7 @@ export const Portfolio: NextPage = () => {
     if (
       initialUser.current &&
       carbonmarkUser &&
-      activityWasAdded(initialUser.current, carbonmarkUser)
+      getActivityIsUpdated(initialUser.current, carbonmarkUser)
     ) {
       setInterval(0);
       setIsLoadingUser(false);

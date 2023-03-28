@@ -13,6 +13,7 @@ import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { useFetchUser } from "hooks/useFetchUser";
 import { addProjectsToAssets } from "lib/actions";
+import { getActivityIsUpdated } from "lib/getActivityIsUpdated";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
 import {
   getActiveListings,
@@ -30,13 +31,6 @@ import * as styles from "./styles";
 type Props = {
   userName: string;
   userAddress: string;
-};
-
-// API is updated when new activity exists
-const activityWasAdded = (oldUser: User, newUser: User) => {
-  const formerActivityLength = oldUser?.activities?.length || 0;
-  const newActivityLength = newUser?.activities?.length || 0;
-  return newActivityLength > formerActivityLength;
 };
 
 export const SellerConnected: FC<Props> = (props) => {
@@ -131,7 +125,7 @@ export const SellerConnected: FC<Props> = (props) => {
     if (
       initialUser.current &&
       carbonmarkUser &&
-      activityWasAdded(initialUser.current, carbonmarkUser)
+      getActivityIsUpdated(initialUser.current, carbonmarkUser)
     ) {
       setInterval(0);
       setIsUpdatingUser(false);
