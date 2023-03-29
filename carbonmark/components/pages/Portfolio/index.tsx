@@ -29,7 +29,7 @@ export const Portfolio: NextPage = () => {
   const fetchIntervalTimer = useRef<NodeJS.Timeout | undefined>();
 
   const [interval, setInterval] = useState(0);
-  const { carbonmarkUser } = useFetchUser(address, {
+  const { carbonmarkUser, isLoading: isFetchingUser } = useFetchUser(address, {
     revalidateOnMount: true,
     refreshInterval: interval,
     revalidateIfStale: true,
@@ -146,7 +146,7 @@ export const Portfolio: NextPage = () => {
         <div className={styles.portfolioContent}>
           <Col>
             {!isConnectedUser && (
-              <LoginCard isLoading={isLoadingUser} onLogin={toggleModal} />
+              <LoginCard isLoading={isFetchingUser} onLogin={toggleModal} />
             )}
 
             {isConnectedUser && isLoading && <SpinnerWithLabel />}
@@ -186,14 +186,14 @@ export const Portfolio: NextPage = () => {
               />
             )}
 
-            {isConnectedUser && !isLoading && !hasAssets && (
+            {isConnectedUser && !isFetchingUser && !hasAssets && (
               <>
                 <Text>
                   <Trans>No listable assets found.</Trans>
                 </Text>
               </>
             )}
-            {isConnectedUser && !isLoading && !carbonmarkUser && (
+            {isConnectedUser && !isFetchingUser && !carbonmarkUser && (
               <Text>
                 <Trans>
                   Have you already created your Carbonmark{" "}
