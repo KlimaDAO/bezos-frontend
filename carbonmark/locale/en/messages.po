@@ -79,7 +79,7 @@ msgstr "Back to Project"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:29
 #: components/pages/Project/BuyOptions/SellerListing.tsx:47
-#: components/pages/Project/index.tsx:148
+#: components/pages/Project/index.tsx:147
 msgid "Best Price"
 msgstr "Best Price"
 
@@ -153,7 +153,7 @@ msgstr "Country"
 msgid "Created:"
 msgstr "Created:"
 
-#: components/pages/Project/index.tsx:207
+#: components/pages/Project/index.tsx:206
 msgid "Data for this project and vintage"
 msgstr "Data for this project and vintage"
 
@@ -162,7 +162,7 @@ msgstr "Data for this project and vintage"
 msgid "Data for this seller"
 msgstr "Data for this seller"
 
-#: components/pages/Project/index.tsx:179
+#: components/pages/Project/index.tsx:178
 msgid "Description"
 msgstr "Description"
 
@@ -186,7 +186,7 @@ msgstr "Edit Profile"
 msgid "Final price"
 msgstr "Final price"
 
-#: components/pages/Project/index.tsx:113
+#: components/pages/Project/index.tsx:112
 msgid "Go back to all projects"
 msgstr "Go back to all projects"
 
@@ -202,7 +202,7 @@ msgstr "Handle should not be an address"
 msgid "Handle should not contain any special characters"
 msgstr "Handle should not contain any special characters"
 
-#: components/pages/Portfolio/index.tsx:198
+#: components/pages/Portfolio/index.tsx:197
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Have you already created your Carbonmark <0>Profile</0>?"
 
@@ -263,7 +263,7 @@ msgstr "Manage your digital carbon assets and listings."
 msgid "Marketplace"
 msgstr "Marketplace"
 
-#: components/pages/Project/index.tsx:156
+#: components/pages/Project/index.tsx:155
 msgid "Methodology"
 msgstr "Methodology"
 
@@ -280,11 +280,11 @@ msgstr "New Unit Price (USDC)"
 msgid "No active listings."
 msgstr "No active listings."
 
-#: components/pages/Portfolio/index.tsx:192
+#: components/pages/Portfolio/index.tsx:191
 msgid "No listable assets found."
 msgstr "No listable assets found."
 
-#: components/pages/Project/index.tsx:197
+#: components/pages/Project/index.tsx:196
 msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
@@ -431,7 +431,7 @@ msgstr "Sorry, something went wrong."
 msgid "Sorry, this handle already exists"
 msgstr "Sorry, this handle already exists"
 
-#: components/pages/Project/index.tsx:108
+#: components/pages/Project/index.tsx:107
 msgid "Sorry, we could not find any data for the project:"
 msgstr "Sorry, we could not find any data for the project:"
 
@@ -440,8 +440,8 @@ msgid "Stats"
 msgstr "Stats"
 
 #: components/pages/Portfolio/index.tsx:179
-msgid "Success. Go to your <0>Profile page</0> to see your new listing."
-msgstr "Success. Go to your <0>Profile page</0> to see your new listing."
+msgid "Success. Your new listing will appear shortly on your <0>Profile page</0>."
+msgstr "Success. Your new listing will appear shortly on your <0>Profile page</0>."
 
 #: components/shared/InvalidNetworkModal/index.tsx:74
 msgid "Switch to Polygon"
@@ -520,11 +520,11 @@ msgstr "User Guides"
 msgid "User Profile | Carbonmark"
 msgstr "User Profile | Carbonmark"
 
-#: components/pages/Project/index.tsx:97
+#: components/pages/Project/index.tsx:96
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "View and purchase this carbon offset project on Carbonmark"
 
-#: components/pages/Users/index.tsx:42
+#: components/pages/Users/index.tsx:41
 msgid "View seller listings, carbon market activity and more."
 msgstr "View seller listings, carbon market activity and more."
 
@@ -564,7 +564,7 @@ msgstr "Your Wallet Address:"
 msgid "Your display name"
 msgstr "Your display name"
 
-#: components/pages/Portfolio/index.tsx:211
+#: components/pages/Portfolio/index.tsx:210
 #: components/pages/Users/SellerConnected/index.tsx:241
 msgid "Your seller data"
 msgstr "Your seller data"
@@ -1040,7 +1040,7 @@ msgstr "Total Amount to Sell is required"
 msgid "user.login.description"
 msgstr "This feature is available only to users who are logged in. You can log in or create an account via the button below."
 
-#: components/pages/Users/index.tsx:36
+#: components/pages/Users/index.tsx:35
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | Profile | Carbonmark"
 

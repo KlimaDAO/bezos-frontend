@@ -177,9 +177,8 @@ export const Portfolio: NextPage = () => {
                 successScreen={
                   <Text>
                     <Trans>
-                      Success. Go to your{" "}
-                      <Link href={`/users/${address}`}>Profile page</Link> to
-                      see your new listing.
+                      Success. Your new listing will appear shortly on your{" "}
+                      <Link href={`/users/${address}`}>Profile page</Link>.
                     </Trans>
                   </Text>
                 }
