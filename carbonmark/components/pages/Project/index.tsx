@@ -1,5 +1,7 @@
 import { cx } from "@emotion/css";
 import { t, Trans } from "@lingui/macro";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import Tippy from "@tippyjs/react";
 import { Activities } from "components/Activities";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
@@ -126,12 +128,44 @@ export const Project: NextPage<Props> = (props) => {
             )}
           </div>
 
-          <div className="methodology">
-            <Text t="h5" color="lighter">
+          <div className={styles.methodology}>
+            <Text t="h5" color="lighter" align="end">
               <Trans>Methodology</Trans>
             </Text>
             <Text t="body1" color="lighter" align="end">
-              {props.project.registry}-{props.project.projectID}
+              {props?.project?.methodologies?.map((methodology, index) => (
+                <span
+                  key={`methodology-ids-${index}`}
+                  className={styles.methodologyId}
+                >
+                  {methodology.id}
+                </span>
+              ))}
+              {props?.project?.methodologies?.length && (
+                <Tippy
+                  offset={[-100, 8]}
+                  content={
+                    <Text
+                      t="body1"
+                      align="center"
+                      className={styles.info_content}
+                    >
+                      {props?.project?.methodologies?.map(
+                        (methodology, index) => (
+                          <span
+                            key={`methodology-name-${index}`}
+                            className={styles.methodologyNames}
+                          >
+                            {methodology.name}
+                          </span>
+                        )
+                      )}
+                    </Text>
+                  }
+                >
+                  <InfoOutlined />
+                </Tippy>
+              )}
             </Text>
           </div>
         </div>
