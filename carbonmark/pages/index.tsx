@@ -5,6 +5,7 @@ import { GetStaticProps } from "next";
 
 const defaultProjectKeys = [
   "VCS-981-2014",
+  // not available in dev
   "VCS-1764-20200615",
   "VCS-1190-2017",
 ];
