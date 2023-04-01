@@ -142,7 +142,7 @@ export const Project: NextPage<Props> = (props) => {
               {formatList(allMethodologyIds, "narrow")}
               {props?.project?.methodologies?.length && (
                 <TextInfoTooltip
-                  styleOverrides={styles.info_content}
+                  customStyles={styles.info_content}
                   tooltip={formatList(allMethodologyNames, "short")}
                 >
                   <InfoOutlined />
