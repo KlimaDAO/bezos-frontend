@@ -139,24 +139,6 @@ export const meta = css`
   }
 `;
 
-export const methodologyId = css`
-  :after {
-    content: ", ";
-  }
-  :last-of-type:after {
-    content: "";
-  }
-`;
-
-export const methodologyNames = css`
-  :after {
-    content: " & ";
-  }
-  :last-of-type:after {
-    content: "";
-  }
-`;
-
 export const methodology = css`
   gap: 0.2rem;
   display: flex;
@@ -178,7 +160,11 @@ export const methodology = css`
 export const info_content = css`
   color: var(--white);
   padding: 1.2rem;
-  max-width: 23rem;
+  background: #303030;
+  max-width: 23rem !important;
   border-radius: 0.4rem;
-  text-align: left !important;
+
+  .tippy-arrow {
+    color: #303030;
+  }
 `;
