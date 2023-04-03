@@ -36,6 +36,7 @@ export interface ConnectModalProps {
   errors: {
     default: string;
     rejected: string;
+    alreadyProcessing: string;
   };
   /** Callback invoked when the modal is closed by X or click-off, NOT invoked on successful connection */
   onClose?: () => void;
@@ -53,7 +54,7 @@ export const ConnectModal = (props: ConnectModalProps) => {
   const focusTrapRef = useFocusTrap();
   const [eth, setEth] = useState<WindowEthereum | undefined>(undefined);
   const [errorName, setErrorName] = useState<
-    "default" | "rejected" | undefined
+    "default" | "rejected" | "alreadyProcessing" | undefined
   >();
 
   useEffect(() => {
@@ -98,6 +99,11 @@ export const ConnectModal = (props: ConnectModalProps) => {
       console.error(e);
       if (e.name === "rejected") {
         setErrorName(e.name);
+      } else if (
+        e.message === "Already processing eth_requestAccounts. Please wait." ||
+        e.code === -32002
+      ) {
+        setErrorName("alreadyProcessing");
       } else {
         setErrorName("default");
       }
