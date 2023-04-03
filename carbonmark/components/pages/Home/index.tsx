@@ -12,7 +12,7 @@ import {
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { getImageSizes } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import ControlPointDuplicateOutlinedIcon from "@mui/icons-material/ControlPointDuplicateOutlined";
 import MouseOutlinedIcon from "@mui/icons-material/MouseOutlined";
@@ -24,9 +24,9 @@ import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { Category } from "components/Category";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
-import { Navigation } from "components/shared/Navigation";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
+import { Navigation } from "components/shared/Navigation";
 import { useResponsive } from "hooks/useResponsive";
 import { urls as carbonmarkUrls } from "lib/constants";
 import { createProjectLink } from "lib/createUrls";
@@ -48,9 +48,9 @@ export const Home: NextPage<Props> = (props) => {
   return (
     <GridContainer className={styles.global}>
       <PageHead
-        title={t`Carbonmark.com`}
-        mediaTitle={t`Carbonmark | Universal Carbon Market`}
-        metaDescription={t`The open platform for digital carbon.`}
+        title={t`Carbonmark | The Universal Carbon Marketplace`}
+        mediaTitle={t`Carbonmark | The Universal Carbon Marketplace`}
+        metaDescription={t`The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading.`}
       />
       <Section className={styles.hero}>
         <Image
