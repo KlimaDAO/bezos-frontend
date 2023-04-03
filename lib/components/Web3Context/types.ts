@@ -75,6 +75,7 @@ export interface RenderModalProps {
   errors: {
     default: string;
     rejected: string;
+    alreadyProcessing: string;
   };
   buttonClassName?: string;
   onClose?: () => void;
