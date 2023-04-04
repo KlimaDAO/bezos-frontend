@@ -160,6 +160,9 @@ export const urls = {
   transakMatic:
     "https://global.transak.com/?fiatCurrency=EUR&network=polygon&cryptoCurrencyCode=MATIC",
   carbonmark: "https://www.carbonmark.com",
+  marketplace: "https://www.carbonmark.com/projects",
+  portfolio: "https://www.carbonmark.com/portfolio",
+  resourcesCarbonark: "https://www.carbonmark.com/resources",
 };
 
 export const polygonNetworks = {
