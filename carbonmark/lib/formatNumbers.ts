@@ -28,7 +28,7 @@ export const formatToTonnes = (value: string | number, locale = "en") => {
 export const formatList = (
   value: string[],
   style: "long" | "short" | "narrow",
-  locale: string = "en"
+  locale = "en"
 ) => {
   return new Intl.ListFormat(locale, { style }).format(value);
 };
