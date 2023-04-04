@@ -1,26 +1,23 @@
+import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { concatAddress } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { Spinner } from "components/shared/Spinner";
 import { useConnectedUser } from "hooks/useConnectedUser";
-import { User } from "lib/types/carbonmark";
 import { NextPage } from "next";
+import { UserPageStaticProps } from "pages/users/[user]";
 import { useEffect, useState } from "react";
+import { SWRConfig } from "swr";
 import { SellerConnected } from "./SellerConnected";
 import { SellerUnconnected } from "./SellerUnconnected";
 
-type Props = {
-  userAddress: string;
-  userDomain: string | null;
-  carbonmarkUser: User | null;
-};
-
-export const Users: NextPage<Props> = (props) => {
+export const Page: NextPage<UserPageStaticProps> = (props) => {
   const { isConnectedUser, isUnconnectedUser } = useConnectedUser(
     props.userAddress
   );
-  const [isLoading, setIsLoading] = useState(false);
+
+  const [isLoading, setisLoading] = useState(false);
 
   const userName =
     props.userDomain || props.carbonmarkUser?.handle || props.userAddress;
@@ -28,7 +25,7 @@ export const Users: NextPage<Props> = (props) => {
   // Wait until web3 is ready
   useEffect(() => {
     if (isConnectedUser || isUnconnectedUser) {
-      setIsLoading(false);
+      setisLoading(false);
     }
   }, [isConnectedUser, isUnconnectedUser]);
 
@@ -51,13 +48,12 @@ export const Users: NextPage<Props> = (props) => {
           <SellerConnected
             userAddress={props.userAddress}
             userName={userName}
-            carbonmarkUser={props.carbonmarkUser}
           />
         )}
 
         {isUnconnectedUser && (
           <SellerUnconnected
-            carbonmarkUser={props.carbonmarkUser}
+            userAddress={props.userAddress}
             userName={userName}
           />
         )}
@@ -65,3 +61,16 @@ export const Users: NextPage<Props> = (props) => {
     </>
   );
 };
+
+export const Users: NextPage<UserPageStaticProps> = (props) => (
+  <SWRConfig
+    value={{
+      fetcher,
+      fallback: {
+        [`/api/users/${props.userAddress}?type=wallet`]: props.carbonmarkUser,
+      },
+    }}
+  >
+    <Page {...props} />
+  </SWRConfig>
+);

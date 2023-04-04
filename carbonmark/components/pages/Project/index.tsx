@@ -1,4 +1,5 @@
 import { cx } from "@emotion/css";
+import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { t, Trans } from "@lingui/macro";
 import { Activities } from "components/Activities";
 import { Category } from "components/Category";
@@ -9,6 +10,7 @@ import { ProjectImage } from "components/ProjectImage";
 import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
+import { useFetchProject } from "hooks/useFetchProject";
 import { formatToPrice } from "lib/formatNumbers";
 import {
   getActiveListings,
@@ -16,36 +18,40 @@ import {
   getLowestPriceFromBuyOptions,
   sortPricesAndListingsByBestPrice,
 } from "lib/listingsGetter";
-import {
-  PriceFlagged,
-  Project as ProjectType,
-  ProjectBuyOption,
-} from "lib/types/carbonmark";
+import { PriceFlagged, ProjectBuyOption } from "lib/types/carbonmark";
 import { NextPage } from "next";
+import Link from "next/link";
+import { ProjectPageStaticProps } from "pages/projects/[project_id]";
+import { SWRConfig } from "swr";
 import { PoolPrice } from "./BuyOptions/PoolPrice";
 import { SellerListing } from "./BuyOptions/SellerListing";
 import { ProjectMap } from "./ProjectMap";
 import * as styles from "./styles";
 
-type Props = {
-  project: ProjectType;
-};
-
 const isPoolPrice = (option: ProjectBuyOption): option is PriceFlagged =>
   (option as PriceFlagged).isPoolProject !== undefined;
 
-export const Project: NextPage<Props> = (props) => {
+const Page: NextPage<ProjectPageStaticProps> = (props) => {
+  const { project } = useFetchProject(props.projectID, {
+    // https://swr.vercel.app/docs/api
+    revalidateOnMount: true,
+    refreshInterval: 10000,
+  });
+
   const allListings =
-    Array.isArray(props.project.listings) &&
-    getAllListings(props.project.listings);
+    project &&
+    Array.isArray(project?.listings) &&
+    getAllListings(project?.listings);
   const activeListings =
-    (Array.isArray(props.project.listings) &&
-      getActiveListings(props.project.listings)) ||
+    (project &&
+      Array.isArray(project?.listings) &&
+      getActiveListings(project.listings)) ||
     [];
   const poolPrices =
-    (Array.isArray(props.project?.prices) &&
+    (project &&
+      Array.isArray(project?.prices) &&
       // Remove pool prices if the quantity is less than 1. (leftover  token 'dust')
-      props.project.prices.filter((p) => Number(p.leftToSell) > 1)) ||
+      project.prices.filter((p) => Number(p.leftToSell) > 1)) ||
     [];
 
   const sortedListingsAndPrices = sortPricesAndListingsByBestPrice(
@@ -58,6 +64,7 @@ export const Project: NextPage<Props> = (props) => {
     getLowestPriceFromBuyOptions(sortedListingsAndPrices);
 
   const pricesOrListings =
+    project &&
     !!sortedListingsAndPrices.length &&
     sortedListingsAndPrices.map((option, index) => {
       if (isPoolPrice(option)) {
@@ -65,7 +72,7 @@ export const Project: NextPage<Props> = (props) => {
           <PoolPrice
             key={option.singleUnitPrice + index}
             price={option}
-            project={props.project}
+            project={project}
             isBestPrice={bestPrice === option.singleUnitPrice}
           />
         );
@@ -74,7 +81,7 @@ export const Project: NextPage<Props> = (props) => {
       return (
         <SellerListing
           key={option.singleUnitPrice + index}
-          project={props.project}
+          project={project}
           listing={option}
           isBestPrice={bestPrice === option.singleUnitPrice}
         />
@@ -84,8 +91,8 @@ export const Project: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        title={`${props.project.registry}-${props.project.projectID} | Carbonmark`}
-        mediaTitle={`${props.project.registry}-${props.project.projectID} | ${props.project.name}`}
+        title={`${props.project.registry}-${props.projectID} | Carbonmark`}
+        mediaTitle={`${props.project.registry}-${props.projectID} | ${props.project.name}`}
         metaDescription={t`View and purchase this carbon offset project on Carbonmark`}
       />
 
@@ -93,105 +100,137 @@ export const Project: NextPage<Props> = (props) => {
         <div className={styles.projectControls}>
           <LoginButton className="desktopLogin" />
         </div>
-        <div className={styles.projectHeader}>
-          {!!props.project.category?.id && (
-            <ProjectImage category={props.project.category.id} />
-          )}
-          <div className={styles.imageGradient} />
-          <Text t="h4" className={styles.projectHeaderText}>
-            {props.project.name || "Error - No project name found"}
-          </Text>
-          <div className={styles.tags}>
-            <Text t="h5" className={styles.projectHeaderText}>
-              {props.project.registry}-{props.project.projectID}
-            </Text>
-            <Vintage vintage={props.project.vintage} />
-            {!!props.project.category?.id && (
-              <Category category={props.project.category.id} />
-            )}
-          </div>
-        </div>
 
-        <div className={styles.meta}>
-          <div className="best-price">
-            {bestPrice && (
-              <>
-                <Text t="h5" className="best-price-badge">
-                  {formatToPrice(bestPrice)}
-                </Text>
-                <Text t="h5" color="lighter">
-                  <Trans>Best Price</Trans>
-                </Text>
-              </>
-            )}
+        {!project && (
+          <div className={styles.projectHeader}>
+            <Text>
+              <Trans>Sorry, we could not find any data for the project:</Trans>{" "}
+              {props.projectID}
+            </Text>
+            <Text>
+              <Link href="/projects">
+                <Trans>Go back to all projects</Trans>
+              </Link>
+            </Text>
           </div>
+        )}
 
-          <div className="methodology">
-            <Text t="h5" color="lighter">
-              <Trans>Methodology</Trans>
-            </Text>
-            <Text t="body1" color="lighter" align="end">
-              {props.project.registry}-{props.project.projectID}
-            </Text>
-          </div>
-        </div>
-        <div
-          className={cx(styles.mapAndDescription, {
-            hasMap: !!props.project.location,
-          })}
-        >
-          {props.project.location && (
-            <div className="mapColumn">
-              <ProjectMap
-                lat={props.project.location?.geometry.coordinates[1]}
-                lng={props.project.location?.geometry.coordinates[0]}
-                zoom={5}
-              />
+        {project && (
+          <>
+            <div className={styles.projectHeader}>
+              {!!project.category?.id && (
+                <ProjectImage category={project.category.id} />
+              )}
+              <div className={styles.imageGradient} />
+              <Text t="h4" className={styles.projectHeaderText}>
+                {project.name || "Error - No project name found"}
+              </Text>
+              <div className={styles.tags}>
+                <Text t="h5" className={styles.projectHeaderText}>
+                  {project.registry}-{project.projectID}
+                </Text>
+                <Vintage vintage={project.vintage} />
+                {!!project.category?.id && (
+                  <Category category={project.category.id} />
+                )}
+              </div>
             </div>
-          )}
-          <div className="descriptionColumn">
-            <Text t="h5" color="lighter">
-              <Trans>Description</Trans>
-            </Text>
-            <Text t="body1">
-              {props.project.description ?? "No project description found"}
-            </Text>
-          </div>
-        </div>
 
-        <div className={styles.listingsHeader}>
-          <Text t="h4">Listings</Text>
-          {sortedListingsAndPrices ? (
-            <Text t="body1">
-              We found <strong>{sortedListingsAndPrices.length}</strong> prices
-              for this project:
-            </Text>
-          ) : (
-            <Text t="body1" color="default">
-              <i>
-                <Trans>No listings found for this project.</Trans>
-              </i>
-            </Text>
-          )}
-        </div>
+            <div className={styles.meta}>
+              <div className="best-price">
+                {bestPrice && (
+                  <>
+                    <Text t="h5" className="best-price-badge">
+                      {formatToPrice(bestPrice)}
+                    </Text>
+                    <Text t="h5" color="lighter">
+                      <Trans>Best Price</Trans>
+                    </Text>
+                  </>
+                )}
+              </div>
 
-        <div className={styles.listingsAndStats}>
-          <div className="listingsColumn">{pricesOrListings || null}</div>
-          <div className="statsColumn">
-            <Stats
-              description={t`Data for this project and vintage`}
-              currentSupply={props.project.currentSupply}
-              totalRetired={props.project.totalRetired}
-              allListings={allListings || []}
-              activeListings={activeListings || []}
-            />
-            <Activities
-              activities={props.project.activities || []}
-              showTitles={false}
-            />
-          </div>
-        </div>
+              <div className="methodology">
+                <Text t="h5" color="lighter">
+                  <Trans>Methodology</Trans>
+                </Text>
+                <Text t="body1" color="lighter" align="end">
+                  {project.registry}-{project.projectID}
+                </Text>
+              </div>
+            </div>
+            <div
+              className={cx(styles.mapAndDescription, {
+                hasMap: !!project.location,
+              })}
+            >
+              {project.location && (
+                <div className="mapColumn">
+                  <ProjectMap
+                    lat={project.location?.geometry.coordinates[1]}
+                    lng={project.location?.geometry.coordinates[0]}
+                    zoom={5}
+                  />
+                </div>
+              )}
+              <div className="descriptionColumn">
+                <Text t="h5" color="lighter">
+                  <Trans>Description</Trans>
+                </Text>
+                <Text t="body1">
+                  {project.description ?? "No project description found"}
+                </Text>
+              </div>
+            </div>
+
+            <div className={styles.listingsHeader}>
+              <Text t="h4">Listings</Text>
+              {sortedListingsAndPrices ? (
+                <Text t="body1">
+                  We found <strong>{sortedListingsAndPrices.length}</strong>{" "}
+                  prices for this project:
+                </Text>
+              ) : (
+                <Text t="body1" color="default">
+                  <i>
+                    <Trans>No listings found for this project.</Trans>
+                  </i>
+                </Text>
+              )}
+            </div>
+
+            <div className={styles.listingsAndStats}>
+              <div className="listingsColumn">{pricesOrListings || null}</div>
+              <div className="statsColumn">
+                <Stats
+                  description={t`Data for this project and vintage`}
+                  currentSupply={project.currentSupply}
+                  totalRetired={project.totalRetired}
+                  allListings={allListings || []}
+                  activeListings={activeListings || []}
+                />
+                <Activities
+                  activities={project.activities || []}
+                  showTitles={false}
+                />
+              </div>
+            </div>
+          </>
+        )}
       </Layout>
     </>
   );
 };
+
+export const Project: NextPage<ProjectPageStaticProps> = (props) => (
+  <SWRConfig
+    value={{
+      fetcher,
+      fallback: {
+        [`/api/projects/${props.projectID}`]: props.project,
+      },
+    }}
+  >
+    <Page {...props} />
+  </SWRConfig>
+);

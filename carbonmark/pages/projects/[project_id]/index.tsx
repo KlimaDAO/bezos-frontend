@@ -1,21 +1,23 @@
 import { Project } from "components/pages/Project";
-import { getCarbonmarkProject } from "lib/carbonmark";
+import { urls } from "lib/constants";
+import { fetcher } from "lib/fetcher";
 import { loadTranslation } from "lib/i18n";
 import { Project as ProjectType } from "lib/types/carbonmark";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
-
 interface Params extends ParsedUrlQuery {
   project_id: string;
 }
 
-interface PageProps {
+export interface ProjectPageStaticProps {
   project: ProjectType;
+  projectID: string;
 }
 
-export const getStaticProps: GetStaticProps<PageProps, Params> = async (
-  ctx
-) => {
+export const getStaticProps: GetStaticProps<
+  ProjectPageStaticProps,
+  Params
+> = async (ctx) => {
   const { params, locale } = ctx;
 
   if (!params || !params?.project_id) {
@@ -23,7 +25,9 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   }
 
   try {
-    const project = await getCarbonmarkProject(params.project_id);
+    const project = await fetcher<ProjectType>(
+      `${urls.api.projects}/${params.project_id}`
+    );
     const translation = await loadTranslation(locale);
 
     if (!translation) {
@@ -33,6 +37,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     return {
       props: {
         project,
+        projectID: params.project_id,
         translation,
         fixedThemeName: "theme-light",
       },

@@ -11,17 +11,17 @@ import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
+import { useFetchUser } from "hooks/useFetchUser";
 import { addProjectsToAssets } from "lib/actions";
-import { getUser } from "lib/api";
+import { getActivityIsUpdated } from "lib/getActivityIsUpdated";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
 import {
   getActiveListings,
   getAllListings,
   getSortByUpdateListings,
 } from "lib/listingsGetter";
-import { pollUntil } from "lib/pollUntil";
 import { AssetForListing, User } from "lib/types/carbonmark";
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { ProfileButton } from "../ProfileButton";
 import { ProfileHeader } from "../ProfileHeader";
 import { EditProfile } from "./Forms/EditProfile";
@@ -29,13 +29,24 @@ import { ListingEditable } from "./ListingEditable";
 import * as styles from "./styles";
 
 type Props = {
-  carbonmarkUser: User | null;
   userName: string;
   userAddress: string;
 };
 
 export const SellerConnected: FC<Props> = (props) => {
-  const [user, setUser] = useState<User | null>(props.carbonmarkUser);
+  const initialUser = useRef<User | null>(null);
+  const fetchIntervalTimer = useRef<NodeJS.Timeout | undefined>();
+
+  const [interval, setInterval] = useState(0);
+  const { carbonmarkUser, mutate: mutateUser } = useFetchUser(
+    props.userAddress,
+    {
+      refreshInterval: interval,
+      revalidateIfStale: true,
+      keepPreviousData: true,
+    }
+  );
+
   const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
@@ -43,14 +54,14 @@ export const SellerConnected: FC<Props> = (props) => {
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const isCarbonmarkUser = !!user;
-  const hasAssets = !!user?.assets?.length;
-  const allListings = getAllListings(user?.listings ?? []);
-  const activeListings = getActiveListings(user?.listings ?? []);
+  const isCarbonmarkUser = !!carbonmarkUser;
+  const hasAssets = !!carbonmarkUser?.assets?.length;
+  const allListings = getAllListings(carbonmarkUser?.listings ?? []);
+  const activeListings = getActiveListings(carbonmarkUser?.listings ?? []);
   const sortedListings = getSortByUpdateListings(activeListings);
   const hasListings = !!activeListings.length;
 
-  // load Assets every time user changed
+  // load Assets every time user assets changed
   useEffect(() => {
     // stop loading assets when there are no assets to load
     if (isCarbonmarkUser && !hasAssets) {
@@ -63,7 +74,7 @@ export const SellerConnected: FC<Props> = (props) => {
           setIsLoadingAssets(true);
 
           const assetWithProjectTokens = getAssetsWithProjectTokens(
-            user.assets
+            carbonmarkUser.assets
           );
 
           if (assetWithProjectTokens.length) {
@@ -92,65 +103,58 @@ export const SellerConnected: FC<Props> = (props) => {
 
       getProjectData();
     }
-  }, [user]);
+  }, [carbonmarkUser?.assets]);
 
-  const onEditProfile = async (data: User) => {
-    try {
-      setErrorMessage("");
-      if (isCarbonmarkUser) {
-        setUser((prev) => ({ ...prev, ...data }));
-      } else {
-        // for a new user, get all data from backend
-        const newUser = await getUser({
-          user: props.userAddress,
-          type: "wallet",
-        });
-        setUser((prev) => ({ ...prev, ...newUser }));
-      }
-    } catch (error) {
-      console.error("GET NEW USER DATA error", error);
-      setErrorMessage(t`There was an error getting your data: ${error}`);
-    } finally {
-      setShowEditProfileModal(false);
-    }
+  const onEditProfile = (data: User) => {
+    setErrorMessage("");
+    const newData = { ...carbonmarkUser, ...data };
+    // no need to wait or backend API for this small data change, update local state only
+    mutateUser(newData, false);
+    setShowEditProfileModal(false);
   };
 
-  const onUpdateUser = async () => {
-    if (!user) return; // TS typeguard
-
-    try {
-      setErrorMessage("");
-      setIsUpdatingUser(true);
-
-      const fetchUser = () =>
-        getUser({
-          user: props.userAddress,
-          type: "wallet",
-        });
-
-      // API is updated when new activity exists
-      const activityIsAdded = (value: User) => {
-        const newActivityLength = value.activities.length;
-        const currentActivityLength = user.activities.length;
-        return newActivityLength > currentActivityLength;
-      };
-
-      const updatedUser = await pollUntil({
-        fn: fetchUser,
-        validate: activityIsAdded,
-        ms: 1000,
-        maxAttempts: 50,
-      });
-
-      setUser((prev) => ({ ...prev, ...updatedUser }));
-    } catch (e) {
-      console.error("LOAD USER ACTIVITY error", e);
-      setErrorMessage(
-        t`Please refresh the page. There was an error updating your data: ${e}.`
-      );
-    } finally {
-      setIsUpdatingUser(false);
+  // when carbonmark user data changed
+  useEffect(() => {
+    // store first data and return
+    if (!initialUser.current && carbonmarkUser) {
+      initialUser.current = carbonmarkUser;
+      return;
     }
+
+    // when activity data differs => reset state and update initial user
+    if (
+      initialUser.current &&
+      carbonmarkUser &&
+      getActivityIsUpdated(initialUser.current, carbonmarkUser)
+    ) {
+      setInterval(0);
+      setIsUpdatingUser(false);
+      initialUser.current = carbonmarkUser;
+      fetchIntervalTimer.current && clearTimeout(fetchIntervalTimer.current);
+    }
+  }, [carbonmarkUser]);
+
+  // on unmount
+  useEffect(() => {
+    return () => {
+      fetchIntervalTimer.current && clearTimeout(fetchIntervalTimer.current);
+    };
+  }, []);
+
+  const onUpdateUser = async () => {
+    // increase fetch interval
+    // the useEffect above will take care of updated carbonmark user data
+    setInterval(1000);
+    setIsUpdatingUser(true);
+
+    // Show error message after 50 seconds
+    fetchIntervalTimer.current = setTimeout(() => {
+      setInterval(0);
+      setIsUpdatingUser(false);
+      setErrorMessage(
+        t`Please refresh the page. There was an error updating your data.`
+      );
+    }, 50000);
   };
 
   return (
@@ -161,11 +165,11 @@ export const SellerConnected: FC<Props> = (props) => {
       </div>
       <div className={styles.fullWidth}>
         <ProfileHeader
-          handle={props.carbonmarkUser?.handle}
-          userName={user?.username || props.userName}
+          handle={carbonmarkUser?.handle}
+          userName={carbonmarkUser?.username || props.userName}
           isCarbonmarkUser={isCarbonmarkUser}
-          description={user?.description}
-          profileImgUrl={user?.profileImgUrl}
+          description={carbonmarkUser?.description}
+          profileImgUrl={carbonmarkUser?.profileImgUrl}
         />
       </div>
       <div className={styles.listings}>
@@ -237,7 +241,7 @@ export const SellerConnected: FC<Props> = (props) => {
             description={t`Your seller data`}
           />
           <Activities
-            activities={user?.activities || []}
+            activities={carbonmarkUser?.activities || []}
             isLoading={isUpdatingUser}
           />
         </Col>
@@ -252,7 +256,7 @@ export const SellerConnected: FC<Props> = (props) => {
         onToggleModal={() => setShowEditProfileModal((s) => !s)}
       >
         <EditProfile
-          user={user}
+          user={carbonmarkUser}
           onSubmit={onEditProfile}
           isCarbonmarkUser={isCarbonmarkUser}
         />
