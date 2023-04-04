@@ -116,11 +116,6 @@ export const meta = css`
   display: grid;
   grid-template-columns: 1fr auto;
 
-  .methodology {
-    display: grid;
-    gap: 0.4rem;
-  }
-
   .best-price {
     display: flex;
     gap: 1.2rem;
@@ -157,7 +152,7 @@ export const methodology = css`
   }
 `;
 
-export const info_content = css`
+export const infoContent = css`
   color: var(--white);
   padding: 1.2rem;
   background: #303030;
