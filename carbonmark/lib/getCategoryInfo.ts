@@ -25,6 +25,7 @@ export const categoryNames: CategoryName[] = [
   "Other Nature-Based",
   "Other",
   "Renewable Energy",
+  "Blue Carbon",
 ];
 
 type CategoryInfoMap = {
@@ -110,6 +111,12 @@ export const getCategoryInfo = (category: CategoryName) => {
       }),
       color: "#FF99BC",
       icon: PrecisionManufacturingOutlinedIcon,
+    },
+    "Blue Carbon": {
+      key: "Blue Carbon",
+      imageSrc: BlueCarbon,
+      label: t`Blue Carbon`,
+      icon: WaterDropOutlinedIcon,
     },
   };
   const info = categoryInfoMap[trimmed] || categoryInfoMap.Other;
