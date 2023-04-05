@@ -358,6 +358,10 @@ msgstr ""
 msgid "choose_bond.ubo.description"
 msgstr ""
 
+#: components/views/Home/index.tsx:178
+msgid "connectModal.institutional"
+msgstr ""
+
 #: components/views/Home/index.tsx:170
 msgid "connectModal.torus"
 msgstr ""
@@ -366,7 +370,7 @@ msgstr ""
 msgid "connectModal.wallet"
 msgstr ""
 
-#: components/views/Home/index.tsx:183
+#: components/views/Home/index.tsx:187
 msgid "connect_modal.connecting"
 msgstr ""
 
@@ -378,7 +382,7 @@ msgstr ""
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
-#: components/views/Home/index.tsx:187
+#: components/views/Home/index.tsx:191
 msgid "connect_modal.error_title"
 msgstr ""
 
@@ -854,7 +858,7 @@ msgstr ""
 msgid "shared.loading"
 msgstr ""
 
-#: components/views/Home/index.tsx:179
+#: components/views/Home/index.tsx:183
 msgid "shared.login"
 msgstr ""
 
