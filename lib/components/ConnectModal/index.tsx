@@ -99,10 +99,7 @@ export const ConnectModal = (props: ConnectModalProps) => {
       console.error(e);
       if (e.name === "rejected") {
         setErrorName(e.name);
-      } else if (
-        e.message === "Already processing eth_requestAccounts. Please wait." ||
-        e.code === -32002
-      ) {
+      } else if (e.message.includes("processing eth_requestAccounts")) {
         setErrorName("alreadyProcessing");
       } else {
         setErrorName("default");
