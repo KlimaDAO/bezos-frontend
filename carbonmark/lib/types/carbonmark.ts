@@ -16,7 +16,6 @@ export interface Project {
   vintage: string;
   projectAddress: string;
   registry: string;
-  category: Category | null;
   listings: Listing[] | null;
   price: BigNumber;
   country: Country | null;

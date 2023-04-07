@@ -13,6 +13,7 @@ import { Vintage } from "components/Vintage";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
+import { CategoryName } from "lib/types/carbonmark";
 import { get, identity, isEmpty } from "lodash";
 import { NextPage } from "next";
 import Link from "next/link";
@@ -63,9 +64,11 @@ const Page: NextPage = () => {
               className={styles.card}
             >
               <div className={styles.cardImage}>
-                {!!project.category?.id && (
-                  <ProjectImage category={project.category.id} />
-                )}
+                <ProjectImage
+                  category={
+                    project?.methodologies?.[0]?.category as CategoryName
+                  }
+                />
               </div>
               <div className={styles.cardContent}>
                 <Text t="h4">{formatBigToPrice(project.price, locale)}</Text>
@@ -75,9 +78,11 @@ const Page: NextPage = () => {
                 </Text>
                 <div className={styles.tags}>
                   <Vintage vintage={project.vintage} />
-                  {!!project.category?.id && (
-                    <Category category={project.category.id} />
-                  )}
+                  <Category
+                    category={
+                      project?.methodologies?.[0]?.category as CategoryName
+                    }
+                  />
                 </div>
               </div>
             </Link>
@@ -97,7 +102,6 @@ export const Projects: NextPage<ProjectsPageStaticProps> = (props) => (
       fallback: {
         "/api/projects": props.projects,
         "/api/vintages": props.vintages,
-        "/api/categories": props.categories,
         "/api/countries": props.countries,
       },
     }}

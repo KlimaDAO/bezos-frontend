@@ -18,7 +18,7 @@ import { getAllowance } from "lib/networkAware/getAllowance";
 import { getContract } from "lib/networkAware/getContract";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { Listing, Project } from "lib/types/carbonmark";
+import { CategoryName, Listing, Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -160,9 +160,11 @@ export const ProjectPurchase: NextPage<Props> = (props) => {
         <div className={styles.fullWidth}>
           <Card>
             <div className={styles.projectHeader}>
-              {!!props.project.category?.id && (
-                <ProjectImage category={props.project.category.id} />
-              )}
+              <ProjectImage
+                category={
+                  props.project?.methodologies?.[0]?.category as CategoryName
+                }
+              />
               <div className={styles.imageGradient}></div>
               <div className="stack">
                 {!!props.listing.seller && (
@@ -184,7 +186,12 @@ export const ProjectPurchase: NextPage<Props> = (props) => {
                     {props.project.registry}-{props.project.projectID}
                   </Text>
                   <Vintage vintage={props.project.vintage} />
-                  <Category category={props.project.category?.id || "Other"} />
+                  <Category
+                    category={
+                      (props.project?.methodologies?.[0]
+                        ?.category as CategoryName) || "Other"
+                    }
+                  />
                 </div>
               </div>
             </div>
