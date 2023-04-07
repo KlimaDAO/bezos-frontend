@@ -13,6 +13,7 @@ export interface Project {
     }
   ];
   methodology: string;
+  category: Category | null;
   vintage: string;
   projectAddress: string;
   registry: string;
