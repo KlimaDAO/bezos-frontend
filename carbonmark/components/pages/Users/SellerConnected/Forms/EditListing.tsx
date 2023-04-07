@@ -7,7 +7,7 @@ import { MINIMUM_TONNE_PRICE } from "lib/constants";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { Listing } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import * as styles from "./styles";
 
@@ -20,7 +20,7 @@ export type FormValues = {
 };
 
 type Props = {
-  onSubmit: (values: FormValues) => void;
+  onSubmit: SubmitHandler<FormValues>;
   onCancel: () => void;
   listing: Listing;
   values: null | FormValues;
@@ -43,7 +43,7 @@ export const EditListing: FC<Props> = (props) => {
     locale,
   });
 
-  const { register, handleSubmit, formState } = useForm<FormValues>({
+  const { register, handleSubmit, formState, trigger } = useForm<FormValues>({
     defaultValues: {
       tokenAddress: props.listing.tokenAddress,
       newQuantity: formatUnits(props.listing.leftToSell),
@@ -55,9 +55,10 @@ export const EditListing: FC<Props> = (props) => {
     },
   });
 
-  const onSubmit: SubmitHandler<FormValues> = (values: FormValues) => {
-    props.onSubmit(values);
-  };
+  /** Validate the form's default values on initial load */
+  useEffect(() => {
+    trigger();
+  }, [trigger]);
 
   return (
     <div className={styles.formContainer}>
@@ -69,7 +70,7 @@ export const EditListing: FC<Props> = (props) => {
           {props.listing.project.name}
         </Text>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(props.onSubmit)}>
         <div className={styles.inputsContainer}>
           <InputField
             id="tokenAddress"
@@ -152,7 +153,7 @@ export const EditListing: FC<Props> = (props) => {
                 Update Listing
               </Trans>
             }
-            onClick={handleSubmit(onSubmit)}
+            onClick={handleSubmit(props.onSubmit)}
             disabled={!formState.isDirty}
           />
         </div>
